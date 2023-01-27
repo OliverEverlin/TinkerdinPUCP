@@ -1,23 +1,47 @@
 /**
  * Project Untitled
  */
-
+#include "pch.h"
 
 #include "Cliente.h"
 
-/**
- * Cliente implementation
- */
+ /**
+  * Cliente implementation
+  */
 
 
-void Cliente::Search_people() {
-
-}
-
-void Cliente::Search_place() {
+TinkerdinModel::Cliente::Cliente()
+{
 
 }
 
-void Cliente::date_people() {
+TinkerdinModel::Cliente::Cliente(String^ name, String^ username, int code, char gender, int age, int phone, String^ email, String^ status, String^ carrer, int cicle)
+{
+    this->Name = name;
+    this->Username = username;
+    this->code = code;
+    this->Gender = gender;
+    this->Age = phone;
+    this->Email = email;
+    this->Status = status;
+    this->Carrer = carrer;
+    this->Cicle = cicle;
+}
 
+//metodo para buscar personas
+void TinkerdinModel::Cliente::search_people()
+{
+    throw gcnew System::NotImplementedException();
+}
+
+//buscar lugar
+void TinkerdinModel::Cliente::search_place()
+{
+    throw gcnew System::NotImplementedException();
+}
+
+//Crear evento para citar personas
+void TinkerdinModel::Cliente::date_people()
+{
+    throw gcnew System::NotImplementedException();
 }

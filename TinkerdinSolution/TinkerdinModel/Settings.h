@@ -1,31 +1,32 @@
 /**
- * Project Untitled
+ * Clase Settings modela una modificacion de usurio
  */
 
+#pragma once
+#include "user.h"
+using namespace System;
 
-#ifndef _SETTINGS_H
-#define _SETTINGS_H
+namespace TinkerdinModel {
 
-class Settings {
-public: 
-    
-void viewProfile();
-    
-void setNotifications();
-    
-void Privacy();
-    
-void changePassword();
-    
-void changeNumber();
-    
-void updateStatus();
-    
-void changeCicle();
-    
-void changeCarrer();
-    
-void help();
-};
+    class Settings {
+    public:
 
-#endif //_SETTINGS_H
+        void viewProfile();
+
+        void setNotifications();
+
+        void Privacy();
+
+        void changePassword();
+
+        void changeNumber();
+
+        void updateStatus();
+
+        void changeCicle();
+
+        void changeCarrer();
+
+        void help();
+    };
+}

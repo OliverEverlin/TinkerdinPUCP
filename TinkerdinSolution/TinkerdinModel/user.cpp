@@ -5,12 +5,12 @@
 
 #include "user.h"
 
-/**
- * user implementation
- */
+ /**
+  * user implementation
+  */
 
 
-void user::Buy_Premium() {
+void TinkerdinModel::user::Buy_Premium() {
 
 }
 
@@ -19,19 +19,20 @@ void user::Buy_Premium() {
  * @param Password
  * @return bool
  */
-bool user::VerifyLogin(void Username, void Password) {
+bool TinkerdinModel::user::VerifyLogin(String^ Username, String^ Password) {
     return false;
 }
 
-void user::register() {
+void TinkerdinModel::user::login() {
 
 }
 
-void user::updateProfile() {
-
+bool TinkerdinModel::user::VerifyLogin(String^ Username, String^ Password)
+{
+    return false;
 }
 
-void user::Operation1() {
+void TinkerdinModel::user::updateProfile() {
 
 }
 
@@ -39,30 +40,25 @@ void user::Operation1() {
  * @param String
  * @return void
  */
-void user::search(void String) {
+void TinkerdinModel::user::search(String^ word) {
     return;
 }
 
 /**
- * @param Username
+ * @param Code
  * @return void
  */
-void user::blockUser(void Username) {
-    return;
+void TinkerdinModel::user::blockUser(int code)
+{
+    throw gcnew System::NotImplementedException();
 }
 
-void user::Operation2() {
 
-}
 
-void user::chat() {
-
-}
-
-void user::logout() {
+void TinkerdinModel::user::chat() {
 
 }
 
-void user::chat() {
+void TinkerdinModel::user::logout() {
 
 }
