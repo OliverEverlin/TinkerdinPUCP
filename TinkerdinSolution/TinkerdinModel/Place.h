@@ -4,7 +4,7 @@
  * y sus caracteristicas
  */
 
-
+ //slñjdabcvañdslasdv
 #pragma once
 using namespace System;
 namespace TinkerdinModel {
