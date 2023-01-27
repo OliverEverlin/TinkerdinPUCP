@@ -2,19 +2,16 @@
  * Project Untitled
  */
 
+#pragma once
 
-#ifndef _CALENDAR_H
-#define _CALENDAR_H
+using namespace System;
 
-#include "Interface1.h"
+namespace TinkerdinModel {
+    public ref class Calendar {
+    public:
+        property bool PrivacyDefault;
+        property bool Mode;
 
-
-class Calendar: public Interface1 {
-public: 
-    bool PrivacyDefault;
-    bool Mode;
-    
-void AddEvent();
-};
-
-#endif //_CALENDAR_H
+        void AddEvent();
+    };
+}

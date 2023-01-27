@@ -2,19 +2,17 @@
  * Project Untitled
  */
 
-
-#ifndef _INDIVIDUAL_CHAT_H
-#define _INDIVIDUAL_CHAT_H
-
+#pragma once
 #include "Chat.h"
 
+using namespace System;
 
-class Individual_Chat: public Chat {
-public: 
-    String^ PeerID;
-    String^ PeerID;
-protected: 
-    String^ Status;
-};
-
-#endif //_INDIVIDUAL_CHAT_H
+namespace TinkerdinModel {
+    class Individual_Chat : public Chat {
+    public:
+        property String^ PeerID;
+        //property String^ PeerID;
+    //protected: 
+        property String^ Status;
+    };
+}

@@ -2,46 +2,44 @@
  * Project Untitled
  */
 
-
-#ifndef _GROUPCHAT_H
-#define _GROUPCHAT_H
-
+#pragma once
 #include "Chat.h"
 
+using namespace System;
 
-class GroupChat: public Chat {
-public: 
-    String^ GroupID;
-    String^ GroupName;
-    String^ MsgType;
-    
-void getMsgType();
-    
-void setMsgType();
-    
-void connectSession();
-    
-void inviteFriend();
-    
-/**
- * @param Username
- */
-void addFriend(void Username);
-    
-/**
- * @param Username
- */
-void removeFriend(void Username);
-    
-/**
- * @param GroupID
- */
-void leaveGroup(void GroupID);
-    
-/**
- * @param GroupID
- */
-void deleteGroup(void GroupID);
-};
+namespace TinkerdinModel {
+    public ref class GroupChat : public Chat {
+    public:
+        property String^ GroupID;
+        property String^ GroupName;
+        property String^ MsgType;
 
-#endif //_GROUPCHAT_H
+        void getMsgType();
+
+        void setMsgType();
+
+        void connectSession();
+
+        void inviteFriend();
+
+        /**
+         * @param Username
+         */
+        void addFriend(void Username);
+
+        /**
+         * @param Username
+         */
+        void removeFriend(void Username);
+
+        /**
+         * @param GroupID
+         */
+        void leaveGroup(void GroupID);
+
+        /**
+         * @param GroupID
+         */
+        void deleteGroup(void GroupID);
+    };
+}

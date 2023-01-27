@@ -130,7 +130,6 @@
     <ClInclude Include="GroupChat.h" />
     <ClInclude Include="Individual_Chat.h" />
     <ClInclude Include="Interest.h" />
-    <ClInclude Include="Interface1.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Place.h" />

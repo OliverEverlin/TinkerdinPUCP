@@ -2,27 +2,26 @@
  * Project Untitled
  */
 
-
-#ifndef _INTEREST_H
-#define _INTEREST_H
-
+#pragma once
 #include "Cliente.h"
 
+using namespace System;
 
-class Interest: public Cliente {
-public: 
-    String^ Music;
-    String^ Sports;
-    String^ SportType;
-    String^ Academic;
-    String^ Others;
-    void Port1;
-    
-void Match_Interests();
-    
-void Learn_Interest();
-    
-void UpdateInterest();
-};
+namespace TinkerdinModel {
+    public ref class Interest : public Cliente {
+    public:
+        property String^ Music;
+        property String^ Sports;
+        property String^ SportType;
+        property String^ Academic;
+        property String^ Others;
 
-#endif //_INTEREST_H
+        
+
+        void Match_Interests();
+
+        void Learn_Interest();
+
+        void UpdateInterest();
+    };
+}

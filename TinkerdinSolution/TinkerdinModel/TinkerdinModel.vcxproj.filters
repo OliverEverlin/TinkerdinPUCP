@@ -54,9 +54,6 @@
     <ClInclude Include="Interest.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Interface1.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="Message.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>

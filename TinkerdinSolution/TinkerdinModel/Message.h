@@ -22,6 +22,6 @@ namespace TinkerdinModel{
 
         int getType();
         int setType();
-        abstract display();
-}
+        
+    };
 }
