@@ -1,47 +1,48 @@
 /**
- * Project Untitled
+ * Clase Settings modela una modificacion de usurio
  */
 
+#include "pch.h"
 
 #include "Settings.h"
 
-/**
- * Settings implementation
- */
+ /**
+  * Settings implementation
+  */
 
 
-void Settings::viewProfile() {
-
-}
-
-void Settings::setNotifications() {
+void TinkerdinModel::Settings::viewProfile() {
 
 }
 
-void Settings::Privacy() {
+void TinkerdinModel::Settings::setNotifications() {
 
 }
 
-void Settings::changePassword() {
+void TinkerdinModel::Settings::Privacy() {
 
 }
 
-void Settings::changeNumber() {
+void TinkerdinModel::Settings::changePassword() {
 
 }
 
-void Settings::updateStatus() {
+void TinkerdinModel::Settings::changeNumber() {
 
 }
 
-void Settings::changeCicle() {
+void TinkerdinModel::Settings::updateStatus() {
 
 }
 
-void Settings::changeCarrer() {
+void TinkerdinModel::Settings::changeCicle() {
 
 }
 
-void Settings::help() {
+void TinkerdinModel::Settings::changeCarrer() {
+
+}
+
+void TinkerdinModel::Settings::help() {
 
 }
