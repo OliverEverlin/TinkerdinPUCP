@@ -1,25 +1,28 @@
 /**
- * Project Untitled
+ * Clase Cliente modela a un cliente
  */
 
 
-#ifndef _CLIENTE_H
-#define _CLIENTE_H
+#pragma once
 
 #include "user.h"
 
+using namespace System;
 
-class Cliente: public user {
-public: 
-    int Code;
-    String^ Carrer;
-    int Cicle;
-    
-void Search_people();
-    
-void Search_place();
-    
-void date_people();
-};
+namespace TinkerdinModel {
 
-#endif //_CLIENTE_H
+    public ref class Cliente : public user {
+    public:
+        property String^ Carrer;
+        property int Cicle;
+
+        Cliente();
+        Cliente(String^ name, String^ username, int code, char gender, int age, int phone, String^ email, String^ status, String^ carrer, int cicle);
+
+        void search_people();
+
+        void search_place();
+
+        void date_people();
+    };
+}
