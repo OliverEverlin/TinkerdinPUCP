@@ -147,8 +147,6 @@
     <ClCompile Include="Calendar.cpp" />
     <ClCompile Include="Chat.cpp" />
     <ClCompile Include="Chat_History.cpp" />
-    <ClCompile Include="Class1.cpp" />
-    <ClCompile Include="Class2.cpp" />
     <ClCompile Include="Cliente.cpp" />
     <ClCompile Include="Course.cpp" />
     <ClCompile Include="Event.cpp" />
