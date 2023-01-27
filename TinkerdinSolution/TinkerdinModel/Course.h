@@ -1,24 +1,31 @@
 /**
- * Project Untitled
+ * Project Course
+ * Tiene relacion con Cliente
+ * Un cliente o estudiante puede estar llevando varios cursos 
+ * o de ser egresado ninguno
  */
 
 
-#ifndef _COURSE_H
-#define _COURSE_H
+#pragma once
+using namespace System;
 
 #include "Cliente.h"
 
+namespace TinkerdinModel {
 
-class Course: public Cliente {
-public: 
-    String^ Type;
-    String^ Name;
-    String^ Schedule;
-    String^ Status;
-    String^ Professor;
-    String^ ExamsDates;
-    
-void Study_course();
-};
+    public ref class Course  {
 
-#endif //_COURSE_H
+    public:
+        property String^ Type;
+        property String^ Name;
+        property String^ Schedule;
+        property String^ Status;
+        property String^ Professor;
+        property String^ ExamsDates;
+
+        void Study_course();
+    };
+
+}
+
+

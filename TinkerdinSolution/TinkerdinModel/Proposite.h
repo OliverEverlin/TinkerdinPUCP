@@ -1,16 +1,20 @@
 /**
- * Project Untitled
+ * Project proposite
+ * forma parte de un evento
+ * contiene info del contexto del exvento
  */
 
 
-#ifndef _PROPOSITE_H
-#define _PROPOSITE_H
+#pragma once
+using namespace System;
 
-class Proposite {
-public: 
-    String^ title;
-    String^ desciption;
-    String^ mode;
-};
+namespace TinkerdinModel {
 
-#endif //_PROPOSITE_H
+    public ref class Proposite {
+    public:
+        property String^ title;
+        property String^ desciption;
+        property String^ mode;
+    };
+}
+

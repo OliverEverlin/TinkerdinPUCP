@@ -1,28 +1,50 @@
 /**
- * Project Untitled
+ * Project Place
+ * Objeto que contiene lugares
+ * y sus caracteristicas
  */
 
 
-#ifndef _PLACE_H
-#define _PLACE_H
+#pragma once
+using namespace System;
+namespace TinkerdinModel {
 
-class Place {
-public: 
-    bool Availability;
-    int Participants;
-    int PowerOutlet;
-    String^ TypePlace;
-    int Location;
-    
-bool PowerOutletFree();
-    
-bool QuietPlace();
-    
-int Wifi();
-    
-bool StayPlace();
-    
-void SharePlace();
-};
+    public ref class Place {
+    private:
+        //La defino como privados la cantidad de personas en un lugar por tema de seguridad
 
-#endif //_PLACE_H
+        int Participants;
+        int PowerOutlet;
+        //void Activate();
+
+    public:
+        int getParticipants() {
+            return Participants;
+        }
+        void setParticipants(int Participants) {
+            this->Participants = Participants;
+        }
+        int getPowerOutlet() {
+            return PowerOutlet;
+        }
+        void setPowerOutlet(int PowerOutlet) {
+            this->PowerOutlet = PowerOutlet;
+        }
+        
+
+
+        property bool Availability;
+        property String^ TypePlace;    
+        property int Location;
+
+        bool PowerOutletFree();
+        bool QuietPlace();
+        int Wifi();
+        bool StayPlace();
+        void SharePlace();
+
+        //void Deactivate();
+    };
+
+
+}

@@ -9,6 +9,7 @@
  * Place implementation
  */
 
+using namespace TinkerdinModel;
 
 /**
  * @return bool

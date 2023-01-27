@@ -1,26 +1,26 @@
 /**
- * Project Untitled
+ * Project event
+ * Recerva un espacio de tiempo para reuniones
  */
 
 
-#ifndef _EVENT_H
-#define _EVENT_H
+#pragma once
+using namespace System;
 
-class Event {
-public: 
-    String^ Name;
-    bool Relevance;
-    bool Privacy;
-    int Date;
-    int hour;
-    
-void Match();
-    
-void UpdateEvent();
-    
-void Delete();
-    
-void AddMember();
-};
+namespace TinkerdinModel {
 
-#endif //_EVENT_H
+    public ref class Event {
+    public:
+        property String^ Name;
+        property bool Relevance;
+        property bool Privacy;
+        property int Date;
+        property int hour;
+
+        void Match();
+        void UpdateEvent();
+        void Delete();
+        void AddMember();
+    };
+}
+
