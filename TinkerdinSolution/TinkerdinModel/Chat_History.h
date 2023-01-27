@@ -9,7 +9,7 @@ using namespace System;
 namespace TinkerdinModel{
     public ref class Chat_History {
     public:
-        property void thread;
+       
         property String^ sender;
         property GroupChat^ Groupchat;
         property Individual_Chat^ Individual_Chat;
