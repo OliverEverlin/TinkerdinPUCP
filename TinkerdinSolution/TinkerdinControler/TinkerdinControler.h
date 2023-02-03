@@ -33,15 +33,12 @@ namespace TinkerdinControler {
 		//static List<Cliente^>^ QueryClientsByNameOrInterest(String^ name, String^ interest);
 		//static int AddCli
 
-
-
-
 		//Métodos CRUD de Course
 		static int AddCourse(Course^);
 		static int UpdateCourse(Course^);
 		static int DeleteCourse(int courseId);	//eliminar con codigo del curso	//¿añadimos tambien nombre????
 		static List<Course^>^ QueryAllCourse();
 		//static Customer^ QueryCustomerById(int customerId);
->>>>>>> Crud course
+
 	};
 }
