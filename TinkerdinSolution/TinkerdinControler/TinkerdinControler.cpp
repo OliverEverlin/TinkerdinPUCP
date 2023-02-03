@@ -118,3 +118,50 @@ List<Place^>^ TinkerdinControler::Controller::QueryAllPlace()
     throw gcnew System::NotImplementedException();
     // TODO: Insertar una instrucción "return" aquí
 }
+
+//int TinkerdinControler::Controller::AddInterest(Interest^ interest)
+//{
+//	interestList->Add(interest);
+//
+//	return 1;
+//}
+//
+//Interest^ TinkerdinControler::Controller::QueryInterestById(int^ interestId)
+//{
+//	//clientList = (List<Cliente^>^)Persistance::LoadBinary;
+//	for (int i = 0; i < interestList->Count; i++)
+//		if (interestList[i]->code == interestId)
+//			return interestList[i];
+//	return nullptr;
+//}
+//
+//List<Interest^>^ TinkerdinControler::Controller::QueryAllInterest()
+//{
+//	return interestList;
+//}
+//
+//int TinkerdinControler::Controller::UpdateInterest(Interest^ interest)
+//{
+//	for (int i = 0; i < courseList->Count; i++)
+//		if (interest->Id == interestList[i]->Id) {
+//			interest->Status = 'A';
+//			interestList[i] = interest;
+//			return 1;
+//		}
+//	return 0;
+//}
+//
+//int TinkerdinControler::Controller::DeleteInterest(int interestId)
+//{
+//	for (int i = 0; i < interestList->Count; i++)
+//	{
+//		if (interestList[i]->code == interestId)
+//		{
+//			interestList->RemoveAt(i);
+//			return interestId;
+//
+//		}
+//
+//	}
+//	return 0;
+//}

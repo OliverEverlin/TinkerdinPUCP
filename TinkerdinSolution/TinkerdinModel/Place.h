@@ -10,15 +10,15 @@ using namespace System;
 namespace TinkerdinModel {
 
     public ref class Place {
-    private:
-        //La defino como privados la cantidad de personas en un lugar por tema de seguridad
+    //private:
+    //    //La defino como privados la cantidad de personas en un lugar por tema de seguridad
 
-        int Participants;
-        int PowerOutlet;
-        //void Activate();
+    //    int Participants;
+    //    int PowerOutlet;
+    //    //void Activate();
 
     public:
-        int getParticipants() {
+        /*int getParticipants() {
             return Participants;
         }
         void setParticipants(int Participants) {
@@ -29,8 +29,9 @@ namespace TinkerdinModel {
         }
         void setPowerOutlet(int PowerOutlet) {
             this->PowerOutlet = PowerOutlet;
-        }
-        
+        }*/
+        property int Participants;
+        property int PowerOutlet;
 
 
         property bool Availability;

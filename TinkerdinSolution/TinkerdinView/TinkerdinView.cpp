@@ -2,7 +2,7 @@
 
 using namespace System;
 
-int main(array<System::String ^> ^args)
+int Main(array<System::String ^> ^args)
 {
     return 0;
 }
