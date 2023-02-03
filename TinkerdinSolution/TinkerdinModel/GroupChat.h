@@ -25,21 +25,21 @@ namespace TinkerdinModel {
         /**
          * @param Username
          */
-        void addFriend(void Username);
+        void addFriend(String^ Username);
 
         /**
          * @param Username
          */
-        void removeFriend(void Username);
+        void removeFriend(String^ Username);
 
         /**
          * @param GroupID
          */
-        void leaveGroup(void GroupID);
+        void leaveGroup(String^ GroupID);
 
         /**
          * @param GroupID
          */
-        void deleteGroup(void GroupID);
+        void deleteGroup(String^ GroupID);
     };
 }

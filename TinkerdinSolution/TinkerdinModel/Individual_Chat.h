@@ -8,10 +8,9 @@
 using namespace System;
 
 namespace TinkerdinModel {
-    class Individual_Chat : public Chat {
+    public ref class Individual_Chat : public Chat {
     public:
         property String^ PeerID;
-        //property String^ PeerID;
     //protected: 
         property String^ Status;
     };

@@ -33,7 +33,7 @@ namespace TinkerdinModel {
 
         void updateProfile();
 
-        void Operation1();
+        
 
         /**
          * @param String
@@ -45,13 +45,10 @@ namespace TinkerdinModel {
          */
         void blockUser(int code);   //podria ser Username o Code
 
-        void Operation2();
 
-        void chat();
 
         void logout();
 
-        void chat();
 
     private:
         property String^ Password;

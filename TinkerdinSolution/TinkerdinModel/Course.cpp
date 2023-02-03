@@ -2,7 +2,7 @@
  * Project Untitled
  */
 
-
+#include "pch.h"
 #include "Course.h"
 
 /**
@@ -10,6 +10,6 @@
  */
 
 
-void Course::Study_course() {
+void TinkerdinModel::Course::Study_course() {
 
 }

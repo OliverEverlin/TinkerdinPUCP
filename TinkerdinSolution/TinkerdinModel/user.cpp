@@ -2,7 +2,7 @@
  * Project Untitled
  */
 
-
+#include "pch.h"
 #include "user.h"
 
  /**
@@ -27,14 +27,10 @@ void TinkerdinModel::user::login() {
 
 }
 
-bool TinkerdinModel::user::VerifyLogin(String^ Username, String^ Password)
-{
-    return false;
-}
-
 void TinkerdinModel::user::updateProfile() {
 
 }
+
 
 /**
  * @param String
@@ -54,10 +50,6 @@ void TinkerdinModel::user::blockUser(int code)
 }
 
 
-
-void TinkerdinModel::user::chat() {
-
-}
 
 void TinkerdinModel::user::logout() {
 

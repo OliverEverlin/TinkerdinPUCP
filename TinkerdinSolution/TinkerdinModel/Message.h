@@ -8,11 +8,6 @@ using namespace System;
 namespace TinkerdinModel{
     public ref class Message {
     public: 
-        int Type_Msg;
-        String^ Content;
-        int Type_File;
-        int Type_Image;
-        //sysdate Time;
         
         //Se hace uso de property para reemplazar al set y get:
         property int Type_Msg;
@@ -20,8 +15,8 @@ namespace TinkerdinModel{
         property int Type_File;
         property int Type_Image;
 
-        int getType();
-        int setType();
-        
+        //int getType();
+        //void setType();
+        void display();
     };
 }

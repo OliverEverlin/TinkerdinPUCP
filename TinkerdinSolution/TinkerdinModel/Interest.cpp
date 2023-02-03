@@ -2,13 +2,14 @@
  * Project Untitled
  */
 
-
+#include "pch.h"
 #include "Interest.h"
 
 /**
  * Interest implementation
  */
 
+using namespace TinkerdinModel;
 
 void Interest::Match_Interests() {
 

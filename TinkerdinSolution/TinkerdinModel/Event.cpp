@@ -2,7 +2,7 @@
  * Project Untitled
  */
 
-
+#include "pch.h"
 #include "Event.h"
 
 /**
@@ -10,18 +10,18 @@
  */
 
 
-void Event::Match() {
+void TinkerdinModel::Event::Match() {
 
 }
 
-void Event::UpdateEvent() {
+void TinkerdinModel::Event::UpdateEvent() {
 
 }
 
-void Event::Delete() {
+void TinkerdinModel::Event::Delete() {
 
 }
 
-void Event::AddMember() {
+void TinkerdinModel::Event::AddMember() {
 
 }

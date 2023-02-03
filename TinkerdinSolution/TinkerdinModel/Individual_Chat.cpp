@@ -2,7 +2,7 @@
  * Project Untitled
  */
 
-
+#include"pch.h"
 #include "Individual_Chat.h"
 
 /**

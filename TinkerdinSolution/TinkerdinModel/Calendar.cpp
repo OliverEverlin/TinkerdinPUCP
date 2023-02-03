@@ -1,7 +1,7 @@
 /**
  * Project Untitled
  */
-
+#include "pch.h"
 
 #include "Calendar.h"
 
@@ -10,6 +10,6 @@
  */
 
 
-void Calendar::AddEvent() {
+void TinkerdinModel::Calendar::AddEvent() {
 
 }
