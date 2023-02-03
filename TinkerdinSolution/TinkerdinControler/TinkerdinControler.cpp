@@ -91,4 +91,30 @@ List<Course^>^ TinkerdinControler::Controller::QueryAllCourse() {
     }
     return activeCourseList;
 }
->>>>>>> Crud course
+
+int TinkerdinControler::Controller::AddPlace(Place^)
+{
+    return 0;
+}
+
+int TinkerdinControler::Controller::UpdatePlace(Place^)
+{
+    return 0;
+}
+
+int TinkerdinControler::Controller::DeletePlace(int placeId)
+{
+    return 0;
+}
+
+Place^ TinkerdinControler::Controller::QueryPlaceById(int placeId)
+{
+    throw gcnew System::NotImplementedException();
+    // TODO: Insertar una instrucción "return" aquí
+}
+
+List<Place^>^ TinkerdinControler::Controller::QueryAllPlace()
+{
+    throw gcnew System::NotImplementedException();
+    // TODO: Insertar una instrucción "return" aquí
+}
