@@ -91,3 +91,4 @@ List<Course^>^ TinkerdinControler::Controller::QueryAllCourse() {
     }
     return activeCourseList;
 }
+>>>>>>> Crud course

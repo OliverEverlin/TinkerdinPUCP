@@ -42,5 +42,6 @@ namespace TinkerdinControler {
 		static int DeleteCourse(int courseId);	//eliminar con codigo del curso	//¿añadimos tambien nombre????
 		static List<Course^>^ QueryAllCourse();
 		//static Customer^ QueryCustomerById(int customerId);
+>>>>>>> Crud course
 	};
 }
