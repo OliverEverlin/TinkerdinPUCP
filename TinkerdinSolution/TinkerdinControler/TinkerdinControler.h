@@ -21,7 +21,7 @@ namespace TinkerdinControler {
 		//static List<Admin^>^ adminList;
 		static List<Interest^>^ interestList;
 		static List<Course^>^ courseList;
-		static List<Place^>^ placeList=gcnew List<Place^>();
+		static List<Place^>^ placeList;
 
 	public:
 		// TODO: Agregue aquí los métodos de esta clase.
@@ -33,23 +33,15 @@ namespace TinkerdinControler {
 		//static List<Cliente^>^ QueryClientsByNameOrInterest(String^ name, String^ interest);
 		//static int AddCli
 
-<<<<<<< HEAD
+
+
+
 		//Métodos CRUD de Course
 		static int AddCourse(Course^);
 		static int UpdateCourse(Course^);
 		static int DeleteCourse(int courseId);	//eliminar con codigo del curso	//¿añadimos tambien nombre????
 		static List<Course^>^ QueryAllCourse();
 		//static Customer^ QueryCustomerById(int customerId);
-=======
-		//Métodos CRUD de Place 
-		static int AddPlace(Place^);
-		static int UpdatePlace(Place^);
-		static int DeletePlace(int placeId);
-		static Place^ QueryPlaceById(int placeId);
-		static List<Place^>^ QueryAllPlace();
-
-
->>>>>>> hjhjhj
-
+>>>>>>> Crud course
 	};
 }
