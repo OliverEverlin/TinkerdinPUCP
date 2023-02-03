@@ -16,10 +16,11 @@ namespace TinkerdinModel {
     public ref class Course  {
 
     public:
+        property int Id;
         property String^ Type;
         property String^ Name;
         property String^ Schedule;
-        property String^ Status;
+        property char Status;
         property String^ Professor;
         property String^ ExamsDates;
 

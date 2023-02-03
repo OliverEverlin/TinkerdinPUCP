@@ -54,3 +54,40 @@ int TinkerdinControler::Controller::DeleteClient(int ClientId)
 	}
 	return 0;
 }
+int TinkerdinControler::Controller::AddCourse(Course^ course)
+{
+    course->Status = 'A';
+    courseList->Add(course);
+    return 1;
+}
+
+int TinkerdinControler::Controller::UpdateCourse(Course^ course)
+{
+    for (int i = 0; i < courseList->Count; i++)
+        if (course->Id == courseList[i]->Id) {
+            course->Status = 'A';
+            courseList[i] = course;
+            return 1;
+        }
+    return 0;
+}
+
+int TinkerdinControler::Controller::DeleteCourse(int courseId)
+{
+    for (int i = 0; i < courseList->Count; i++)
+        if (courseId == courseList[i]->Id) {
+            courseList[i]->Status = 'I';
+            return 1;
+        }
+    return 0;
+}
+
+List<Course^>^ TinkerdinControler::Controller::QueryAllCourse() {
+    List<Course^>^ activeCourseList = gcnew List<Course^>();
+    for (int i = 0; i < courseList->Count; i++) {
+        if (courseList[i]->Status == 'A') {
+            activeCourseList->Add(courseList[i]);
+        }
+    }
+    return activeCourseList;
+}
