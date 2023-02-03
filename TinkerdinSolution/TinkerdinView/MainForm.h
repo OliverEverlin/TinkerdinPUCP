@@ -34,6 +34,8 @@ namespace TinkerdinView {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	protected:
 
 	private:
 		/// <summary>
@@ -48,16 +50,28 @@ namespace TinkerdinView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->SuspendLayout();
+			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(1140, 24);
+			this->menuStrip1->TabIndex = 0;
+			this->menuStrip1->Text = L"menuStrip1";
 			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(952, 491);
+			this->ClientSize = System::Drawing::Size(1140, 565);
+			this->Controls->Add(this->menuStrip1);
+			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MainForm";
 			this->Text = L"MainForm";
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
