@@ -101,7 +101,7 @@ namespace TinkerdinView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(858, 24);
+			this->menuStrip1->Size = System::Drawing::Size(864, 24);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -115,7 +115,7 @@ namespace TinkerdinView {
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(96, 22);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::salirToolStripMenuItem_Click);
 			// 
@@ -162,13 +162,13 @@ namespace TinkerdinView {
 			// buscarLugarToolStripMenuItem
 			// 
 			this->buscarLugarToolStripMenuItem->Name = L"buscarLugarToolStripMenuItem";
-			this->buscarLugarToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->buscarLugarToolStripMenuItem->Size = System::Drawing::Size(118, 22);
 			this->buscarLugarToolStripMenuItem->Text = L"Llugares";
 			// 
 			// buscarAmigosToolStripMenuItem
 			// 
 			this->buscarAmigosToolStripMenuItem->Name = L"buscarAmigosToolStripMenuItem";
-			this->buscarAmigosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->buscarAmigosToolStripMenuItem->Size = System::Drawing::Size(118, 22);
 			this->buscarAmigosToolStripMenuItem->Text = L"Amigos";
 			this->buscarAmigosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::buscarAmigosToolStripMenuItem_Click);
 			// 
@@ -235,7 +235,7 @@ namespace TinkerdinView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->ClientSize = System::Drawing::Size(858, 360);
+			this->ClientSize = System::Drawing::Size(864, 392);
 			this->Controls->Add(this->Extrabtn);
 			this->Controls->Add(this->Estudiar);
 			this->Controls->Add(this->Agenda);
