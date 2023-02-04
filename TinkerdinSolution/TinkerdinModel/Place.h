@@ -1,41 +1,43 @@
-/**
+ï»¿/**
  * Project Place
  * Objeto que contiene lugares
  * y sus caracteristicas
  */
 
- //slñjdabcvañdslasdv
+ //slÅ†jdabcvaÅ†dslasdv
 #pragma once
 using namespace System;
 namespace TinkerdinModel {
 
     public ref class Place {
-    //private:
-    //    //La defino como privados la cantidad de personas en un lugar por tema de seguridad
+        //private:
+        //    //La defino como privados la cantidad de personas en un lugar por tema de seguridad
 
-    //    int Participants;
-    //    int PowerOutlet;
-    //    //void Activate();
+        //    int Participants;
+        //    int PowerOutlet;
+        //    //void Activate();
 
     public:
-        /*int getParticipants() {
-            return Participants;
-        }
-        void setParticipants(int Participants) {
-            this->Participants = Participants;
-        }
-        int getPowerOutlet() {
-            return PowerOutlet;
-        }
-        void setPowerOutlet(int PowerOutlet) {
-            this->PowerOutlet = PowerOutlet;
-        }*/
+        /* int getParticipants() {
+             return Participants;
+         }
+         void setParticipants(int Participants) {
+             this->Participants = Participants;
+         }
+         int getPowerOutlet() {
+             return PowerOutlet;
+         }
+         void setPowerOutlet(int PowerOutlet) {
+             this->PowerOutlet = PowerOutlet;
+         }*/
+
+
+
+        property char Availability;
+        property int Id;
         property int Participants;
         property int PowerOutlet;
-
-
-        property bool Availability;
-        property String^ TypePlace;    
+        property String^ TypePlace;
         property int Location;
 
         bool PowerOutletFree();

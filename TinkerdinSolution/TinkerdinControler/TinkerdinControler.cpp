@@ -2,6 +2,7 @@
 
 #include "TinkerdinControler.h"
 
+//CLIENTE-----------------------------------------
 int TinkerdinControler::Controller::AddClient(Cliente^ client)
 {
 	clientList->Add(client);
@@ -54,6 +55,10 @@ int TinkerdinControler::Controller::DeleteClient(int ClientId)
 	}
 	return 0;
 }
+
+//CLIENTE FIN--------------------------------------------
+//COURSE-----------------------------------------------
+
 int TinkerdinControler::Controller::AddCourse(Course^ course)
 {
     course->Status = 'A';
@@ -92,73 +97,100 @@ List<Course^>^ TinkerdinControler::Controller::QueryAllCourse() {
     return activeCourseList;
 }
 
-int TinkerdinControler::Controller::AddPlace(Place^)
+//COURSE FIN--------------------------------------------
+// 
+//PLACE------------------------------------
+int TinkerdinControler::Controller::AddPlace(Place^ place)
 {
-    return 0;
+    place->Availability = 'A';
+    placeList->Add(place);
+    //persis
+    return 1;
 }
 
-int TinkerdinControler::Controller::UpdatePlace(Place^)
+int TinkerdinControler::Controller::UpdatePlace(Place^ place)
 {
+    for (int i = 0; i < placeList->Count; i++)
+        if (place->Id == placeList[i]->Id) {
+            place->Availability = 'A';
+            placeList[i] = place;
+            //persis
+            return 1;
+        }
     return 0;
 }
 
 int TinkerdinControler::Controller::DeletePlace(int placeId)
 {
+    for (int i = 0; i < placeList->Count; i++)
+        if (placeId == placeList[i]->Id) {
+            placeList->RemoveAt(i);
+            //presis
+            return 1;
+        }
     return 0;
 }
 
-Place^ TinkerdinControler::Controller::QueryPlaceById(int placeId)
-{
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+Place^ TinkerdinControler::Controller::QueryPlaceById(int placeId){
+    for (int i = 0; i < clientList->Count; i++)
+        if (placeList[i]->Id == placeId)
+            return placeList[i];
+    return nullptr;
 }
 
 List<Place^>^ TinkerdinControler::Controller::QueryAllPlace()
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    //List<Course^>^ placeActiveList = gcnew List<Place^>();
+    //for (int i = 0; i < placeList->Count; i++) {
+    //    //pendiente de revisión:
+    //    if (placeList[i]->Status == 'A') {
+    //        placeList->Add(placeList[i]);
+    //    }
+    //}
+    return placeList;
 }
+//PLACE FIN//
 
-//int TinkerdinControler::Controller::AddInterest(Interest^ interest)
+//int tinkerdincontroler::controller::addinterest(interest^ interest)
 //{
-//	interestList->Add(interest);
+//	interestlist->add(interest);
 //
 //	return 1;
 //}
 //
-//Interest^ TinkerdinControler::Controller::QueryInterestById(int^ interestId)
+//interest^ tinkerdincontroler::controller::queryinterestbyid(int^ interestid)
 //{
-//	//clientList = (List<Cliente^>^)Persistance::LoadBinary;
-//	for (int i = 0; i < interestList->Count; i++)
-//		if (interestList[i]->code == interestId)
-//			return interestList[i];
+//	//clientlist = (list<cliente^>^)persistance::loadbinary;
+//	for (int i = 0; i < interestlist->count; i++)
+//		if (interestlist[i]->code == interestid)
+//			return interestlist[i];
 //	return nullptr;
 //}
 //
-//List<Interest^>^ TinkerdinControler::Controller::QueryAllInterest()
+//list<interest^>^ tinkerdincontroler::controller::queryallinterest()
 //{
-//	return interestList;
+//	return interestlist;
 //}
 //
-//int TinkerdinControler::Controller::UpdateInterest(Interest^ interest)
+//int tinkerdincontroler::controller::updateinterest(interest^ interest)
 //{
-//	for (int i = 0; i < courseList->Count; i++)
-//		if (interest->Id == interestList[i]->Id) {
-//			interest->Status = 'A';
-//			interestList[i] = interest;
+//	for (int i = 0; i < courselist->count; i++)
+//		if (interest->id == interestlist[i]->id) {
+//			interest->status = 'a';
+//			interestlist[i] = interest;
 //			return 1;
 //		}
 //	return 0;
 //}
 //
-//int TinkerdinControler::Controller::DeleteInterest(int interestId)
+//int tinkerdincontroler::controller::deleteinterest(int interestid)
 //{
-//	for (int i = 0; i < interestList->Count; i++)
+//	for (int i = 0; i < interestlist->count; i++)
 //	{
-//		if (interestList[i]->code == interestId)
+//		if (interestlist[i]->code == interestid)
 //		{
-//			interestList->RemoveAt(i);
-//			return interestId;
+//			interestlist->removeat(i);
+//			return interestid;
 //
 //		}
 //
