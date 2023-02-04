@@ -44,43 +44,61 @@ namespace TinkerdinView {
 
 
 
-	private: System::Windows::Forms::ComboBox^ cmbGroceryType;
-
-
-	private: System::Windows::Forms::TextBox^ txtGroceryFeatures;
-	private: System::Windows::Forms::TextBox^ txtGroceryBrand;
-	private: System::Windows::Forms::Label^ label8;
-	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::ComboBox^ cmbCourseType;
+	private: System::Windows::Forms::TextBox^ txtCourseHorario;
 
 
 
-
-	private: System::Windows::Forms::TextBox^ txtGroceryName;
-	private: System::Windows::Forms::TextBox^ txtGroceryId;
-
+	private: System::Windows::Forms::TextBox^ txtCourseProfesor;
+	private: System::Windows::Forms::Label^ labelCouseHours;
 
 
+	private: System::Windows::Forms::Label^ labelCourseProfessor;
 
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label1;
-
-	private: System::Windows::Forms::Label^ label15;
-
-
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::DataGridView^ dgvGroceries;
+	private: System::Windows::Forms::TextBox^ txtCourseName;
+	private: System::Windows::Forms::TextBox^ txtCourseId;
+	private: System::Windows::Forms::Label^ labelCourseName;
 
 
 
 
 
-	private: System::Windows::Forms::Button^ btnDeleteGrocery;
-	private: System::Windows::Forms::Button^ btnUpdateGrocery;
-	private: System::Windows::Forms::Button^ btnAddGrocery;
-	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::DateTimePicker^ dateTimePicker2;
+
+
+
+
+
+
+	private: System::Windows::Forms::Label^ labelCourse;
+	private: System::Windows::Forms::Label^ labelCourseType;
+	private: System::Windows::Forms::Label^ labelCourseExamDates;
+
+
+
+
+
+
+	private: System::Windows::Forms::DataGridView^ dgvCourse;
+
+	private: System::Windows::Forms::Button^ btnDeleteCourse;
+
+
+
+
+
+
+	private: System::Windows::Forms::Button^ btnUpdateCourse;
+
+	private: System::Windows::Forms::Button^ btnAddCourse;
+
+	private: System::Windows::Forms::DateTimePicker^ dateTimePickerParcial;
+	private: System::Windows::Forms::Label^ labelCourseParfcialExam;
+	private: System::Windows::Forms::Label^ labelCourseFinalExam;
+
+
+
+	private: System::Windows::Forms::DateTimePicker^ dateTimePickerFinal;
+
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ProductIdGrid;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ProductNameGrid;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ProductPriceMinGrid;
@@ -100,140 +118,148 @@ namespace TinkerdinView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->cmbGroceryType = (gcnew System::Windows::Forms::ComboBox());
-			this->txtGroceryFeatures = (gcnew System::Windows::Forms::TextBox());
-			this->txtGroceryBrand = (gcnew System::Windows::Forms::TextBox());
-			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->txtGroceryName = (gcnew System::Windows::Forms::TextBox());
-			this->txtGroceryId = (gcnew System::Windows::Forms::TextBox());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label15 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->dgvGroceries = (gcnew System::Windows::Forms::DataGridView());
+			this->cmbCourseType = (gcnew System::Windows::Forms::ComboBox());
+			this->txtCourseHorario = (gcnew System::Windows::Forms::TextBox());
+			this->txtCourseProfesor = (gcnew System::Windows::Forms::TextBox());
+			this->labelCouseHours = (gcnew System::Windows::Forms::Label());
+			this->labelCourseProfessor = (gcnew System::Windows::Forms::Label());
+			this->txtCourseName = (gcnew System::Windows::Forms::TextBox());
+			this->txtCourseId = (gcnew System::Windows::Forms::TextBox());
+			this->labelCourseName = (gcnew System::Windows::Forms::Label());
+			this->labelCourse = (gcnew System::Windows::Forms::Label());
+			this->labelCourseType = (gcnew System::Windows::Forms::Label());
+			this->labelCourseExamDates = (gcnew System::Windows::Forms::Label());
+			this->dgvCourse = (gcnew System::Windows::Forms::DataGridView());
 			this->ProductIdGrid = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ProductNameGrid = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ProductPriceMinGrid = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ProductPriceMajGrid = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->btnDeleteGrocery = (gcnew System::Windows::Forms::Button());
-			this->btnUpdateGrocery = (gcnew System::Windows::Forms::Button());
-			this->btnAddGrocery = (gcnew System::Windows::Forms::Button());
-			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->dateTimePicker2 = (gcnew System::Windows::Forms::DateTimePicker());
-			this->fontDialog1 = (gcnew System::Windows::Forms::FontDialog());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvGroceries))->BeginInit();
+			this->btnDeleteCourse = (gcnew System::Windows::Forms::Button());
+			this->btnUpdateCourse = (gcnew System::Windows::Forms::Button());
+			this->btnAddCourse = (gcnew System::Windows::Forms::Button());
+			this->dateTimePickerParcial = (gcnew System::Windows::Forms::DateTimePicker());
+			this->labelCourseParfcialExam = (gcnew System::Windows::Forms::Label());
+			this->labelCourseFinalExam = (gcnew System::Windows::Forms::Label());
+			this->dateTimePickerFinal = (gcnew System::Windows::Forms::DateTimePicker());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCourse))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// cmbGroceryType
+			// cmbCourseType
 			// 
-			this->cmbGroceryType->FormattingEnabled = true;
-			this->cmbGroceryType->Location = System::Drawing::Point(103, 80);
-			this->cmbGroceryType->Name = L"cmbGroceryType";
-			this->cmbGroceryType->Size = System::Drawing::Size(281, 21);
-			this->cmbGroceryType->TabIndex = 47;
+			this->cmbCourseType->FormattingEnabled = true;
+			this->cmbCourseType->Location = System::Drawing::Point(137, 99);
+			this->cmbCourseType->Margin = System::Windows::Forms::Padding(4);
+			this->cmbCourseType->Name = L"cmbCourseType";
+			this->cmbCourseType->Size = System::Drawing::Size(373, 24);
+			this->cmbCourseType->TabIndex = 47;
 			// 
-			// txtGroceryFeatures
+			// txtCourseHorario
 			// 
-			this->txtGroceryFeatures->Location = System::Drawing::Point(103, 158);
-			this->txtGroceryFeatures->Multiline = true;
-			this->txtGroceryFeatures->Name = L"txtGroceryFeatures";
-			this->txtGroceryFeatures->Size = System::Drawing::Size(281, 36);
-			this->txtGroceryFeatures->TabIndex = 44;
+			this->txtCourseHorario->Location = System::Drawing::Point(137, 194);
+			this->txtCourseHorario->Margin = System::Windows::Forms::Padding(4);
+			this->txtCourseHorario->Multiline = true;
+			this->txtCourseHorario->Name = L"txtCourseHorario";
+			this->txtCourseHorario->Size = System::Drawing::Size(373, 43);
+			this->txtCourseHorario->TabIndex = 44;
 			// 
-			// txtGroceryBrand
+			// txtCourseProfesor
 			// 
-			this->txtGroceryBrand->Location = System::Drawing::Point(103, 116);
-			this->txtGroceryBrand->Name = L"txtGroceryBrand";
-			this->txtGroceryBrand->Size = System::Drawing::Size(281, 20);
-			this->txtGroceryBrand->TabIndex = 43;
+			this->txtCourseProfesor->Location = System::Drawing::Point(137, 143);
+			this->txtCourseProfesor->Margin = System::Windows::Forms::Padding(4);
+			this->txtCourseProfesor->Name = L"txtCourseProfesor";
+			this->txtCourseProfesor->Size = System::Drawing::Size(373, 22);
+			this->txtCourseProfesor->TabIndex = 43;
 			// 
-			// label8
+			// labelCouseHours
 			// 
-			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(28, 155);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(44, 13);
-			this->label8->TabIndex = 42;
-			this->label8->Text = L"Horario:";
-			this->label8->Click += gcnew System::EventHandler(this, &CourseForm::label8_Click);
+			this->labelCouseHours->AutoSize = true;
+			this->labelCouseHours->Location = System::Drawing::Point(37, 191);
+			this->labelCouseHours->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->labelCouseHours->Name = L"labelCouseHours";
+			this->labelCouseHours->Size = System::Drawing::Size(55, 16);
+			this->labelCouseHours->TabIndex = 42;
+			this->labelCouseHours->Text = L"Horario:";
 			// 
-			// label7
+			// labelCourseProfessor
 			// 
-			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(28, 116);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(49, 13);
-			this->label7->TabIndex = 41;
-			this->label7->Text = L"Profesor:";
+			this->labelCourseProfessor->AutoSize = true;
+			this->labelCourseProfessor->Location = System::Drawing::Point(37, 143);
+			this->labelCourseProfessor->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->labelCourseProfessor->Name = L"labelCourseProfessor";
+			this->labelCourseProfessor->Size = System::Drawing::Size(61, 16);
+			this->labelCourseProfessor->TabIndex = 41;
+			this->labelCourseProfessor->Text = L"Profesor:";
 			// 
-			// txtGroceryName
+			// txtCourseName
 			// 
-			this->txtGroceryName->Location = System::Drawing::Point(104, 46);
-			this->txtGroceryName->Name = L"txtGroceryName";
-			this->txtGroceryName->Size = System::Drawing::Size(280, 20);
-			this->txtGroceryName->TabIndex = 36;
+			this->txtCourseName->Location = System::Drawing::Point(138, 57);
+			this->txtCourseName->Margin = System::Windows::Forms::Padding(4);
+			this->txtCourseName->Name = L"txtCourseName";
+			this->txtCourseName->Size = System::Drawing::Size(372, 22);
+			this->txtCourseName->TabIndex = 36;
 			// 
-			// txtGroceryId
+			// txtCourseId
 			// 
-			this->txtGroceryId->Location = System::Drawing::Point(104, 22);
-			this->txtGroceryId->Name = L"txtGroceryId";
-			this->txtGroceryId->Size = System::Drawing::Size(280, 20);
-			this->txtGroceryId->TabIndex = 35;
+			this->txtCourseId->Location = System::Drawing::Point(138, 27);
+			this->txtCourseId->Margin = System::Windows::Forms::Padding(4);
+			this->txtCourseId->Name = L"txtCourseId";
+			this->txtCourseId->Size = System::Drawing::Size(372, 22);
+			this->txtCourseId->TabIndex = 35;
 			// 
-			// label2
+			// labelCourseName
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(28, 46);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(47, 13);
-			this->label2->TabIndex = 30;
-			this->label2->Text = L"Nombre:";
+			this->labelCourseName->AutoSize = true;
+			this->labelCourseName->Location = System::Drawing::Point(37, 57);
+			this->labelCourseName->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->labelCourseName->Name = L"labelCourseName";
+			this->labelCourseName->Size = System::Drawing::Size(59, 16);
+			this->labelCourseName->TabIndex = 30;
+			this->labelCourseName->Text = L"Nombre:";
 			// 
-			// label1
+			// labelCourse
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(28, 22);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(49, 13);
-			this->label1->TabIndex = 29;
-			this->label1->Text = L"Id Curso:";
-			this->label1->Click += gcnew System::EventHandler(this, &CourseForm::label1_Click);
+			this->labelCourse->AutoSize = true;
+			this->labelCourse->Location = System::Drawing::Point(37, 27);
+			this->labelCourse->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->labelCourse->Name = L"labelCourse";
+			this->labelCourse->Size = System::Drawing::Size(59, 16);
+			this->labelCourse->TabIndex = 29;
+			this->labelCourse->Text = L"Id Curso:";
 			// 
-			// label15
+			// labelCourseType
 			// 
-			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(28, 82);
-			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(31, 13);
-			this->label15->TabIndex = 57;
-			this->label15->Text = L"Tipo:";
-			this->label15->Click += gcnew System::EventHandler(this, &CourseForm::label15_Click);
+			this->labelCourseType->AutoSize = true;
+			this->labelCourseType->Location = System::Drawing::Point(37, 101);
+			this->labelCourseType->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->labelCourseType->Name = L"labelCourseType";
+			this->labelCourseType->Size = System::Drawing::Size(38, 16);
+			this->labelCourseType->TabIndex = 57;
+			this->labelCourseType->Text = L"Tipo:";
 			// 
-			// label3
+			// labelCourseExamDates
 			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(28, 215);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(99, 13);
-			this->label3->TabIndex = 59;
-			this->label3->Text = L"Días de examenes:";
+			this->labelCourseExamDates->AutoSize = true;
+			this->labelCourseExamDates->Location = System::Drawing::Point(37, 265);
+			this->labelCourseExamDates->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->labelCourseExamDates->Name = L"labelCourseExamDates";
+			this->labelCourseExamDates->Size = System::Drawing::Size(123, 16);
+			this->labelCourseExamDates->TabIndex = 59;
+			this->labelCourseExamDates->Text = L"Días de examenes:";
 			// 
-			// dgvGroceries
+			// dgvCourse
 			// 
-			this->dgvGroceries->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvGroceries->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+			this->dgvCourse->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvCourse->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				this->ProductIdGrid,
 					this->ProductNameGrid, this->ProductPriceMinGrid, this->ProductPriceMajGrid
 			});
-			this->dgvGroceries->Location = System::Drawing::Point(30, 340);
-			this->dgvGroceries->Name = L"dgvGroceries";
-			this->dgvGroceries->RowHeadersWidth = 51;
-			this->dgvGroceries->Size = System::Drawing::Size(447, 132);
-			this->dgvGroceries->TabIndex = 64;
-			this->dgvGroceries->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CourseForm::dgvGroceries_CellContentClick);
+			this->dgvCourse->Location = System::Drawing::Point(40, 419);
+			this->dgvCourse->Margin = System::Windows::Forms::Padding(4);
+			this->dgvCourse->Name = L"dgvCourse";
+			this->dgvCourse->RowHeadersWidth = 51;
+			this->dgvCourse->Size = System::Drawing::Size(596, 162);
+			this->dgvCourse->TabIndex = 64;
+			this->dgvCourse->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CourseForm::dgvCourse_CellContentClick);
 			// 
 			// ProductIdGrid
 			// 
@@ -263,105 +289,104 @@ namespace TinkerdinView {
 			this->ProductPriceMajGrid->Name = L"ProductPriceMajGrid";
 			this->ProductPriceMajGrid->Width = 80;
 			// 
-			// btnDeleteGrocery
+			// btnDeleteCourse
 			// 
-			this->btnDeleteGrocery->Location = System::Drawing::Point(329, 296);
-			this->btnDeleteGrocery->Name = L"btnDeleteGrocery";
-			this->btnDeleteGrocery->Size = System::Drawing::Size(148, 23);
-			this->btnDeleteGrocery->TabIndex = 63;
-			this->btnDeleteGrocery->Text = L"Eliminar";
-			this->btnDeleteGrocery->UseVisualStyleBackColor = true;
+			this->btnDeleteCourse->Location = System::Drawing::Point(439, 364);
+			this->btnDeleteCourse->Margin = System::Windows::Forms::Padding(4);
+			this->btnDeleteCourse->Name = L"btnDeleteCourse";
+			this->btnDeleteCourse->Size = System::Drawing::Size(197, 28);
+			this->btnDeleteCourse->TabIndex = 63;
+			this->btnDeleteCourse->Text = L"Eliminar";
+			this->btnDeleteCourse->UseVisualStyleBackColor = true;
 			// 
-			// btnUpdateGrocery
+			// btnUpdateCourse
 			// 
-			this->btnUpdateGrocery->Location = System::Drawing::Point(176, 296);
-			this->btnUpdateGrocery->Name = L"btnUpdateGrocery";
-			this->btnUpdateGrocery->Size = System::Drawing::Size(147, 23);
-			this->btnUpdateGrocery->TabIndex = 62;
-			this->btnUpdateGrocery->Text = L"Modificar";
-			this->btnUpdateGrocery->UseVisualStyleBackColor = true;
+			this->btnUpdateCourse->Location = System::Drawing::Point(235, 364);
+			this->btnUpdateCourse->Margin = System::Windows::Forms::Padding(4);
+			this->btnUpdateCourse->Name = L"btnUpdateCourse";
+			this->btnUpdateCourse->Size = System::Drawing::Size(196, 28);
+			this->btnUpdateCourse->TabIndex = 62;
+			this->btnUpdateCourse->Text = L"Modificar";
+			this->btnUpdateCourse->UseVisualStyleBackColor = true;
 			// 
-			// btnAddGrocery
+			// btnAddCourse
 			// 
-			this->btnAddGrocery->Location = System::Drawing::Point(22, 296);
-			this->btnAddGrocery->Name = L"btnAddGrocery";
-			this->btnAddGrocery->Size = System::Drawing::Size(147, 23);
-			this->btnAddGrocery->TabIndex = 61;
-			this->btnAddGrocery->Text = L"Agregar";
-			this->btnAddGrocery->UseVisualStyleBackColor = true;
+			this->btnAddCourse->Location = System::Drawing::Point(30, 364);
+			this->btnAddCourse->Margin = System::Windows::Forms::Padding(4);
+			this->btnAddCourse->Name = L"btnAddCourse";
+			this->btnAddCourse->Size = System::Drawing::Size(196, 28);
+			this->btnAddCourse->TabIndex = 61;
+			this->btnAddCourse->Text = L"Agregar";
+			this->btnAddCourse->UseVisualStyleBackColor = true;
 			// 
-			// dateTimePicker1
+			// dateTimePickerParcial
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(104, 250);
-			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(151, 20);
-			this->dateTimePicker1->TabIndex = 65;
+			this->dateTimePickerParcial->Location = System::Drawing::Point(138, 308);
+			this->dateTimePickerParcial->Name = L"dateTimePickerParcial";
+			this->dateTimePickerParcial->Size = System::Drawing::Size(200, 22);
+			this->dateTimePickerParcial->TabIndex = 65;
 			// 
-			// label4
+			// labelCourseParfcialExam
 			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(48, 250);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(42, 13);
-			this->label4->TabIndex = 66;
-			this->label4->Text = L"Parcial:";
-			this->label4->Click += gcnew System::EventHandler(this, &CourseForm::label4_Click);
+			this->labelCourseParfcialExam->AutoSize = true;
+			this->labelCourseParfcialExam->Location = System::Drawing::Point(64, 308);
+			this->labelCourseParfcialExam->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->labelCourseParfcialExam->Name = L"labelCourseParfcialExam";
+			this->labelCourseParfcialExam->Size = System::Drawing::Size(52, 16);
+			this->labelCourseParfcialExam->TabIndex = 66;
+			this->labelCourseParfcialExam->Text = L"Parcial:";
 			// 
-			// label5
+			// labelCourseFinalExam
 			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(299, 250);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(32, 13);
-			this->label5->TabIndex = 68;
-			this->label5->Text = L"Final:";
+			this->labelCourseFinalExam->AutoSize = true;
+			this->labelCourseFinalExam->Location = System::Drawing::Point(399, 308);
+			this->labelCourseFinalExam->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->labelCourseFinalExam->Name = L"labelCourseFinalExam";
+			this->labelCourseFinalExam->Size = System::Drawing::Size(39, 16);
+			this->labelCourseFinalExam->TabIndex = 68;
+			this->labelCourseFinalExam->Text = L"Final:";
 			// 
-			// dateTimePicker2
+			// dateTimePickerFinal
 			// 
-			this->dateTimePicker2->Location = System::Drawing::Point(343, 250);
-			this->dateTimePicker2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->dateTimePicker2->Name = L"dateTimePicker2";
-			this->dateTimePicker2->Size = System::Drawing::Size(151, 20);
-			this->dateTimePicker2->TabIndex = 67;
+			this->dateTimePickerFinal->Location = System::Drawing::Point(457, 308);
+			this->dateTimePickerFinal->Name = L"dateTimePickerFinal";
+			this->dateTimePickerFinal->Size = System::Drawing::Size(200, 22);
+			this->dateTimePickerFinal->TabIndex = 67;
 			// 
 			// CourseForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(513, 525);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->dateTimePicker2);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->dateTimePicker1);
-			this->Controls->Add(this->dgvGroceries);
-			this->Controls->Add(this->btnDeleteGrocery);
-			this->Controls->Add(this->btnUpdateGrocery);
-			this->Controls->Add(this->btnAddGrocery);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label15);
-			this->Controls->Add(this->cmbGroceryType);
-			this->Controls->Add(this->txtGroceryFeatures);
-			this->Controls->Add(this->txtGroceryBrand);
-			this->Controls->Add(this->label8);
-			this->Controls->Add(this->label7);
-			this->Controls->Add(this->txtGroceryName);
-			this->Controls->Add(this->txtGroceryId);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
+			this->ClientSize = System::Drawing::Size(684, 646);
+			this->Controls->Add(this->labelCourseFinalExam);
+			this->Controls->Add(this->dateTimePickerFinal);
+			this->Controls->Add(this->labelCourseParfcialExam);
+			this->Controls->Add(this->dateTimePickerParcial);
+			this->Controls->Add(this->dgvCourse);
+			this->Controls->Add(this->btnDeleteCourse);
+			this->Controls->Add(this->btnUpdateCourse);
+			this->Controls->Add(this->btnAddCourse);
+			this->Controls->Add(this->labelCourseExamDates);
+			this->Controls->Add(this->labelCourseType);
+			this->Controls->Add(this->cmbCourseType);
+			this->Controls->Add(this->txtCourseHorario);
+			this->Controls->Add(this->txtCourseProfesor);
+			this->Controls->Add(this->labelCouseHours);
+			this->Controls->Add(this->labelCourseProfessor);
+			this->Controls->Add(this->txtCourseName);
+			this->Controls->Add(this->txtCourseId);
+			this->Controls->Add(this->labelCourseName);
+			this->Controls->Add(this->labelCourse);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"CourseForm";
 			this->Text = L"CourseForm";
 			this->Load += gcnew System::EventHandler(this, &CourseForm::CourseForm_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvGroceries))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCourse))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-private: System::Void label15_Click(System::Object^ sender, System::EventArgs^ e) {
-}
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void monthCalendar1_DateChanged(System::Object^ sender, System::Windows::Forms::DateRangeEventArgs^ e) {
@@ -370,9 +395,8 @@ private: System::Void label8_Click(System::Object^ sender, System::EventArgs^ e)
 }
 private: System::Void CourseForm_Load(System::Object^ sender, System::EventArgs^ e) {
 }
-private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void dgvGroceries_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+
+private: System::Void dgvCourse_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }
 };
 }
