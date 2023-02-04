@@ -14,9 +14,9 @@ int Main(array<System::String ^> ^args)
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	TinkerdinView::MainForm form;
-	TinkerdinView::PlaceForm form;
+	/*TinkerdinView::PlaceForm form;
 	TinkerdinView::CourseForm form;
-	TinkerdinView::CalendarForm form;
+	TinkerdinView::CalendarForm form;*/
 	Application::Run(% form);
 	
     return 0;
