@@ -132,20 +132,20 @@ namespace TinkerdinView {
 			// amigosToolStripMenuItem
 			// 
 			this->amigosToolStripMenuItem->Name = L"amigosToolStripMenuItem";
-			this->amigosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->amigosToolStripMenuItem->Size = System::Drawing::Size(115, 22);
 			this->amigosToolStripMenuItem->Text = L"Amigos";
 			// 
 			// lugaresToolStripMenuItem
 			// 
 			this->lugaresToolStripMenuItem->Name = L"lugaresToolStripMenuItem";
-			this->lugaresToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->lugaresToolStripMenuItem->Size = System::Drawing::Size(115, 22);
 			this->lugaresToolStripMenuItem->Text = L"Lugares";
 			this->lugaresToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::lugaresToolStripMenuItem_Click);
 			// 
 			// cursosToolStripMenuItem
 			// 
 			this->cursosToolStripMenuItem->Name = L"cursosToolStripMenuItem";
-			this->cursosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->cursosToolStripMenuItem->Size = System::Drawing::Size(115, 22);
 			this->cursosToolStripMenuItem->Text = L"Cursos";
 			this->cursosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::cursosToolStripMenuItem_Click);
 			// 
@@ -245,6 +245,7 @@ namespace TinkerdinView {
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MainForm";
 			this->Text = L"MainForm";
+			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
@@ -272,6 +273,9 @@ private: System::Void lugaresToolStripMenuItem_Click(System::Object^ sender, Sys
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
+
 }
 };
 }

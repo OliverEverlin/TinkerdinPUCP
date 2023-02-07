@@ -18,6 +18,7 @@ using namespace TinkerdinModel;
 namespace TinkerdinControler {
 	public ref class Controller {
 	private:
+		//la persistencia la pongo en le Tpersistance
 		static List<Cliente^>^ clientList=gcnew List<Cliente^>();
 		//static List<Admin^>^ adminList;
 		static List<Interest^>^ interestList=gcnew List<Interest^>();

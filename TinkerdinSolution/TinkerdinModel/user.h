@@ -8,7 +8,7 @@
 using namespace System;
 
 namespace TinkerdinModel {
-
+    [Serializable]
     public ref class user {
     public:
         property String^ Name;

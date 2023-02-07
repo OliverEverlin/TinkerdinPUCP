@@ -130,7 +130,13 @@
     <ClInclude Include="CalendarForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ClientForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="CourseForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="LoginForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MainForm.h">
@@ -148,7 +154,9 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CalendarForm.cpp" />
+    <ClCompile Include="ClientForm.cpp" />
     <ClCompile Include="CourseForm.cpp" />
+    <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
