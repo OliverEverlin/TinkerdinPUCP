@@ -7,6 +7,7 @@
 using namespace System;
 
 namespace TinkerdinModel{
+    [Serializable]
     public ref class Chat_History {
     public:
        

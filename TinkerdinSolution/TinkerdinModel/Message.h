@@ -6,6 +6,7 @@
 using namespace System;
 
 namespace TinkerdinModel{
+    [Serializable]
     public ref class Message {
     public: 
         

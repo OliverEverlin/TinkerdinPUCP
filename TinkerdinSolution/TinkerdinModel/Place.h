@@ -8,7 +8,7 @@
 #pragma once
 using namespace System;
 namespace TinkerdinModel {
-
+    [Serializable]
     public ref class Place {
         //private:
         //    //La defino como privados la cantidad de personas en un lugar por tema de seguridad

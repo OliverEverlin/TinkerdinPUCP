@@ -12,7 +12,7 @@ using namespace System;
 #include "Cliente.h"
 
 namespace TinkerdinModel {
-
+    [Serializable]
     public ref class Course  {
 
     public:

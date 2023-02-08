@@ -24,7 +24,7 @@ Cliente^ TinkerdinControler::Controller::QueryClientById(int^ clientId)
 List<Cliente^>^ TinkerdinControler::Controller::QueryAllClients()
 {
 	//clientList = (List<Cliente^>^)Persistance::LoadBinaryData("clients.bin");
-    clientList = (List<Cliente^>^)Persistance::LoadData("Clients.txt");
+    //clientList = (List<Cliente^>^)Persistance::LoadData("Clients.txt");
     return clientList;
 }
 

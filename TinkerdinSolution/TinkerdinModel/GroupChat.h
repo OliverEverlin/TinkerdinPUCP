@@ -8,6 +8,7 @@
 using namespace System;
 
 namespace TinkerdinModel {
+    [Serializable]
     public ref class GroupChat : public Chat {
     public:
         property String^ GroupID;

@@ -7,7 +7,7 @@
 using namespace System;
 
 namespace TinkerdinModel {
-
+    //[Serializable]
     class Settings {
     public:
 

@@ -9,7 +9,7 @@
 using namespace System;
 
 namespace TinkerdinModel {
-
+    [Serializable]
     public ref class Proposite {
     public:
         property String^ title;

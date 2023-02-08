@@ -8,15 +8,13 @@
 using namespace System;
 
 namespace TinkerdinModel {
+    [Serializable]
     public ref class Interest : public Cliente {
     public:
-        property String^ Music;
-        property String^ Sports;
-        property String^ SportType;
-        property String^ Academic;
-        property String^ Others;
-
-        
+        property String^ Name;
+        property int Id;
+        property String^ Type;
+        property int Frecuency;
 
         void Match_Interests();
 

@@ -8,6 +8,7 @@
 using namespace System;
 
 namespace TinkerdinModel {
+    [Serializable]
     public ref class Individual_Chat : public Chat {
     public:
         property String^ PeerID;

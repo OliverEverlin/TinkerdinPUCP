@@ -5,6 +5,7 @@
 using namespace System;
 
 namespace TinkerdinModel{
+    [Serializable]
     public ref class Chat {
     public:
         property char Chat_type;
