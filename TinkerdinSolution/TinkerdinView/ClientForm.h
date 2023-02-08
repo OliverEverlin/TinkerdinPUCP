@@ -66,9 +66,17 @@ namespace TinkerdinView {
 
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::TextBox^ txtUsername;
+	private: System::Windows::Forms::Button^ btnSetImage;
+	private: System::Windows::Forms::DataGridView^ dgvClients;
+
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Username;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Age;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cicle;
+	private: System::Windows::Forms::Button^ btnAdd;
+	private: System::Windows::Forms::Button^ Delete;
 
 
-	private: System::Windows::Forms::Button^ button3;
+
 
 	private:
 		/// <summary>
@@ -100,8 +108,15 @@ namespace TinkerdinView {
 			this->pbPhoto = (gcnew System::Windows::Forms::PictureBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->txtUsername = (gcnew System::Windows::Forms::TextBox());
-			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->btnSetImage = (gcnew System::Windows::Forms::Button());
+			this->dgvClients = (gcnew System::Windows::Forms::DataGridView());
+			this->Username = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Age = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Cicle = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->btnAdd = (gcnew System::Windows::Forms::Button());
+			this->Delete = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvClients))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// name
@@ -195,7 +210,7 @@ namespace TinkerdinView {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(130, 361);
+			this->btnUpdate->Location = System::Drawing::Point(119, 338);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(75, 23);
 			this->btnUpdate->TabIndex = 12;
@@ -205,7 +220,7 @@ namespace TinkerdinView {
 			// 
 			// btnReturn
 			// 
-			this->btnReturn->Location = System::Drawing::Point(484, 361);
+			this->btnReturn->Location = System::Drawing::Point(625, 481);
 			this->btnReturn->Name = L"btnReturn";
 			this->btnReturn->Size = System::Drawing::Size(75, 23);
 			this->btnReturn->TabIndex = 13;
@@ -244,22 +259,71 @@ namespace TinkerdinView {
 			this->txtUsername->Size = System::Drawing::Size(100, 20);
 			this->txtUsername->TabIndex = 17;
 			// 
-			// button3
+			// btnSetImage
 			// 
-			this->button3->Location = System::Drawing::Point(526, 258);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(120, 23);
-			this->button3->TabIndex = 18;
-			this->button3->Text = L"Cambiar imagen";
-			this->button3->UseVisualStyleBackColor = true;
-			this->button3->Click += gcnew System::EventHandler(this, &ClientForm::button3_Click);
+			this->btnSetImage->Location = System::Drawing::Point(526, 258);
+			this->btnSetImage->Name = L"btnSetImage";
+			this->btnSetImage->Size = System::Drawing::Size(120, 23);
+			this->btnSetImage->TabIndex = 18;
+			this->btnSetImage->Text = L"Cambiar imagen";
+			this->btnSetImage->UseVisualStyleBackColor = true;
+			this->btnSetImage->Click += gcnew System::EventHandler(this, &ClientForm::button3_Click);
+			// 
+			// dgvClients
+			// 
+			this->dgvClients->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvClients->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+				this->Username,
+					this->Age, this->Cicle
+			});
+			this->dgvClients->Location = System::Drawing::Point(42, 388);
+			this->dgvClients->Name = L"dgvClients";
+			this->dgvClients->Size = System::Drawing::Size(344, 116);
+			this->dgvClients->TabIndex = 19;
+			// 
+			// Username
+			// 
+			this->Username->HeaderText = L"Username";
+			this->Username->Name = L"Username";
+			// 
+			// Age
+			// 
+			this->Age->HeaderText = L"Age";
+			this->Age->Name = L"Age";
+			// 
+			// Cicle
+			// 
+			this->Cicle->HeaderText = L"Cicle";
+			this->Cicle->Name = L"Cicle";
+			// 
+			// btnAdd
+			// 
+			this->btnAdd->Location = System::Drawing::Point(345, 338);
+			this->btnAdd->Name = L"btnAdd";
+			this->btnAdd->Size = System::Drawing::Size(75, 23);
+			this->btnAdd->TabIndex = 20;
+			this->btnAdd->Text = L"Registrar";
+			this->btnAdd->UseVisualStyleBackColor = true;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &ClientForm::btnAdd_Click);
+			// 
+			// Delete
+			// 
+			this->Delete->Location = System::Drawing::Point(581, 337);
+			this->Delete->Name = L"Delete";
+			this->Delete->Size = System::Drawing::Size(75, 23);
+			this->Delete->TabIndex = 21;
+			this->Delete->Text = L"button1";
+			this->Delete->UseVisualStyleBackColor = true;
 			// 
 			// ClientForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(753, 526);
-			this->Controls->Add(this->button3);
+			this->Controls->Add(this->Delete);
+			this->Controls->Add(this->btnAdd);
+			this->Controls->Add(this->dgvClients);
+			this->Controls->Add(this->btnSetImage);
 			this->Controls->Add(this->txtUsername);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->pbPhoto);
@@ -278,9 +342,10 @@ namespace TinkerdinView {
 			this->Controls->Add(this->txtName);
 			this->Controls->Add(this->name);
 			this->Name = L"ClientForm";
-			this->Text = L"Perfil";
+			this->Text = L"Registro de nuevo usuario";
 			this->Load += gcnew System::EventHandler(this, &ClientForm::ClientForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvClients))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -289,8 +354,15 @@ namespace TinkerdinView {
 	private: System::Void ClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 
-	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	OpenFileDialog^ opnfd = gcnew OpenFileDialog();
+	opnfd->Filter = "Image Files (*.jpg;*.jpeg;)|*.jpg;*.jpeg;";
+	if (opnfd->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		pbPhoto->Image = gcnew Bitmap(opnfd->FileName);
 	}
+
+}
 
 	void CleanControls() {
 		txtUsername->Clear();
@@ -300,6 +372,19 @@ namespace TinkerdinView {
 		txtCarrer->Clear();
 		txtCicle->Clear();
 		pbPhoto->Image = nullptr;
+	}
+	void ShowClients() {
+		List<Cliente^>^ myClientList = Controller::QueryAllClients();
+
+		dgvClients->Rows->Clear();
+		for (int i = 0; i < myClientList->Count; i++) {
+			dgvClients->Rows->Add(gcnew array<String^>{
+				myClientList[i]->Username,
+				""+myClientList[i]->Age,
+				""+myClientList[i]->Cicle,
+			});
+		}
+
 	}
 
 
@@ -326,6 +411,26 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 	//RefreshGrid();
 }
 
+private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+	Cliente^ a = gcnew Cliente();
+	a->Username = txtUsername->Text;
+	a->Name = txtName->Text;
+	a->Age = Convert::ToInt32(txtAge->Text);
+	//a->Gender= txt
+	a->Email = txtEmail->Text;
+	a->Carrer = txtCarrer->Text;
+	a->Cicle = Convert::ToInt32(txtCicle->Text);
+	if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
+		System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+		pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+		a->Photo = ms->ToArray();
+	}
+
+	Controller::AddClient(a);
+
+	CleanControls();
+	ShowClients();
+}
 };
 }
 

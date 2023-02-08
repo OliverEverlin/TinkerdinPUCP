@@ -200,7 +200,7 @@ List<Place^>^ TinkerdinControler::Controller::QueryAllPlace()
 {
     //List<Course^>^ placeActiveList = gcnew List<Place^>();
     //for (int i = 0; i < placeList->Count; i++) {
-    //    //pendiente de revisión:
+    //    //pendiente de revisiÃ³n:
     //    if (placeList[i]->Status == 'A') {
     //        placeList->Add(placeList[i]);
     //    }

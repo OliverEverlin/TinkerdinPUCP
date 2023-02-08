@@ -11,7 +11,6 @@ namespace TinkerdinView {
 	using namespace System::Drawing;
 	using namespace System::Collections::Generic;
 	using namespace TinkerdinControler;
-
 	using namespace TinkerdinView;
 
 	using namespace TinkerdinModel;
@@ -141,15 +140,16 @@ namespace TinkerdinView {
 			// 
 			this->cmbCourseType->FormattingEnabled = true;
 			this->cmbCourseType->Location = System::Drawing::Point(137, 117);
-			this->cmbCourseType->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->cmbCourseType->Margin = System::Windows::Forms::Padding(4);
 			this->cmbCourseType->Name = L"cmbCourseType";
 			this->cmbCourseType->Size = System::Drawing::Size(373, 21);
 			this->cmbCourseType->TabIndex = 47;
+			this->cmbCourseType->SelectedIndexChanged += gcnew System::EventHandler(this, &CourseForm::cmbCourseType_SelectedIndexChanged);
 			// 
 			// txtCourseHorario
 			// 
 			this->txtCourseHorario->Location = System::Drawing::Point(137, 212);
-			this->txtCourseHorario->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtCourseHorario->Margin = System::Windows::Forms::Padding(4);
 			this->txtCourseHorario->Multiline = true;
 			this->txtCourseHorario->Name = L"txtCourseHorario";
 			this->txtCourseHorario->Size = System::Drawing::Size(373, 43);
@@ -158,7 +158,7 @@ namespace TinkerdinView {
 			// txtCourseProfesor
 			// 
 			this->txtCourseProfesor->Location = System::Drawing::Point(137, 161);
-			this->txtCourseProfesor->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtCourseProfesor->Margin = System::Windows::Forms::Padding(4);
 			this->txtCourseProfesor->Name = L"txtCourseProfesor";
 			this->txtCourseProfesor->Size = System::Drawing::Size(373, 20);
 			this->txtCourseProfesor->TabIndex = 43;
@@ -186,7 +186,7 @@ namespace TinkerdinView {
 			// txtCourseName
 			// 
 			this->txtCourseName->Location = System::Drawing::Point(138, 75);
-			this->txtCourseName->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtCourseName->Margin = System::Windows::Forms::Padding(4);
 			this->txtCourseName->Name = L"txtCourseName";
 			this->txtCourseName->Size = System::Drawing::Size(372, 20);
 			this->txtCourseName->TabIndex = 36;
@@ -194,7 +194,7 @@ namespace TinkerdinView {
 			// txtCourseId
 			// 
 			this->txtCourseId->Location = System::Drawing::Point(138, 45);
-			this->txtCourseId->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtCourseId->Margin = System::Windows::Forms::Padding(4);
 			this->txtCourseId->Name = L"txtCourseId";
 			this->txtCourseId->Size = System::Drawing::Size(372, 20);
 			this->txtCourseId->TabIndex = 35;
@@ -247,10 +247,10 @@ namespace TinkerdinView {
 					this->CourseNameGrid, this->CourseTypeGrid, this->CourseProfessorGrid
 			});
 			this->dgvCourse->Location = System::Drawing::Point(88, 423);
-			this->dgvCourse->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->dgvCourse->Margin = System::Windows::Forms::Padding(4);
 			this->dgvCourse->Name = L"dgvCourse";
 			this->dgvCourse->RowHeadersWidth = 51;
-			this->dgvCourse->Size = System::Drawing::Size(380, 162);
+			this->dgvCourse->Size = System::Drawing::Size(511, 169);
 			this->dgvCourse->TabIndex = 64;
 			this->dgvCourse->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CourseForm::dgvCourse_CellContentClick);
 			this->dgvCourse->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CourseForm::dgvCourse_CellContentClick);
@@ -286,7 +286,7 @@ namespace TinkerdinView {
 			// btnDeleteCourse
 			// 
 			this->btnDeleteCourse->Location = System::Drawing::Point(439, 364);
-			this->btnDeleteCourse->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnDeleteCourse->Margin = System::Windows::Forms::Padding(4);
 			this->btnDeleteCourse->Name = L"btnDeleteCourse";
 			this->btnDeleteCourse->Size = System::Drawing::Size(197, 28);
 			this->btnDeleteCourse->TabIndex = 63;
@@ -297,7 +297,7 @@ namespace TinkerdinView {
 			// btnUpdateCourse
 			// 
 			this->btnUpdateCourse->Location = System::Drawing::Point(235, 364);
-			this->btnUpdateCourse->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnUpdateCourse->Margin = System::Windows::Forms::Padding(4);
 			this->btnUpdateCourse->Name = L"btnUpdateCourse";
 			this->btnUpdateCourse->Size = System::Drawing::Size(196, 28);
 			this->btnUpdateCourse->TabIndex = 62;
@@ -308,7 +308,7 @@ namespace TinkerdinView {
 			// btnAddCourse
 			// 
 			this->btnAddCourse->Location = System::Drawing::Point(30, 364);
-			this->btnAddCourse->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnAddCourse->Margin = System::Windows::Forms::Padding(4);
 			this->btnAddCourse->Name = L"btnAddCourse";
 			this->btnAddCourse->Size = System::Drawing::Size(196, 28);
 			this->btnAddCourse->TabIndex = 61;
@@ -420,7 +420,7 @@ namespace TinkerdinView {
 			this->Controls->Add(this->labelCourse);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"CourseForm";
 			this->Text = L"CourseForm";
 			this->Load += gcnew System::EventHandler(this, &CourseForm::CourseForm_Load);
@@ -573,18 +573,20 @@ private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^
 		Controller::DeleteCourse(Int32::Parse(txtCourseId->Text));
 	ShowCourses();
 }
+void FillCmbCourseType() {
+	cmbCourseType->Items->Clear();
+	List <String^>^ courseList = Controller::QueryAllTypeCourse();
+	for (int i = 0; i < courseList->Count; i++) {
+		//cmbStore->Items->Add(gcnew ComboBoxItem(storeList[i]->Name, storeList[i]->Id));
+		cmbCourseType->Items->Add(courseList[i]);
+	}
+}
+
 private: System::Void CourseForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	FillCmbCourseType();
 	ShowCourses();
 }
-	   void FillCmbCourseType() {
-		   cmbCourseType->Items->Clear();
-		   List <String^>^ courseList = Controller::QueryAllTypeCourse();
-		   for (int i = 0; i < courseList->Count; i++) {
-			   //cmbStore->Items->Add(gcnew ComboBoxItem(storeList[i]->Name, storeList[i]->Id));
-			   cmbCourseType->Items->Add(courseList[i]);
-		   }
-	   }
+	   
 
 private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
@@ -612,5 +614,7 @@ private: System::Void editarToolStripMenuItem_Click(System::Object^ sender, Syst
 	   }
 
 
+private: System::Void cmbCourseType_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

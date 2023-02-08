@@ -2,6 +2,7 @@
 #include "CalendarForm.h"
 #include "CourseForm.h"
 #include "PlaceForm.h"
+#include "ClientForm.h"
 
 namespace TinkerdinView {
 
@@ -51,10 +52,15 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::ToolStripMenuItem^ lugarLibreToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ amigosToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ lugaresToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ cursosToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ CourseTStripMenu;
+
 	private: System::Windows::Forms::Button^ Agenda;
 	private: System::Windows::Forms::Button^ Estudiar;
 	private: System::Windows::Forms::Button^ Extrabtn;
+	private: System::Windows::Forms::ToolStripMenuItem^ RegisterTStripMenu;
+
+
+
 
 
 	protected:
@@ -79,7 +85,8 @@ namespace TinkerdinView {
 			this->mantenimientoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->amigosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->lugaresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->cursosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->CourseTStripMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->RegisterTStripMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->operacionesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->buscarLugarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->buscarAmigosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -101,7 +108,7 @@ namespace TinkerdinView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(864, 24);
+			this->menuStrip1->Size = System::Drawing::Size(1323, 24);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -121,9 +128,9 @@ namespace TinkerdinView {
 			// 
 			// mantenimientoToolStripMenuItem
 			// 
-			this->mantenimientoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->mantenimientoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->amigosToolStripMenuItem,
-					this->lugaresToolStripMenuItem, this->cursosToolStripMenuItem
+					this->lugaresToolStripMenuItem, this->CourseTStripMenu, this->RegisterTStripMenu
 			});
 			this->mantenimientoToolStripMenuItem->Name = L"mantenimientoToolStripMenuItem";
 			this->mantenimientoToolStripMenuItem->Size = System::Drawing::Size(101, 20);
@@ -132,22 +139,29 @@ namespace TinkerdinView {
 			// amigosToolStripMenuItem
 			// 
 			this->amigosToolStripMenuItem->Name = L"amigosToolStripMenuItem";
-			this->amigosToolStripMenuItem->Size = System::Drawing::Size(115, 22);
+			this->amigosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->amigosToolStripMenuItem->Text = L"Amigos";
 			// 
 			// lugaresToolStripMenuItem
 			// 
 			this->lugaresToolStripMenuItem->Name = L"lugaresToolStripMenuItem";
-			this->lugaresToolStripMenuItem->Size = System::Drawing::Size(115, 22);
+			this->lugaresToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->lugaresToolStripMenuItem->Text = L"Lugares";
 			this->lugaresToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::lugaresToolStripMenuItem_Click);
 			// 
-			// cursosToolStripMenuItem
+			// CourseTStripMenu
 			// 
-			this->cursosToolStripMenuItem->Name = L"cursosToolStripMenuItem";
-			this->cursosToolStripMenuItem->Size = System::Drawing::Size(115, 22);
-			this->cursosToolStripMenuItem->Text = L"Cursos";
-			this->cursosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::cursosToolStripMenuItem_Click);
+			this->CourseTStripMenu->Name = L"CourseTStripMenu";
+			this->CourseTStripMenu->Size = System::Drawing::Size(180, 22);
+			this->CourseTStripMenu->Text = L"Cursos";
+			this->CourseTStripMenu->Click += gcnew System::EventHandler(this, &MainForm::cursosToolStripMenuItem_Click);
+			// 
+			// RegisterTStripMenu
+			// 
+			this->RegisterTStripMenu->Name = L"RegisterTStripMenu";
+			this->RegisterTStripMenu->Size = System::Drawing::Size(180, 22);
+			this->RegisterTStripMenu->Text = L"Registro";
+			this->RegisterTStripMenu->Click += gcnew System::EventHandler(this, &MainForm::registroToolStripMenuItem_Click);
 			// 
 			// operacionesToolStripMenuItem
 			// 
@@ -235,7 +249,7 @@ namespace TinkerdinView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->ClientSize = System::Drawing::Size(864, 392);
+			this->ClientSize = System::Drawing::Size(1323, 502);
 			this->Controls->Add(this->Extrabtn);
 			this->Controls->Add(this->Estudiar);
 			this->Controls->Add(this->Agenda);
@@ -275,6 +289,13 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
+
+}
+
+private: System::Void registroToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	ClientForm^ clientForm = gcnew ClientForm();
+	clientForm -> MdiParent = this;
+	clientForm->Show();
 
 }
 };
