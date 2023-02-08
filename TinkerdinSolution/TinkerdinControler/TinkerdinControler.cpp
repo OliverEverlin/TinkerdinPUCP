@@ -99,7 +99,8 @@ int TinkerdinControler::Controller::AddCourse(Course^ course)
 {
     course->Status = 'A';
     courseList->Add(course);
-    return 1;
+    Persistance::PersistBinary("course.bin", courseList);
+    return course->Id;
 }
 
 int TinkerdinControler::Controller::UpdateCourse(Course^ course)
@@ -108,7 +109,8 @@ int TinkerdinControler::Controller::UpdateCourse(Course^ course)
         if (course->Id == courseList[i]->Id) {
             course->Status = 'A';
             courseList[i] = course;
-            return 1;
+            Persistance::PersistBinary("course.bin", courseList);
+            return course->Id;
         }
     return 0;
 }
@@ -117,20 +119,39 @@ int TinkerdinControler::Controller::DeleteCourse(int courseId)
 {
     for (int i = 0; i < courseList->Count; i++)
         if (courseId == courseList[i]->Id) {
-            courseList[i]->Status = 'I';
-            return 1;
+            courseList->RemoveAt(i);
+            Persistance::PersistBinary("course.bin", courseList);
+            return courseId;
         }
     return 0;
 }
 
 List<Course^>^ TinkerdinControler::Controller::QueryAllCourse() {
-    List<Course^>^ activeCourseList = gcnew List<Course^>();
+    /*List<Course^>^ activeCourseList = gcnew List<Course^>();
     for (int i = 0; i < courseList->Count; i++) {
         if (courseList[i]->Status == 'A') {
             activeCourseList->Add(courseList[i]);
         }
-    }
-    return activeCourseList;
+    }*/
+
+    courseList = (List<Course^>^)Persistance::LoadBinaryData("course.bin");
+    
+    return courseList;
+}
+
+Course^ TinkerdinControler::Controller::QueryCourseById(int courseId)
+{
+    courseList = (List<Course^>^)Persistance::LoadBinaryData("course.bin");
+    for (int i = 0; i < courseList->Count; i++)
+        if (courseList[i]->Id == courseId)
+            return courseList[i];
+    return nullptr;
+}
+
+List<String^>^ TinkerdinControler::Controller::QueryAllTypeCourse()
+{
+    courseTypeList = (List<String^>^)Persistance::LoadBinaryData("typecourse.xml");
+    return courseTypeList;
 }
 
 //COURSE FIN--------------------------------------------

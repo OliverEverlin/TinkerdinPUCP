@@ -22,7 +22,8 @@ namespace TinkerdinModel {
         property String^ Schedule;
         property char Status;
         property String^ Professor;
-        property String^ ExamsDates;
+        property String^ Parcial;
+        property String^ Final;
 
         void Study_course();
     };

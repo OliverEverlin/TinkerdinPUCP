@@ -13,11 +13,13 @@ namespace TinkerdinControler {
 		//static List<Admin^>^ adminList;
 		static List<Interest^>^ interestList=gcnew List<Interest^>();
 		static List<Course^>^ courseList = gcnew List<Course^>();
+		static List <String^>^ courseTypeList = gcnew List<String^>(courseTypeArr);
 		static List<Place^>^ placeList = gcnew List<Place^>();
 
 		//lista de opciones predeterminadas
 		static array<String^>^ InterestArr = {"musica", "deporte", "jobi","academico"};
 		static array<String^>^ genderArr = { "masculino", "femenino", "otros" };
+		static array<String^>^ courseTypeArr = { "Curricular", "Extracurricular" };
 
 
 	public:
@@ -36,6 +38,8 @@ namespace TinkerdinControler {
 		static int UpdateCourse(Course^);
 		static int DeleteCourse(int courseId);	//eliminar con codigo del curso	//¿añadimos tambien nombre????
 		static List<Course^>^ QueryAllCourse();
+		static Course^ QueryCourseById(int courseId);
+		static List<String^>^ QueryAllTypeCourse();
 		//static Customer^ QueryCustomerById(int customerId);
 
 		//Métodos CRUD de Place 

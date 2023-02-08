@@ -143,9 +143,16 @@ Object^ TinkerdinPersistance::Persistance::LoadBinaryData(String^ fileName){
             }
         }
         if (fileName->Equals("courses.bin")) {
-            res = gcnew List<Interest^>();
+            res = gcnew List<Course^>();
             if (File::Exists(fileName)) {
-                res = (List<Interest^>^)formateador->Deserialize(input);
+                res = (List<Course^>^)formateador->Deserialize(input);
+            }
+        }
+        //Types podria ser xml o predefinido
+        if (fileName->Equals("typecourse.bin")) {
+            res = gcnew List<String^>();
+            if (File::Exists(fileName)) {
+                res = (List<String^>^)formateador->Deserialize(input);
             }
         }
         if (fileName->Equals("events.bin")) {
@@ -155,9 +162,9 @@ Object^ TinkerdinPersistance::Persistance::LoadBinaryData(String^ fileName){
             }
         }
         if (fileName->Equals("places.bin")) {
-            res = gcnew List<Interest^>();
+            res = gcnew List<Place^>();
             if (File::Exists(fileName)) {
-                res = (List<Interest^>^)formateador->Deserialize(input);
+                res = (List<Place^>^)formateador->Deserialize(input);
             }
         }
 
