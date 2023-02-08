@@ -11,6 +11,9 @@ namespace TinkerdinView {
 	using namespace System::Drawing;
 	using namespace System::Collections::Generic;
 	using namespace TinkerdinControler;
+
+	using namespace TinkerdinView;
+
 	using namespace TinkerdinModel;
 	
 	
@@ -137,7 +140,7 @@ namespace TinkerdinView {
 			// cmbCourseType
 			// 
 			this->cmbCourseType->FormattingEnabled = true;
-			this->cmbCourseType->Location = System::Drawing::Point(183, 122);
+			this->cmbCourseType->Location = System::Drawing::Point(183, 144);
 			this->cmbCourseType->Margin = System::Windows::Forms::Padding(5);
 			this->cmbCourseType->Name = L"cmbCourseType";
 			this->cmbCourseType->Size = System::Drawing::Size(496, 24);
@@ -145,7 +148,7 @@ namespace TinkerdinView {
 			// 
 			// txtCourseHorario
 			// 
-			this->txtCourseHorario->Location = System::Drawing::Point(183, 239);
+			this->txtCourseHorario->Location = System::Drawing::Point(183, 261);
 			this->txtCourseHorario->Margin = System::Windows::Forms::Padding(5);
 			this->txtCourseHorario->Multiline = true;
 			this->txtCourseHorario->Name = L"txtCourseHorario";
@@ -154,7 +157,7 @@ namespace TinkerdinView {
 			// 
 			// txtCourseProfesor
 			// 
-			this->txtCourseProfesor->Location = System::Drawing::Point(183, 176);
+			this->txtCourseProfesor->Location = System::Drawing::Point(183, 198);
 			this->txtCourseProfesor->Margin = System::Windows::Forms::Padding(5);
 			this->txtCourseProfesor->Name = L"txtCourseProfesor";
 			this->txtCourseProfesor->Size = System::Drawing::Size(496, 22);
@@ -163,7 +166,7 @@ namespace TinkerdinView {
 			// labelCouseHours
 			// 
 			this->labelCouseHours->AutoSize = true;
-			this->labelCouseHours->Location = System::Drawing::Point(49, 235);
+			this->labelCouseHours->Location = System::Drawing::Point(49, 257);
 			this->labelCouseHours->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->labelCouseHours->Name = L"labelCouseHours";
 			this->labelCouseHours->Size = System::Drawing::Size(55, 16);
@@ -173,7 +176,7 @@ namespace TinkerdinView {
 			// labelCourseProfessor
 			// 
 			this->labelCourseProfessor->AutoSize = true;
-			this->labelCourseProfessor->Location = System::Drawing::Point(49, 176);
+			this->labelCourseProfessor->Location = System::Drawing::Point(49, 198);
 			this->labelCourseProfessor->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->labelCourseProfessor->Name = L"labelCourseProfessor";
 			this->labelCourseProfessor->Size = System::Drawing::Size(61, 16);
@@ -182,7 +185,7 @@ namespace TinkerdinView {
 			// 
 			// txtCourseName
 			// 
-			this->txtCourseName->Location = System::Drawing::Point(184, 70);
+			this->txtCourseName->Location = System::Drawing::Point(184, 92);
 			this->txtCourseName->Margin = System::Windows::Forms::Padding(5);
 			this->txtCourseName->Name = L"txtCourseName";
 			this->txtCourseName->Size = System::Drawing::Size(495, 22);
@@ -190,7 +193,7 @@ namespace TinkerdinView {
 			// 
 			// txtCourseId
 			// 
-			this->txtCourseId->Location = System::Drawing::Point(184, 33);
+			this->txtCourseId->Location = System::Drawing::Point(184, 55);
 			this->txtCourseId->Margin = System::Windows::Forms::Padding(5);
 			this->txtCourseId->Name = L"txtCourseId";
 			this->txtCourseId->Size = System::Drawing::Size(495, 22);
@@ -199,7 +202,7 @@ namespace TinkerdinView {
 			// labelCourseName
 			// 
 			this->labelCourseName->AutoSize = true;
-			this->labelCourseName->Location = System::Drawing::Point(49, 70);
+			this->labelCourseName->Location = System::Drawing::Point(49, 92);
 			this->labelCourseName->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->labelCourseName->Name = L"labelCourseName";
 			this->labelCourseName->Size = System::Drawing::Size(59, 16);
@@ -209,7 +212,7 @@ namespace TinkerdinView {
 			// labelCourse
 			// 
 			this->labelCourse->AutoSize = true;
-			this->labelCourse->Location = System::Drawing::Point(49, 33);
+			this->labelCourse->Location = System::Drawing::Point(49, 55);
 			this->labelCourse->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->labelCourse->Name = L"labelCourse";
 			this->labelCourse->Size = System::Drawing::Size(59, 16);
@@ -219,7 +222,7 @@ namespace TinkerdinView {
 			// labelCourseType
 			// 
 			this->labelCourseType->AutoSize = true;
-			this->labelCourseType->Location = System::Drawing::Point(49, 124);
+			this->labelCourseType->Location = System::Drawing::Point(49, 146);
 			this->labelCourseType->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->labelCourseType->Name = L"labelCourseType";
 			this->labelCourseType->Size = System::Drawing::Size(38, 16);
@@ -229,7 +232,7 @@ namespace TinkerdinView {
 			// labelCourseExamDates
 			// 
 			this->labelCourseExamDates->AutoSize = true;
-			this->labelCourseExamDates->Location = System::Drawing::Point(49, 326);
+			this->labelCourseExamDates->Location = System::Drawing::Point(49, 348);
 			this->labelCourseExamDates->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->labelCourseExamDates->Name = L"labelCourseExamDates";
 			this->labelCourseExamDates->Size = System::Drawing::Size(123, 16);
@@ -315,7 +318,7 @@ namespace TinkerdinView {
 			// 
 			// dateTimePickerParcial
 			// 
-			this->dateTimePickerParcial->Location = System::Drawing::Point(184, 379);
+			this->dateTimePickerParcial->Location = System::Drawing::Point(184, 401);
 			this->dateTimePickerParcial->Margin = System::Windows::Forms::Padding(4);
 			this->dateTimePickerParcial->Name = L"dateTimePickerParcial";
 			this->dateTimePickerParcial->Size = System::Drawing::Size(265, 22);
@@ -324,7 +327,7 @@ namespace TinkerdinView {
 			// labelCourseParfcialExam
 			// 
 			this->labelCourseParfcialExam->AutoSize = true;
-			this->labelCourseParfcialExam->Location = System::Drawing::Point(85, 379);
+			this->labelCourseParfcialExam->Location = System::Drawing::Point(85, 401);
 			this->labelCourseParfcialExam->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->labelCourseParfcialExam->Name = L"labelCourseParfcialExam";
 			this->labelCourseParfcialExam->Size = System::Drawing::Size(52, 16);
@@ -334,7 +337,7 @@ namespace TinkerdinView {
 			// labelCourseFinalExam
 			// 
 			this->labelCourseFinalExam->AutoSize = true;
-			this->labelCourseFinalExam->Location = System::Drawing::Point(488, 379);
+			this->labelCourseFinalExam->Location = System::Drawing::Point(488, 401);
 			this->labelCourseFinalExam->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->labelCourseFinalExam->Name = L"labelCourseFinalExam";
 			this->labelCourseFinalExam->Size = System::Drawing::Size(39, 16);
@@ -343,7 +346,7 @@ namespace TinkerdinView {
 			// 
 			// dateTimePickerFinal
 			// 
-			this->dateTimePickerFinal->Location = System::Drawing::Point(565, 379);
+			this->dateTimePickerFinal->Location = System::Drawing::Point(565, 401);
 			this->dateTimePickerFinal->Margin = System::Windows::Forms::Padding(4);
 			this->dateTimePickerFinal->Name = L"dateTimePickerFinal";
 			this->dateTimePickerFinal->Size = System::Drawing::Size(265, 22);
@@ -351,6 +354,7 @@ namespace TinkerdinView {
 			// 
 			// menuStrip1
 			// 
+			this->menuStrip1->BackColor = System::Drawing::SystemColors::ActiveBorder;
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->archivoToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
@@ -450,7 +454,6 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 			return;
 		}
 
-		course->setId(Convert::ToInt32(txtCourseId->Text));
 		course->Id = Convert::ToInt32(txtCourseId->Text);
 		course->Name = txtCourseName->Text;
 		course->Type = cmbCourseType->SelectedItem->ToString();
@@ -459,7 +462,7 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 		course->Final = dateTimePickerFinal->Value.ToString("yyyy-MM-dd");
 		course->Status = 'A';
 		//falta añadir cursos
-		Controller::AddCouse(course);
+		Controller::AddCourse(course);
 
 		btnAddCourse->Enabled = true;
 		ShowCourses();
@@ -500,15 +503,13 @@ private: System::Void dgvCourse_CellContentClick(System::Object^ sender, System:
 		int selectedrowindex = dgvCourse->SelectedCells[0]->RowIndex;
 		DataGridViewRow^ selectedRow = dgvCourse->Rows[selectedrowindex];
 		String^ a = selectedRow->Cells[0]->Value->ToString();
-		int courseId = Convert::ToInt32(dgvCourse->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
+		int courseId = Convert::ToInt32(dgvCourse->Rows[selectedrowindex]->Cells[0]->Value->ToString());
 		Course^ p = Controller::QueryCourseById(courseId);
 		txtCourseId->Text = "" + p->Id;
 		txtCourseName->Text = p->Name;
 
 
 		for (int i = 0; i < cmbCourseType->Items->Count; i++) {
-			//ComboBoxItem^ cmbi = ((ComboBoxItem^)cmbStore->Items[i]);
-			//if (cmbi->Value == s->Store->Id) {
 			if (cmbCourseType->Items[i]->ToString()->CompareTo(p->Type) == 0) {
 				cmbCourseType->SelectedIndex = i;
 				break;

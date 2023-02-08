@@ -150,7 +150,7 @@ Course^ TinkerdinControler::Controller::QueryCourseById(int courseId)
 
 List<String^>^ TinkerdinControler::Controller::QueryAllTypeCourse()
 {
-    courseTypeList = (List<String^>^)Persistance::LoadBinaryData("typecourse.xml");
+    courseTypeList = (List<String^>^)Persistance::LoadBinaryData("typecourse.bin");
     return courseTypeList;
 }
 
