@@ -45,10 +45,11 @@ int TinkerdinControler::Controller::DeleteClient(int ClientId){
 	return 0;
 }
 
-List <String^>^ TinkerdinControler::Controller::QueryAllGender()
-{
-    //storeList=(List)
-}
+//List <String^>^ TinkerdinControler::Controller::QueryAllGender()
+//{
+//    //storeList=(List)
+//    return courseTypeArr;
+//}
 
 //INTERES WITH PERSIST. BINARIA -----------------------------------------
 int TinkerdinControler::Controller::AddInterest(Interest^ interest){

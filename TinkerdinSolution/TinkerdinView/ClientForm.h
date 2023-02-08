@@ -10,7 +10,7 @@ namespace TinkerdinView {
 	using namespace System::Drawing;
 	using namespace System::Collections::Generic;
 	using namespace TinkerdinControler;
-	using namespace TinkerdinView;
+	using namespace TinkerdinModel;
 	/// <summary>
 	/// Resumen de ClientForm
 	/// </summary>
@@ -21,13 +21,13 @@ namespace TinkerdinView {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar código de constructor aquí
+			//TODO: agregar cï¿½digo de constructor aquï¿½
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estï¿½n usando.
 		/// </summary>
 		~ClientForm()
 		{
@@ -54,6 +54,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::Button^ btnUpdate;
 	private: System::Windows::Forms::Button^ btnReturn;
 	private: System::Windows::Forms::ComboBox^ cmbGender;
+	private: System::Windows::Forms::PictureBox^ pbPhoto;
 
 
 
@@ -62,7 +63,7 @@ namespace TinkerdinView {
 
 
 
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
+
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::TextBox^ txtUsername;
 
@@ -71,14 +72,14 @@ namespace TinkerdinView {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseï¿½ador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// Mï¿½todo necesario para admitir el Diseï¿½ador. No se puede modificar
+		/// el contenido de este mï¿½todo con el editor de cï¿½digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -96,11 +97,11 @@ namespace TinkerdinView {
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->btnReturn = (gcnew System::Windows::Forms::Button());
 			this->cmbGender = (gcnew System::Windows::Forms::ComboBox());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->pbPhoto = (gcnew System::Windows::Forms::PictureBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->txtUsername = (gcnew System::Windows::Forms::TextBox());
 			this->button3 = (gcnew System::Windows::Forms::Button());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// name
@@ -200,6 +201,7 @@ namespace TinkerdinView {
 			this->btnUpdate->TabIndex = 12;
 			this->btnUpdate->Text = L"Actualizar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->Click += gcnew System::EventHandler(this, &ClientForm::btnUpdate_Click);
 			// 
 			// btnReturn
 			// 
@@ -218,13 +220,13 @@ namespace TinkerdinView {
 			this->cmbGender->Size = System::Drawing::Size(100, 21);
 			this->cmbGender->TabIndex = 14;
 			// 
-			// pictureBox1
+			// pbPhoto
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(497, 39);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(180, 213);
-			this->pictureBox1->TabIndex = 15;
-			this->pictureBox1->TabStop = false;
+			this->pbPhoto->Location = System::Drawing::Point(497, 39);
+			this->pbPhoto->Name = L"pbPhoto";
+			this->pbPhoto->Size = System::Drawing::Size(180, 213);
+			this->pbPhoto->TabIndex = 15;
+			this->pbPhoto->TabStop = false;
 			// 
 			// label6
 			// 
@@ -260,7 +262,7 @@ namespace TinkerdinView {
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->txtUsername);
 			this->Controls->Add(this->label6);
-			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->pbPhoto);
 			this->Controls->Add(this->cmbGender);
 			this->Controls->Add(this->btnReturn);
 			this->Controls->Add(this->btnUpdate);
@@ -278,7 +280,7 @@ namespace TinkerdinView {
 			this->Name = L"ClientForm";
 			this->Text = L"Perfil";
 			this->Load += gcnew System::EventHandler(this, &ClientForm::ClientForm_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -287,7 +289,45 @@ namespace TinkerdinView {
 	private: System::Void ClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 
-private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+
+	void CleanControls() {
+		txtUsername->Clear();
+		txtName->Clear();
+		txtAge->Clear();
+		txtEmail->Clear();
+		txtCarrer->Clear();
+		txtCicle->Clear();
+		pbPhoto->Image = nullptr;
+	}
+
+
+
+
+private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
+	Cliente^ a = gcnew Cliente();
+	a->Username = txtUsername->Text;
+	a->Name = txtName->Text;
+	a->Age = Convert::ToInt32(txtAge->Text);
+	//a->Gender= txt
+	a->Email = txtEmail->Text;
+	a->Carrer = txtCarrer->Text;
+	a->Cicle = Convert::ToInt32(txtCicle->Text);
+
+
+	if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
+		System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+		pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+		a->Photo = ms->ToArray();
+	}
+
+	Controller::UpdateClient(a);
+	//RefreshGrid();
 }
+
 };
 }
+
+
+

@@ -29,7 +29,7 @@ namespace TinkerdinControler {
 		static List<Cliente^>^ QueryAllClients();
 		static int UpdateClient(Cliente^ client);
 		static int DeleteClient(int ClientId);
-		static List<String^>^ QueryAllGender();
+		//static List<String^>^ QueryAllGender();
 		//static List<Cliente^>^ QueryClientsByNameOrInterest(String^ name, String^ interest);
 		
 

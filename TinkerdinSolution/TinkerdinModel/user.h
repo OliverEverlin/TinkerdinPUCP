@@ -17,6 +17,7 @@ namespace TinkerdinModel {
         property char Gender;
         property int Age;
         property int Phone;
+        property array <Byte>^ Photo;
         property String^ Email;
         property String^ Status;
 
