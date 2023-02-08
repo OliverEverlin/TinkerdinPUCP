@@ -142,6 +142,24 @@ Object^ TinkerdinPersistance::Persistance::LoadBinaryData(String^ fileName){
                 res = (List<Interest^>^)formateador->Deserialize(input);
             }
         }
+        if (fileName->Equals("courses.bin")) {
+            res = gcnew List<Interest^>();
+            if (File::Exists(fileName)) {
+                res = (List<Interest^>^)formateador->Deserialize(input);
+            }
+        }
+        if (fileName->Equals("events.bin")) {
+            res = gcnew List<Interest^>();
+            if (File::Exists(fileName)) {
+                res = (List<Interest^>^)formateador->Deserialize(input);
+            }
+        }
+        if (fileName->Equals("places.bin")) {
+            res = gcnew List<Interest^>();
+            if (File::Exists(fileName)) {
+                res = (List<Interest^>^)formateador->Deserialize(input);
+            }
+        }
 
     }
     catch (Exception^ ex) {
