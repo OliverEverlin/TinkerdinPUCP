@@ -1,14 +1,3 @@
-//#pragma once
-//
-//using namespace System;
-//
-//namespace TinkerdinControler {
-//	public ref class Class1
-//	{
-//		// TODO: Agregue aquí los métodos de esta clase.
-//	};
-//}
-//AEAAAAAAAAAAAAAAAAAAAA
 #pragma once
 
 using namespace System;
@@ -28,15 +17,17 @@ namespace TinkerdinControler {
 
 		//lista de opciones predeterminadas
 		static array<String^>^ InterestArr = {"musica", "deporte", "jobi","academico"};
+		static array<String^>^ genderArr = { "masculino", "femenino", "otros" };
 
 
 	public:
-		// TODO: Agregue aquí los métodos de esta clase.
+		// CRUD Cliente
 		static int AddClient(Cliente^ client);
 		static Cliente^ QueryClientById(int^ clientId);
 		static List<Cliente^>^ QueryAllClients();
 		static int UpdateClient(Cliente^ client);
 		static int DeleteClient(int ClientId);
+		static List<String^>^ QueryAllGender();
 		//static List<Cliente^>^ QueryClientsByNameOrInterest(String^ name, String^ interest);
 		
 

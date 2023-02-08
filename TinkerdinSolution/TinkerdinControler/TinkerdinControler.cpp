@@ -45,6 +45,11 @@ int TinkerdinControler::Controller::DeleteClient(int ClientId){
 	return 0;
 }
 
+List <String^>^ TinkerdinControler::Controller::QueryAllGender()
+{
+    //storeList=(List)
+}
+
 //INTERES WITH PERSIST. BINARIA -----------------------------------------
 int TinkerdinControler::Controller::AddInterest(Interest^ interest){
     interestList->Add(interest);

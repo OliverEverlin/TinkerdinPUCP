@@ -8,7 +8,9 @@ namespace TinkerdinView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace System::Collections::Generic;
+	using namespace TinkerdinControler;
+	using namespace TinkerdinView;
 	/// <summary>
 	/// Resumen de ClientForm
 	/// </summary>
@@ -35,26 +37,36 @@ namespace TinkerdinView {
 			}
 		}
 	private: System::Windows::Forms::Label^ name;
+	private: System::Windows::Forms::TextBox^ txtName;
 	protected:
 
 	protected:
-	private: System::Windows::Forms::TextBox^ textBox1;
+
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::TextBox^ txtAge;
+	private: System::Windows::Forms::TextBox^ txtEmail;
+	private: System::Windows::Forms::TextBox^ txtCarrer;
+	private: System::Windows::Forms::TextBox^ txtCicle;
+	private: System::Windows::Forms::Button^ btnUpdate;
+	private: System::Windows::Forms::Button^ btnReturn;
+	private: System::Windows::Forms::ComboBox^ cmbGender;
 
-	private: System::Windows::Forms::TextBox^ textBox4;
-	private: System::Windows::Forms::TextBox^ textBox5;
-	private: System::Windows::Forms::TextBox^ textBox6;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
+
+
+
+
+
+
+
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::TextBox^ txtUsername;
+
+
 	private: System::Windows::Forms::Button^ button3;
 
 	private:
@@ -71,22 +83,22 @@ namespace TinkerdinView {
 		void InitializeComponent(void)
 		{
 			this->name = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->txtName = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->txtAge = (gcnew System::Windows::Forms::TextBox());
+			this->txtEmail = (gcnew System::Windows::Forms::TextBox());
+			this->txtCarrer = (gcnew System::Windows::Forms::TextBox());
+			this->txtCicle = (gcnew System::Windows::Forms::TextBox());
+			this->btnUpdate = (gcnew System::Windows::Forms::Button());
+			this->btnReturn = (gcnew System::Windows::Forms::Button());
+			this->cmbGender = (gcnew System::Windows::Forms::ComboBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->txtUsername = (gcnew System::Windows::Forms::TextBox());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -100,12 +112,12 @@ namespace TinkerdinView {
 			this->name->TabIndex = 0;
 			this->name->Text = L"Nombre:";
 			// 
-			// textBox1
+			// txtName
 			// 
-			this->textBox1->Location = System::Drawing::Point(157, 86);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(218, 20);
-			this->textBox1->TabIndex = 1;
+			this->txtName->Location = System::Drawing::Point(157, 86);
+			this->txtName->Name = L"txtName";
+			this->txtName->Size = System::Drawing::Size(218, 20);
+			this->txtName->TabIndex = 1;
 			// 
 			// label2
 			// 
@@ -152,59 +164,59 @@ namespace TinkerdinView {
 			this->label5->TabIndex = 6;
 			this->label5->Text = L"Ciclo";
 			// 
-			// textBox2
+			// txtAge
 			// 
-			this->textBox2->Location = System::Drawing::Point(157, 121);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 20);
-			this->textBox2->TabIndex = 7;
+			this->txtAge->Location = System::Drawing::Point(157, 121);
+			this->txtAge->Name = L"txtAge";
+			this->txtAge->Size = System::Drawing::Size(100, 20);
+			this->txtAge->TabIndex = 7;
 			// 
-			// textBox4
+			// txtEmail
 			// 
-			this->textBox4->Location = System::Drawing::Point(157, 197);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(100, 20);
-			this->textBox4->TabIndex = 9;
+			this->txtEmail->Location = System::Drawing::Point(157, 197);
+			this->txtEmail->Name = L"txtEmail";
+			this->txtEmail->Size = System::Drawing::Size(100, 20);
+			this->txtEmail->TabIndex = 9;
 			// 
-			// textBox5
+			// txtCarrer
 			// 
-			this->textBox5->Location = System::Drawing::Point(157, 232);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(100, 20);
-			this->textBox5->TabIndex = 10;
+			this->txtCarrer->Location = System::Drawing::Point(157, 232);
+			this->txtCarrer->Name = L"txtCarrer";
+			this->txtCarrer->Size = System::Drawing::Size(100, 20);
+			this->txtCarrer->TabIndex = 10;
 			// 
-			// textBox6
+			// txtCicle
 			// 
-			this->textBox6->Location = System::Drawing::Point(157, 267);
-			this->textBox6->Name = L"textBox6";
-			this->textBox6->Size = System::Drawing::Size(100, 20);
-			this->textBox6->TabIndex = 11;
+			this->txtCicle->Location = System::Drawing::Point(157, 267);
+			this->txtCicle->Name = L"txtCicle";
+			this->txtCicle->Size = System::Drawing::Size(100, 20);
+			this->txtCicle->TabIndex = 11;
 			// 
-			// button1
+			// btnUpdate
 			// 
-			this->button1->Location = System::Drawing::Point(130, 361);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
-			this->button1->TabIndex = 12;
-			this->button1->Text = L"Actualizar";
-			this->button1->UseVisualStyleBackColor = true;
+			this->btnUpdate->Location = System::Drawing::Point(130, 361);
+			this->btnUpdate->Name = L"btnUpdate";
+			this->btnUpdate->Size = System::Drawing::Size(75, 23);
+			this->btnUpdate->TabIndex = 12;
+			this->btnUpdate->Text = L"Actualizar";
+			this->btnUpdate->UseVisualStyleBackColor = true;
 			// 
-			// button2
+			// btnReturn
 			// 
-			this->button2->Location = System::Drawing::Point(486, 361);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
-			this->button2->TabIndex = 13;
-			this->button2->Text = L"Cancelar";
-			this->button2->UseVisualStyleBackColor = true;
+			this->btnReturn->Location = System::Drawing::Point(484, 361);
+			this->btnReturn->Name = L"btnReturn";
+			this->btnReturn->Size = System::Drawing::Size(75, 23);
+			this->btnReturn->TabIndex = 13;
+			this->btnReturn->Text = L"Cancelar";
+			this->btnReturn->UseVisualStyleBackColor = true;
 			// 
-			// comboBox1
+			// cmbGender
 			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(157, 154);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(100, 21);
-			this->comboBox1->TabIndex = 14;
+			this->cmbGender->FormattingEnabled = true;
+			this->cmbGender->Location = System::Drawing::Point(157, 154);
+			this->cmbGender->Name = L"cmbGender";
+			this->cmbGender->Size = System::Drawing::Size(100, 21);
+			this->cmbGender->TabIndex = 14;
 			// 
 			// pictureBox1
 			// 
@@ -223,20 +235,20 @@ namespace TinkerdinView {
 			this->label6->TabIndex = 16;
 			this->label6->Text = L"Nombre de usuario";
 			// 
-			// textBox3
+			// txtUsername
 			// 
-			this->textBox3->Location = System::Drawing::Point(159, 44);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(100, 20);
-			this->textBox3->TabIndex = 17;
+			this->txtUsername->Location = System::Drawing::Point(159, 44);
+			this->txtUsername->Name = L"txtUsername";
+			this->txtUsername->Size = System::Drawing::Size(100, 20);
+			this->txtUsername->TabIndex = 17;
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(548, 270);
+			this->button3->Location = System::Drawing::Point(526, 258);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(75, 23);
+			this->button3->Size = System::Drawing::Size(120, 23);
 			this->button3->TabIndex = 18;
-			this->button3->Text = L"button3";
+			this->button3->Text = L"Cambiar imagen";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &ClientForm::button3_Click);
 			// 
@@ -246,22 +258,22 @@ namespace TinkerdinView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(753, 526);
 			this->Controls->Add(this->button3);
-			this->Controls->Add(this->textBox3);
+			this->Controls->Add(this->txtUsername);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->pictureBox1);
-			this->Controls->Add(this->comboBox1);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->textBox6);
-			this->Controls->Add(this->textBox5);
-			this->Controls->Add(this->textBox4);
-			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->cmbGender);
+			this->Controls->Add(this->btnReturn);
+			this->Controls->Add(this->btnUpdate);
+			this->Controls->Add(this->txtCicle);
+			this->Controls->Add(this->txtCarrer);
+			this->Controls->Add(this->txtEmail);
+			this->Controls->Add(this->txtAge);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->txtName);
 			this->Controls->Add(this->name);
 			this->Name = L"ClientForm";
 			this->Text = L"Perfil";
