@@ -573,20 +573,18 @@ private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^
 		Controller::DeleteCourse(Int32::Parse(txtCourseId->Text));
 	ShowCourses();
 }
-void FillCmbCourseType() {
-	cmbCourseType->Items->Clear();
-	List <String^>^ courseList = Controller::QueryAllTypeCourse();
-	for (int i = 0; i < courseList->Count; i++) {
-		//cmbStore->Items->Add(gcnew ComboBoxItem(storeList[i]->Name, storeList[i]->Id));
-		cmbCourseType->Items->Add(courseList[i]);
-	}
-}
-
 private: System::Void CourseForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	FillCmbCourseType();
 	ShowCourses();
 }
-	   
+	   void FillCmbCourseType() {
+		   cmbCourseType->Items->Clear();
+		   List <String^>^ courseTypeList = Controller::QueryAllTypeCourse();
+		   for (int i = 0; i < courseTypeList->Count; i++) {
+			   //cmbStore->Items->Add(gcnew ComboBoxItem(storeList[i]->Name, storeList[i]->Id));
+			   cmbCourseType->Items->Add(courseTypeList[i]);
+		   }
+	   }
 
 private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();

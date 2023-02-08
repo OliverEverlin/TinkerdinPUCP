@@ -13,13 +13,14 @@ namespace TinkerdinControler {
 		//static List<Admin^>^ adminList;
 		static List<Interest^>^ interestList=gcnew List<Interest^>();
 		static List<Course^>^ courseList = gcnew List<Course^>();
+		static array<String^>^ courseTypeArr = { "Curricular", "Extracurricular" };
 		static List <String^>^ courseTypeList = gcnew List<String^>(courseTypeArr);
 		static List<Place^>^ placeList = gcnew List<Place^>();
 
 		//lista de opciones predeterminadas
 		static array<String^>^ InterestArr = {"musica", "deporte", "jobi","academico"};
 		static array<String^>^ genderArr = { "masculino", "femenino", "otros" };
-		static array<String^>^ courseTypeArr = { "Curricular", "Extracurricular" };
+		//static array<String^>^ courseTypeArr = { "Curricular", "Extracurricular" };
 
 
 	public:
