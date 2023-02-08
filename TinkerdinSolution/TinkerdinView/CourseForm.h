@@ -579,10 +579,10 @@ private: System::Void CourseForm_Load(System::Object^ sender, System::EventArgs^
 }
 	   void FillCmbCourseType() {
 		   cmbCourseType->Items->Clear();
-		   List <String^>^ courseList = Controller::QueryAllTypeCourse();
-		   for (int i = 0; i < courseList->Count; i++) {
+		   List <String^>^ courseTypeList = Controller::QueryAllTypeCourse();
+		   for (int i = 0; i < courseTypeList->Count; i++) {
 			   //cmbStore->Items->Add(gcnew ComboBoxItem(storeList[i]->Name, storeList[i]->Id));
-			   cmbCourseType->Items->Add(courseList[i]);
+			   cmbCourseType->Items->Add(courseTypeList[i]);
 		   }
 	   }
 
