@@ -13,6 +13,7 @@
 
 using namespace System;
 using namespace System::Collections::Generic;
+using namespace TinkerdinPersistance;
 using namespace TinkerdinModel;
 
 namespace TinkerdinControler {
@@ -24,6 +25,10 @@ namespace TinkerdinControler {
 		static List<Interest^>^ interestList=gcnew List<Interest^>();
 		static List<Course^>^ courseList = gcnew List<Course^>();
 		static List<Place^>^ placeList = gcnew List<Place^>();
+
+		//lista de opciones predeterminadas
+		static array<String^>^ InterestArr = {"musica", "deporte", "jobi","academico"};
+
 
 	public:
 		// TODO: Agregue aquí los métodos de esta clase.
@@ -49,11 +54,11 @@ namespace TinkerdinControler {
 		static Place^ QueryPlaceById(int placeId);
 		static List<Place^>^ QueryAllPlace();
 
-		////Metodos CRUD de Interest
-		//static int AddInterest(Interest^ interest);
-		//static Interest^ QueryInterestById(int^ interestId);
-		//static List<Interest^>^ QueryAllInterest();
-		//static int UpdateInterest(Interest^ interest);
-		//static int DeleteInterest(int interestId);
+		//Metodos CRUD de Interest
+		static int AddInterest(Interest^ interest);
+		static Interest^ QueryInterestById(int^ interestId);
+		static List<Interest^>^ QueryAllInterest();
+		static int UpdateInterest(Interest^ interest);
+		static int DeleteInterest(int interestId);
 	};
 }

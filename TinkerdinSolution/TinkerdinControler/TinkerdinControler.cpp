@@ -3,62 +3,91 @@
 #include "TinkerdinControler.h"
 using namespace TinkerdinPersistance;
 
-//CLIENTE-----------------------------------------
-int TinkerdinControler::Controller::AddClient(Cliente^ client)
-{
+//CLIENTE WITH PERSIST. BINARIA -----------------------------------------
+int TinkerdinControler::Controller::AddClient(Cliente^ client){
 	clientList->Add(client);
-    Persistance::Persist("clients.txt", clientList);
+    Persistance::PersistBinary("clients.bin", clientList);
 	return client->code;
 }
 
-Cliente^ TinkerdinControler::Controller::QueryClientById(int^ clientId)
-{
-	//clientList = (List<Cliente^>^)Persistance::LoadBinary;
-    //clientList = (List<Cliente^>^)Persistance::LoadData;
+Cliente^ TinkerdinControler::Controller::QueryClientById(int^ clientId){
+	clientList = (List<Cliente^>^)Persistance::LoadBinaryData("clients.bin");
     for (int i = 0; i < clientList->Count; i++)
 		if (clientList[i]->code == clientId)
 			return clientList[i];
 	return nullptr;
 }
 
-List<Cliente^>^ TinkerdinControler::Controller::QueryAllClients()
-{
-	//clientList = (List<Cliente^>^)Persistance::LoadBinaryData("clients.bin");
-    //clientList = (List<Cliente^>^)Persistance::LoadData("Clients.txt");
+List<Cliente^>^ TinkerdinControler::Controller::QueryAllClients(){
+	clientList = (List<Cliente^>^)Persistance::LoadBinaryData("clients.bin");
     return clientList;
 }
 
-int TinkerdinControler::Controller::UpdateClient(Cliente^ client)
-{
-	for (int i = 0; i < clientList->Count; i++)
-	{
+int TinkerdinControler::Controller::UpdateClient(Cliente^ client){
+	for (int i = 0; i < clientList->Count; i++){
 		if (clientList[i]->code == client->code) {
 			clientList[i] = client;
-			//añadir sus persistencia
-			return client->code;
-
+            Persistance::PersistBinary("clients.bin", client);
+            return client->code;
 		}
 	}
 	return 0;
 }
 
-int TinkerdinControler::Controller::DeleteClient(int ClientId)
-{	
-	for (int i = 0; i < clientList->Count; i++)
-	{
-		if (clientList[i]->code==ClientId)
-		{
+int TinkerdinControler::Controller::DeleteClient(int ClientId){	
+	for (int i = 0; i < clientList->Count; i++){
+		if (clientList[i]->code==ClientId){
 			clientList->RemoveAt(i);
-			//añadir persisrtencia
+            Persistance::PersistBinary("clients.bin", clientList);
 			return ClientId;
-
 		}
-
 	}
 	return 0;
 }
 
-//CLIENTE FIN--------------------------------------------
+//INTERES WITH PERSIST. BINARIA -----------------------------------------
+int TinkerdinControler::Controller::AddInterest(Interest^ interest){
+    interestList->Add(interest);
+    Persistance::PersistBinary("interest.bin", interestList);
+    return interest->Id;
+}
+
+Interest^ TinkerdinControler::Controller::QueryInterestById(int^ interestId){
+    interestList = (List<Interest^>^)Persistance::LoadBinaryData("interest.bin");
+    for (int i = 0; i < interestList->Count; i++)
+        if (interestList[i]->Id == interestId)
+            return interestList[i];
+    return nullptr;
+}
+
+List<Interest^>^ TinkerdinControler::Controller::QueryAllInterest(){
+    interestList = (List<Interest^>^)Persistance::LoadBinaryData("interest.bin");
+    return interestList;
+}
+
+int TinkerdinControler::Controller::UpdateInterest(Interest^ interest){
+    for (int i = 0; i < interestList->Count; i++)
+        if (interestList[i]->Id == interest->Id) {
+            interestList[i] = interest;
+            Persistance::PersistBinary("interest.bin", interestList);
+            return interest->Id;
+    }
+    return 0;
+}
+
+int TinkerdinControler::Controller::DeleteInterest(int interestId){
+    for (int i = 0; i < interestList->Count; i++)
+        if (interestList[i]->Id == interestId) {
+            interestList->RemoveAt(i);
+            Persistance::PersistBinary("interest.bin", interestList);
+            return interestId;
+        }
+    return 0;
+}
+
+//INTEREST FIN--------------------------------------------
+
+
 //COURSE-----------------------------------------------
 
 int TinkerdinControler::Controller::AddCourse(Course^ course)
@@ -153,49 +182,3 @@ List<Place^>^ TinkerdinControler::Controller::QueryAllPlace()
 }
 //PLACE FIN//
 
-//int tinkerdincontroler::controller::addinterest(interest^ interest)
-//{
-//	interestlist->add(interest);
-//
-//	return 1;
-//}
-//
-//interest^ tinkerdincontroler::controller::queryinterestbyid(int^ interestid)
-//{
-//	//clientlist = (list<cliente^>^)persistance::loadbinary;
-//	for (int i = 0; i < interestlist->count; i++)
-//		if (interestlist[i]->code == interestid)
-//			return interestlist[i];
-//	return nullptr;
-//}
-//
-//list<interest^>^ tinkerdincontroler::controller::queryallinterest()
-//{
-//	return interestlist;
-//}
-//
-//int tinkerdincontroler::controller::updateinterest(interest^ interest)
-//{
-//	for (int i = 0; i < courselist->count; i++)
-//		if (interest->id == interestlist[i]->id) {
-//			interest->status = 'a';
-//			interestlist[i] = interest;
-//			return 1;
-//		}
-//	return 0;
-//}
-//
-//int tinkerdincontroler::controller::deleteinterest(int interestid)
-//{
-//	for (int i = 0; i < interestlist->count; i++)
-//	{
-//		if (interestlist[i]->code == interestid)
-//		{
-//			interestlist->removeat(i);
-//			return interestid;
-//
-//		}
-//
-//	}
-//	return 0;
-//}
