@@ -8,7 +8,9 @@ namespace TinkerdinView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace System::Collections::Generic;
+	using namespace TinkerdinControler;
+	using namespace TinkerdinView;
 	/// <summary>
 	/// Resumen de CourseForm
 	/// </summary>
