@@ -70,9 +70,10 @@ namespace TinkerdinView {
 			// 
 			// btnOK
 			// 
-			this->btnOK->Location = System::Drawing::Point(58, 115);
+			this->btnOK->Location = System::Drawing::Point(44, 93);
+			this->btnOK->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnOK->Name = L"btnOK";
-			this->btnOK->Size = System::Drawing::Size(121, 33);
+			this->btnOK->Size = System::Drawing::Size(91, 27);
 			this->btnOK->TabIndex = 0;
 			this->btnOK->Text = L"Aceptar";
 			this->btnOK->UseVisualStyleBackColor = true;
@@ -80,9 +81,10 @@ namespace TinkerdinView {
 			// 
 			// btnCancel
 			// 
-			this->btnCancel->Location = System::Drawing::Point(208, 115);
+			this->btnCancel->Location = System::Drawing::Point(156, 93);
+			this->btnCancel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnCancel->Name = L"btnCancel";
-			this->btnCancel->Size = System::Drawing::Size(121, 33);
+			this->btnCancel->Size = System::Drawing::Size(91, 27);
 			this->btnCancel->TabIndex = 1;
 			this->btnCancel->Text = L"Cancelar";
 			this->btnCancel->UseVisualStyleBackColor = true;
@@ -91,49 +93,55 @@ namespace TinkerdinView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(38, 31);
+			this->label1->Location = System::Drawing::Point(28, 25);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(57, 16);
+			this->label1->Size = System::Drawing::Size(46, 13);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Usuario:";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(38, 68);
+			this->label2->Location = System::Drawing::Point(28, 55);
+			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(79, 16);
+			this->label2->Size = System::Drawing::Size(64, 13);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"Contraseña:";
 			// 
 			// txtUsername
 			// 
-			this->txtUsername->Location = System::Drawing::Point(151, 25);
+			this->txtUsername->Location = System::Drawing::Point(113, 20);
+			this->txtUsername->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtUsername->Name = L"txtUsername";
-			this->txtUsername->Size = System::Drawing::Size(188, 22);
+			this->txtUsername->Size = System::Drawing::Size(142, 20);
 			this->txtUsername->TabIndex = 4;
 			// 
 			// txtPassword
 			// 
-			this->txtPassword->Location = System::Drawing::Point(151, 62);
+			this->txtPassword->Location = System::Drawing::Point(113, 50);
+			this->txtPassword->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtPassword->Name = L"txtPassword";
-			this->txtPassword->Size = System::Drawing::Size(188, 22);
+			this->txtPassword->Size = System::Drawing::Size(142, 20);
 			this->txtPassword->TabIndex = 5;
 			this->txtPassword->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &LoginForm::txtPassword_KeyDown);
 			// 
 			// LoginForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(377, 160);
+			this->ClientSize = System::Drawing::Size(283, 130);
 			this->Controls->Add(this->txtPassword);
 			this->Controls->Add(this->txtUsername);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnOK);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"LoginForm";
 			this->Text = L"Autenticación de usuario";
+			this->Load += gcnew System::EventHandler(this, &LoginForm::LoginForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -150,5 +158,7 @@ namespace TinkerdinView {
 		if (e->KeyData == Keys::Enter)
 			btnOK->PerformClick();
 	}
+private: System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

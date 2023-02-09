@@ -73,7 +73,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Age;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cicle;
 	private: System::Windows::Forms::Button^ btnAdd;
-	private: System::Windows::Forms::Button^ Delete;
+
 
 
 
@@ -114,7 +114,6 @@ namespace TinkerdinView {
 			this->Age = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Cicle = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
-			this->Delete = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvClients))->BeginInit();
 			this->SuspendLayout();
@@ -226,6 +225,7 @@ namespace TinkerdinView {
 			this->btnReturn->TabIndex = 13;
 			this->btnReturn->Text = L"Cancelar";
 			this->btnReturn->UseVisualStyleBackColor = true;
+			this->btnReturn->Click += gcnew System::EventHandler(this, &ClientForm::btnReturn_Click);
 			// 
 			// cmbGender
 			// 
@@ -280,6 +280,7 @@ namespace TinkerdinView {
 			this->dgvClients->Name = L"dgvClients";
 			this->dgvClients->Size = System::Drawing::Size(344, 116);
 			this->dgvClients->TabIndex = 19;
+			this->dgvClients->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ClientForm::dgvClients_CellClick);
 			this->dgvClients->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ClientForm::dgvClients_CellContentClick);
 			// 
 			// Username
@@ -299,7 +300,7 @@ namespace TinkerdinView {
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(345, 338);
+			this->btnAdd->Location = System::Drawing::Point(355, 338);
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(75, 23);
 			this->btnAdd->TabIndex = 20;
@@ -307,21 +308,11 @@ namespace TinkerdinView {
 			this->btnAdd->UseVisualStyleBackColor = true;
 			this->btnAdd->Click += gcnew System::EventHandler(this, &ClientForm::btnAdd_Click);
 			// 
-			// Delete
-			// 
-			this->Delete->Location = System::Drawing::Point(581, 337);
-			this->Delete->Name = L"Delete";
-			this->Delete->Size = System::Drawing::Size(75, 23);
-			this->Delete->TabIndex = 21;
-			this->Delete->Text = L"button1";
-			this->Delete->UseVisualStyleBackColor = true;
-			// 
 			// ClientForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(753, 526);
-			this->Controls->Add(this->Delete);
 			this->Controls->Add(this->btnAdd);
 			this->Controls->Add(this->dgvClients);
 			this->Controls->Add(this->btnSetImage);
@@ -352,8 +343,31 @@ namespace TinkerdinView {
 
 		}
 #pragma endregion
-	private: System::Void ClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
+void CleanControls() {
+	txtUsername->Clear();
+	txtName->Clear();
+	txtAge->Clear();
+	txtEmail->Clear();
+	txtCarrer->Clear();
+	txtCicle->Clear();
+	pbPhoto->Image = nullptr;
+}
+void ShowClients() {
+	List<Cliente^>^ myClientList = Controller::QueryAllClients();
+
+	dgvClients->Rows->Clear();
+	for (int i = 0; i < myClientList->Count; i++) {
+		dgvClients->Rows->Add(gcnew array<String^>{
+			myClientList[i]->Username,
+				"" + myClientList[i]->Age,
+				"" + myClientList[i]->Cicle,
+		});
 	}
+
+}
+private: System::Void ClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	ShowClients();
+}
 
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	OpenFileDialog^ opnfd = gcnew OpenFileDialog();
@@ -364,31 +378,6 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	}
 
 }
-
-	void CleanControls() {
-		txtUsername->Clear();
-		txtName->Clear();
-		txtAge->Clear();
-		txtEmail->Clear();
-		txtCarrer->Clear();
-		txtCicle->Clear();
-		pbPhoto->Image = nullptr;
-	}
-	void ShowClients() {
-		List<Cliente^>^ myClientList = Controller::QueryAllClients();
-
-		dgvClients->Rows->Clear();
-		for (int i = 0; i < myClientList->Count; i++) {
-			dgvClients->Rows->Add(gcnew array<String^>{
-				myClientList[i]->Username,
-				""+myClientList[i]->Age,
-				""+myClientList[i]->Cicle,
-			});
-		}
-
-	}
-
-
 
 
 private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -409,7 +398,8 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 	}
 
 	Controller::UpdateClient(a);
-	//RefreshGrid();
+	ShowClients();
+
 }
 
 private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -433,6 +423,13 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 	ShowClients();
 }
 private: System::Void dgvClients_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
+private: System::Void btnReturn_Click(System::Object^ sender, System::EventArgs^ e) {
+	//exit(); 
+}
+private: System::Void dgvClients_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	Cliente^ client = Controller::QueryClientById(txtUsername->Text);
+
 }
 };
 }
