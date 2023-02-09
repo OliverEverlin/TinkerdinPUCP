@@ -4,6 +4,7 @@
 #include "PlaceForm.h"
 #include "ClientForm.h"
 #include "LoginForm.h"
+#include "EventForm.h"
 
 namespace TinkerdinView {
 
@@ -62,6 +63,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::Button^ Extrabtn;
 	private: System::Windows::Forms::ToolStripMenuItem^ RegisterTStripMenu;
 	private: System::Windows::Forms::ToolStripMenuItem^ loginToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ eventosToolStripMenuItem;
 
 
 
@@ -91,6 +93,7 @@ namespace TinkerdinView {
 			this->lugaresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->CourseTStripMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->RegisterTStripMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->loginToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->operacionesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->buscarLugarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->buscarAmigosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -101,7 +104,7 @@ namespace TinkerdinView {
 			this->Agenda = (gcnew System::Windows::Forms::Button());
 			this->Estudiar = (gcnew System::Windows::Forms::Button());
 			this->Extrabtn = (gcnew System::Windows::Forms::Button());
-			this->loginToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->eventosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -133,9 +136,9 @@ namespace TinkerdinView {
 			// 
 			// mantenimientoToolStripMenuItem
 			// 
-			this->mantenimientoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
+			this->mantenimientoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
 				this->amigosToolStripMenuItem,
-					this->lugaresToolStripMenuItem, this->CourseTStripMenu, this->RegisterTStripMenu, this->loginToolStripMenuItem
+					this->lugaresToolStripMenuItem, this->CourseTStripMenu, this->RegisterTStripMenu, this->loginToolStripMenuItem, this->eventosToolStripMenuItem
 			});
 			this->mantenimientoToolStripMenuItem->Name = L"mantenimientoToolStripMenuItem";
 			this->mantenimientoToolStripMenuItem->Size = System::Drawing::Size(101, 20);
@@ -167,6 +170,13 @@ namespace TinkerdinView {
 			this->RegisterTStripMenu->Size = System::Drawing::Size(180, 22);
 			this->RegisterTStripMenu->Text = L"Registro";
 			this->RegisterTStripMenu->Click += gcnew System::EventHandler(this, &MainForm::registroToolStripMenuItem_Click);
+			// 
+			// loginToolStripMenuItem
+			// 
+			this->loginToolStripMenuItem->Name = L"loginToolStripMenuItem";
+			this->loginToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->loginToolStripMenuItem->Text = L"Login";
+			this->loginToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::loginToolStripMenuItem_Click);
 			// 
 			// operacionesToolStripMenuItem
 			// 
@@ -248,12 +258,12 @@ namespace TinkerdinView {
 			this->Extrabtn->Text = L"Otras actividades";
 			this->Extrabtn->UseVisualStyleBackColor = true;
 			// 
-			// loginToolStripMenuItem
+			// eventosToolStripMenuItem
 			// 
-			this->loginToolStripMenuItem->Name = L"loginToolStripMenuItem";
-			this->loginToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->loginToolStripMenuItem->Text = L"Login";
-			this->loginToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::loginToolStripMenuItem_Click);
+			this->eventosToolStripMenuItem->Name = L"eventosToolStripMenuItem";
+			this->eventosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->eventosToolStripMenuItem->Text = L"Eventos";
+			this->eventosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::eventosToolStripMenuItem_Click);
 			// 
 			// MainForm
 			// 
@@ -314,6 +324,11 @@ private: System::Void loginToolStripMenuItem_Click(System::Object^ sender, Syste
 	LoginForm^ loginForm = gcnew LoginForm();
 	loginForm->MdiParent = this;
 	loginForm->Show();
+}
+private: System::Void eventosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	EventForm^ eventForm = gcnew EventForm();
+	eventForm->MdiParent = this;
+	eventForm->Show();
 }
 };
 }
