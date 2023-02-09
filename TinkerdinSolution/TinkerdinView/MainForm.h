@@ -3,6 +3,7 @@
 #include "CourseForm.h"
 #include "PlaceForm.h"
 #include "ClientForm.h"
+#include "LoginForm.h"
 
 namespace TinkerdinView {
 
@@ -60,6 +61,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::Button^ Estudiar;
 	private: System::Windows::Forms::Button^ Extrabtn;
 	private: System::Windows::Forms::ToolStripMenuItem^ RegisterTStripMenu;
+	private: System::Windows::Forms::ToolStripMenuItem^ loginToolStripMenuItem;
 
 
 
@@ -99,6 +101,7 @@ namespace TinkerdinView {
 			this->Agenda = (gcnew System::Windows::Forms::Button());
 			this->Estudiar = (gcnew System::Windows::Forms::Button());
 			this->Extrabtn = (gcnew System::Windows::Forms::Button());
+			this->loginToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -130,9 +133,9 @@ namespace TinkerdinView {
 			// 
 			// mantenimientoToolStripMenuItem
 			// 
-			this->mantenimientoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+			this->mantenimientoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
 				this->amigosToolStripMenuItem,
-					this->lugaresToolStripMenuItem, this->CourseTStripMenu, this->RegisterTStripMenu
+					this->lugaresToolStripMenuItem, this->CourseTStripMenu, this->RegisterTStripMenu, this->loginToolStripMenuItem
 			});
 			this->mantenimientoToolStripMenuItem->Name = L"mantenimientoToolStripMenuItem";
 			this->mantenimientoToolStripMenuItem->Size = System::Drawing::Size(101, 20);
@@ -141,27 +144,27 @@ namespace TinkerdinView {
 			// amigosToolStripMenuItem
 			// 
 			this->amigosToolStripMenuItem->Name = L"amigosToolStripMenuItem";
-			this->amigosToolStripMenuItem->Size = System::Drawing::Size(117, 22);
+			this->amigosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->amigosToolStripMenuItem->Text = L"Amigos";
 			// 
 			// lugaresToolStripMenuItem
 			// 
 			this->lugaresToolStripMenuItem->Name = L"lugaresToolStripMenuItem";
-			this->lugaresToolStripMenuItem->Size = System::Drawing::Size(117, 22);
+			this->lugaresToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->lugaresToolStripMenuItem->Text = L"Lugares";
 			this->lugaresToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::lugaresToolStripMenuItem_Click);
 			// 
 			// CourseTStripMenu
 			// 
 			this->CourseTStripMenu->Name = L"CourseTStripMenu";
-			this->CourseTStripMenu->Size = System::Drawing::Size(117, 22);
+			this->CourseTStripMenu->Size = System::Drawing::Size(180, 22);
 			this->CourseTStripMenu->Text = L"Cursos";
 			this->CourseTStripMenu->Click += gcnew System::EventHandler(this, &MainForm::cursosToolStripMenuItem_Click);
 			// 
 			// RegisterTStripMenu
 			// 
 			this->RegisterTStripMenu->Name = L"RegisterTStripMenu";
-			this->RegisterTStripMenu->Size = System::Drawing::Size(117, 22);
+			this->RegisterTStripMenu->Size = System::Drawing::Size(180, 22);
 			this->RegisterTStripMenu->Text = L"Registro";
 			this->RegisterTStripMenu->Click += gcnew System::EventHandler(this, &MainForm::registroToolStripMenuItem_Click);
 			// 
@@ -245,6 +248,13 @@ namespace TinkerdinView {
 			this->Extrabtn->Text = L"Otras actividades";
 			this->Extrabtn->UseVisualStyleBackColor = true;
 			// 
+			// loginToolStripMenuItem
+			// 
+			this->loginToolStripMenuItem->Name = L"loginToolStripMenuItem";
+			this->loginToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->loginToolStripMenuItem->Text = L"Login";
+			this->loginToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::loginToolStripMenuItem_Click);
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -299,6 +309,11 @@ private: System::Void registroToolStripMenuItem_Click(System::Object^ sender, Sy
 	clientForm -> MdiParent = this;
 	clientForm->Show();
 
+}
+private: System::Void loginToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	LoginForm^ loginForm = gcnew LoginForm();
+	loginForm->MdiParent = this;
+	loginForm->Show();
 }
 };
 }

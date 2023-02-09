@@ -428,7 +428,7 @@ private: System::Void btnReturn_Click(System::Object^ sender, System::EventArgs^
 	//exit(); 
 }
 private: System::Void dgvClients_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	Cliente^ client = Controller::QueryClientById(txtUsername->Text);
+	//Cliente^ client = Controller::QueryClientById(txtUsername->Text);
 
 }
 };

@@ -27,7 +27,7 @@ namespace TinkerdinControler {
 	public:
 		// CRUD Cliente
 		static int AddClient(Cliente^ client);
-		static Cliente^ QueryClientById(int^ clientId);
+		static Cliente^ QueryClientById(String^ clientId);
 		static List<Cliente^>^ QueryAllClients();
 		static int UpdateClient(Cliente^ client);
 		static int DeleteClient(int ClientId);
