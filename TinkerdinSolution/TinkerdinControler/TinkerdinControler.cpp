@@ -218,4 +218,51 @@ List<Place^>^ TinkerdinControler::Controller::QueryAllPlace()
     return placeList;
 }
 //PLACE FIN//
+//
+//EVENT WITH PERSIST. BINARIA//
+int TinkerdinControler::Controller::AddEvent(Event^ event)
+{
+    eventList->Add(event);
+    Persistance::PersistBinary("events.bin", interestList);
+    return event->Id;
+}
+
+Event^ TinkerdinControler::Controller::QueryEventById(int^ eventId)
+{
+    eventList = (List<Event^>^)Persistance::LoadBinaryData("events.bin");
+    for (int i = 0; i < interestList->Count; i++)
+        if (eventList[i]->Id == eventId)
+            return eventList[i];
+    return nullptr;
+}
+
+List<Event^>^ TinkerdinControler::Controller::QueryAllEvent()
+{
+    eventList = (List<Event^>^)Persistance::LoadBinaryData("events.bin");
+    return eventList;
+}
+
+int TinkerdinControler::Controller::UpdateEvent(Event^ event)
+{
+    for (int i = 0; i < interestList->Count; i++)
+        if (eventList[i]->Id == event->Id) {
+            eventList[i] = event;
+            Persistance::PersistBinary("events.bin", eventList);
+            return event->Id;
+        }
+    return 0;
+}
+
+int TinkerdinControler::Controller::DeleteEvent(int eventId)
+{
+    for (int i = 0; i < eventList->Count; i++)
+        if (eventList[i]->Id == eventId) {
+            eventList->RemoveAt(i);
+            Persistance::PersistBinary("events.bin", eventList);
+            return eventId;
+        }
+    return 0;
+}
+
+//EVENT FIN//
 
