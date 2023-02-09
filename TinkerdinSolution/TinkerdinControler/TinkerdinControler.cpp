@@ -266,3 +266,14 @@ int TinkerdinControler::Controller::DeleteEvent(int eventId)
 
 //EVENT FIN//
 
+//LoginForm
+Cliente^ TinkerdinControler::Controller::Login(String^ username, String^ password)
+{
+    Cliente^ client;
+    if (username == "AFlores" && password == "password") {
+        client = gcnew Cliente();
+        client->code = 1;
+        client->Name = "Armando Flores";
+    }
+    return client;
+}

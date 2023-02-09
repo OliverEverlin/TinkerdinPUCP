@@ -8,7 +8,10 @@ namespace TinkerdinView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace TinkerdinControler;
+	using namespace TinkerdinModel;
+	using namespace System::Collections::Generic;
+	using namespace TinkerdinView;
 	/// <summary>
 	/// Resumen de LoginForm
 	/// </summary>
@@ -44,6 +47,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::TextBox^ txtUsername;
 	private: System::Windows::Forms::TextBox^ txtPassword;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
 
@@ -66,12 +70,13 @@ namespace TinkerdinView {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->txtUsername = (gcnew System::Windows::Forms::TextBox());
 			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// btnOK
 			// 
-			this->btnOK->Location = System::Drawing::Point(44, 93);
-			this->btnOK->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnOK->Location = System::Drawing::Point(55, 313);
 			this->btnOK->Name = L"btnOK";
 			this->btnOK->Size = System::Drawing::Size(91, 27);
 			this->btnOK->TabIndex = 0;
@@ -81,8 +86,7 @@ namespace TinkerdinView {
 			// 
 			// btnCancel
 			// 
-			this->btnCancel->Location = System::Drawing::Point(156, 93);
-			this->btnCancel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnCancel->Location = System::Drawing::Point(205, 313);
 			this->btnCancel->Name = L"btnCancel";
 			this->btnCancel->Size = System::Drawing::Size(91, 27);
 			this->btnCancel->TabIndex = 1;
@@ -93,8 +97,7 @@ namespace TinkerdinView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(28, 25);
-			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label1->Location = System::Drawing::Point(35, 229);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(46, 13);
 			this->label1->TabIndex = 2;
@@ -103,8 +106,7 @@ namespace TinkerdinView {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(28, 55);
-			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label2->Location = System::Drawing::Point(35, 266);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(64, 13);
 			this->label2->TabIndex = 3;
@@ -112,26 +114,33 @@ namespace TinkerdinView {
 			// 
 			// txtUsername
 			// 
-			this->txtUsername->Location = System::Drawing::Point(113, 20);
-			this->txtUsername->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtUsername->Location = System::Drawing::Point(148, 223);
 			this->txtUsername->Name = L"txtUsername";
 			this->txtUsername->Size = System::Drawing::Size(142, 20);
 			this->txtUsername->TabIndex = 4;
 			// 
 			// txtPassword
 			// 
-			this->txtPassword->Location = System::Drawing::Point(113, 50);
-			this->txtPassword->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtPassword->Location = System::Drawing::Point(148, 260);
 			this->txtPassword->Name = L"txtPassword";
 			this->txtPassword->Size = System::Drawing::Size(142, 20);
 			this->txtPassword->TabIndex = 5;
 			this->txtPassword->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &LoginForm::txtPassword_KeyDown);
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Location = System::Drawing::Point(71, 12);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(241, 173);
+			this->pictureBox1->TabIndex = 6;
+			this->pictureBox1->TabStop = false;
+			// 
 			// LoginForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(283, 130);
+			this->ClientSize = System::Drawing::Size(364, 390);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->txtPassword);
 			this->Controls->Add(this->txtUsername);
 			this->Controls->Add(this->label2);
@@ -141,14 +150,14 @@ namespace TinkerdinView {
 			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"LoginForm";
 			this->Text = L"Autenticación de usuario";
-			this->Load += gcnew System::EventHandler(this, &LoginForm::LoginForm_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 	
-	private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e) {}
+	private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e);
 
 	private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
