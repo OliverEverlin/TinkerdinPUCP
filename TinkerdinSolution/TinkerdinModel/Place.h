@@ -33,12 +33,12 @@ namespace TinkerdinModel {
 
 
 
-        property char Availability;
+        property String^ Availability;//Cambié de char a string 
         property int Id;
         property int Participants;
         property int PowerOutlet;
         property String^ TypePlace;
-        property int Location;
+        property String^ Location;//modifiqué location, estaba en int
 
         bool PowerOutletFree();
         bool QuietPlace();

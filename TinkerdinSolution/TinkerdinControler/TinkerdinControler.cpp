@@ -166,9 +166,9 @@ List<String^>^ TinkerdinControler::Controller::QueryAllTypeCourse()
 //PLACE------------------------------------
 int TinkerdinControler::Controller::AddPlace(Place^ place)
 {
-    place->Availability = 'A';
+    //place->Availability = 'A';
     placeList->Add(place);
-    //persis
+    Persistance::PersistBinary("places.bin", placeList);
     return 1;
 }
 
@@ -176,9 +176,9 @@ int TinkerdinControler::Controller::UpdatePlace(Place^ place)
 {
     for (int i = 0; i < placeList->Count; i++)
         if (place->Id == placeList[i]->Id) {
-            place->Availability = 'A';
+            //place->Availability = 'A';
             placeList[i] = place;
-            //persis
+            Persistance::PersistBinary("places.bin", placeList);
             return 1;
         }
     return 0;
@@ -189,13 +189,14 @@ int TinkerdinControler::Controller::DeletePlace(int placeId)
     for (int i = 0; i < placeList->Count; i++)
         if (placeId == placeList[i]->Id) {
             placeList->RemoveAt(i);
-            //presis
+            Persistance::PersistBinary("places.bin", placeList);
             return 1;
         }
     return 0;
 }
 
 Place^ TinkerdinControler::Controller::QueryPlaceById(int placeId){
+    placeList = (List<Place^>^)Persistance::LoadBinaryData("places.bin");
     for (int i = 0; i < clientList->Count; i++)
         if (placeList[i]->Id == placeId)
             return placeList[i];
@@ -211,6 +212,9 @@ List<Place^>^ TinkerdinControler::Controller::QueryAllPlace()
     //        placeList->Add(placeList[i]);
     //    }
     //}
+    placeList = (List<Place^>^)Persistance::LoadBinaryData("places.bin");
+
+
     return placeList;
 }
 //PLACE FIN//

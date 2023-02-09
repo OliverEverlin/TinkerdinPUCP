@@ -208,6 +208,17 @@
     <ProjectReference Include="..\TinkerdinModel\TinkerdinModel.vcxproj">
       <Project>{b0df2785-9003-4563-bed6-e6273c7832e3}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\TinkerdinPersistance\TinkerdinPersistance.vcxproj">
+      <Project>{38bf409d-3616-479a-ad64-9041e3705239}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TinkerdinControler\TinkerdinControler.vcxproj">
+      <Project>{d802a2e5-89c8-44bc-9d80-ee02af37d459}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TinkerdinModel\TinkerdinModel.vcxproj">
+      <Project>{b0df2785-9003-4563-bed6-e6273c7832e3}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
