@@ -16,6 +16,7 @@ namespace TinkerdinControler {
 		static array<String^>^ courseTypeArr = { "Curricular", "Extracurricular" };
 		static List <String^>^ courseTypeList = gcnew List<String^>(courseTypeArr);
 		static List<Place^>^ placeList = gcnew List<Place^>();
+		static List<Event^>^ eventList = gcnew List<Event^>();
 
 		//lista de opciones predeterminadas
 		static array<String^>^ InterestArr = {"musica", "deporte", "jobi","academico"};
