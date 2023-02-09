@@ -140,7 +140,7 @@ List<Course^>^ TinkerdinControler::Controller::QueryAllCourse() {
     return courseList;
 }
 
-Course^ TinkerdinControler::Controller::QueryCourseById(int courseId)
+Course^ TinkerdinControler::Controller::QueryCourseById(String^ courseId)
 {
     courseList = (List<Course^>^)Persistance::LoadBinaryData("course.bin");
     for (int i = 0; i < courseList->Count; i++)
