@@ -280,6 +280,7 @@ namespace TinkerdinView {
 			this->dgvClients->Name = L"dgvClients";
 			this->dgvClients->Size = System::Drawing::Size(344, 116);
 			this->dgvClients->TabIndex = 19;
+			this->dgvClients->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ClientForm::dgvClients_CellContentClick);
 			// 
 			// Username
 			// 
@@ -430,6 +431,8 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 
 	CleanControls();
 	ShowClients();
+}
+private: System::Void dgvClients_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }
 };
 }
