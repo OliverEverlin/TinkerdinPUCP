@@ -2,12 +2,13 @@
 #include "LoginForm.h"
 #include "MainForm.h"
 
-System::Void SalesView::LoginForm::btnOK_Click(System::Object^ sender, System::EventArgs^ e)
+
+System::Void TinkerdinView::LoginForm::btnOK_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	User^ use = Controller::Login(txtUsername->Text, txtPassword->Text);
-	if (us != nullptr) {
-		MessageBox::Show("Bienvenido " + use->Name + " " + use->LastName);
-		MainForm::user = use;
+	Cliente^ client = Controller::Login(txtUsername->Text, txtPassword->Text);
+	if (client != nullptr) {
+		MessageBox::Show("Bienvenido " + client->Name );
+		MainForm::client = client;
 		this->Close();
 	}
 	else {

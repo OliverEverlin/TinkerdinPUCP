@@ -19,6 +19,8 @@ namespace TinkerdinView {
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
 	public:
+
+		static Cliente^ client; //Variable de clase o miembro u atributo estático (global).
 		MainForm(void)
 		{
 			InitializeComponent();

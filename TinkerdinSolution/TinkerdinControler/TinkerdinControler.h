@@ -64,5 +64,8 @@ namespace TinkerdinControler {
 		static List<Event^>^ QueryAllEvent();
 		static int UpdateEvent(Event^ event);
 		static int DeleteEvent(int eventId);
+
+		//Autenticación de usuario
+		static Cliente^ Login(String^ username, String^ password);
 	};
 }
