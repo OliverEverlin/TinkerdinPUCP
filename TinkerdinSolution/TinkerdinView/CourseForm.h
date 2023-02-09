@@ -453,7 +453,7 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 			return;
 		}
 
-		course->Id = Convert::ToInt32(txtCourseId->Text);
+		course->Id = txtCourseId->Text;
 		course->Name = txtCourseName->Text;
 		course->Type = cmbCourseType->SelectedItem->ToString();
 		course->Professor = txtCourseProfesor->Text;
@@ -493,6 +493,7 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 		   txtCourseId->Clear();
 		   txtCourseName->Clear();
 		   txtCourseProfesor->Clear();
+		   txtCourseHorario->Clear();
 	   }
 
 private: System::Void dgvCourse_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
@@ -502,7 +503,8 @@ private: System::Void dgvCourse_CellContentClick(System::Object^ sender, System:
 		int selectedrowindex = dgvCourse->SelectedCells[0]->RowIndex;
 		DataGridViewRow^ selectedRow = dgvCourse->Rows[selectedrowindex];
 		String^ a = selectedRow->Cells[0]->Value->ToString();
-		int courseId = Convert::ToInt32(dgvCourse->Rows[selectedrowindex]->Cells[0]->Value->ToString());
+		String^ courseId = dgvCourse->Rows[selectedrowindex]->Cells[0]->Value->ToString();
+		//int courseId = Convert::ToInt32(dgvCourse->Rows[selectedrowindex]->Cells[0]->Value->ToString());
 		Course^ p = Controller::QueryCourseById(courseId);
 		txtCourseId->Text = "" + p->Id;
 		txtCourseName->Text = p->Name;
@@ -548,7 +550,7 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 				return;
 			}
 	
-			course->Id = Convert::ToInt32(txtCourseId->Text);
+			course->Id = txtCourseId->Text;
 			course->Name = txtCourseName->Text;
 			course->Type = cmbCourseType->SelectedItem->ToString();
 			course->Professor = txtCourseProfesor->Text;
@@ -570,7 +572,7 @@ private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^
 	if (txtCourseId->Text->Trim()->Equals(""))
 		MessageBox::Show("Debe seleccionar un curso.");
 	else
-		Controller::DeleteCourse(Int32::Parse(txtCourseId->Text));
+		Controller::DeleteCourse(txtCourseId->Text);
 	ShowCourses();
 }
 private: System::Void CourseForm_Load(System::Object^ sender, System::EventArgs^ e) {

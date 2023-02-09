@@ -101,7 +101,7 @@ int TinkerdinControler::Controller::AddCourse(Course^ course)
     course->Status = 'A';
     courseList->Add(course);
     Persistance::PersistBinary("course.bin", courseList);
-    return course->Id;
+    return 1;// course->Id;
 }
 
 int TinkerdinControler::Controller::UpdateCourse(Course^ course)
@@ -111,18 +111,18 @@ int TinkerdinControler::Controller::UpdateCourse(Course^ course)
             course->Status = 'A';
             courseList[i] = course;
             Persistance::PersistBinary("course.bin", courseList);
-            return course->Id;
+            return 1;// course->Id;
         }
     return 0;
 }
 
-int TinkerdinControler::Controller::DeleteCourse(int courseId)
+int TinkerdinControler::Controller::DeleteCourse(String^ courseId)
 {
     for (int i = 0; i < courseList->Count; i++)
         if (courseId == courseList[i]->Id) {
             courseList->RemoveAt(i);
             Persistance::PersistBinary("course.bin", courseList);
-            return courseId;
+            return 1;// courseId;
         }
     return 0;
 }
@@ -136,6 +136,9 @@ List<Course^>^ TinkerdinControler::Controller::QueryAllCourse() {
     }*/
 
     courseList = (List<Course^>^)Persistance::LoadBinaryData("course.bin");
+    if (courseList == nullptr) {
+        courseList = gcnew List<Course^>();
+    }
     
     return courseList;
 }
@@ -151,7 +154,10 @@ Course^ TinkerdinControler::Controller::QueryCourseById(String^ courseId)
 
 List<String^>^ TinkerdinControler::Controller::QueryAllTypeCourse()
 {
-    //courseTypeList = (List<String^>^)Persistance::LoadBinaryData("typecourse.bin");
+    /*courseTypeList = (List<String^>^)Persistance::LoadBinaryData("typecourse.xml");
+    if (courseList == nullptr) {
+        courseList = gcnew List<Course^>();
+    }*/
     return courseTypeList;
 }
 
