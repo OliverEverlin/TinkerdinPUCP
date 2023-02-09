@@ -11,6 +11,7 @@ namespace TinkerdinModel {
     [Serializable]
     public ref class Event {
     public:
+        property int Id;
         property String^ Name;
         property bool Relevance;
         property bool Privacy;
