@@ -482,7 +482,7 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 		   for (int i = 0; i < myCourseList->Count; i++) {
 			   dgvCourse->Rows->Add(gcnew array<String^>{
 				   "" + myCourseList[i]->Id,
-					   myCourseList[i]->Name,
+					   "" + myCourseList[i]->Name,
 					   "" + myCourseList[i]->Type,
 					   "" + myCourseList[i]->Professor
 			   });
@@ -494,6 +494,7 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 		   txtCourseName->Clear();
 		   txtCourseProfesor->Clear();
 		   txtCourseHorario->Clear();
+		   FillCmbCourseType();
 	   }
 
 private: System::Void dgvCourse_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
