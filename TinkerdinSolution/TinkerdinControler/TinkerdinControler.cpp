@@ -136,9 +136,9 @@ List<Course^>^ TinkerdinControler::Controller::QueryAllCourse() {
     }*/
 
     courseList = (List<Course^>^)Persistance::LoadBinaryData("course.bin");
-    if (courseList == nullptr) {
+    /*if (courseList == nullptr) {
         courseList = gcnew List<Course^>();
-    }
+    }*/
     
     return courseList;
 }
