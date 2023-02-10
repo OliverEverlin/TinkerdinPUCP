@@ -197,7 +197,7 @@ int TinkerdinControler::Controller::DeletePlace(int placeId)
 
 Place^ TinkerdinControler::Controller::QueryPlaceById(int placeId){
     placeList = (List<Place^>^)Persistance::LoadBinaryData("places.bin");
-    for (int i = 0; i < clientList->Count; i++)
+    for (int i = 0; i < placeList->Count; i++)
         if (placeList[i]->Id == placeId)
             return placeList[i];
     return nullptr;

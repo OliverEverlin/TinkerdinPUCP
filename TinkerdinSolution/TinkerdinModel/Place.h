@@ -16,7 +16,7 @@ namespace TinkerdinModel {
         //    int Participants;
         //    int PowerOutlet;
         //    //void Activate();
-
+        
     public:
         /* int getParticipants() {
              return Participants;
@@ -30,6 +30,9 @@ namespace TinkerdinModel {
          void setPowerOutlet(int PowerOutlet) {
              this->PowerOutlet = PowerOutlet;
          }*/
+
+
+
 
 
 

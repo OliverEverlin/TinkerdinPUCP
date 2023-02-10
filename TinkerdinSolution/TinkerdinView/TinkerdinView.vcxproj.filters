@@ -90,6 +90,7 @@
     </ClCompile>
     <ClCompile Include="EventForm.cpp">
       <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="EditClientForm.cpp">
       <Filter>Archivos de origen</Filter>
