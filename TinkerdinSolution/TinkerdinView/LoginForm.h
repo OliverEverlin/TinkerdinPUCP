@@ -125,6 +125,7 @@ namespace TinkerdinView {
 			this->txtUsername->Name = L"txtUsername";
 			this->txtUsername->Size = System::Drawing::Size(142, 20);
 			this->txtUsername->TabIndex = 4;
+			this->txtUsername->TextChanged += gcnew System::EventHandler(this, &LoginForm::txtUsername_TextChanged);
 			// 
 			// txtPassword
 			// 
@@ -155,11 +156,11 @@ namespace TinkerdinView {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(341, 191);
+			this->label3->Location = System::Drawing::Point(317, 191);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(35, 13);
+			this->label3->Size = System::Drawing::Size(154, 13);
 			this->label3->TabIndex = 9;
-			this->label3->Text = L"label3";
+			this->label3->Text = L"¿Eres nuev@\? Registrate aquí";
 			// 
 			// LoginForm
 			// 
@@ -196,13 +197,13 @@ namespace TinkerdinView {
 		if (e->KeyData == Keys::Enter)
 			btnOK->PerformClick();
 	}
-private: System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e) {
-}
 
 private: System::Void btnRegister_Click(System::Object^ sender, System::EventArgs^ e) {
 	ClientForm^ clientForm = gcnew ClientForm();
 	clientForm->MdiParent = this;
 	clientForm->Show();
+}
+private: System::Void txtUsername_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

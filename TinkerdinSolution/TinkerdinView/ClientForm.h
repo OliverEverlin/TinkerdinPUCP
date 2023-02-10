@@ -209,7 +209,7 @@ namespace TinkerdinView {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(419, 344);
+			this->btnUpdate->Location = System::Drawing::Point(618, 388);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(75, 23);
 			this->btnUpdate->TabIndex = 12;
@@ -219,7 +219,7 @@ namespace TinkerdinView {
 			// 
 			// btnReturn
 			// 
-			this->btnReturn->Location = System::Drawing::Point(508, 430);
+			this->btnReturn->Location = System::Drawing::Point(372, 333);
 			this->btnReturn->Name = L"btnReturn";
 			this->btnReturn->Size = System::Drawing::Size(75, 23);
 			this->btnReturn->TabIndex = 13;
@@ -423,6 +423,7 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 	ShowClients();
 }
 private: System::Void dgvClients_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	
 }
 private: System::Void btnReturn_Click(System::Object^ sender, System::EventArgs^ e) {
 	//exit(); 

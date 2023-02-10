@@ -145,13 +145,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="{bed7f4ea-1a96-11d2-8f08-00a0c9a6186d}">
-      <VersionMinor>4</VersionMinor>
-      <VersionMajor>2</VersionMajor>
-      <Guid>bed7f4ea-1a96-11d2-8f08-00a0c9a6186d</Guid>
-    </COMReference>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\TinkerdinModel\TinkerdinModel.vcxproj">
       <Project>{b0df2785-9003-4563-bed6-e6273c7832e3}</Project>
     </ProjectReference>
