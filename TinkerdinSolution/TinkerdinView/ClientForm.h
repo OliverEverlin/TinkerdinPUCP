@@ -209,7 +209,7 @@ namespace TinkerdinView {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(119, 338);
+			this->btnUpdate->Location = System::Drawing::Point(419, 344);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(75, 23);
 			this->btnUpdate->TabIndex = 12;
@@ -219,7 +219,7 @@ namespace TinkerdinView {
 			// 
 			// btnReturn
 			// 
-			this->btnReturn->Location = System::Drawing::Point(625, 481);
+			this->btnReturn->Location = System::Drawing::Point(508, 430);
 			this->btnReturn->Name = L"btnReturn";
 			this->btnReturn->Size = System::Drawing::Size(75, 23);
 			this->btnReturn->TabIndex = 13;
@@ -300,7 +300,7 @@ namespace TinkerdinView {
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(355, 338);
+			this->btnAdd->Location = System::Drawing::Point(159, 333);
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(75, 23);
 			this->btnAdd->TabIndex = 20;

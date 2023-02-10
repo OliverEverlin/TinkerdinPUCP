@@ -44,9 +44,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -130,10 +130,16 @@
     <ClInclude Include="CalendarForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CheckClientForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ClientForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CourseForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="EditClientForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="EventForm.h">
@@ -157,8 +163,10 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CalendarForm.cpp" />
+    <ClCompile Include="CheckClientForm.cpp" />
     <ClCompile Include="ClientForm.cpp" />
     <ClCompile Include="CourseForm.cpp" />
+    <ClCompile Include="EditClientForm.cpp" />
     <ClCompile Include="EventForm.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MainForm.cpp" />
@@ -178,6 +186,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -186,11 +195,17 @@
     <EmbeddedResource Include="CalendarForm.resx">
       <DependentUpon>CalendarForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CheckClientForm.resx">
+      <DependentUpon>CheckClientForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CourseForm.resx">
       <DependentUpon>CourseForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditClientForm.resx">
+      <DependentUpon>EditClientForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EventForm.resx">
       <DependentUpon>EventForm.h</DependentUpon>
@@ -217,9 +232,6 @@
     </ProjectReference>
     <ProjectReference Include="..\TinkerdinModel\TinkerdinModel.vcxproj">
       <Project>{b0df2785-9003-4563-bed6-e6273c7832e3}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\TinkerdinPersistance\TinkerdinPersistance.vcxproj">
-      <Project>{38bf409d-3616-479a-ad64-9041e3705239}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
