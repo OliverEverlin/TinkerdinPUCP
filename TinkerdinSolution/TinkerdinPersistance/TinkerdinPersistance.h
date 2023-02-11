@@ -4,6 +4,9 @@ using namespace System;
 
 namespace TinkerdinPersistance {
 	public ref class Persistance{
+		//comentario para subir comit de eliminacion de avances con errores
+		// Oliver uu
+		// #necesitoaprendergithub
 		//definimos metodos que haran la persistencia del producto
 	public:
 		//persistencia para txt
