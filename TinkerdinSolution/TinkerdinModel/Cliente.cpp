@@ -16,7 +16,7 @@ TinkerdinModel::Cliente::Cliente()
 
 }
 
-TinkerdinModel::Cliente::Cliente(String^ name, String^ username, int code, char gender, int age, int phone, String^ email, String^ status, String^ carrer, int cicle)
+TinkerdinModel::Cliente::Cliente(String^ name, String^ username, int code, char gender, int age, int phone, String^ email, String^ status, String^ carrer, int cicle, String^ password)
 {
     this->Name = name;
     this->Username = username;
@@ -27,6 +27,7 @@ TinkerdinModel::Cliente::Cliente(String^ name, String^ username, int code, char 
     this->Status = status;
     this->Carrer = carrer;
     this->Cicle = cicle;
+    this->Password = password;
 }
 
 //metodo para buscar personas

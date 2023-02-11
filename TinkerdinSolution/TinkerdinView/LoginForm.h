@@ -48,7 +48,8 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::TextBox^ txtUsername;
 	private: System::Windows::Forms::TextBox^ txtPassword;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::PictureBox^ pbIntro;
+
 	private: System::Windows::Forms::Button^ btnRegister;
 	private: System::Windows::Forms::Label^ label3;
 
@@ -69,16 +70,17 @@ namespace TinkerdinView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(LoginForm::typeid));
 			this->btnOK = (gcnew System::Windows::Forms::Button());
 			this->btnCancel = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->txtUsername = (gcnew System::Windows::Forms::TextBox());
 			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->pbIntro = (gcnew System::Windows::Forms::PictureBox());
 			this->btnRegister = (gcnew System::Windows::Forms::Button());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbIntro))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// btnOK
@@ -135,13 +137,16 @@ namespace TinkerdinView {
 			this->txtPassword->TabIndex = 5;
 			this->txtPassword->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &LoginForm::txtPassword_KeyDown);
 			// 
-			// pictureBox1
+			// pbIntro
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(25, 12);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(235, 217);
-			this->pictureBox1->TabIndex = 6;
-			this->pictureBox1->TabStop = false;
+			this->pbIntro->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pbIntro.Image")));
+			this->pbIntro->Location = System::Drawing::Point(41, 12);
+			this->pbIntro->Name = L"pbIntro";
+			this->pbIntro->Size = System::Drawing::Size(217, 217);
+			this->pbIntro->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pbIntro->TabIndex = 6;
+			this->pbIntro->TabStop = false;
+			this->pbIntro->LoadCompleted += gcnew System::ComponentModel::AsyncCompletedEventHandler(this, &LoginForm::pbIntro_LoadCompleted);
 			// 
 			// btnRegister
 			// 
@@ -169,18 +174,18 @@ namespace TinkerdinView {
 			this->ClientSize = System::Drawing::Size(672, 255);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->btnRegister);
-			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->pbIntro);
 			this->Controls->Add(this->txtPassword);
 			this->Controls->Add(this->txtUsername);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnOK);
-			this->IsMdiContainer = true;
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"LoginForm";
 			this->Text = L"Autenticación de usuario";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->Load += gcnew System::EventHandler(this, &LoginForm::LoginForm_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbIntro))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -200,10 +205,15 @@ namespace TinkerdinView {
 
 private: System::Void btnRegister_Click(System::Object^ sender, System::EventArgs^ e) {
 	ClientForm^ clientForm = gcnew ClientForm();
-	clientForm->MdiParent = this;
+	//clientForm->MdiParent = this;
 	clientForm->Show();
 }
 private: System::Void txtUsername_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	//pbIntro->Image=gcnew Bitmap(opnfd->F)
+}
+private: System::Void pbIntro_LoadCompleted(System::Object^ sender, System::ComponentModel::AsyncCompletedEventArgs^ e) {
 }
 };
 }

@@ -20,7 +20,7 @@ namespace TinkerdinModel {
         property array <Byte>^ Photo;
         property String^ Email;
         property String^ Status;
-
+        property String^ Password;
 
         void Buy_Premium();
 
@@ -52,6 +52,6 @@ namespace TinkerdinModel {
 
 
     private:
-        property String^ Password;
+        //property String^ Password;
     };
 }

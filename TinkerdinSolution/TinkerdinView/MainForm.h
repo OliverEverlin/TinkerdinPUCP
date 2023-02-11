@@ -65,7 +65,9 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::ToolStripMenuItem^ loginToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ eventosToolStripMenuItem;
 	private: System::Windows::Forms::FontDialog^ fontDialog1;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::PictureBox^ pbPerfil;
+
+
 	private: System::DirectoryServices::DirectorySearcher^ directorySearcher1;
 	private: System::Windows::Forms::ToolStripMenuItem^ actualizarUsuarioToolStripMenuItem;
 
@@ -99,6 +101,7 @@ namespace TinkerdinView {
 			this->RegisterTStripMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->loginToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->eventosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->actualizarUsuarioToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->operacionesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->buscarLugarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->buscarAmigosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -110,11 +113,10 @@ namespace TinkerdinView {
 			this->Estudiar = (gcnew System::Windows::Forms::Button());
 			this->Extrabtn = (gcnew System::Windows::Forms::Button());
 			this->fontDialog1 = (gcnew System::Windows::Forms::FontDialog());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->pbPerfil = (gcnew System::Windows::Forms::PictureBox());
 			this->directorySearcher1 = (gcnew System::DirectoryServices::DirectorySearcher());
-			this->actualizarUsuarioToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPerfil))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
@@ -139,7 +141,7 @@ namespace TinkerdinView {
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(96, 22);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::salirToolStripMenuItem_Click);
 			// 
@@ -157,43 +159,49 @@ namespace TinkerdinView {
 			// amigosToolStripMenuItem
 			// 
 			this->amigosToolStripMenuItem->Name = L"amigosToolStripMenuItem";
-			this->amigosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->amigosToolStripMenuItem->Size = System::Drawing::Size(168, 22);
 			this->amigosToolStripMenuItem->Text = L"Amigos";
 			// 
 			// lugaresToolStripMenuItem
 			// 
 			this->lugaresToolStripMenuItem->Name = L"lugaresToolStripMenuItem";
-			this->lugaresToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->lugaresToolStripMenuItem->Size = System::Drawing::Size(168, 22);
 			this->lugaresToolStripMenuItem->Text = L"Lugares";
 			this->lugaresToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::lugaresToolStripMenuItem_Click);
 			// 
 			// CourseTStripMenu
 			// 
 			this->CourseTStripMenu->Name = L"CourseTStripMenu";
-			this->CourseTStripMenu->Size = System::Drawing::Size(180, 22);
+			this->CourseTStripMenu->Size = System::Drawing::Size(168, 22);
 			this->CourseTStripMenu->Text = L"Cursos";
 			this->CourseTStripMenu->Click += gcnew System::EventHandler(this, &MainForm::cursosToolStripMenuItem_Click);
 			// 
 			// RegisterTStripMenu
 			// 
 			this->RegisterTStripMenu->Name = L"RegisterTStripMenu";
-			this->RegisterTStripMenu->Size = System::Drawing::Size(180, 22);
+			this->RegisterTStripMenu->Size = System::Drawing::Size(168, 22);
 			this->RegisterTStripMenu->Text = L"Registro";
 			this->RegisterTStripMenu->Click += gcnew System::EventHandler(this, &MainForm::registroToolStripMenuItem_Click);
 			// 
 			// loginToolStripMenuItem
 			// 
 			this->loginToolStripMenuItem->Name = L"loginToolStripMenuItem";
-			this->loginToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->loginToolStripMenuItem->Size = System::Drawing::Size(168, 22);
 			this->loginToolStripMenuItem->Text = L"Login";
 			this->loginToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::loginToolStripMenuItem_Click);
 			// 
 			// eventosToolStripMenuItem
 			// 
 			this->eventosToolStripMenuItem->Name = L"eventosToolStripMenuItem";
-			this->eventosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->eventosToolStripMenuItem->Size = System::Drawing::Size(168, 22);
 			this->eventosToolStripMenuItem->Text = L"Eventos";
 			this->eventosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::eventosToolStripMenuItem_Click);
+			// 
+			// actualizarUsuarioToolStripMenuItem
+			// 
+			this->actualizarUsuarioToolStripMenuItem->Name = L"actualizarUsuarioToolStripMenuItem";
+			this->actualizarUsuarioToolStripMenuItem->Size = System::Drawing::Size(168, 22);
+			this->actualizarUsuarioToolStripMenuItem->Text = L"Actualizar usuario";
 			// 
 			// operacionesToolStripMenuItem
 			// 
@@ -208,13 +216,13 @@ namespace TinkerdinView {
 			// buscarLugarToolStripMenuItem
 			// 
 			this->buscarLugarToolStripMenuItem->Name = L"buscarLugarToolStripMenuItem";
-			this->buscarLugarToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->buscarLugarToolStripMenuItem->Size = System::Drawing::Size(118, 22);
 			this->buscarLugarToolStripMenuItem->Text = L"Llugares";
 			// 
 			// buscarAmigosToolStripMenuItem
 			// 
 			this->buscarAmigosToolStripMenuItem->Name = L"buscarAmigosToolStripMenuItem";
-			this->buscarAmigosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->buscarAmigosToolStripMenuItem->Size = System::Drawing::Size(118, 22);
 			this->buscarAmigosToolStripMenuItem->Text = L"Amigos";
 			this->buscarAmigosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::buscarAmigosToolStripMenuItem_Click);
 			// 
@@ -231,13 +239,13 @@ namespace TinkerdinView {
 			// reportarUsuarioToolStripMenuItem
 			// 
 			this->reportarUsuarioToolStripMenuItem->Name = L"reportarUsuarioToolStripMenuItem";
-			this->reportarUsuarioToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->reportarUsuarioToolStripMenuItem->Size = System::Drawing::Size(162, 22);
 			this->reportarUsuarioToolStripMenuItem->Text = L"Reportar Usuario";
 			// 
 			// lugarLibreToolStripMenuItem
 			// 
 			this->lugarLibreToolStripMenuItem->Name = L"lugarLibreToolStripMenuItem";
-			this->lugarLibreToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->lugarLibreToolStripMenuItem->Size = System::Drawing::Size(162, 22);
 			this->lugarLibreToolStripMenuItem->Text = L"Lugar Libre";
 			// 
 			// ayudaToolStripMenuItem
@@ -275,25 +283,20 @@ namespace TinkerdinView {
 			this->Extrabtn->Text = L"Otras actividades";
 			this->Extrabtn->UseVisualStyleBackColor = true;
 			// 
-			// pictureBox1
+			// pbPerfil
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(589, 57);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(196, 213);
-			this->pictureBox1->TabIndex = 5;
-			this->pictureBox1->TabStop = false;
+			this->pbPerfil->Location = System::Drawing::Point(589, 57);
+			this->pbPerfil->Name = L"pbPerfil";
+			this->pbPerfil->Size = System::Drawing::Size(196, 213);
+			this->pbPerfil->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pbPerfil->TabIndex = 5;
+			this->pbPerfil->TabStop = false;
 			// 
 			// directorySearcher1
 			// 
 			this->directorySearcher1->ClientTimeout = System::TimeSpan::Parse(L"-00:00:01");
 			this->directorySearcher1->ServerPageTimeLimit = System::TimeSpan::Parse(L"-00:00:01");
 			this->directorySearcher1->ServerTimeLimit = System::TimeSpan::Parse(L"-00:00:01");
-			// 
-			// actualizarUsuarioToolStripMenuItem
-			// 
-			this->actualizarUsuarioToolStripMenuItem->Name = L"actualizarUsuarioToolStripMenuItem";
-			this->actualizarUsuarioToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->actualizarUsuarioToolStripMenuItem->Text = L"Actualizar usuario";
 			// 
 			// MainForm
 			// 
@@ -302,7 +305,7 @@ namespace TinkerdinView {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->ClientSize = System::Drawing::Size(841, 502);
-			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->pbPerfil);
 			this->Controls->Add(this->Extrabtn);
 			this->Controls->Add(this->Estudiar);
 			this->Controls->Add(this->Agenda);
@@ -315,7 +318,7 @@ namespace TinkerdinView {
 			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPerfil))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -346,6 +349,16 @@ private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e
 	LoginForm^ loginForm = gcnew LoginForm();
 	loginForm->ShowDialog();
 	Cliente^ a = gcnew Cliente();
+	
+	if (a->Photo != nullptr) {
+		System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(a->Photo);
+		pbPerfil->Image = Image::FromStream(ms);
+	}
+	else {
+		pbPerfil->Image = nullptr;
+		pbPerfil->Invalidate();
+	}
+	
 
 }
 

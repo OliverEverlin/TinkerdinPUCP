@@ -45,6 +45,23 @@ int TinkerdinControler::Controller::DeleteClient(int ClientId){
 	return 0;
 }
 
+List<String^>^ TinkerdinControler::Controller::QueryAllGender(){
+    return genderList;
+}
+
+Cliente^ TinkerdinControler::Controller::QueryClientByCredentials(String^ username, String^ password){
+    clientList = (List<Cliente^>^)Persistance::LoadBinaryData("clients.bin");
+    for (int i = 0; i < clientList->Count; i++) {
+        if (clientList[i]->Username == (username) &&
+            clientList[i]->Password == (password)) {
+            return clientList[i];
+        }
+    }
+    return nullptr;
+}
+
+
+
 //List <String^>^ TinkerdinControler::Controller::QueryAllGender()
 //{
 //    //storeList=(List)
@@ -270,10 +287,11 @@ int TinkerdinControler::Controller::DeleteEvent(int eventId)
 Cliente^ TinkerdinControler::Controller::Login(String^ username, String^ password)
 {
     Cliente^ client;
-    if (username == "AFlores" && password == "password") {
+    /*if (username == "AFlores" && password == "password") {
         client = gcnew Cliente();
         client->code = 1;
         client->Name = "Armando Flores";
     }
-    return client;
+    return client;*/
+    return QueryClientByCredentials(username, password);
 }

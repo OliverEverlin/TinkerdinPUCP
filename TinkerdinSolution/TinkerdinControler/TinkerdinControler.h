@@ -13,14 +13,16 @@ namespace TinkerdinControler {
 		//static List<Admin^>^ adminList;
 		static List<Interest^>^ interestList=gcnew List<Interest^>();
 		static List<Course^>^ courseList = gcnew List<Course^>();
-		static array<String^>^ courseTypeArr = { "Curricular", "Extracurricular" };
-		static List <String^>^ courseTypeList = gcnew List<String^>(courseTypeArr);
 		static List<Place^>^ placeList = gcnew List<Place^>();
 		static List<Event^>^ eventList = gcnew List<Event^>();
 
 		//lista de opciones predeterminadas
 		static array<String^>^ InterestArr = {"musica", "deporte", "jobi","academico"};
 		static array<String^>^ genderArr = { "masculino", "femenino", "otros" };
+		static array<String^>^ courseTypeArr = { "Curricular", "Extracurricular" };
+
+		static List<String^>^ genderList = gcnew List<String^>(genderArr);
+		static List <String^>^ courseTypeList = gcnew List<String^>(courseTypeArr);
 		//static array<String^>^ courseTypeArr = { "Curricular", "Extracurricular" };
 
 
@@ -31,9 +33,10 @@ namespace TinkerdinControler {
 		static List<Cliente^>^ QueryAllClients();
 		static int UpdateClient(Cliente^ client);
 		static int DeleteClient(int ClientId);
-		//static List<String^>^ QueryAllGender();
+		static List<String^>^ QueryAllGender();
+		static Cliente^ QueryClientByCredentials(String^username,String^password);
 		//static List<Cliente^>^ QueryClientsByNameOrInterest(String^ name, String^ interest);
-		
+		static Cliente^ Login(String^ username, String^ password);
 
 		//Métodos CRUD de Course
 		static int AddCourse(Course^);
@@ -65,7 +68,5 @@ namespace TinkerdinControler {
 		static int UpdateEvent(Event^ event);
 		static int DeleteEvent(int eventId);
 
-		//Autenticación de usuario
-		static Cliente^ Login(String^ username, String^ password);
 	};
 }

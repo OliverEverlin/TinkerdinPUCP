@@ -8,6 +8,7 @@ namespace TinkerdinView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+
 	using namespace System::Collections::Generic;
 	using namespace TinkerdinControler;
 	using namespace TinkerdinModel;
@@ -73,6 +74,11 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Age;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cicle;
 	private: System::Windows::Forms::Button^ btnAdd;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Password;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::TextBox^ txtpass1;
+	private: System::Windows::Forms::TextBox^ txtpass2;
 
 
 
@@ -113,7 +119,12 @@ namespace TinkerdinView {
 			this->Username = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Age = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Cicle = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Password = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->txtpass1 = (gcnew System::Windows::Forms::TextBox());
+			this->txtpass2 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvClients))->BeginInit();
 			this->SuspendLayout();
@@ -129,7 +140,7 @@ namespace TinkerdinView {
 			// 
 			// txtName
 			// 
-			this->txtName->Location = System::Drawing::Point(157, 86);
+			this->txtName->Location = System::Drawing::Point(167, 86);
 			this->txtName->Name = L"txtName";
 			this->txtName->Size = System::Drawing::Size(218, 20);
 			this->txtName->TabIndex = 1;
@@ -181,35 +192,35 @@ namespace TinkerdinView {
 			// 
 			// txtAge
 			// 
-			this->txtAge->Location = System::Drawing::Point(157, 121);
+			this->txtAge->Location = System::Drawing::Point(167, 121);
 			this->txtAge->Name = L"txtAge";
 			this->txtAge->Size = System::Drawing::Size(100, 20);
 			this->txtAge->TabIndex = 7;
 			// 
 			// txtEmail
 			// 
-			this->txtEmail->Location = System::Drawing::Point(157, 197);
+			this->txtEmail->Location = System::Drawing::Point(167, 197);
 			this->txtEmail->Name = L"txtEmail";
 			this->txtEmail->Size = System::Drawing::Size(100, 20);
 			this->txtEmail->TabIndex = 9;
 			// 
 			// txtCarrer
 			// 
-			this->txtCarrer->Location = System::Drawing::Point(157, 232);
+			this->txtCarrer->Location = System::Drawing::Point(167, 232);
 			this->txtCarrer->Name = L"txtCarrer";
 			this->txtCarrer->Size = System::Drawing::Size(100, 20);
 			this->txtCarrer->TabIndex = 10;
 			// 
 			// txtCicle
 			// 
-			this->txtCicle->Location = System::Drawing::Point(157, 267);
+			this->txtCicle->Location = System::Drawing::Point(167, 267);
 			this->txtCicle->Name = L"txtCicle";
 			this->txtCicle->Size = System::Drawing::Size(100, 20);
 			this->txtCicle->TabIndex = 11;
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(618, 388);
+			this->btnUpdate->Location = System::Drawing::Point(655, 388);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(75, 23);
 			this->btnUpdate->TabIndex = 12;
@@ -219,7 +230,7 @@ namespace TinkerdinView {
 			// 
 			// btnReturn
 			// 
-			this->btnReturn->Location = System::Drawing::Point(372, 333);
+			this->btnReturn->Location = System::Drawing::Point(655, 340);
 			this->btnReturn->Name = L"btnReturn";
 			this->btnReturn->Size = System::Drawing::Size(75, 23);
 			this->btnReturn->TabIndex = 13;
@@ -230,7 +241,7 @@ namespace TinkerdinView {
 			// cmbGender
 			// 
 			this->cmbGender->FormattingEnabled = true;
-			this->cmbGender->Location = System::Drawing::Point(157, 154);
+			this->cmbGender->Location = System::Drawing::Point(167, 154);
 			this->cmbGender->Name = L"cmbGender";
 			this->cmbGender->Size = System::Drawing::Size(100, 21);
 			this->cmbGender->TabIndex = 14;
@@ -240,6 +251,7 @@ namespace TinkerdinView {
 			this->pbPhoto->Location = System::Drawing::Point(497, 39);
 			this->pbPhoto->Name = L"pbPhoto";
 			this->pbPhoto->Size = System::Drawing::Size(180, 213);
+			this->pbPhoto->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pbPhoto->TabIndex = 15;
 			this->pbPhoto->TabStop = false;
 			// 
@@ -254,7 +266,7 @@ namespace TinkerdinView {
 			// 
 			// txtUsername
 			// 
-			this->txtUsername->Location = System::Drawing::Point(159, 44);
+			this->txtUsername->Location = System::Drawing::Point(169, 44);
 			this->txtUsername->Name = L"txtUsername";
 			this->txtUsername->Size = System::Drawing::Size(100, 20);
 			this->txtUsername->TabIndex = 17;
@@ -272,13 +284,13 @@ namespace TinkerdinView {
 			// dgvClients
 			// 
 			this->dgvClients->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvClients->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+			this->dgvClients->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				this->Username,
-					this->Age, this->Cicle
+					this->Age, this->Cicle, this->Password
 			});
 			this->dgvClients->Location = System::Drawing::Point(42, 388);
 			this->dgvClients->Name = L"dgvClients";
-			this->dgvClients->Size = System::Drawing::Size(344, 116);
+			this->dgvClients->Size = System::Drawing::Size(446, 116);
 			this->dgvClients->TabIndex = 19;
 			this->dgvClients->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ClientForm::dgvClients_CellClick);
 			this->dgvClients->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ClientForm::dgvClients_CellContentClick);
@@ -298,9 +310,14 @@ namespace TinkerdinView {
 			this->Cicle->HeaderText = L"Cicle";
 			this->Cicle->Name = L"Cicle";
 			// 
+			// Password
+			// 
+			this->Password->HeaderText = L"Contraseña";
+			this->Password->Name = L"Password";
+			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(159, 333);
+			this->btnAdd->Location = System::Drawing::Point(452, 340);
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(75, 23);
 			this->btnAdd->TabIndex = 20;
@@ -308,11 +325,47 @@ namespace TinkerdinView {
 			this->btnAdd->UseVisualStyleBackColor = true;
 			this->btnAdd->Click += gcnew System::EventHandler(this, &ClientForm::btnAdd_Click);
 			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(56, 310);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(67, 13);
+			this->label7->TabIndex = 21;
+			this->label7->Text = L"Contraseña: ";
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(56, 343);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(108, 13);
+			this->label8->TabIndex = 22;
+			this->label8->Text = L"Repita la contraseña:";
+			// 
+			// txtpass1
+			// 
+			this->txtpass1->Location = System::Drawing::Point(167, 307);
+			this->txtpass1->Name = L"txtpass1";
+			this->txtpass1->Size = System::Drawing::Size(100, 20);
+			this->txtpass1->TabIndex = 23;
+			// 
+			// txtpass2
+			// 
+			this->txtpass2->Location = System::Drawing::Point(167, 340);
+			this->txtpass2->Name = L"txtpass2";
+			this->txtpass2->Size = System::Drawing::Size(100, 20);
+			this->txtpass2->TabIndex = 24;
+			// 
 			// ClientForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(753, 526);
+			this->Controls->Add(this->txtpass2);
+			this->Controls->Add(this->txtpass1);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->label7);
 			this->Controls->Add(this->btnAdd);
 			this->Controls->Add(this->dgvClients);
 			this->Controls->Add(this->btnSetImage);
@@ -359,14 +412,25 @@ void ShowClients() {
 	for (int i = 0; i < myClientList->Count; i++) {
 		dgvClients->Rows->Add(gcnew array<String^>{
 			myClientList[i]->Username,
-				"" + myClientList[i]->Age,
-				"" + myClientList[i]->Cicle,
+			"" + myClientList[i]->Age,
+			"" + myClientList[i]->Cicle,
+			myClientList[i]->Password
 		});
 	}
 
 }
+void FillCmbGender() {
+	cmbGender->Items->Clear();
+	List<String^>^ genderList = Controller::QueryAllGender();
+
+	for (int i = 0; i < genderList->Count; i++)
+	{
+		cmbGender->Items->Add(genderList[i]);
+	}
+}
 private: System::Void ClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	ShowClients();
+	FillCmbGender();
 }
 
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -389,7 +453,7 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 	a->Email = txtEmail->Text;
 	a->Carrer = txtCarrer->Text;
 	a->Cicle = Convert::ToInt32(txtCicle->Text);
-
+	a->Password = txtpass1->Text;
 
 	if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
 		System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
@@ -403,30 +467,87 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 }
 
 private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+	//Cliente^ a = gcnew Cliente();
+	//a->Username = txtUsername->Text;
+	//a->Name = txtName->Text;
+	//a->Age = Convert::ToInt32(txtAge->Text);
+	////a->Gender= txt
+	//a->Email = txtEmail->Text;
+	//a->Carrer = txtCarrer->Text;
+	//a->Cicle = Convert::ToInt32(txtCicle->Text);
+	//if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
+	//	System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+	//	pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+	//	a->Photo = ms->ToArray();
+	//}
+
+	//Controller::AddClient(a);
+
+	//CleanControls();
+	//ShowClients();
+
 	Cliente^ a = gcnew Cliente();
-	a->Username = txtUsername->Text;
-	a->Name = txtName->Text;
-	a->Age = Convert::ToInt32(txtAge->Text);
-	//a->Gender= txt
-	a->Email = txtEmail->Text;
-	a->Carrer = txtCarrer->Text;
-	a->Cicle = Convert::ToInt32(txtCicle->Text);
-	if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
-		System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
-		pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
-		a->Photo = ms->ToArray();
+	String^ gender;
+	try {
+		if (txtUsername->Text->Trim() == "") {
+			MessageBox::Show("El nombre del usuario no debe estar vacío.");
+			return;
+		}
+		if (txtpass1->Text->Trim() == "") {
+			MessageBox::Show("El password del usuario no debe estar vacío.");
+			return;
+		}
+		if (txtpass1->Text != txtpass2->Text) {
+			MessageBox::Show("Las contraseñas ingresadas son diferentes");
+			return;
+		}
+		if (cmbGender->SelectedIndex < 0) {
+			MessageBox::Show("El genero debe estar selecionado");
+			return;
+		}
+
+		a->Username = txtUsername->Text;
+		a->Name = txtName->Text;
+		a->Age = Convert::ToInt32(txtAge->Text);
+		//conversion a string
+		gender= cmbGender->SelectedItem->ToString();
+		if (gender == "masculino") {
+			a->Gender = 'M';
+		}
+		if (gender == "femenino") {
+			a->Gender = 'F';
+		}
+		else {
+			a->Gender = 'O';
+		}
+		a->Email = txtEmail->Text;
+		a->Carrer = txtCarrer->Text;
+		a->Cicle = Convert::ToInt32(txtCicle->Text);
+		a->Password = txtpass1->Text;
+
+		if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
+			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+			pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+			a->Photo = ms->ToArray();
+		}
+
+		Controller::AddClient(a);
+
+		CleanControls();
+		ShowClients();
 	}
-
-	Controller::AddClient(a);
-
-	CleanControls();
-	ShowClients();
+	catch (Exception^ ex) {
+		MessageBox::Show(ex->ToString(), "Envíe el error al área de TI.");
+		return;
+	}
+	MessageBox::Show("Cliente registrado de manera exitosa");
+	this->Close();
 }
 private: System::Void dgvClients_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	
 }
 private: System::Void btnReturn_Click(System::Object^ sender, System::EventArgs^ e) {
-	//exit(); 
+	Application::Exit();
 }
 private: System::Void dgvClients_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	//Cliente^ client = Controller::QueryClientById(txtUsername->Text);

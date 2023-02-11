@@ -361,7 +361,7 @@ namespace TinkerdinView {
 		event->Name = txtEventName->Text;
 		event->Relevance = txtEventRelevance->Text;
 		event->Privacy = txtEventPrivacy->Text;
-		event->Date = Convert::ToDouble(txtEventDate->Text);
+		//event->Date = Convert::ToDouble(txtEventDate->Text);
 		event->Hour = Convert::ToInt32(txtEventHour->Text);
 
 		Controller::AddEvent(event);
@@ -402,7 +402,7 @@ namespace TinkerdinView {
 		event->Name = txtEventName->Text;
 		event->Relevance = txtEventRelevance->Text;
 		event->Privacy = txtEventPrivacy->Text;
-		event->Date = Convert::ToDouble(txtEventDate->Text);
+		//event->Date = Convert::ToDouble(txtEventDate->Text);
 		event->Hour = Convert::ToInt32(txtEventHour->Text);
 
 		Controller::UpdateEvent(event);
