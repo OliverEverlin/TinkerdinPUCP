@@ -7,6 +7,10 @@ namespace TinkerdinPersistance {
 		//comentario para subir comit de eliminacion de avances con errores
 		// Oliver uu
 		// #necesitoaprendergithub
+		// 
+		// Segundo commit para ver si esto es lo que funciona
+		// 
+		// 
 		//definimos metodos que haran la persistencia del producto
 	public:
 		//persistencia para txt
