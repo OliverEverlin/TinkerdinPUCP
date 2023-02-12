@@ -10,12 +10,13 @@ int TinkerdinControler::Controller::AddClient(Cliente^ client){
 	return client->code;
 }
 
-Cliente^ TinkerdinControler::Controller::QueryClientById(String^ clientId){
-	clientList = (List<Cliente^>^)Persistance::LoadBinaryData("clients.bin");
+Cliente^ TinkerdinControler::Controller::QueryClientByUsername(String^ username){
+    clientList = (List<Cliente^>^)Persistance::LoadBinaryData("clients.bin");
     for (int i = 0; i < clientList->Count; i++)
-		if (clientList[i]->Username == clientId)
-			return clientList[i];
-	return nullptr;
+    	if (clientList[i]->Username == username)
+    		return clientList[i];
+    return nullptr;
+    
 }
 
 List<Cliente^>^ TinkerdinControler::Controller::QueryAllClients(){

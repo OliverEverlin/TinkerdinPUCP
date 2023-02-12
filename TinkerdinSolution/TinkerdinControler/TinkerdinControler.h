@@ -29,7 +29,7 @@ namespace TinkerdinControler {
 	public:
 		// CRUD Cliente
 		static int AddClient(Cliente^ client);
-		static Cliente^ QueryClientById(String^ clientId);
+		static Cliente^ QueryClientByUsername(String^ username);
 		static List<Cliente^>^ QueryAllClients();
 		static int UpdateClient(Cliente^ client);
 		static int DeleteClient(int ClientId);
@@ -37,6 +37,7 @@ namespace TinkerdinControler {
 		static Cliente^ QueryClientByCredentials(String^username,String^password);
 		//static List<Cliente^>^ QueryClientsByNameOrInterest(String^ name, String^ interest);
 		static Cliente^ Login(String^ username, String^ password);
+
 
 		//Métodos CRUD de Course
 		static int AddCourse(Course^);
