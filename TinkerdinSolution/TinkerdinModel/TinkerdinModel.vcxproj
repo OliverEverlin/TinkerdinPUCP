@@ -129,6 +129,7 @@
     <ClInclude Include="Course.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="GroupChat.h" />
+    <ClInclude Include="Hours.h" />
     <ClInclude Include="Individual_Chat.h" />
     <ClInclude Include="Interest.h" />
     <ClInclude Include="Message.h" />
@@ -150,6 +151,7 @@
     <ClCompile Include="Course.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="GroupChat.cpp" />
+    <ClCompile Include="Hours.cpp" />
     <ClCompile Include="Individual_Chat.cpp" />
     <ClCompile Include="Interest.cpp" />
     <ClCompile Include="Message.cpp" />

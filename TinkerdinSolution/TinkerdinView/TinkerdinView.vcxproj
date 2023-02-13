@@ -140,9 +140,6 @@
     <ClInclude Include="CourseForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="CRUDClientsForm.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="EditClientForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -160,6 +157,12 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="ScheduleForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="SignInForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
@@ -167,7 +170,6 @@
     <ClCompile Include="CheckClientForm.cpp" />
     <ClCompile Include="ClientForm.cpp" />
     <ClCompile Include="CourseForm.cpp" />
-    <ClCompile Include="CRUDClientsForm.cpp" />
     <ClCompile Include="EditClientForm.cpp" />
     <ClCompile Include="EventForm.cpp" />
     <ClCompile Include="LoginForm.cpp" />
@@ -179,6 +181,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="PlaceForm.cpp" />
+    <ClCompile Include="ScheduleForm.cpp" />
+    <ClCompile Include="SignInForm.cpp" />
     <ClCompile Include="TinkerdinView.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -205,9 +209,6 @@
     <EmbeddedResource Include="CourseForm.resx">
       <DependentUpon>CourseForm.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CRUDClientsForm.resx">
-      <DependentUpon>CRUDClientsForm.h</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="EditClientForm.resx">
       <DependentUpon>EditClientForm.h</DependentUpon>
     </EmbeddedResource>
@@ -225,6 +226,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PlaceForm.resx">
       <DependentUpon>PlaceForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleForm.resx">
+      <DependentUpon>ScheduleForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignInForm.resx">
+      <DependentUpon>SignInForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

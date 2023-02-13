@@ -53,7 +53,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::TextBox^ txtCarrer;
 	private: System::Windows::Forms::TextBox^ txtCicle;
 	private: System::Windows::Forms::Button^ btnUpdate;
-
+	private: System::Windows::Forms::Button^ btnReturn;
 	private: System::Windows::Forms::ComboBox^ cmbGender;
 	private: System::Windows::Forms::PictureBox^ pbPhoto;
 
@@ -73,14 +73,12 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Username;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Age;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cicle;
-
+	private: System::Windows::Forms::Button^ btnAdd;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Password;
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::TextBox^ txtpass1;
 	private: System::Windows::Forms::TextBox^ txtpass2;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button2;
 
 
 
@@ -111,6 +109,7 @@ namespace TinkerdinView {
 			this->txtCarrer = (gcnew System::Windows::Forms::TextBox());
 			this->txtCicle = (gcnew System::Windows::Forms::TextBox());
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
+			this->btnReturn = (gcnew System::Windows::Forms::Button());
 			this->cmbGender = (gcnew System::Windows::Forms::ComboBox());
 			this->pbPhoto = (gcnew System::Windows::Forms::PictureBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
@@ -121,12 +120,11 @@ namespace TinkerdinView {
 			this->Age = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Cicle = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Password = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->txtpass1 = (gcnew System::Windows::Forms::TextBox());
 			this->txtpass2 = (gcnew System::Windows::Forms::TextBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvClients))->BeginInit();
 			this->SuspendLayout();
@@ -230,6 +228,16 @@ namespace TinkerdinView {
 			this->btnUpdate->UseVisualStyleBackColor = true;
 			this->btnUpdate->Click += gcnew System::EventHandler(this, &ClientForm::btnUpdate_Click);
 			// 
+			// btnReturn
+			// 
+			this->btnReturn->Location = System::Drawing::Point(655, 340);
+			this->btnReturn->Name = L"btnReturn";
+			this->btnReturn->Size = System::Drawing::Size(75, 23);
+			this->btnReturn->TabIndex = 13;
+			this->btnReturn->Text = L"Cancelar";
+			this->btnReturn->UseVisualStyleBackColor = true;
+			this->btnReturn->Click += gcnew System::EventHandler(this, &ClientForm::btnReturn_Click);
+			// 
 			// cmbGender
 			// 
 			this->cmbGender->FormattingEnabled = true;
@@ -284,7 +292,7 @@ namespace TinkerdinView {
 			this->dgvClients->Name = L"dgvClients";
 			this->dgvClients->Size = System::Drawing::Size(446, 116);
 			this->dgvClients->TabIndex = 19;
-			this->dgvClients->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ClientForm::dgvClients_CellClick);
+			//this->dgvClients->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ClientForm::dgvClients_CellClick);
 			this->dgvClients->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ClientForm::dgvClients_CellContentClick);
 			// 
 			// Username
@@ -306,6 +314,16 @@ namespace TinkerdinView {
 			// 
 			this->Password->HeaderText = L"Contraseña";
 			this->Password->Name = L"Password";
+			// 
+			// btnAdd
+			// 
+			this->btnAdd->Location = System::Drawing::Point(452, 340);
+			this->btnAdd->Name = L"btnAdd";
+			this->btnAdd->Size = System::Drawing::Size(75, 23);
+			this->btnAdd->TabIndex = 20;
+			this->btnAdd->Text = L"Registrar";
+			this->btnAdd->UseVisualStyleBackColor = true;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &ClientForm::btnAdd_Click);
 			// 
 			// label7
 			// 
@@ -339,24 +357,6 @@ namespace TinkerdinView {
 			this->txtpass2->Size = System::Drawing::Size(100, 20);
 			this->txtpass2->TabIndex = 24;
 			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(446, 333);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
-			this->button1->TabIndex = 20;
-			this->button1->Text = L"Registrar";
-			this->button1->UseVisualStyleBackColor = true;
-			// 
-			// button2
-			// 
-			this->button2->Location = System::Drawing::Point(654, 333);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
-			this->button2->TabIndex = 13;
-			this->button2->Text = L"Cancelar";
-			this->button2->UseVisualStyleBackColor = true;
-			// 
 			// ClientForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -366,14 +366,14 @@ namespace TinkerdinView {
 			this->Controls->Add(this->txtpass1);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->label7);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->btnAdd);
 			this->Controls->Add(this->dgvClients);
 			this->Controls->Add(this->btnSetImage);
 			this->Controls->Add(this->txtUsername);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->pbPhoto);
 			this->Controls->Add(this->cmbGender);
-			this->Controls->Add(this->button2);
+			this->Controls->Add(this->btnReturn);
 			this->Controls->Add(this->btnUpdate);
 			this->Controls->Add(this->txtCicle);
 			this->Controls->Add(this->txtCarrer);
@@ -548,10 +548,7 @@ private: System::Void dgvClients_CellContentClick(System::Object^ sender, System
 private: System::Void btnReturn_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();
 }
-private: System::Void dgvClients_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	//Cliente^ client = Controller::QueryClientById(txtUsername->Text);
 
-}
 };
 }
 

@@ -401,17 +401,20 @@ namespace TinkerdinView {
 
 		}
 #pragma endregion
-	void ShowClients() {
-		List<Cliente^>^ myClientList = Controller::QueryAllClients();
-		dgvClients->ClearSelection();
-		for (int i = 0; i < myClientList->Count; i++){
+void ShowClients() {
+	List<Cliente^>^ myClientList = Controller::QueryAllClients();
+	dgvClients->Rows->Clear();
+	if (myClientList != nullptr) {
+		for (int i = 0; i < myClientList->Count; i++) {
 			dgvClients->Rows->Add(gcnew array<String^>{
 				myClientList[i]->Username,
-					"" + myClientList[i]->Age
+					"" + myClientList[i]->Age,
 			});
 		}
 	}
-	void CleanControls() {
+		
+}
+void CleanControls() {
 		txtUsername->Clear();
 		txtName->Clear();
 		txtAge->Clear();
@@ -420,7 +423,7 @@ namespace TinkerdinView {
 		txtCicle->Clear();
 		pbPhoto->Image = nullptr;
 	}
-	void FillCmbGender() {
+void FillCmbGender() {
 		cmbGender->Items->Clear();
 		List<String^>^ genderList = Controller::QueryAllGender();
 
@@ -434,10 +437,20 @@ private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^
 }
 private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
 	Cliente^ a = gcnew Cliente();
+	String^ gender;
 	a->Username = txtUsername->Text;
 	a->Name = txtName->Text;
 	a->Age = Convert::ToInt32(txtAge->Text);
-	//a->Gender= txt
+	gender = cmbGender->SelectedItem->ToString();
+	if (gender == "masculino") {
+		a->Gender = 'M';
+	}
+	if (gender == "femenino") {
+		a->Gender = 'F';
+	}
+	else {
+		a->Gender = 'O';
+	}
 	a->Email = txtEmail->Text;
 	a->Carrer = txtCarrer->Text;
 	a->Cicle = Convert::ToInt32(txtCicle->Text);
@@ -450,7 +463,27 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 	}
 
 	Controller::UpdateClient(a);
+	CleanControls();
 	ShowClients();
+
+	/*Product^ product = gcnew Product();
+	product->setId(Convert::ToInt32(txtProductId->Text));
+	product->Id = Convert::ToInt32(txtProductId->Text);
+	product->Name = txtName->Text;
+	product->Description = txtDescription->Text;
+	product->PriceMin = Convert::ToDouble(txtPriceMin->Text);
+	product->PriceMaj = Convert::ToDouble(txtPriceMaj->Text);
+	product->Stock = Convert::ToInt32(txtStock->Text);
+	product->Status = 'A';
+	if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
+		System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+		pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+		product->Photo = ms->ToArray();
+	}
+
+	Controller::UpdateProduct(product);
+	CleanControls();
+	ShowProducts();*/
 }
 private: System::Void dgvClientsCellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	int selectedRowIndex = dgvClients->SelectedCells[0]->RowIndex;
@@ -475,6 +508,7 @@ private: System::Void dgvClientsCellClick(System::Object^ sender, System::Window
 private: System::Void dgvClientsCellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }
 private: System::Void CRUDClientsForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	FillCmbGender();
 	ShowClients();
 }
 };

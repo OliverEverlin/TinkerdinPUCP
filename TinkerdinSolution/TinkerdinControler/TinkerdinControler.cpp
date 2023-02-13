@@ -10,17 +10,24 @@ int TinkerdinControler::Controller::AddClient(Cliente^ client){
 	return client->code;
 }
 
-Cliente^ TinkerdinControler::Controller::QueryClientByUsername(String^ username){
-    clientList = (List<Cliente^>^)Persistance::LoadBinaryData("clients.bin");
+Cliente^ TinkerdinControler::Controller::QueryClientById(String^ clientId){
+	clientList = (List<Cliente^>^)Persistance::LoadBinaryData("clients.bin");
     for (int i = 0; i < clientList->Count; i++)
-    	if (clientList[i]->Username == username)
-    		return clientList[i];
-    return nullptr;
-    
+		if (clientList[i]->Username == clientId)
+			return clientList[i];
+	return nullptr;
 }
 
 List<Cliente^>^ TinkerdinControler::Controller::QueryAllClients(){
 	clientList = (List<Cliente^>^)Persistance::LoadBinaryData("clients.bin");
+    List<Cliente^>^ clientActiveList = gcnew List<Cliente^>();
+    for (int i = 0; i < clientList->Count; i++) {
+        //pendiente de revisión:
+        if (clientList[i]->Username != nullptr) {
+            clientActiveList->Add(clientList[i]);
+        }
+    }
+    //courseList = (List<Course^>^)Persistance::LoadBinaryData("course.bin");
     return clientList;
 }
 
@@ -49,7 +56,6 @@ int TinkerdinControler::Controller::DeleteClient(int ClientId){
 List<String^>^ TinkerdinControler::Controller::QueryAllGender(){
     return genderList;
 }
-
 Cliente^ TinkerdinControler::Controller::QueryClientByCredentials(String^ username, String^ password){
     clientList = (List<Cliente^>^)Persistance::LoadBinaryData("clients.bin");
     for (int i = 0; i < clientList->Count; i++) {
@@ -61,13 +67,6 @@ Cliente^ TinkerdinControler::Controller::QueryClientByCredentials(String^ userna
     return nullptr;
 }
 
-
-
-//List <String^>^ TinkerdinControler::Controller::QueryAllGender()
-//{
-//    //storeList=(List)
-//    return courseTypeArr;
-//}
 
 //INTERES WITH PERSIST. BINARIA -----------------------------------------
 int TinkerdinControler::Controller::AddInterest(Interest^ interest){
@@ -178,9 +177,17 @@ List<String^>^ TinkerdinControler::Controller::QueryAllTypeCourse()
     }*/
     return courseTypeList;
 }
-
 //COURSE FIN--------------------------------------------
-// 
+
+//HOURS 
+List<Hours^>^ TinkerdinControler::Controller::QueryAllHours()
+{
+    hoursList = (List<Hours^>^)Persistance::LoadData("hours.csv");
+    return hoursList;
+}
+// HOURS FIN-----------------------------------------------
+
+
 //PLACE------------------------------------
 int TinkerdinControler::Controller::AddPlace(Place^ place)
 {
@@ -287,7 +294,7 @@ int TinkerdinControler::Controller::DeleteEvent(int eventId)
 //LoginForm
 Cliente^ TinkerdinControler::Controller::Login(String^ username, String^ password)
 {
-    Cliente^ client;
+    //Cliente^ client;
     /*if (username == "AFlores" && password == "password") {
         client = gcnew Cliente();
         client->code = 1;
