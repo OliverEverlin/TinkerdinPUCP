@@ -361,7 +361,7 @@ private: System::Void btnPlaceAdd_Click(System::Object^ sender, System::EventArg
 	place->Availability = txtPlaceAvailability->Text;
 	place->Participants = Convert::ToInt32(txtPlaceParticipants->Text);
 	place->PowerOutlet = Convert::ToInt32(txtPlacePowerOutlet->Text);
-	place->TypePlace =txtPlaceTypePlace->Text;
+	//place->TypePlace =txtPlaceTypePlace->Text;
 	place->Location = txtPlaceLocation->Text;
 
 	Controller::AddPlace(place);

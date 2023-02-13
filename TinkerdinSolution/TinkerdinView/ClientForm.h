@@ -482,10 +482,6 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 	//}
 
 	//Controller::AddClient(a);
-
-	//CleanControls();
-	//ShowClients();
-
 	Cliente^ a = gcnew Cliente();
 	String^ gender;
 	try {
@@ -524,6 +520,9 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 		a->Carrer = txtCarrer->Text;
 		a->Cicle = Convert::ToInt32(txtCicle->Text);
 		a->Password = txtpass1->Text;
+		a->code = 0;
+		a->Phone = 0;
+		//a->Status= 
 
 		if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
 			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();

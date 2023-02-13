@@ -12,11 +12,9 @@ namespace TinkerdinModel {
     public ref class Place {
         //private:
         //    //La defino como privados la cantidad de personas en un lugar por tema de seguridad
-
         //    int Participants;
         //    int PowerOutlet;
-        //    //void Activate();
-        
+        //    //void Activate();   
     public:
         /* int getParticipants() {
              return Participants;
@@ -30,12 +28,6 @@ namespace TinkerdinModel {
          void setPowerOutlet(int PowerOutlet) {
              this->PowerOutlet = PowerOutlet;
          }*/
-
-
-
-
-
-
         property String^ Availability;//Cambié de char a string 
         property int Id;
         property int Participants;

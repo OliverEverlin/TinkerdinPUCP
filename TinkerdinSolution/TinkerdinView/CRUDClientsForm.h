@@ -62,6 +62,14 @@ namespace TinkerdinView {
 
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Username;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Edad;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::TextBox^ txtPassword;
+	private: System::Windows::Forms::TextBox^ txtCellPhone;
+	private: System::Windows::Forms::TextBox^ txtStatus;
+	private: System::Windows::Forms::TextBox^ txtPass;
 
 
 
@@ -101,6 +109,14 @@ namespace TinkerdinView {
 			this->dgvClients = (gcnew System::Windows::Forms::DataGridView());
 			this->Username = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Edad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
+			this->txtCellPhone = (gcnew System::Windows::Forms::TextBox());
+			this->txtStatus = (gcnew System::Windows::Forms::TextBox());
+			this->txtPass = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvClients))->BeginInit();
 			this->SuspendLayout();
@@ -279,11 +295,83 @@ namespace TinkerdinView {
 			this->Edad->HeaderText = L"Age";
 			this->Edad->Name = L"Edad";
 			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(36, 298);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(40, 13);
+			this->label7->TabIndex = 59;
+			this->label7->Text = L"Codigo";
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(36, 332);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(42, 13);
+			this->label8->TabIndex = 60;
+			this->label8->Text = L"Celular:";
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(36, 364);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(37, 13);
+			this->label9->TabIndex = 61;
+			this->label9->Text = L"Status";
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(36, 396);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(64, 13);
+			this->label10->TabIndex = 62;
+			this->label10->Text = L"Contrasena:";
+			// 
+			// txtPassword
+			// 
+			this->txtPassword->Location = System::Drawing::Point(139, 291);
+			this->txtPassword->Name = L"txtPassword";
+			this->txtPassword->Size = System::Drawing::Size(100, 20);
+			this->txtPassword->TabIndex = 63;
+			// 
+			// txtCellPhone
+			// 
+			this->txtCellPhone->Location = System::Drawing::Point(139, 329);
+			this->txtCellPhone->Name = L"txtCellPhone";
+			this->txtCellPhone->Size = System::Drawing::Size(100, 20);
+			this->txtCellPhone->TabIndex = 64;
+			// 
+			// txtStatus
+			// 
+			this->txtStatus->Location = System::Drawing::Point(139, 361);
+			this->txtStatus->Name = L"txtStatus";
+			this->txtStatus->Size = System::Drawing::Size(100, 20);
+			this->txtStatus->TabIndex = 65;
+			// 
+			// txtPass
+			// 
+			this->txtPass->Location = System::Drawing::Point(139, 393);
+			this->txtPass->Name = L"txtPass";
+			this->txtPass->Size = System::Drawing::Size(100, 20);
+			this->txtPass->TabIndex = 66;
+			// 
 			// CRUDClientsForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(930, 539);
+			this->Controls->Add(this->txtPass);
+			this->Controls->Add(this->txtStatus);
+			this->Controls->Add(this->txtCellPhone);
+			this->Controls->Add(this->txtPassword);
+			this->Controls->Add(this->label10);
+			this->Controls->Add(this->label9);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->label7);
 			this->Controls->Add(this->dgvClients);
 			this->Controls->Add(this->btnDelete);
 			this->Controls->Add(this->btnUpdate);
