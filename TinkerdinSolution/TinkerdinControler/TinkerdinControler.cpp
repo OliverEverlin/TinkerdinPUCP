@@ -242,6 +242,16 @@ List<Place^>^ TinkerdinControler::Controller::QueryAllPlace()
 
     return placeList;
 }
+String^ TinkerdinControler::Controller::QueryPlaceByName(String^ placeLocation)
+{
+    
+    placeList = (List<Place^>^)Persistance::LoadBinaryData("places.bin");
+    for (int i = 0; i < placeList->Count; i++)
+        if (placeList[i]->Location == Convert::ToString(placeLocation))
+            return Convert::ToString(placeList[i]->Id);
+    return nullptr;
+
+}
 //PLACE FIN//
 //
 //EVENT WITH PERSIST. BINARIA//
