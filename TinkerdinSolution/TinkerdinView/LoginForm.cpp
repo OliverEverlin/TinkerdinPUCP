@@ -3,8 +3,7 @@
 #include "MainForm.h"
 
 
-System::Void TinkerdinView::LoginForm::btnOK_Click(System::Object^ sender, System::EventArgs^ e)
-{
+System::Void TinkerdinView::LoginForm::btnOK_Click(System::Object^ sender, System::EventArgs^ e){
 	Cliente^ client = Controller::Login(txtUsername->Text, txtPassword->Text);
 	if (client != nullptr) {
 		MessageBox::Show("Bienvenido " + client->Name );
