@@ -50,6 +50,7 @@ namespace TinkerdinControler {
 		static int DeletePlace(int placeId);
 		static Place^ QueryPlaceById(int placeId);
 		static List<Place^>^ QueryAllPlace();
+		static String^ QueryPlaceByName(String^ placeLocation);
 
 		//Metodos CRUD de Interest
 		static int AddInterest(Interest^ interest);

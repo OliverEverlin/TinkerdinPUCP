@@ -5,6 +5,8 @@
 #include "ClientForm.h"
 #include "LoginForm.h"
 #include "EventForm.h"
+#include "PLACE_Form.h"
+#include "ReportForm.h"
 
 namespace TinkerdinView {
 
@@ -67,6 +69,8 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::FontDialog^ fontDialog1;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::DirectoryServices::DirectorySearcher^ directorySearcher1;
+	private: System::Windows::Forms::Button^ btnPlaces;
+
 
 
 
@@ -111,6 +115,7 @@ namespace TinkerdinView {
 			this->fontDialog1 = (gcnew System::Windows::Forms::FontDialog());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->directorySearcher1 = (gcnew System::DirectoryServices::DirectorySearcher());
+			this->btnPlaces = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -137,7 +142,7 @@ namespace TinkerdinView {
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(96, 22);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::salirToolStripMenuItem_Click);
 			// 
@@ -286,19 +291,32 @@ namespace TinkerdinView {
 			this->directorySearcher1->ServerPageTimeLimit = System::TimeSpan::Parse(L"-00:00:01");
 			this->directorySearcher1->ServerTimeLimit = System::TimeSpan::Parse(L"-00:00:01");
 			// 
+			// btnPlaces
+			// 
+			this->btnPlaces->Location = System::Drawing::Point(77, 266);
+			this->btnPlaces->Name = L"btnPlaces";
+			this->btnPlaces->Size = System::Drawing::Size(117, 47);
+			this->btnPlaces->TabIndex = 7;
+			this->btnPlaces->Text = L"Reportar Lugar";
+			this->btnPlaces->UseVisualStyleBackColor = true;
+			this->btnPlaces->Click += gcnew System::EventHandler(this, &MainForm::button1_Click_2);
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->ClientSize = System::Drawing::Size(841, 502);
+			this->Controls->Add(this->btnPlaces);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->Extrabtn);
 			this->Controls->Add(this->Estudiar);
 			this->Controls->Add(this->Agenda);
 			this->Controls->Add(this->menuStrip1);
 			this->DoubleBuffered = true;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MainForm";
@@ -353,6 +371,12 @@ private: System::Void eventosToolStripMenuItem_Click(System::Object^ sender, Sys
 	EventForm^ eventForm = gcnew EventForm();
 	eventForm->MdiParent = this;
 	eventForm->Show();
+}
+private: System::Void button1_Click_2(System::Object^ sender, System::EventArgs^ e) {
+	ReportForm^ reportForm = gcnew ReportForm();//Creo instancia
+	reportForm->MdiParent = this;
+	reportForm->Show();
+
 }
 };
 }

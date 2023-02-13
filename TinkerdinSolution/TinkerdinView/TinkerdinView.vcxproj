@@ -156,6 +156,12 @@
     <ClInclude Include="PlaceForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="PLACE_Form.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ReportForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SignInForm.h">
       <FileType>CppForm</FileType>
@@ -178,6 +184,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="PlaceForm.cpp" />
+    <ClCompile Include="PLACE_Form.cpp" />
+    <ClCompile Include="ReportForm.cpp" />
     <ClCompile Include="SignInForm.cpp" />
     <ClCompile Include="TinkerdinView.cpp" />
   </ItemGroup>
@@ -223,6 +231,12 @@
     <EmbeddedResource Include="PlaceForm.resx">
       <DependentUpon>PlaceForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PLACE_Form.resx">
+      <DependentUpon>PLACE_Form.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportForm.resx">
+      <DependentUpon>ReportForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignInForm.resx">
       <DependentUpon>SignInForm.h</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +247,9 @@
     </ProjectReference>
     <ProjectReference Include="..\TinkerdinModel\TinkerdinModel.vcxproj">
       <Project>{b0df2785-9003-4563-bed6-e6273c7832e3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TinkerdinPersistance\TinkerdinPersistance.vcxproj">
+      <Project>{38bf409d-3616-479a-ad64-9041e3705239}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
