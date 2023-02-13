@@ -343,7 +343,7 @@ namespace TinkerdinView {
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->ClientSize = System::Drawing::Size(841, 502);
 			this->Controls->Add(this->btnPlaces);
-			this->Controls->Add(this->pictureBox1);
+			//this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->pbPerfil);
 			this->Controls->Add(this->Extrabtn);
 			this->Controls->Add(this->Estudiar);
