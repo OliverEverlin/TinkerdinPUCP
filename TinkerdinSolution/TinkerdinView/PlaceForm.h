@@ -410,7 +410,9 @@ private: System::Void btnPlaceDelete_Click(System::Object^ sender, System::Event
 }
 private: System::Void dgvPlace_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 
+	//if (e->RowIndex < 0)return;//Para que no retorne error ULTIMATE
 	int selectedRowIndex = dgvPlace->SelectedCells[0]->RowIndex;
+	if (e->RowIndex < 0)return;//Para que no retorne error ULTIMATE
 	int placeId = Convert::ToInt32(dgvPlace->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
 	Place^ p = Controller::QueryPlaceById(placeId);
 	//txtPlaceId->Text = "" + p->getId();

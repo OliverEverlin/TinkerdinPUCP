@@ -211,9 +211,9 @@ Object^ TinkerdinPersistance::Persistance::LoadBinaryData(String^ fileName){
             }
         }
         if (fileName->Equals("events.bin")) {
-            res = gcnew List<Interest^>();
+            res = gcnew List<Event^>();
             if (File::Exists(fileName)) {
-                res = (List<Interest^>^)formateador->Deserialize(input);
+                res = (List<Event^>^)formateador->Deserialize(input);
             }
         }
         if (fileName->Equals("places.bin")) {

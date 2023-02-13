@@ -74,6 +74,7 @@ namespace TinkerdinView {
 
 
 	private: System::DirectoryServices::DirectorySearcher^ directorySearcher1;
+	private: System::Windows::Forms::Button^ btnPlaces;
 	private: System::Windows::Forms::ToolStripMenuItem^ actualizarUsuarioToolStripMenuItem;
 
 	private: System::Windows::Forms::ToolStripMenuItem^ cRUDLugaresToolStripMenuItem;
@@ -81,6 +82,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::ToolStripMenuItem^ extrasToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ adminToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ cRUDClientsToolStripMenuItem;
+
 
 
 
@@ -336,15 +338,19 @@ namespace TinkerdinView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->ClientSize = System::Drawing::Size(841, 502);
+			this->Controls->Add(this->btnPlaces);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->pbPerfil);
 			this->Controls->Add(this->Extrabtn);
 			this->Controls->Add(this->Estudiar);
 			this->Controls->Add(this->Agenda);
 			this->Controls->Add(this->menuStrip1);
 			this->DoubleBuffered = true;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MainForm";

@@ -916,5 +916,15 @@ private: System::Void Schedule_button_Click(System::Object^ sender, System::Even
 	scheduleForm->RefCourseForm = this;
 	scheduleForm->ShowDialog();
 }
+
+
+
 };
 }
+
+
+
+//para la rama nueva ingresar
+//creandocomentarios
+//
+
