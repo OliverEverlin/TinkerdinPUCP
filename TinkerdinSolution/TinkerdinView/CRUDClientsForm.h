@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 namespace TinkerdinView {
 
@@ -23,13 +23,13 @@ namespace TinkerdinView {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar código de constructor aquí
+			//TODO: agregar cï¿½digo de constructor aquï¿½
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estï¿½n usando.
 		/// </summary>
 		~CRUDClientsForm()
 		{
@@ -66,7 +66,8 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ label10;
-	private: System::Windows::Forms::TextBox^ txtPassword;
+	private: System::Windows::Forms::TextBox^ txtCode;
+
 	private: System::Windows::Forms::TextBox^ txtCellPhone;
 	private: System::Windows::Forms::TextBox^ txtStatus;
 	private: System::Windows::Forms::TextBox^ txtPass;
@@ -77,14 +78,14 @@ namespace TinkerdinView {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseï¿½ador necesaria.
 		/// </summary>
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// Mï¿½todo necesario para admitir el Diseï¿½ador. No se puede modificar
+		/// el contenido de este mï¿½todo con el editor de cï¿½digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -113,7 +114,7 @@ namespace TinkerdinView {
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
+			this->txtCode = (gcnew System::Windows::Forms::TextBox());
 			this->txtCellPhone = (gcnew System::Windows::Forms::TextBox());
 			this->txtStatus = (gcnew System::Windows::Forms::TextBox());
 			this->txtPass = (gcnew System::Windows::Forms::TextBox());
@@ -144,6 +145,7 @@ namespace TinkerdinView {
 			this->cmbGender->Name = L"cmbGender";
 			this->cmbGender->Size = System::Drawing::Size(100, 21);
 			this->cmbGender->TabIndex = 51;
+			this->cmbGender->SelectedIndexChanged += gcnew System::EventHandler(this, &CRUDClientsForm::cmbGender_SelectedIndexChanged);
 			// 
 			// txtCicle
 			// 
@@ -331,12 +333,12 @@ namespace TinkerdinView {
 			this->label10->TabIndex = 62;
 			this->label10->Text = L"Contrasena:";
 			// 
-			// txtPassword
+			// txtCode
 			// 
-			this->txtPassword->Location = System::Drawing::Point(139, 291);
-			this->txtPassword->Name = L"txtPassword";
-			this->txtPassword->Size = System::Drawing::Size(100, 20);
-			this->txtPassword->TabIndex = 63;
+			this->txtCode->Location = System::Drawing::Point(139, 291);
+			this->txtCode->Name = L"txtCode";
+			this->txtCode->Size = System::Drawing::Size(100, 20);
+			this->txtCode->TabIndex = 63;
 			// 
 			// txtCellPhone
 			// 
@@ -367,7 +369,7 @@ namespace TinkerdinView {
 			this->Controls->Add(this->txtPass);
 			this->Controls->Add(this->txtStatus);
 			this->Controls->Add(this->txtCellPhone);
-			this->Controls->Add(this->txtPassword);
+			this->Controls->Add(this->txtCode);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->label8);
@@ -401,115 +403,143 @@ namespace TinkerdinView {
 
 		}
 #pragma endregion
-void ShowClients() {
-	List<Cliente^>^ myClientList = Controller::QueryAllClients();
-	dgvClients->Rows->Clear();
-	if (myClientList != nullptr) {
-		for (int i = 0; i < myClientList->Count; i++) {
-			dgvClients->Rows->Add(gcnew array<String^>{
-				myClientList[i]->Username,
-					"" + myClientList[i]->Age,
-			});
+		void ShowClients() {
+			List<Cliente^>^ myClientList = Controller::QueryAllClients();
+			dgvClients->Rows->Clear();
+			if (myClientList != nullptr) {
+				for (int i = 0; i < myClientList->Count; i++) {
+					dgvClients->Rows->Add(gcnew array<String^>{
+						myClientList[i]->Username,
+							"" + myClientList[i]->Age,
+					});
+				}
+			}
+
 		}
+		void CleanControls() {
+			txtUsername->Clear();
+			txtName->Clear();
+			txtAge->Clear();
+			txtEmail->Clear();
+			txtCarrer->Clear();
+			txtCicle->Clear();
+			txtCode->Clear();
+			txtCellPhone->Clear();
+			txtStatus->Clear();
+			txtPass->Clear();
+			pbPhoto->Image = nullptr;
+		}
+		void FillCmbGender() {
+			cmbGender->Items->Clear();
+			List<String^>^ genderList = Controller::QueryAllGender();
+
+			for (int i = 0; i < genderList->Count; i++)
+			{
+				cmbGender->Items->Add(genderList[i]);
+			}
+		}
+	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (txtUsername->Text->Trim()->Equals(""))
+			MessageBox::Show("Debe seleccionar un curso.");
+		else
+			Controller::DeleteClient(txtUsername->Text);
+		ShowClients();
+		CleanControls();
 	}
+	private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (dgvClients->CurrentCell != nullptr &&
+			dgvClients->CurrentCell->Value != nullptr &&
+			dgvClients->CurrentCell->Value->ToString() != "" &&
+			!txtUsername->Text->Trim()->Equals("")) {
+			//Debe esta el username lleno
+
+			Cliente^ a = gcnew Cliente();
+			String^ gender;
+			try{
+				if (txtUsername->Text->Trim() == "") {
+					MessageBox::Show("El nombre de usuario no debe estar vacÃ­o.");
+					return;
+				}
+				a->Username = txtUsername->Text;
+				a->Name = txtName->Text;
+				a->Age = Convert::ToInt32(txtAge->Text);
+				if (cmbGender->SelectedText->Trim()->Equals("")){
+					gender = cmbGender->SelectedItem->ToString();
+					if (gender == "masculino") {
+						a->Gender = 'M';
+					}
+					if (gender == "femenino") {
+						a->Gender = 'F';
+					}
+					else {
+						a->Gender = 'O';
+					}
+				}
+				else a->Gender = 'O';
+				a->Email = txtEmail->Text;
+				a->Carrer = txtCarrer->Text;
+				a->Cicle = Convert::ToInt32(txtCicle->Text);
+
+				if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
+					System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+					pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+					a->Photo = ms->ToArray();
+				}
+
+				Controller::UpdateClient(a);
+				CleanControls();
+				ShowClients();
+
+
+			}
+			catch (Exception^ ex){
+				MessageBox::Show(ex->ToString(), "No se guardÃ³ el tipo por error en los datos.");
+				return;
+			}
+			
+		}
 		
-}
-void CleanControls() {
-		txtUsername->Clear();
-		txtName->Clear();
-		txtAge->Clear();
-		txtEmail->Clear();
-		txtCarrer->Clear();
-		txtCicle->Clear();
-		pbPhoto->Image = nullptr;
 	}
-void FillCmbGender() {
-		cmbGender->Items->Clear();
-		List<String^>^ genderList = Controller::QueryAllGender();
+	private: System::Void dgvClientsCellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		int selectedRowIndex = dgvClients->SelectedCells[0]->RowIndex;
+		//int clientUsername = Convert::ToInt32(dgvClients->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
+		String^ clientUsername = dgvClients->Rows[selectedRowIndex]->Cells[0]->Value->ToString();
+		Cliente^ c = Controller::QueryClientByUsername(clientUsername);
+		txtUsername->Text = c->Username;
+		txtName->Text = c->Name;
+		txtAge->Text = "" + c->Age;
+		txtEmail->Text = c->Email;
+		txtCarrer->Text = c->Carrer;
+		txtCicle->Text = "" + c->Cicle;
+		txtCode->Text = "" + c->code;
+		txtCellPhone->Text = "" + c->code;
+		txtStatus->Text = c->Status;
+		txtPass->Text = c->Password;
+		//cmbGender->
+		for (int i = 0; i < cmbGender->Items->Count; i++) {
+			if (cmbGender->Items[i]->ToString()->CompareTo(c->Gender) == 0) {
+				cmbGender->SelectedIndex = i;
+				break;
+			}
+		}
 
-		for (int i = 0; i < genderList->Count; i++)
-		{
-			cmbGender->Items->Add(genderList[i]);
+
+		if (c->Photo != nullptr) {
+			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(c->Photo);
+			pbPhoto->Image = Image::FromStream(ms);
+		}
+		else {
+			pbPhoto->Image = nullptr;
+			pbPhoto->Invalidate();
 		}
 	}
-private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
-
-}
-private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
-	Cliente^ a = gcnew Cliente();
-	String^ gender;
-	a->Username = txtUsername->Text;
-	a->Name = txtName->Text;
-	a->Age = Convert::ToInt32(txtAge->Text);
-	gender = cmbGender->SelectedItem->ToString();
-	if (gender == "masculino") {
-		a->Gender = 'M';
+	private: System::Void dgvClientsCellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}
-	if (gender == "femenino") {
-		a->Gender = 'F';
+	private: System::Void CRUDClientsForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		FillCmbGender();
+		ShowClients();
 	}
-	else {
-		a->Gender = 'O';
+	private: System::Void cmbGender_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-	a->Email = txtEmail->Text;
-	a->Carrer = txtCarrer->Text;
-	a->Cicle = Convert::ToInt32(txtCicle->Text);
-
-
-	if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
-		System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
-		pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
-		a->Photo = ms->ToArray();
-	}
-
-	Controller::UpdateClient(a);
-	CleanControls();
-	ShowClients();
-
-	/*Product^ product = gcnew Product();
-	product->setId(Convert::ToInt32(txtProductId->Text));
-	product->Id = Convert::ToInt32(txtProductId->Text);
-	product->Name = txtName->Text;
-	product->Description = txtDescription->Text;
-	product->PriceMin = Convert::ToDouble(txtPriceMin->Text);
-	product->PriceMaj = Convert::ToDouble(txtPriceMaj->Text);
-	product->Stock = Convert::ToInt32(txtStock->Text);
-	product->Status = 'A';
-	if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
-		System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
-		pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
-		product->Photo = ms->ToArray();
-	}
-
-	Controller::UpdateProduct(product);
-	CleanControls();
-	ShowProducts();*/
-}
-private: System::Void dgvClientsCellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	int selectedRowIndex = dgvClients->SelectedCells[0]->RowIndex;
-	//int clientUsername = Convert::ToInt32(dgvClients->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
-	String^ clientUsername = dgvClients->Rows[selectedRowIndex]->Cells[0]->Value->ToString();
-	Cliente^ c = Controller::QueryClientByUsername(clientUsername);
-	txtUsername->Text= c->Username;
-	txtName->Text = c->Name;
-	txtAge->Text = ""+ c->Age;
-	txtEmail->Text = c->Email;
-	txtCarrer->Text = c->Carrer;
-	txtCicle->Text = ""+c->Cicle;
-	if (c->Photo != nullptr) {
-		System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(c->Photo);
-		pbPhoto->Image = Image::FromStream(ms);
-	}
-	else {
-		pbPhoto->Image = nullptr;
-		pbPhoto->Invalidate();
-	}
-}
-private: System::Void dgvClientsCellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-}
-private: System::Void CRUDClientsForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	FillCmbGender();
-	ShowClients();
-}
 };
 }

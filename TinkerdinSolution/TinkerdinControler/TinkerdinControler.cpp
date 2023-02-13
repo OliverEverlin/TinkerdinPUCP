@@ -32,25 +32,38 @@ List<Cliente^>^ TinkerdinControler::Controller::QueryAllClients(){
 }
 
 int TinkerdinControler::Controller::UpdateClient(Cliente^ client){
-	for (int i = 0; i < clientList->Count; i++){
-		if (clientList[i]->code == client->code) {
-			clientList[i] = client;
+    /*
+    for (int i = 0; i < clientList->Count; i++){
+        if (clientList[i]->Username->Contains(client->Username)) {
+
+            //productList[i]->Name->Contains(value)
+            clientList[i] = client;
             Persistance::PersistBinary("clients.bin", client);
-            return client->code;
-		}
+            return 1;
+        }
 	}
 	return 0;
+    */
+    
+    for (int i = 0; i < clientList->Count; i++) {
+        if (client->Username == clientList[i]->Username) {
+
+            //productList[i]->Name->Contains(value)
+            clientList[i] = client;
+            Persistance::PersistBinary("clients.bin", clientList);
+            return 1;
+        }
+    }
 }
 
-int TinkerdinControler::Controller::DeleteClient(int ClientId){	
-	for (int i = 0; i < clientList->Count; i++){
-		if (clientList[i]->code==ClientId){
-			clientList->RemoveAt(i);
-            Persistance::PersistBinary("clients.bin", clientList);
-			return ClientId;
-		}
-	}
-	return 0;
+int TinkerdinControler::Controller::DeleteClient(String^ username){	
+    for (int i = 0; i < clientList->Count; i++)
+        if (username == clientList[i]->Username) {
+            clientList->RemoveAt(i);
+            Persistance::PersistBinary("course.bin", courseList);
+            return 1;
+        }
+    return 0;
 }
 
 List<String^>^ TinkerdinControler::Controller::QueryAllGender(){
@@ -64,6 +77,15 @@ Cliente^ TinkerdinControler::Controller::QueryClientByCredentials(String^ userna
             return clientList[i];
         }
     }
+    return nullptr;
+}
+
+Cliente^ TinkerdinControler::Controller::QueryClientByUsername(String^ username){
+    clientList = (List<Cliente^>^)Persistance::LoadBinaryData("clients.bin");
+    //Client^ myClient= gcnew 
+    for (int i = 0; i < clientList->Count; i++)
+        if (clientList[i]->Username->Contains(username))
+            return clientList[i];
     return nullptr;
 }
 
@@ -142,6 +164,7 @@ int TinkerdinControler::Controller::DeleteCourse(String^ courseId)
             return 1;// courseId;
         }
     return 0;
+    
 }
 
 List<Course^>^ TinkerdinControler::Controller::QueryAllCourse() {
