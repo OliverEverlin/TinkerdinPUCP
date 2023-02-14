@@ -201,7 +201,7 @@ namespace TinkerdinView {
 			});
 		}
 	}
-
+	
 	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}
 	};

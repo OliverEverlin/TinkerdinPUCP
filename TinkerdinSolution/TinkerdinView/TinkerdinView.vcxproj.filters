@@ -74,6 +74,9 @@
     <ClInclude Include="AdminMainForm.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="CourseChangeForm.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TinkerdinView.cpp">
@@ -132,6 +135,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="AdminMainForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="CourseChangeForm.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
