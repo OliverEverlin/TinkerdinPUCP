@@ -85,10 +85,9 @@ namespace TinkerdinView {
 			// 
 			// btnOK
 			// 
-			this->btnOK->Location = System::Drawing::Point(493, 146);
-			this->btnOK->Margin = System::Windows::Forms::Padding(4);
+			this->btnOK->Location = System::Drawing::Point(370, 119);
 			this->btnOK->Name = L"btnOK";
-			this->btnOK->Size = System::Drawing::Size(121, 33);
+			this->btnOK->Size = System::Drawing::Size(91, 27);
 			this->btnOK->TabIndex = 0;
 			this->btnOK->Text = L"Aceptar";
 			this->btnOK->UseVisualStyleBackColor = true;
@@ -96,10 +95,9 @@ namespace TinkerdinView {
 			// 
 			// btnCancel
 			// 
-			this->btnCancel->Location = System::Drawing::Point(693, 146);
-			this->btnCancel->Margin = System::Windows::Forms::Padding(4);
+			this->btnCancel->Location = System::Drawing::Point(520, 119);
 			this->btnCancel->Name = L"btnCancel";
-			this->btnCancel->Size = System::Drawing::Size(121, 33);
+			this->btnCancel->Size = System::Drawing::Size(91, 27);
 			this->btnCancel->TabIndex = 1;
 			this->btnCancel->Text = L"Cancelar";
 			this->btnCancel->UseVisualStyleBackColor = true;
@@ -108,49 +106,44 @@ namespace TinkerdinView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(467, 43);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(350, 35);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(57, 16);
+			this->label1->Size = System::Drawing::Size(46, 13);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Usuario:";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(467, 89);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label2->Location = System::Drawing::Point(350, 72);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(79, 16);
+			this->label2->Size = System::Drawing::Size(64, 13);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"Contraseña:";
 			// 
 			// txtUsername
 			// 
-			this->txtUsername->Location = System::Drawing::Point(617, 36);
-			this->txtUsername->Margin = System::Windows::Forms::Padding(4);
+			this->txtUsername->Location = System::Drawing::Point(463, 29);
 			this->txtUsername->Name = L"txtUsername";
-			this->txtUsername->Size = System::Drawing::Size(188, 22);
+			this->txtUsername->Size = System::Drawing::Size(142, 20);
 			this->txtUsername->TabIndex = 4;
 			this->txtUsername->TextChanged += gcnew System::EventHandler(this, &LoginForm::txtUsername_TextChanged);
 			// 
 			// txtPassword
 			// 
-			this->txtPassword->Location = System::Drawing::Point(617, 81);
-			this->txtPassword->Margin = System::Windows::Forms::Padding(4);
+			this->txtPassword->Location = System::Drawing::Point(463, 66);
 			this->txtPassword->Name = L"txtPassword";
 			this->txtPassword->PasswordChar = '*';
-			this->txtPassword->Size = System::Drawing::Size(188, 22);
+			this->txtPassword->Size = System::Drawing::Size(142, 20);
 			this->txtPassword->TabIndex = 5;
 			this->txtPassword->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &LoginForm::txtPassword_KeyDown);
 			// 
 			// pbIntro
 			// 
 			this->pbIntro->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pbIntro.Image")));
-			this->pbIntro->Location = System::Drawing::Point(55, 15);
-			this->pbIntro->Margin = System::Windows::Forms::Padding(4);
+			this->pbIntro->Location = System::Drawing::Point(41, 12);
 			this->pbIntro->Name = L"pbIntro";
-			this->pbIntro->Size = System::Drawing::Size(289, 267);
+			this->pbIntro->Size = System::Drawing::Size(217, 217);
 			this->pbIntro->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pbIntro->TabIndex = 6;
 			this->pbIntro->TabStop = false;
@@ -158,10 +151,9 @@ namespace TinkerdinView {
 			// 
 			// btnRegister
 			// 
-			this->btnRegister->Location = System::Drawing::Point(687, 226);
-			this->btnRegister->Margin = System::Windows::Forms::Padding(4);
+			this->btnRegister->Location = System::Drawing::Point(515, 184);
 			this->btnRegister->Name = L"btnRegister";
-			this->btnRegister->Size = System::Drawing::Size(120, 33);
+			this->btnRegister->Size = System::Drawing::Size(90, 27);
 			this->btnRegister->TabIndex = 7;
 			this->btnRegister->Text = L"Registro";
 			this->btnRegister->UseVisualStyleBackColor = true;
@@ -170,18 +162,18 @@ namespace TinkerdinView {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(423, 235);
-			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label3->Location = System::Drawing::Point(317, 191);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(189, 16);
+			this->label3->Size = System::Drawing::Size(154, 13);
 			this->label3->TabIndex = 9;
 			this->label3->Text = L"¿Eres nuev@\? Registrate aquí";
 			// 
 			// LoginForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(896, 314);
+			this->ClientSize = System::Drawing::Size(672, 255);
+			this->ControlBox = false;
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->btnRegister);
 			this->Controls->Add(this->pbIntro);
@@ -191,7 +183,9 @@ namespace TinkerdinView {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnOK);
-			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->MaximizeBox = false;
+			this->MinimizeBox = false;
 			this->Name = L"LoginForm";
 			this->Text = L"Autenticación de usuario";
 			this->Load += gcnew System::EventHandler(this, &LoginForm::LoginForm_Load);

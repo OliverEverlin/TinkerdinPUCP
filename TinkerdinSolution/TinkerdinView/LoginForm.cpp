@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "LoginForm.h"
 #include "MainForm.h"
-#include "AdminMainForm.h"
+
 
 
 System::Void TinkerdinView::LoginForm::btnOK_Click(System::Object^ sender, System::EventArgs^ e){
@@ -12,12 +12,29 @@ System::Void TinkerdinView::LoginForm::btnOK_Click(System::Object^ sender, Syste
 	if (client != nullptr) {
 		MessageBox::Show("Bienvenido " + client->Name + " Cliente");
 		MainForm^ reportForm = gcnew MainForm();
+
+		//envio de datos
+		/*if (client->Photo != nullptr) {
+			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(client->Photo);
+			reportForm->pbPerfil->Image = Image::FromStream(ms);
+		}
+		else {
+			reportForm->pbPerfil->Image = nullptr;
+			reportForm->pbPerfil->Invalidate();
+		}*/
+
 		MainForm::client = client;
-		//reportForm->Show();
 		this->Close();
 	}
 	else {
-		MessageBox::Show("Usuario y contraseña incorrectos");
+		Admin^ admin = Controller::LoginAdmin(txtUsername->Text, txtPassword->Text);
+		if(admin!=nullptr){
+			MessageBox::Show("Bienvenido " + admin->Name + " admin");
+			MainForm^ reportForm = gcnew MainForm();
+			MainForm::admin = admin;
+			this->Close();
+		}
+		else MessageBox::Show("Usuario y contraseña incorrectos");
 	}
 	
 
