@@ -221,6 +221,7 @@ private: System::Void txtUsername_TextChanged(System::Object^ sender, System::Ev
 }
 private: System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	//pbIntro->Image=gcnew Bitmap(opnfd->F)
+	//this-> Close();
 }
 private: System::Void pbIntro_LoadCompleted(System::Object^ sender, System::ComponentModel::AsyncCompletedEventArgs^ e) {
 }

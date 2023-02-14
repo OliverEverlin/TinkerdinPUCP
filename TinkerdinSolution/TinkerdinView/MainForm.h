@@ -80,9 +80,11 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::ToolStripMenuItem^ cRUDLugaresToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ reporteClientesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ extrasToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ adminToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ adminMenuStripbtn;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ cRUDClientsToolStripMenuItem;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ hideAdmin;
 
 
 
@@ -122,12 +124,13 @@ namespace TinkerdinView {
 			this->lugarLibreToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->extrasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->adminToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->adminMenuStripbtn = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cRUDClientsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->fontDialog1 = (gcnew System::Windows::Forms::FontDialog());
 			this->pbPerfil = (gcnew System::Windows::Forms::PictureBox());
 			this->directorySearcher1 = (gcnew System::DirectoryServices::DirectorySearcher());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->hideAdmin = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPerfil))->BeginInit();
 			this->SuspendLayout();
@@ -137,7 +140,7 @@ namespace TinkerdinView {
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(7) {
 				this->archivoToolStripMenuItem,
 					this->mantenimientoToolStripMenuItem, this->operacionesToolStripMenuItem, this->reportesToolStripMenuItem, this->ayudaToolStripMenuItem,
-					this->extrasToolStripMenuItem, this->adminToolStripMenuItem
+					this->extrasToolStripMenuItem, this->adminMenuStripbtn
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
@@ -274,17 +277,18 @@ namespace TinkerdinView {
 			this->extrasToolStripMenuItem->Size = System::Drawing::Size(50, 20);
 			this->extrasToolStripMenuItem->Text = L"Extras";
 			// 
-			// adminToolStripMenuItem
+			// adminMenuStripbtn
 			// 
-			this->adminToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->cRUDClientsToolStripMenuItem });
-			this->adminToolStripMenuItem->Name = L"adminToolStripMenuItem";
-			this->adminToolStripMenuItem->Size = System::Drawing::Size(55, 20);
-			this->adminToolStripMenuItem->Text = L"Admin";
+			this->adminMenuStripbtn->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->cRUDClientsToolStripMenuItem });
+			this->adminMenuStripbtn->Name = L"adminMenuStripbtn";
+			this->adminMenuStripbtn->Size = System::Drawing::Size(55, 20);
+			this->adminMenuStripbtn->Text = L"Admin";
+			this->adminMenuStripbtn->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainForm::adminToolStripMenuItem_Paint);
 			// 
 			// cRUDClientsToolStripMenuItem
 			// 
 			this->cRUDClientsToolStripMenuItem->Name = L"cRUDClientsToolStripMenuItem";
-			this->cRUDClientsToolStripMenuItem->Size = System::Drawing::Size(144, 22);
+			this->cRUDClientsToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->cRUDClientsToolStripMenuItem->Text = L"CRUD Clients";
 			this->cRUDClientsToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::cRUDClientsToolStripMenuItem_Click);
 			// 
@@ -313,6 +317,16 @@ namespace TinkerdinView {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MainForm::button1_Click_2);
 			// 
+			// hideAdmin
+			// 
+			this->hideAdmin->Location = System::Drawing::Point(228, 189);
+			this->hideAdmin->Name = L"hideAdmin";
+			this->hideAdmin->Size = System::Drawing::Size(75, 23);
+			this->hideAdmin->TabIndex = 9;
+			this->hideAdmin->Text = L"Esconde Admin";
+			this->hideAdmin->UseVisualStyleBackColor = true;
+			this->hideAdmin->Click += gcnew System::EventHandler(this, &MainForm::hideAdmin_Click);
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -320,6 +334,7 @@ namespace TinkerdinView {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->ClientSize = System::Drawing::Size(841, 502);
+			this->Controls->Add(this->hideAdmin);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->pbPerfil);
 			this->Controls->Add(this->menuStrip1);
@@ -401,5 +416,13 @@ namespace TinkerdinView {
 		reportForm->Show();
 
 	}
+private: System::Void adminToolStripMenuItem_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+private: System::Void hideAdmin_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	/*if (adminMenuStripbtn->Visible == false)	adminMenuStripbtn->Visible == true;
+	else adminMenuStripbtn->Visible == false;*/
+	adminMenuStripbtn->Visible = false;
+}
 };
 }

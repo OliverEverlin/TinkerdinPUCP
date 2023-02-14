@@ -13,10 +13,8 @@ int Main(array<System::String ^> ^args)
 {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
+	//TinkerdinView::LoginForm form;
 	TinkerdinView::MainForm form;
-	/*TinkerdinView::PlaceForm form;
-	TinkerdinView::CourseForm form;
-	TinkerdinView::CalendarForm form;*/
 	Application::Run(% form);
 	
     return 0;

@@ -10,7 +10,8 @@ namespace TinkerdinControler {
 	private:
 		//la persistencia la pongo en le Tpersistance
 		static List<Cliente^>^ clientList = gcnew List<Cliente^>();
-		//static List<Admin^>^ adminList;
+		static List<Admin^>^ adminList= gcnew List<Admin^>();
+
 		static List<Interest^>^ interestList=gcnew List<Interest^>();
 		static List<Course^>^ courseList = gcnew List<Course^>();
 		static List<Place^>^ placeList = gcnew List<Place^>();
@@ -38,6 +39,16 @@ namespace TinkerdinControler {
 		static Cliente^ QueryClientByCredentials(String^username,String^password);
 		static Cliente^ QueryClientByUsername(String^ username);
 		static Cliente^ Login(String^ username, String^ password);
+
+		//CRUD Admin
+		static int AddAdmin(Admin^ admin);
+		static List<Admin^>^ QueryAllAdmins();
+		static int UpdateAdmin(Admin^ admin);
+		static int DeleteAdmin(String^ username);
+		//static List<String^>^ QueryAllGender();
+		static Admin^ QueryAdminByCredentials(String^ username, String^ password);
+		static Admin^ QueryAdminByUsername(String^ username);
+		static Admin^ LoginAdmin(String^ username, String^ password);
 
 		//Métodos CRUD de Course
 		static int AddCourse(Course^);

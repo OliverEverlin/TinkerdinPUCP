@@ -452,9 +452,15 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 //}
 
 private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-	Cliente^ a = gcnew Cliente();
+	Admin^ a = gcnew Admin();
 	String^ gender;
 	try {
+		//condition to don't repite username
+		if (Controller::QueryAdminByUsername(txtUsername->Text) != nullptr &&
+			Controller::QueryClientByUsername(txtUsername->Text) != nullptr) {
+			MessageBox::Show("El nombre de usuario ya existe");
+			return;
+		}
 		if (txtUsername->Text->Trim() == "") {
 			MessageBox::Show("El nombre del usuario no debe estar vacío.");
 			return;
@@ -487,8 +493,8 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 			a->Gender = 'O';
 		}
 		a->Email = txtEmail->Text;
-		a->Carrer = txtCarrer->Text;
-		a->Cicle = Convert::ToInt32(txtCicle->Text);
+		//a->Carrer = txtCarrer->Text;
+		//a->Cicle = Convert::ToInt32(txtCicle->Text);
 		a->Password = txtpass1->Text;
 		a->code = 0;
 		a->Phone = 0;
@@ -498,7 +504,7 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 			a->Photo = ms->ToArray();
 		}
 
-		Controller::AddClient(a);
+		Controller::AddAdmin(a);
 
 		CleanControls();
 		ShowClients();

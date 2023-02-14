@@ -26,9 +26,6 @@
     <ClInclude Include="pch.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="SignInForm.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="MainForm.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>

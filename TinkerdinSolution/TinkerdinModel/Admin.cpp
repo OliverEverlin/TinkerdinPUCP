@@ -14,7 +14,7 @@ TinkerdinModel::Admin::Admin()
 
 }
 
-TinkerdinModel::Admin::Admin(String^ name, String^ username, int code, char gender, int age, int phone, String^ email, String^ status, String^ departament)
+TinkerdinModel::Admin::Admin(String^ name, String^ username, int code, char gender, int age, int phone, String^ email, String^ status, int category, String^ InitDate, String^ EndDate)
 {
     this->Name = name;
     this->Username = username;
@@ -23,7 +23,9 @@ TinkerdinModel::Admin::Admin(String^ name, String^ username, int code, char gend
     this->Age = phone;
     this->Email = email;
     this->Status = status;
-    this->Department = departament;
+    this->category = category;
+    this->InitDate = InitDate;
+    this->EndDate = EndDate;
 }
 
 //Actializar la lista de lugares

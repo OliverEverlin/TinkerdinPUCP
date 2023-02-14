@@ -178,9 +178,6 @@
     <ClInclude Include="ScheduleForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="SignInForm.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdminMainForm.cpp" />
@@ -268,9 +265,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ScheduleForm.resx">
       <DependentUpon>ScheduleForm.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SignInForm.resx">
-      <DependentUpon>SignInForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
