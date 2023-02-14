@@ -27,6 +27,10 @@ List<Cliente^>^ TinkerdinControler::Controller::QueryAllClients(){
             clientActiveList->Add(clientList[i]);
         }
     }
+    /*
+    eventList = (List<Event^>^)Persistance::LoadBinaryData("events.bin");
+    return eventList;
+    */
     //courseList = (List<Course^>^)Persistance::LoadBinaryData("course.bin");
     return clientList;
 }
@@ -281,14 +285,14 @@ String^ TinkerdinControler::Controller::QueryPlaceByName(String^ placeLocation)
 int TinkerdinControler::Controller::AddEvent(Event^ event)
 {
     eventList->Add(event);
-    Persistance::PersistBinary("events.bin", interestList);
+    Persistance::PersistBinary("events.bin", eventList);
     return event->Id;
 }
 
 Event^ TinkerdinControler::Controller::QueryEventById(int^ eventId)
 {
     eventList = (List<Event^>^)Persistance::LoadBinaryData("events.bin");
-    for (int i = 0; i < interestList->Count; i++)
+    for (int i = 0; i < eventList->Count; i++)
         if (eventList[i]->Id == eventId)
             return eventList[i];
     return nullptr;
@@ -302,7 +306,7 @@ List<Event^>^ TinkerdinControler::Controller::QueryAllEvent()
 
 int TinkerdinControler::Controller::UpdateEvent(Event^ event)
 {
-    for (int i = 0; i < interestList->Count; i++)
+    for (int i = 0; i < eventList->Count; i++)
         if (eventList[i]->Id == event->Id) {
             eventList[i] = event;
             Persistance::PersistBinary("events.bin", eventList);
