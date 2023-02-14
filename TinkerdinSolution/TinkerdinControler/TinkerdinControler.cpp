@@ -45,6 +45,7 @@ int TinkerdinControler::Controller::UpdateClient(Cliente^ client){
             return 1;
         }
     }
+    return 0;
 }
 
 int TinkerdinControler::Controller::DeleteClient(String^ username){	
@@ -246,16 +247,7 @@ Place^ TinkerdinControler::Controller::QueryPlaceById(int placeId){
 
 List<Place^>^ TinkerdinControler::Controller::QueryAllPlace()
 {
-    //List<Course^>^ placeActiveList = gcnew List<Place^>();
-    //for (int i = 0; i < placeList->Count; i++) {
-    //    //pendiente de revisión:
-    //    if (placeList[i]->Status == 'A') {
-    //        placeList->Add(placeList[i]);
-    //    }
-    //}
     placeList = (List<Place^>^)Persistance::LoadBinaryData("places.bin");
-
-
     return placeList;
 }
 String^ TinkerdinControler::Controller::QueryPlaceByName(String^ placeLocation)
@@ -278,12 +270,13 @@ int TinkerdinControler::Controller::AddEvent(Event^ event)
     return event->Id;
 }
 
-Event^ TinkerdinControler::Controller::QueryEventById(int^ eventId)
+Event^ TinkerdinControler::Controller::QueryEventById(int eventId)
 {
     eventList = (List<Event^>^)Persistance::LoadBinaryData("events.bin");
-    for (int i = 0; i < eventList->Count; i++)
-        if (eventList[i]->Id == eventId)
+    for (int i = 0; i < eventList->Count; i++) {
+        if (eventList[i]->Id==(eventId))
             return eventList[i];
+    }  
     return nullptr;
 }
 

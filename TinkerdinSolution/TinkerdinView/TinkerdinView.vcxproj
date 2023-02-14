@@ -203,7 +203,6 @@
     <ClCompile Include="ReportClientForm.cpp" />
     <ClCompile Include="ReportForm.cpp" />
     <ClCompile Include="ScheduleForm.cpp" />
-    <ClCompile Include="SignInForm.cpp" />
     <ClCompile Include="TinkerdinView.cpp" />
   </ItemGroup>
   <ItemGroup>

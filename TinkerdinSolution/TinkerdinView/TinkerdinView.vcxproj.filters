@@ -85,9 +85,6 @@
     <ClCompile Include="pch.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="SignInForm.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="MainForm.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>

@@ -80,7 +80,7 @@ namespace TinkerdinControler {
 
 		//Metodos CRUD de Event
 		static int AddEvent(Event^ event);
-		static Event^ QueryEventById(int^ eventId);
+		static Event^ QueryEventById(int eventId);
 		static List<Event^>^ QueryAllEvent();
 		static int UpdateEvent(Event^ event);
 		static int DeleteEvent(int eventId);
