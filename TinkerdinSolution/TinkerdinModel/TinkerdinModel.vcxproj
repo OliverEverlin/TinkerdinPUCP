@@ -123,16 +123,11 @@
   <ItemGroup>
     <ClInclude Include="Admin.h" />
     <ClInclude Include="Calendar.h" />
-    <ClInclude Include="Chat.h" />
-    <ClInclude Include="Chat_History.h" />
     <ClInclude Include="Cliente.h" />
     <ClInclude Include="Course.h" />
     <ClInclude Include="Event.h" />
-    <ClInclude Include="GroupChat.h" />
     <ClInclude Include="Hours.h" />
-    <ClInclude Include="Individual_Chat.h" />
     <ClInclude Include="Interest.h" />
-    <ClInclude Include="Message.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Place.h" />
     <ClInclude Include="Proposite.h" />
@@ -145,16 +140,11 @@
     <ClCompile Include="Admin.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Calendar.cpp" />
-    <ClCompile Include="Chat.cpp" />
-    <ClCompile Include="Chat_History.cpp" />
     <ClCompile Include="Cliente.cpp" />
     <ClCompile Include="Course.cpp" />
     <ClCompile Include="Event.cpp" />
-    <ClCompile Include="GroupChat.cpp" />
     <ClCompile Include="Hours.cpp" />
-    <ClCompile Include="Individual_Chat.cpp" />
     <ClCompile Include="Interest.cpp" />
-    <ClCompile Include="Message.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
