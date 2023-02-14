@@ -15,9 +15,11 @@ namespace TinkerdinModel {
     public:
         property String^ Carrer;
         property int Cicle;
+        property int nReports;
+        property int nMeettings;
 
         Cliente();
-        Cliente(String^ name, String^ username, int code, char gender, int age, int phone, String^ email, String^ status, String^ carrer, int cicle,String^password);
+        Cliente(String^ name, String^ username, int code, char gender, int age, int phone, String^ email, String^ status, String^ carrer, int cicle,String^password, int nReports, int nMeetings);
 
         void search_people();
 

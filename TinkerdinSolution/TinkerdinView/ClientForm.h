@@ -52,7 +52,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::TextBox^ txtEmail;
 	private: System::Windows::Forms::TextBox^ txtCarrer;
 	private: System::Windows::Forms::TextBox^ txtCicle;
-	private: System::Windows::Forms::Button^ btnUpdate;
+
 	private: System::Windows::Forms::Button^ btnReturn;
 	private: System::Windows::Forms::ComboBox^ cmbGender;
 	private: System::Windows::Forms::PictureBox^ pbPhoto;
@@ -108,7 +108,6 @@ namespace TinkerdinView {
 			this->txtEmail = (gcnew System::Windows::Forms::TextBox());
 			this->txtCarrer = (gcnew System::Windows::Forms::TextBox());
 			this->txtCicle = (gcnew System::Windows::Forms::TextBox());
-			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->btnReturn = (gcnew System::Windows::Forms::Button());
 			this->cmbGender = (gcnew System::Windows::Forms::ComboBox());
 			this->pbPhoto = (gcnew System::Windows::Forms::PictureBox());
@@ -218,16 +217,6 @@ namespace TinkerdinView {
 			this->txtCicle->Size = System::Drawing::Size(100, 20);
 			this->txtCicle->TabIndex = 11;
 			// 
-			// btnUpdate
-			// 
-			this->btnUpdate->Location = System::Drawing::Point(655, 388);
-			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(75, 23);
-			this->btnUpdate->TabIndex = 12;
-			this->btnUpdate->Text = L"Actualizar";
-			this->btnUpdate->UseVisualStyleBackColor = true;
-			this->btnUpdate->Click += gcnew System::EventHandler(this, &ClientForm::btnUpdate_Click);
-			// 
 			// btnReturn
 			// 
 			this->btnReturn->Location = System::Drawing::Point(655, 340);
@@ -292,8 +281,7 @@ namespace TinkerdinView {
 			this->dgvClients->Name = L"dgvClients";
 			this->dgvClients->Size = System::Drawing::Size(446, 116);
 			this->dgvClients->TabIndex = 19;
-			//this->dgvClients->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ClientForm::dgvClients_CellClick);
-			this->dgvClients->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ClientForm::dgvClients_CellContentClick);
+			//this->dgvClients->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ClientForm::dgvClients_CellContentClick);
 			// 
 			// Username
 			// 
@@ -374,7 +362,6 @@ namespace TinkerdinView {
 			this->Controls->Add(this->pbPhoto);
 			this->Controls->Add(this->cmbGender);
 			this->Controls->Add(this->btnReturn);
-			this->Controls->Add(this->btnUpdate);
 			this->Controls->Add(this->txtCicle);
 			this->Controls->Add(this->txtCarrer);
 			this->Controls->Add(this->txtEmail);
@@ -442,46 +429,29 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	}
 
 }
-
-
-private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
-	Cliente^ a = gcnew Cliente();
-	a->Username = txtUsername->Text;
-	a->Name = txtName->Text;
-	a->Age = Convert::ToInt32(txtAge->Text);
-	//a->Gender= txt
-	a->Email = txtEmail->Text;
-	a->Carrer = txtCarrer->Text;
-	a->Cicle = Convert::ToInt32(txtCicle->Text);
-	a->Password = txtpass1->Text;
-
-	if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
-		System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
-		pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
-		a->Photo = ms->ToArray();
-	}
-
-	Controller::UpdateClient(a);
-	ShowClients();
-
-}
+//private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
+//	Cliente^ a = gcnew Cliente();
+//	a->Username = txtUsername->Text;
+//	a->Name = txtName->Text;
+//	a->Age = Convert::ToInt32(txtAge->Text);
+//	//a->Gender= txt
+//	a->Email = txtEmail->Text;
+//	a->Carrer = txtCarrer->Text;
+//	a->Cicle = Convert::ToInt32(txtCicle->Text);
+//	a->Password = txtpass1->Text;
+//
+//	if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
+//		System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+//		pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+//		a->Photo = ms->ToArray();
+//	}
+//
+//	Controller::UpdateClient(a);
+//	ShowClients();
+//
+//}
 
 private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-	//Cliente^ a = gcnew Cliente();
-	//a->Username = txtUsername->Text;
-	//a->Name = txtName->Text;
-	//a->Age = Convert::ToInt32(txtAge->Text);
-	////a->Gender= txt
-	//a->Email = txtEmail->Text;
-	//a->Carrer = txtCarrer->Text;
-	//a->Cicle = Convert::ToInt32(txtCicle->Text);
-	//if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
-	//	System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
-	//	pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
-	//	a->Photo = ms->ToArray();
-	//}
-
-	//Controller::AddClient(a);
 	Cliente^ a = gcnew Cliente();
 	String^ gender;
 	try {
@@ -522,8 +492,6 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 		a->Password = txtpass1->Text;
 		a->code = 0;
 		a->Phone = 0;
-		//a->Status= 
-
 		if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
 			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
 			pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
@@ -541,9 +509,6 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 	}
 	MessageBox::Show("Cliente registrado de manera exitosa");
 	this->Close();
-}
-private: System::Void dgvClients_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	
 }
 private: System::Void btnReturn_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();

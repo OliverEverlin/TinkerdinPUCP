@@ -128,6 +128,9 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdminMainForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="CalendarForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -149,6 +152,9 @@
     <ClInclude Include="EventForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="FindFriendsForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="LoginForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -160,6 +166,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="PLACE_Form.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ReportClientForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ReportForm.h">
@@ -174,6 +183,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AdminMainForm.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CalendarForm.cpp" />
     <ClCompile Include="CheckClientForm.cpp" />
@@ -182,6 +192,7 @@
     <ClCompile Include="CRUDClientsForm.cpp" />
     <ClCompile Include="EditClientForm.cpp" />
     <ClCompile Include="EventForm.cpp" />
+    <ClCompile Include="FindFriendsForm.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="pch.cpp">
@@ -192,6 +203,7 @@
     </ClCompile>
     <ClCompile Include="PlaceForm.cpp" />
     <ClCompile Include="PLACE_Form.cpp" />
+    <ClCompile Include="ReportClientForm.cpp" />
     <ClCompile Include="ReportForm.cpp" />
     <ClCompile Include="ScheduleForm.cpp" />
     <ClCompile Include="SignInForm.cpp" />
@@ -209,6 +221,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AdminMainForm.resx">
+      <DependentUpon>AdminMainForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CalendarForm.resx">
       <DependentUpon>CalendarForm.h</DependentUpon>
     </EmbeddedResource>
@@ -244,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PLACE_Form.resx">
       <DependentUpon>PLACE_Form.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportClientForm.resx">
+      <DependentUpon>ReportClientForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm.resx">
       <DependentUpon>ReportForm.h</DependentUpon>
