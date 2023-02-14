@@ -66,7 +66,7 @@ namespace TinkerdinView {
 
 
 
-	private: System::Windows::Forms::TextBox^ txtPlaceTypePlace;
+
 	private: System::Windows::Forms::DataGridView^ dgvPlace;
 
 
@@ -75,6 +75,10 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ placeLocation;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ placeAvailability;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ placePowerOutlet;
+
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::ComboBox^ comboBox2;
 
 	private:
 		/// <summary>
@@ -103,12 +107,14 @@ namespace TinkerdinView {
 			this->txtPlacePowerOutlet = (gcnew System::Windows::Forms::TextBox());
 			this->txtPlaceParticipants = (gcnew System::Windows::Forms::TextBox());
 			this->txtPlaceLocation = (gcnew System::Windows::Forms::TextBox());
-			this->txtPlaceTypePlace = (gcnew System::Windows::Forms::TextBox());
 			this->dgvPlace = (gcnew System::Windows::Forms::DataGridView());
 			this->placeId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->placeLocation = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->placeAvailability = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->placePowerOutlet = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPlace))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -180,7 +186,7 @@ namespace TinkerdinView {
 			this->btnPlaceAdd->Location = System::Drawing::Point(310, 49);
 			this->btnPlaceAdd->Margin = System::Windows::Forms::Padding(2);
 			this->btnPlaceAdd->Name = L"btnPlaceAdd";
-			this->btnPlaceAdd->Size = System::Drawing::Size(80, 19);
+			this->btnPlaceAdd->Size = System::Drawing::Size(83, 32);
 			this->btnPlaceAdd->TabIndex = 6;
 			this->btnPlaceAdd->Text = L"Agregar";
 			this->btnPlaceAdd->UseVisualStyleBackColor = true;
@@ -191,7 +197,7 @@ namespace TinkerdinView {
 			this->btnPlaceUpdate->Location = System::Drawing::Point(310, 95);
 			this->btnPlaceUpdate->Margin = System::Windows::Forms::Padding(2);
 			this->btnPlaceUpdate->Name = L"btnPlaceUpdate";
-			this->btnPlaceUpdate->Size = System::Drawing::Size(83, 19);
+			this->btnPlaceUpdate->Size = System::Drawing::Size(83, 33);
 			this->btnPlaceUpdate->TabIndex = 7;
 			this->btnPlaceUpdate->Text = L"Modificar";
 			this->btnPlaceUpdate->UseVisualStyleBackColor = true;
@@ -202,7 +208,7 @@ namespace TinkerdinView {
 			this->btnPlaceDelete->Location = System::Drawing::Point(310, 151);
 			this->btnPlaceDelete->Margin = System::Windows::Forms::Padding(2);
 			this->btnPlaceDelete->Name = L"btnPlaceDelete";
-			this->btnPlaceDelete->Size = System::Drawing::Size(89, 19);
+			this->btnPlaceDelete->Size = System::Drawing::Size(83, 31);
 			this->btnPlaceDelete->TabIndex = 8;
 			this->btnPlaceDelete->Text = L"Eliminar";
 			this->btnPlaceDelete->UseVisualStyleBackColor = true;
@@ -222,7 +228,7 @@ namespace TinkerdinView {
 			this->txtPlaceAvailability->Location = System::Drawing::Point(144, 66);
 			this->txtPlaceAvailability->Margin = System::Windows::Forms::Padding(2);
 			this->txtPlaceAvailability->Name = L"txtPlaceAvailability";
-			this->txtPlaceAvailability->Size = System::Drawing::Size(76, 20);
+			this->txtPlaceAvailability->Size = System::Drawing::Size(94, 20);
 			this->txtPlaceAvailability->TabIndex = 10;
 			// 
 			// txtPlacePowerOutlet
@@ -230,7 +236,7 @@ namespace TinkerdinView {
 			this->txtPlacePowerOutlet->Location = System::Drawing::Point(144, 133);
 			this->txtPlacePowerOutlet->Margin = System::Windows::Forms::Padding(2);
 			this->txtPlacePowerOutlet->Name = L"txtPlacePowerOutlet";
-			this->txtPlacePowerOutlet->Size = System::Drawing::Size(76, 20);
+			this->txtPlacePowerOutlet->Size = System::Drawing::Size(94, 20);
 			this->txtPlacePowerOutlet->TabIndex = 12;
 			// 
 			// txtPlaceParticipants
@@ -238,7 +244,7 @@ namespace TinkerdinView {
 			this->txtPlaceParticipants->Location = System::Drawing::Point(144, 98);
 			this->txtPlaceParticipants->Margin = System::Windows::Forms::Padding(2);
 			this->txtPlaceParticipants->Name = L"txtPlaceParticipants";
-			this->txtPlaceParticipants->Size = System::Drawing::Size(76, 20);
+			this->txtPlaceParticipants->Size = System::Drawing::Size(94, 20);
 			this->txtPlaceParticipants->TabIndex = 11;
 			// 
 			// txtPlaceLocation
@@ -246,16 +252,8 @@ namespace TinkerdinView {
 			this->txtPlaceLocation->Location = System::Drawing::Point(144, 197);
 			this->txtPlaceLocation->Margin = System::Windows::Forms::Padding(2);
 			this->txtPlaceLocation->Name = L"txtPlaceLocation";
-			this->txtPlaceLocation->Size = System::Drawing::Size(76, 20);
+			this->txtPlaceLocation->Size = System::Drawing::Size(94, 20);
 			this->txtPlaceLocation->TabIndex = 14;
-			// 
-			// txtPlaceTypePlace
-			// 
-			this->txtPlaceTypePlace->Location = System::Drawing::Point(144, 162);
-			this->txtPlaceTypePlace->Margin = System::Windows::Forms::Padding(2);
-			this->txtPlaceTypePlace->Name = L"txtPlaceTypePlace";
-			this->txtPlaceTypePlace->Size = System::Drawing::Size(76, 20);
-			this->txtPlaceTypePlace->TabIndex = 13;
 			// 
 			// dgvPlace
 			// 
@@ -264,7 +262,7 @@ namespace TinkerdinView {
 				this->placeId, this->placeLocation,
 					this->placeAvailability, this->placePowerOutlet
 			});
-			this->dgvPlace->Location = System::Drawing::Point(9, 249);
+			this->dgvPlace->Location = System::Drawing::Point(9, 270);
 			this->dgvPlace->Margin = System::Windows::Forms::Padding(2);
 			this->dgvPlace->Name = L"dgvPlace";
 			this->dgvPlace->RowHeadersWidth = 51;
@@ -302,14 +300,42 @@ namespace TinkerdinView {
 			this->placePowerOutlet->Name = L"placePowerOutlet";
 			this->placePowerOutlet->Width = 125;
 			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(52, 238);
+			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(98, 13);
+			this->label7->TabIndex = 16;
+			this->label7->Text = L"Piso recomendado:";
+			// 
+			// comboBox1
+			// 
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Location = System::Drawing::Point(156, 238);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(97, 21);
+			this->comboBox1->TabIndex = 17;
+			// 
+			// comboBox2
+			// 
+			this->comboBox2->FormattingEnabled = true;
+			this->comboBox2->Location = System::Drawing::Point(144, 165);
+			this->comboBox2->Name = L"comboBox2";
+			this->comboBox2->Size = System::Drawing::Size(94, 21);
+			this->comboBox2->TabIndex = 18;
+			// 
 			// PlaceForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(432, 454);
+			this->ClientSize = System::Drawing::Size(432, 477);
+			this->Controls->Add(this->comboBox2);
+			this->Controls->Add(this->comboBox1);
+			this->Controls->Add(this->label7);
 			this->Controls->Add(this->dgvPlace);
 			this->Controls->Add(this->txtPlaceLocation);
-			this->Controls->Add(this->txtPlaceTypePlace);
 			this->Controls->Add(this->txtPlacePowerOutlet);
 			this->Controls->Add(this->txtPlaceParticipants);
 			this->Controls->Add(this->txtPlaceAvailability);
@@ -347,8 +373,9 @@ private: System::Void btnPlaceUpdate_Click(System::Object^ sender, System::Event
 	place->Availability = txtPlaceAvailability->Text;
 	place->Participants = Convert::ToInt32( txtPlaceParticipants->Text);
 	place->PowerOutlet = Convert::ToInt32(txtPlacePowerOutlet->Text);
-	place->TypePlace = txtPlaceTypePlace->Text;
+	place->TypePlace = comboBox2->Text;
 	place->Location = txtPlaceLocation->Text;
+	place->OptimumFloor = comboBox1->Text;
 	Controller::UpdatePlace(place);
 	CleanControls();
 	ShowProducts();
@@ -361,8 +388,9 @@ private: System::Void btnPlaceAdd_Click(System::Object^ sender, System::EventArg
 	place->Availability = txtPlaceAvailability->Text;
 	place->Participants = Convert::ToInt32(txtPlaceParticipants->Text);
 	place->PowerOutlet = Convert::ToInt32(txtPlacePowerOutlet->Text);
-	//place->TypePlace =txtPlaceTypePlace->Text;
+	place->TypePlace = comboBox2->Text;
 	place->Location = txtPlaceLocation->Text;
+	place->OptimumFloor = comboBox1->Text,
 
 	Controller::AddPlace(place);
 
@@ -390,7 +418,8 @@ private: System::Void btnPlaceAdd_Click(System::Object^ sender, System::EventArg
 		   txtPlaceAvailability->Clear();
 		   txtPlaceParticipants->Clear();
 		   txtPlacePowerOutlet->Clear();
-		   txtPlaceTypePlace->Clear();
+		   //comboBox2->Clear();
+		   //comboBox1->Clear();
 		   txtPlaceLocation->Clear();
 		   
 	   }
@@ -420,8 +449,9 @@ private: System::Void dgvPlace_CellClick(System::Object^ sender, System::Windows
 	txtPlaceAvailability->Text = "" + p->Availability;
 	txtPlaceParticipants->Text = "" + p->Participants;
 	txtPlacePowerOutlet->Text = "" + p->PowerOutlet;
-	txtPlaceTypePlace->Text =  p->TypePlace;
+	comboBox2->Text =  p->TypePlace;
 	txtPlaceLocation->Text =  p->Location;
+	comboBox1->Text = p->OptimumFloor;
 	/*if (p->Photo != nullptr) {
 		System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(p->Photo);
 		pbPhoto->Image = Image::FromStream(ms);
@@ -437,6 +467,18 @@ private: System::Void dgvPlace_CellContentClick(System::Object^ sender, System::
 }
 private: System::Void PlaceForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	ShowProducts();
+
+	comboBox1->Items->Add("Sótano 2");
+	comboBox1->Items->Add("Sótano 1");
+	comboBox1->Items->Add("Piso 1");
+	comboBox1->Items->Add("Piso 2");
+	comboBox1->Items->Add("Piso 3");
+	comboBox1->Items->Add("Piso 4");
+
+	comboBox2->Items->Add("Estudio");
+	comboBox2->Items->Add("Social");
+	comboBox2->Items->Add("Consumo de alimentos");
+	comboBox2->Items->Add("Lectura silenciosa");
 
 
 }

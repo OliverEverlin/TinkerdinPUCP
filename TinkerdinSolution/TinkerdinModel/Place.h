@@ -34,6 +34,7 @@ namespace TinkerdinModel {
         property int PowerOutlet;
         property String^ TypePlace;
         property String^ Location;//modifiqué location, estaba en int
+        property String^ OptimumFloor;
 
         bool PowerOutletFree();
         bool QuietPlace();

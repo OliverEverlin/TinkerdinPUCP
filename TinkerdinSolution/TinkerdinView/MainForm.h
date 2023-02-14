@@ -7,6 +7,7 @@
 #include "EventForm.h"
 #include "CRUDClientsForm.h"
 #include "ReportForm.h"
+#include "FindPlaceForm.h"
 
 namespace TinkerdinView {
 
@@ -64,9 +65,9 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::ToolStripMenuItem^ lugaresToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ CourseTStripMenu;
 
-	private: System::Windows::Forms::Button^ Agenda;
-	private: System::Windows::Forms::Button^ Estudiar;
-	private: System::Windows::Forms::Button^ Extrabtn;
+
+
+
 	private: System::Windows::Forms::ToolStripMenuItem^ RegisterTStripMenu;
 	private: System::Windows::Forms::ToolStripMenuItem^ loginToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ eventosToolStripMenuItem;
@@ -83,6 +84,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::ToolStripMenuItem^ adminToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ cRUDClientsToolStripMenuItem;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ button2;
 
 
 
@@ -124,13 +126,11 @@ namespace TinkerdinView {
 			this->extrasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->adminToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cRUDClientsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->Agenda = (gcnew System::Windows::Forms::Button());
-			this->Estudiar = (gcnew System::Windows::Forms::Button());
-			this->Extrabtn = (gcnew System::Windows::Forms::Button());
 			this->fontDialog1 = (gcnew System::Windows::Forms::FontDialog());
 			this->pbPerfil = (gcnew System::Windows::Forms::PictureBox());
 			this->directorySearcher1 = (gcnew System::DirectoryServices::DirectorySearcher());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPerfil))->BeginInit();
 			this->SuspendLayout();
@@ -233,13 +233,14 @@ namespace TinkerdinView {
 			// buscarLugarToolStripMenuItem
 			// 
 			this->buscarLugarToolStripMenuItem->Name = L"buscarLugarToolStripMenuItem";
-			this->buscarLugarToolStripMenuItem->Size = System::Drawing::Size(118, 22);
+			this->buscarLugarToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->buscarLugarToolStripMenuItem->Text = L"Llugares";
+			this->buscarLugarToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::buscarLugarToolStripMenuItem_Click);
 			// 
 			// buscarAmigosToolStripMenuItem
 			// 
 			this->buscarAmigosToolStripMenuItem->Name = L"buscarAmigosToolStripMenuItem";
-			this->buscarAmigosToolStripMenuItem->Size = System::Drawing::Size(118, 22);
+			this->buscarAmigosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->buscarAmigosToolStripMenuItem->Text = L"Amigos";
 			this->buscarAmigosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::buscarAmigosToolStripMenuItem_Click);
 			// 
@@ -291,35 +292,6 @@ namespace TinkerdinView {
 			this->cRUDClientsToolStripMenuItem->Text = L"CRUD Clients";
 			this->cRUDClientsToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::cRUDClientsToolStripMenuItem_Click);
 			// 
-			// Agenda
-			// 
-			this->Agenda->Location = System::Drawing::Point(77, 57);
-			this->Agenda->Name = L"Agenda";
-			this->Agenda->Size = System::Drawing::Size(75, 23);
-			this->Agenda->TabIndex = 1;
-			this->Agenda->Text = L"Agenda";
-			this->Agenda->UseVisualStyleBackColor = true;
-			this->Agenda->Click += gcnew System::EventHandler(this, &MainForm::button1_Click);
-			// 
-			// Estudiar
-			// 
-			this->Estudiar->Location = System::Drawing::Point(77, 121);
-			this->Estudiar->Name = L"Estudiar";
-			this->Estudiar->Size = System::Drawing::Size(75, 23);
-			this->Estudiar->TabIndex = 2;
-			this->Estudiar->Text = L"Estudiar";
-			this->Estudiar->UseVisualStyleBackColor = true;
-			this->Estudiar->Click += gcnew System::EventHandler(this, &MainForm::button1_Click_1);
-			// 
-			// Extrabtn
-			// 
-			this->Extrabtn->Location = System::Drawing::Point(60, 173);
-			this->Extrabtn->Name = L"Extrabtn";
-			this->Extrabtn->Size = System::Drawing::Size(120, 23);
-			this->Extrabtn->TabIndex = 3;
-			this->Extrabtn->Text = L"Otras actividades";
-			this->Extrabtn->UseVisualStyleBackColor = true;
-			// 
 			// pbPerfil
 			// 
 			this->pbPerfil->Location = System::Drawing::Point(589, 57);
@@ -337,13 +309,22 @@ namespace TinkerdinView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(114, 247);
+			this->button1->Location = System::Drawing::Point(69, 347);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(129, 70);
 			this->button1->TabIndex = 7;
 			this->button1->Text = L"Reportar Lugares";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MainForm::button1_Click_2);
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(250, 347);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(129, 70);
+			this->button2->TabIndex = 9;
+			this->button2->Text = L"Agendar reunión";
+			this->button2->UseVisualStyleBackColor = true;
 			// 
 			// MainForm
 			// 
@@ -352,11 +333,9 @@ namespace TinkerdinView {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->ClientSize = System::Drawing::Size(841, 502);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->pbPerfil);
-			this->Controls->Add(this->Extrabtn);
-			this->Controls->Add(this->Estudiar);
-			this->Controls->Add(this->Agenda);
 			this->Controls->Add(this->menuStrip1);
 			this->DoubleBuffered = true;
 			this->IsMdiContainer = true;
@@ -436,5 +415,13 @@ namespace TinkerdinView {
 		reportForm->Show();
 
 	}
+private: System::Void buscarLugarToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	FindPlaceForm^ findPlaceForm = gcnew FindPlaceForm();
+	findPlaceForm->MdiParent = this;
+	findPlaceForm->Show();
+
+
+
+}
 };
 }
