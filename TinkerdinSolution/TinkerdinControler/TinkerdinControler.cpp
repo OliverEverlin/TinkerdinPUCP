@@ -64,7 +64,7 @@ int TinkerdinControler::Controller::DeleteClient(String^ username){
     for (int i = 0; i < clientList->Count; i++)
         if (username == clientList[i]->Username) {
             clientList->RemoveAt(i);
-            Persistance::PersistBinary("course.bin", courseList);
+            Persistance::PersistBinary("clients.bin", clientList);
             return 1;
         }
     return 0;
