@@ -86,7 +86,7 @@ namespace TinkerdinView {
 			// btnOK
 			// 
 			this->btnOK->Location = System::Drawing::Point(493, 146);
-			this->btnOK->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnOK->Margin = System::Windows::Forms::Padding(4);
 			this->btnOK->Name = L"btnOK";
 			this->btnOK->Size = System::Drawing::Size(121, 33);
 			this->btnOK->TabIndex = 0;
@@ -97,7 +97,7 @@ namespace TinkerdinView {
 			// btnCancel
 			// 
 			this->btnCancel->Location = System::Drawing::Point(693, 146);
-			this->btnCancel->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnCancel->Margin = System::Windows::Forms::Padding(4);
 			this->btnCancel->Name = L"btnCancel";
 			this->btnCancel->Size = System::Drawing::Size(121, 33);
 			this->btnCancel->TabIndex = 1;
@@ -128,7 +128,7 @@ namespace TinkerdinView {
 			// txtUsername
 			// 
 			this->txtUsername->Location = System::Drawing::Point(617, 36);
-			this->txtUsername->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtUsername->Margin = System::Windows::Forms::Padding(4);
 			this->txtUsername->Name = L"txtUsername";
 			this->txtUsername->Size = System::Drawing::Size(188, 22);
 			this->txtUsername->TabIndex = 4;
@@ -137,8 +137,9 @@ namespace TinkerdinView {
 			// txtPassword
 			// 
 			this->txtPassword->Location = System::Drawing::Point(617, 81);
-			this->txtPassword->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtPassword->Margin = System::Windows::Forms::Padding(4);
 			this->txtPassword->Name = L"txtPassword";
+			this->txtPassword->PasswordChar = '*';
 			this->txtPassword->Size = System::Drawing::Size(188, 22);
 			this->txtPassword->TabIndex = 5;
 			this->txtPassword->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &LoginForm::txtPassword_KeyDown);
@@ -147,7 +148,7 @@ namespace TinkerdinView {
 			// 
 			this->pbIntro->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pbIntro.Image")));
 			this->pbIntro->Location = System::Drawing::Point(55, 15);
-			this->pbIntro->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->pbIntro->Margin = System::Windows::Forms::Padding(4);
 			this->pbIntro->Name = L"pbIntro";
 			this->pbIntro->Size = System::Drawing::Size(289, 267);
 			this->pbIntro->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -158,7 +159,7 @@ namespace TinkerdinView {
 			// btnRegister
 			// 
 			this->btnRegister->Location = System::Drawing::Point(687, 226);
-			this->btnRegister->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnRegister->Margin = System::Windows::Forms::Padding(4);
 			this->btnRegister->Name = L"btnRegister";
 			this->btnRegister->Size = System::Drawing::Size(120, 33);
 			this->btnRegister->TabIndex = 7;

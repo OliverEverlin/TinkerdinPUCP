@@ -361,7 +361,7 @@ namespace TinkerdinView {
 		event->Name = txtEventName->Text;
 		event->Relevance = txtEventRelevance->Text;
 		event->Privacy = txtEventPrivacy->Text;
-		//event->Date = Convert::ToDouble(txtEventDate->Text);
+		event->Date = Convert::ToInt32(txtEventDate->Text);
 		event->Hour = Convert::ToInt32(txtEventHour->Text);
 
 		Controller::AddEvent(event);
@@ -378,8 +378,8 @@ namespace TinkerdinView {
 			dgvEvents->Rows->Add(gcnew array<String^>{
 					"" + myEventList[i]->Id,
 						myEventList[i]->Name,
-					"" + myEventList[i]->Relevance,
-					"" + myEventList[i]->Privacy,
+						myEventList[i]->Relevance,
+						myEventList[i]->Privacy,
 					"" + myEventList[i]->Date,
 					"" + myEventList[i]->Hour,
 			});
@@ -402,7 +402,7 @@ namespace TinkerdinView {
 		event->Name = txtEventName->Text;
 		event->Relevance = txtEventRelevance->Text;
 		event->Privacy = txtEventPrivacy->Text;
-		//event->Date = Convert::ToDouble(txtEventDate->Text);
+		event->Date = Convert::ToInt32(txtEventDate->Text);
 		event->Hour = Convert::ToInt32(txtEventHour->Text);
 
 		Controller::UpdateEvent(event);
@@ -421,13 +421,13 @@ namespace TinkerdinView {
 
 	private: System::Void dgvEvents_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		int selectedRowIndex = dgvEvents->SelectedCells[0]->RowIndex;
-		int productId = Convert::ToInt32(dgvEvents->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
-		Event^ p = Controller::QueryEventById(productId);
-		//txtProductId->Text = "" + p->getId();
+		int eventId = Convert::ToInt32(dgvEvents->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
+		Event^ p = Controller::QueryEventById(eventId);
+		/*txtEventId->Text = "" + p->getId();*/
 		txtEventId->Text = "" + p->Id;
 		txtEventName->Text = p->Name;
 		txtEventRelevance->Text = p->Relevance;
-		txtEventPrivacy->Text = "" + p->Privacy;
+		txtEventPrivacy->Text = p->Privacy;
 		txtEventDate->Text = "" + p->Date;
 		txtEventHour->Text = "" + p->Hour;
 	}
