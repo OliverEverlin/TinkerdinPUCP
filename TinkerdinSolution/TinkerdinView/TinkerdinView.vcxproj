@@ -137,6 +137,9 @@
     <ClInclude Include="ClientForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CourseChangeForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="CourseForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -147,6 +150,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="EventForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="FindFriendsForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="FindPlaceForm.h">
@@ -165,14 +171,14 @@
     <ClInclude Include="PLACE_Form.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ReportClientForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ReportForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ScheduleForm.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
-    <ClInclude Include="SignInForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -181,10 +187,12 @@
     <ClCompile Include="CalendarForm.cpp" />
     <ClCompile Include="CheckClientForm.cpp" />
     <ClCompile Include="ClientForm.cpp" />
+    <ClCompile Include="CourseChangeForm.cpp" />
     <ClCompile Include="CourseForm.cpp" />
     <ClCompile Include="CRUDClientsForm.cpp" />
     <ClCompile Include="EditClientForm.cpp" />
     <ClCompile Include="EventForm.cpp" />
+    <ClCompile Include="FindFriendsForm.cpp" />
     <ClCompile Include="FindPlaceForm.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MainForm.cpp" />
@@ -196,9 +204,9 @@
     </ClCompile>
     <ClCompile Include="PlaceForm.cpp" />
     <ClCompile Include="PLACE_Form.cpp" />
+    <ClCompile Include="ReportClientForm.cpp" />
     <ClCompile Include="ReportForm.cpp" />
     <ClCompile Include="ScheduleForm.cpp" />
-    <ClCompile Include="SignInForm.cpp" />
     <ClCompile Include="TinkerdinView.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseChangeForm.resx">
+      <DependentUpon>CourseChangeForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CourseForm.resx">
       <DependentUpon>CourseForm.h</DependentUpon>
@@ -252,14 +263,14 @@
     <EmbeddedResource Include="PLACE_Form.resx">
       <DependentUpon>PLACE_Form.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportClientForm.resx">
+      <DependentUpon>ReportClientForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportForm.resx">
       <DependentUpon>ReportForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScheduleForm.resx">
       <DependentUpon>ScheduleForm.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SignInForm.resx">
-      <DependentUpon>SignInForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

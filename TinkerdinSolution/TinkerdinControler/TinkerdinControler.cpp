@@ -27,24 +27,15 @@ List<Cliente^>^ TinkerdinControler::Controller::QueryAllClients(){
             clientActiveList->Add(clientList[i]);
         }
     }
+    /*
+    eventList = (List<Event^>^)Persistance::LoadBinaryData("events.bin");
+    return eventList;
+    */
     //courseList = (List<Course^>^)Persistance::LoadBinaryData("course.bin");
     return clientList;
 }
 
-int TinkerdinControler::Controller::UpdateClient(Cliente^ client){
-    /*
-    for (int i = 0; i < clientList->Count; i++){
-        if (clientList[i]->Username->Contains(client->Username)) {
-
-            //productList[i]->Name->Contains(value)
-            clientList[i] = client;
-            Persistance::PersistBinary("clients.bin", client);
-            return 1;
-        }
-	}
-	return 0;
-    */
-    
+int TinkerdinControler::Controller::UpdateClient(Cliente^ client){  
     for (int i = 0; i < clientList->Count; i++) {
         if (client->Username == clientList[i]->Username) {
 
@@ -54,13 +45,14 @@ int TinkerdinControler::Controller::UpdateClient(Cliente^ client){
             return 1;
         }
     }
+    return 0;
 }
 
 int TinkerdinControler::Controller::DeleteClient(String^ username){	
     for (int i = 0; i < clientList->Count; i++)
         if (username == clientList[i]->Username) {
             clientList->RemoveAt(i);
-            Persistance::PersistBinary("course.bin", courseList);
+            Persistance::PersistBinary("clients.bin", clientList);
             return 1;
         }
     return 0;
@@ -88,6 +80,8 @@ Cliente^ TinkerdinControler::Controller::QueryClientByUsername(String^ username)
             return clientList[i];
     return nullptr;
 }
+
+//ADMIN WITH PERSIST. BINARIA -----------------------------------------
 
 
 //INTERES WITH PERSIST. BINARIA -----------------------------------------
@@ -253,16 +247,7 @@ Place^ TinkerdinControler::Controller::QueryPlaceById(int placeId){
 
 List<Place^>^ TinkerdinControler::Controller::QueryAllPlace()
 {
-    //List<Course^>^ placeActiveList = gcnew List<Place^>();
-    //for (int i = 0; i < placeList->Count; i++) {
-    //    //pendiente de revisión:
-    //    if (placeList[i]->Status == 'A') {
-    //        placeList->Add(placeList[i]);
-    //    }
-    //}
     placeList = (List<Place^>^)Persistance::LoadBinaryData("places.bin");
-
-
     return placeList;
 }
 String^ TinkerdinControler::Controller::QueryPlaceByName(String^ placeLocation)
@@ -281,16 +266,17 @@ String^ TinkerdinControler::Controller::QueryPlaceByName(String^ placeLocation)
 int TinkerdinControler::Controller::AddEvent(Event^ event)
 {
     eventList->Add(event);
-    Persistance::PersistBinary("events.bin", interestList);
+    Persistance::PersistBinary("events.bin", eventList);
     return event->Id;
 }
 
-Event^ TinkerdinControler::Controller::QueryEventById(int^ eventId)
+Event^ TinkerdinControler::Controller::QueryEventById(int eventId)
 {
     eventList = (List<Event^>^)Persistance::LoadBinaryData("events.bin");
-    for (int i = 0; i < interestList->Count; i++)
-        if (eventList[i]->Id == eventId)
+    for (int i = 0; i < eventList->Count; i++) {
+        if (eventList[i]->Id==(eventId))
             return eventList[i];
+    }  
     return nullptr;
 }
 
@@ -302,7 +288,7 @@ List<Event^>^ TinkerdinControler::Controller::QueryAllEvent()
 
 int TinkerdinControler::Controller::UpdateEvent(Event^ event)
 {
-    for (int i = 0; i < interestList->Count; i++)
+    for (int i = 0; i < eventList->Count; i++)
         if (eventList[i]->Id == event->Id) {
             eventList[i] = event;
             Persistance::PersistBinary("events.bin", eventList);
@@ -335,4 +321,71 @@ Cliente^ TinkerdinControler::Controller::Login(String^ username, String^ passwor
     }
     return client;*/
     return QueryClientByCredentials(username, password);
+}
+
+
+//CRUD ADMIN---------------------------------------------------------
+
+int TinkerdinControler::Controller::AddAdmin(Admin^ admin){
+    adminList->Add(admin);
+    Persistance::PersistBinary("admins.bin", adminList);
+    return admin->code;
+}
+
+List<Admin^>^ TinkerdinControler::Controller::QueryAllAdmins(){
+    adminList = (List<Admin^>^)Persistance::LoadBinaryData("admins.bin");
+    //List<Admin^>^ adminActiveList = gcnew List<Admin^>();
+    //for (int i = 0; i < clientList->Count; i++) {
+    //    //pendiente de revisión:
+    //    if (clientList[i]->Username != nullptr) {
+    //        clientActiveList->Add(clientList[i]);
+    //    }
+    //}
+    return adminList;
+}
+
+int TinkerdinControler::Controller::UpdateAdmin(Admin^ admin){
+    for (int i = 0; i < adminList->Count; i++) {
+        if (admin->Username == adminList[i]->Username) {
+            adminList[i] = admin;
+            Persistance::PersistBinary("admins.bin", adminList);
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int TinkerdinControler::Controller::DeleteAdmin(String^ username){
+    for (int i = 0; i < adminList->Count; i++)
+        if (username == adminList[i]->Username) {
+            adminList->RemoveAt(i);
+            Persistance::PersistBinary("admin.bin", adminList);
+            return 1;
+        }
+    return 0;
+}
+
+Admin^ TinkerdinControler::Controller::QueryAdminByCredentials(String^ username, String^ password){
+    adminList = (List<Admin^>^)Persistance::LoadBinaryData("admins.bin");
+    for (int i = 0; i < adminList->Count; i++) {
+        if (adminList[i]->Username == (username) &&
+            adminList[i]->Password == (password)) {
+            return adminList[i];
+        }
+    }
+    return nullptr;
+}
+
+Admin^ TinkerdinControler::Controller::QueryAdminByUsername(String^ username)
+{
+    adminList = (List<Admin^>^)Persistance::LoadBinaryData("admins.bin");
+    for (int i = 0; i < adminList->Count; i++)
+        if (adminList[i]->Username->Contains(username))
+            return adminList[i];
+    return nullptr;
+}
+
+Admin^ TinkerdinControler::Controller::LoginAdmin(String^ username, String^ password)
+{
+    return QueryAdminByCredentials(username, password);
 }

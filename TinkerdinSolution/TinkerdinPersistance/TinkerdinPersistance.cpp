@@ -191,6 +191,12 @@ Object^ TinkerdinPersistance::Persistance::LoadBinaryData(String^ fileName){
                 res = (List<Cliente^>^)formateador->Deserialize(input);
             }
         }
+        if (fileName->Equals("admins.bin")) {
+            res = gcnew List<Admin^>();
+            if (File::Exists(fileName)) {
+                res = (List<Admin^>^)formateador->Deserialize(input);
+            }
+        }
         if (fileName->Equals("interest.bin")) {
             res = gcnew List<Interest^>();
             if (File::Exists(fileName)) {
@@ -222,7 +228,6 @@ Object^ TinkerdinPersistance::Persistance::LoadBinaryData(String^ fileName){
                 res = (List<Place^>^)formateador->Deserialize(input);
             }
         }
-
     }
     catch (NullReferenceException^ ex) {
         //Mandar un mensaje por correo

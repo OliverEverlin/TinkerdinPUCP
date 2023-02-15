@@ -244,12 +244,14 @@ namespace TinkerdinView {
 			this->btnSetImage->TabIndex = 55;
 			this->btnSetImage->Text = L"Cambiar imagen";
 			this->btnSetImage->UseVisualStyleBackColor = true;
+			this->btnSetImage->Click += gcnew System::EventHandler(this, &CRUDClientsForm::btnSetImage_Click);
 			// 
 			// pbPhoto
 			// 
 			this->pbPhoto->Location = System::Drawing::Point(422, 37);
 			this->pbPhoto->Name = L"pbPhoto";
 			this->pbPhoto->Size = System::Drawing::Size(180, 213);
+			this->pbPhoto->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pbPhoto->TabIndex = 54;
 			this->pbPhoto->TabStop = false;
 			// 
@@ -465,21 +467,18 @@ namespace TinkerdinView {
 				a->Age = Convert::ToInt32(txtAge->Text);
 				if (cmbGender->SelectedText->Trim()->Equals("")){
 					gender = cmbGender->SelectedItem->ToString();
-					if (gender == "masculino") {
-						a->Gender = 'M';
-					}
-					if (gender == "femenino") {
-						a->Gender = 'F';
-					}
-					else {
-						a->Gender = 'O';
-					}
+					if (gender == "masculino") a->Gender = 'M';
+					if (gender == "femenino") a->Gender = 'F';
+					else a->Gender = 'O';
 				}
 				else a->Gender = 'O';
 				a->Email = txtEmail->Text;
 				a->Carrer = txtCarrer->Text;
 				a->Cicle = Convert::ToInt32(txtCicle->Text);
-
+				a->code = Convert::ToInt32(txtCode->Text);
+				a->Phone = Convert::ToInt32(txtCellPhone->Text);
+				a->Status = txtStatus->Text;
+				a->Password = txtPass->Text;
 				if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
 					System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
 					pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
@@ -515,14 +514,16 @@ namespace TinkerdinView {
 		txtCellPhone->Text = "" + c->code;
 		txtStatus->Text = c->Status;
 		txtPass->Text = c->Password;
-		//cmbGender->
-		for (int i = 0; i < cmbGender->Items->Count; i++) {
-			if (cmbGender->Items[i]->ToString()->CompareTo(c->Gender) == 0) {
-				cmbGender->SelectedIndex = i;
-				break;
-			}
-		}
-
+		//Conversión de tipos
+		if (c->Gender == 'M')	cmbGender->SelectedIndex = 0;
+		if (c->Gender == 'F')	cmbGender->SelectedIndex = 1;
+		else cmbGender->SelectedIndex = 2;
+		//for (int i = 0; i < cmbGender->Items->Count; i++) {	
+		//	/*if (cmbGender->Items[i]->ToString()->CompareTo(c->Gender) == 0) {
+		//		cmbGender->SelectedIndex = i;
+		//		break;
+		//	}*/
+		//}
 
 		if (c->Photo != nullptr) {
 			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(c->Photo);
@@ -541,5 +542,13 @@ namespace TinkerdinView {
 	}
 	private: System::Void cmbGender_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void btnSetImage_Click(System::Object^ sender, System::EventArgs^ e) {
+	OpenFileDialog^ opnfd = gcnew OpenFileDialog();
+	opnfd->Filter = "Image Files (*.jpg;*.jpeg;)|*.jpg;*.jpeg;";
+	if (opnfd->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		pbPhoto->Image = gcnew Bitmap(opnfd->FileName);
+	}
+}
 };
 }

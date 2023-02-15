@@ -133,6 +133,7 @@ namespace TinkerdinView {
 			// 
 			this->txtPassword->Location = System::Drawing::Point(463, 66);
 			this->txtPassword->Name = L"txtPassword";
+			this->txtPassword->PasswordChar = '*';
 			this->txtPassword->Size = System::Drawing::Size(142, 20);
 			this->txtPassword->TabIndex = 5;
 			this->txtPassword->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &LoginForm::txtPassword_KeyDown);
@@ -172,6 +173,7 @@ namespace TinkerdinView {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(672, 255);
+			this->ControlBox = false;
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->btnRegister);
 			this->Controls->Add(this->pbIntro);
@@ -181,7 +183,9 @@ namespace TinkerdinView {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnOK);
-			this->Margin = System::Windows::Forms::Padding(2);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->MaximizeBox = false;
+			this->MinimizeBox = false;
 			this->Name = L"LoginForm";
 			this->Text = L"Autenticación de usuario";
 			this->Load += gcnew System::EventHandler(this, &LoginForm::LoginForm_Load);
@@ -212,6 +216,7 @@ private: System::Void txtUsername_TextChanged(System::Object^ sender, System::Ev
 }
 private: System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	//pbIntro->Image=gcnew Bitmap(opnfd->F)
+	//this-> Close();
 }
 private: System::Void pbIntro_LoadCompleted(System::Object^ sender, System::ComponentModel::AsyncCompletedEventArgs^ e) {
 }

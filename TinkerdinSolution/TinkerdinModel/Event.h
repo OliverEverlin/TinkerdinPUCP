@@ -13,8 +13,8 @@ namespace TinkerdinModel {
     public:
         property int Id;
         property String^ Name;
-        property String^ Relevance; //Cambiar en el diagrama si
-        property String^ Privacy;   //se queda en string o bool
+        property String^ Relevance; //Cambiar en el diagrama 
+        property String^ Privacy;   //se queda en string 
         property int Date;
         property int Hour;
 

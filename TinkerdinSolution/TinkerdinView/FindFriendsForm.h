@@ -10,12 +10,12 @@ namespace TinkerdinView {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Resumen de SignInForm
+	/// Resumen de FindFriendsForm
 	/// </summary>
-	public ref class SignInForm : public System::Windows::Forms::Form
+	public ref class FindFriendsForm : public System::Windows::Forms::Form
 	{
 	public:
-		SignInForm(void)
+		FindFriendsForm(void)
 		{
 			InitializeComponent();
 			//
@@ -27,7 +27,7 @@ namespace TinkerdinView {
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
 		/// </summary>
-		~SignInForm()
+		~FindFriendsForm()
 		{
 			if (components)
 			{
@@ -48,17 +48,11 @@ namespace TinkerdinView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->SuspendLayout();
-			// 
-			// SignInForm
-			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->components = gcnew System::ComponentModel::Container();
+			this->Size = System::Drawing::Size(300,300);
+			this->Text = L"FindFriendsForm";
+			this->Padding = System::Windows::Forms::Padding(0);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(549, 305);
-			this->Name = L"SignInForm";
-			this->Text = L"SignInForm";
-			this->ResumeLayout(false);
-
 		}
 #pragma endregion
 	};
