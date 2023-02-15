@@ -129,7 +129,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::ToolStripMenuItem^ actualizarUsuarioToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ clientesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ lugaresToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ eventosToolStripMenuItem;
+	//private: System::Windows::Forms::ToolStripMenuItem^ eventosToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ clientesToolStripMenuItem1;
 	private: System::Windows::Forms::ToolStripMenuItem^ lugaresToolStripMenuItem2;
 	private: System::Windows::Forms::ToolStripMenuItem^ funcionamientoToolStripMenuItem;
@@ -169,11 +169,11 @@ namespace TinkerdinView {
 			this->editarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reportsUserTSM1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reportarUsuarioToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->lugarLibreToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			/*this->lugarLibreToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->extrasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->adminToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->cRUDClientsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->cRUDClientsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());*/
 			this->reportarErrorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->eventsTSM1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->agregarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -477,7 +477,7 @@ namespace TinkerdinView {
 			// 
 			// button2
 			// 
-			this->button1->Location = System::Drawing::Point(32, 57);
+			/*this->button1->Location = System::Drawing::Point(32, 57);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(129, 70);
 			this->button1->TabIndex = 7;
@@ -489,7 +489,7 @@ namespace TinkerdinView {
 			this->button2->Size = System::Drawing::Size(129, 70);
 			this->button2->TabIndex = 9;
 			this->button2->Text = L"Agendar reunión";
-			this->button2->UseVisualStyleBackColor = true;
+			this->button2->UseVisualStyleBackColor = true;*/
 			// 
 			// MainForm
 			// 

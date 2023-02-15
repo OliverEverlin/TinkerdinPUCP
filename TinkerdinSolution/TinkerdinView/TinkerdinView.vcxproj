@@ -161,9 +161,6 @@
     <ClInclude Include="FindPlaceForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="FindFriendsForm.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="LoginForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -201,7 +198,7 @@
     <ClCompile Include="EventForm.cpp" />
     <ClCompile Include="FindFriendsForm.cpp" />
     <ClCompile Include="FindPlaceForm.cpp" />
-    <ClCompile Include="FindFriendsForm.cpp" />
+    <!--<ClCompile Include="FindFriendsForm.cpp" />-->
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="pch.cpp">
