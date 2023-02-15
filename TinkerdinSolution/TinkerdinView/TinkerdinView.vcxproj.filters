@@ -68,9 +68,6 @@
     <ClInclude Include="CRUDClientsForm.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="FindPlaceForm.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TinkerdinView.cpp">
@@ -123,9 +120,6 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="CRUDClientsForm.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="FindPlaceForm.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
