@@ -73,6 +73,12 @@ namespace TinkerdinView {
 
 
 
+	private: System::Windows::Forms::ToolStripMenuItem^ RegisterTStripMenu;
+	private: System::Windows::Forms::ToolStripMenuItem^ loginToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ eventosToolStripMenuItem;
+
+
+
 
 
 
@@ -163,6 +169,11 @@ namespace TinkerdinView {
 			this->editarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reportsUserTSM1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reportarUsuarioToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->lugarLibreToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->extrasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->adminToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->cRUDClientsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reportarErrorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->eventsTSM1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->agregarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -466,6 +477,13 @@ namespace TinkerdinView {
 			// 
 			// button2
 			// 
+			this->button1->Location = System::Drawing::Point(32, 57);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(129, 70);
+			this->button1->TabIndex = 7;
+			this->button1->Text = L"Reportar Lugares";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MainForm::button1_Click_2);
 			this->button2->Location = System::Drawing::Point(250, 347);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(129, 70);

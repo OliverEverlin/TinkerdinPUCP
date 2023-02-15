@@ -452,6 +452,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 //}
 
 private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+	Cliente^ a = gcnew Cliente();
 	Admin^ a = gcnew Admin();
 	String^ gender;
 	try {
