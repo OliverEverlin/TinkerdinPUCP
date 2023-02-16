@@ -1,4 +1,5 @@
 #pragma once
+#include "SearchClientForm.h"
 
 namespace TinkerdinView {
 
@@ -9,12 +10,17 @@ namespace TinkerdinView {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+	using namespace System::Collections::Generic;
+	using namespace TinkerdinControler;
+	using namespace TinkerdinModel;
+
 	/// <summary>
 	/// Resumen de ReportClientForm
 	/// </summary>
 	public ref class ReportClientForm : public System::Windows::Forms::Form
 	{
 	public:
+		static Cliente^ client;
 		ReportClientForm(void)
 		{
 			InitializeComponent();
@@ -124,6 +130,7 @@ namespace TinkerdinView {
 			this->btnSearch->TabIndex = 60;
 			this->btnSearch->Text = L"Buscar";
 			this->btnSearch->UseVisualStyleBackColor = true;
+			this->btnSearch->Click += gcnew System::EventHandler(this, &ReportClientForm::btnSearch_Click);
 			// 
 			// ReportClientForm
 			// 
@@ -139,10 +146,19 @@ namespace TinkerdinView {
 			this->Controls->Add(this->label6);
 			this->Name = L"ReportClientForm";
 			this->Text = L"Reporte de usuarios";
+			this->Load += gcnew System::EventHandler(this, &ReportClientForm::ReportClientForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+	private: System::Void ReportClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*SearchClientForm^ searchClient = gcnew SearchClientForm();
+	searchClient->Show();*/
+
+
+}
+};
 }
