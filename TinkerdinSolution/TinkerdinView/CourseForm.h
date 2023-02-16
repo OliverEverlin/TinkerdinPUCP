@@ -1,6 +1,7 @@
 #pragma once
 #include "ScheduleForm.h"
 #include "CourseChangeForm.h"
+#include "CourseSearchForm.h"
 
 namespace TinkerdinView {
 
@@ -574,8 +575,8 @@ private: System::Void btnAddSchedule_Click(System::Object^ sender, System::Event
 		}
 		else {
 			//falta agregar string de horario
-			CourseChangeForm^ coursechangeForm = gcnew CourseChangeForm(this);
-			coursechangeForm->ShowDialog();
+			CourseSearchForm^ coursesearchForm = gcnew CourseSearchForm(this);
+			coursesearchForm->ShowDialog();
 		}
 	}
 	catch (Exception^ ex) {
@@ -589,8 +590,8 @@ private: System::Void btnUpdateSchedule_Click(System::Object^ sender, System::Ev
 			dgvSchedule->CurrentCell->Value != nullptr &&
 			dgvSchedule->CurrentCell->Value->ToString() != "" ) {
 			//falta agregar string de horario
-			CourseChangeForm^ coursechangeForm = gcnew CourseChangeForm(this);
-			coursechangeForm->ShowDialog();
+			CourseSearchForm^ coursesearchForm = gcnew CourseSearchForm(this);
+			coursesearchForm->ShowDialog();
 		}
 	}
 	catch (Exception^ ex) {
@@ -675,7 +676,24 @@ void ShowHours() {
 		});
 	}
 }
-
+public: Void AddCourseToSchedule(Course^ p) {
+	for (int i = 0; i < dgvSchedule->RowCount - 1; i++) {
+		String^ productId = dgvSchedule->Rows[i]->Cells[0]->Value->ToString();
+		if (p->Id == productId) {
+			//RefreshTotalAmounts();
+			ShowHours();
+			return;
+		}
+	}
+	//dgvSchedule->Rows->Add(gcnew array<String^> {p->getId()),
+	//		p->Name,
+	//		Convert::ToString(p->PriceMin),
+	//		"1",
+	//		Convert::ToString(p->PriceMin)
+	//});
+	////RefreshTotalAmounts();
+	ShowHours();
+}
 
 };
 }

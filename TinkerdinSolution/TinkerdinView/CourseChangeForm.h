@@ -320,5 +320,6 @@ namespace TinkerdinView {
 	private: System::Void CourseChangeForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		FillCmbCourseType();
 	}
+
 };
 }
