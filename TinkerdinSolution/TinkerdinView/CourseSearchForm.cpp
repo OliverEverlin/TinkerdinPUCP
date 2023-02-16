@@ -6,7 +6,7 @@ System::Void TinkerdinView::CourseSearchForm::dgvCourse_CellClick(System::Object
 {
 	if (e->RowIndex < 0) return;
 	if (e->RowIndex >= 0) {
-		String^ courseId = dgvProducts->Rows[e->RowIndex]->Cells[0]->Value->ToString();
+		String^ courseId = dgvCourses->Rows[e->RowIndex]->Cells[0]->Value->ToString();
 		Course^ p = Controller::QueryCourseById(courseId);
 		if (refCform->GetType() == CourseForm::typeid)
 			((CourseForm^)refCform)->AddCourseToSchedule(p);
