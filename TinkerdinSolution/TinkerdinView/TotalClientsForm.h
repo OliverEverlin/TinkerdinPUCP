@@ -92,6 +92,7 @@ namespace TinkerdinView {
 			this->ClientsChart->Size = System::Drawing::Size(456, 399);
 			this->ClientsChart->TabIndex = 0;
 			this->ClientsChart->Text = L"Tipos de usuarios";
+			this->ClientsChart->Click += gcnew System::EventHandler(this, &TotalClientsForm::ClientsChart_Click);
 			// 
 			// flowLayoutPanel1
 			// 
@@ -229,6 +230,8 @@ private: System::Void btnAge_Click(System::Object^ sender, System::EventArgs^ e)
 			}
 		}
 	}
+private: System::Void ClientsChart_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
 
