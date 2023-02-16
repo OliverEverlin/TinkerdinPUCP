@@ -100,6 +100,9 @@
     <ClInclude Include="CourseChangeForm.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="CourseSearchForm.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
     <ClInclude Include="FindPlaceForm.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -173,6 +176,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="CourseChangeForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="CourseSearchForm.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="FindPlaceForm.cpp">

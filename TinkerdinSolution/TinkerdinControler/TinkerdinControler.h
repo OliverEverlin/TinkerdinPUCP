@@ -56,6 +56,7 @@ namespace TinkerdinControler {
 		static int DeleteCourse(String^ courseId);	//eliminar con codigo del curso	//¿añadimos tambien nombre????
 		static List<Course^>^ QueryAllCourse();
 		static Course^ QueryCourseById(String^ courseId);
+		static List<Course^>^ QueryCourseByName(String^ value);
 		static List<String^>^ QueryAllTypeCourse();
 		//static Customer^ QueryCustomerById(int customerId);
 

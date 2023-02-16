@@ -146,6 +146,9 @@
     <ClInclude Include="CourseForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CourseSearchForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="CRUDClientsForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -199,6 +202,7 @@
     <ClCompile Include="ClientForm.cpp" />
     <ClCompile Include="CourseChangeForm.cpp" />
     <ClCompile Include="CourseForm.cpp" />
+    <ClCompile Include="CourseSearchForm.cpp" />
     <ClCompile Include="CRUDClientsForm.cpp" />
     <ClCompile Include="EditClientForm.cpp" />
     <ClCompile Include="EventForm.cpp" />
@@ -259,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CourseForm.resx">
       <DependentUpon>CourseForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseSearchForm.resx">
+      <DependentUpon>CourseSearchForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CRUDClientsForm.resx">
       <DependentUpon>CRUDClientsForm.h</DependentUpon>
