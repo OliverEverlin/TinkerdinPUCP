@@ -63,6 +63,11 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::PictureBox^ pbPhoto;
 	private: System::Windows::Forms::Button^ btnUpdate;
 	private: System::Windows::Forms::Button^ btnReturn;
+	private: System::Windows::Forms::NumericUpDown^ numericUpDown1;
+	private: System::Windows::Forms::NumericUpDown^ numericUpDown2;
+
+	private: System::ComponentModel::IContainer^ components;
+
 
 	protected:
 
@@ -90,7 +95,7 @@ namespace TinkerdinView {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -117,7 +122,11 @@ namespace TinkerdinView {
 			this->pbPhoto = (gcnew System::Windows::Forms::PictureBox());
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->btnReturn = (gcnew System::Windows::Forms::Button());
+			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->numericUpDown2 = (gcnew System::Windows::Forms::NumericUpDown());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// txtUsername
@@ -269,11 +278,27 @@ namespace TinkerdinView {
 			this->btnReturn->Text = L"Cancelar";
 			this->btnReturn->UseVisualStyleBackColor = true;
 			// 
+			// numericUpDown1
+			// 
+			this->numericUpDown1->Location = System::Drawing::Point(260, 253);
+			this->numericUpDown1->Name = L"numericUpDown1";
+			this->numericUpDown1->Size = System::Drawing::Size(62, 20);
+			this->numericUpDown1->TabIndex = 92;
+			// 
+			// numericUpDown2
+			// 
+			this->numericUpDown2->Location = System::Drawing::Point(260, 106);
+			this->numericUpDown2->Name = L"numericUpDown2";
+			this->numericUpDown2->Size = System::Drawing::Size(120, 20);
+			this->numericUpDown2->TabIndex = 93;
+			// 
 			// EditClientForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(643, 413);
+			this->Controls->Add(this->numericUpDown2);
+			this->Controls->Add(this->numericUpDown1);
 			this->Controls->Add(this->btnReturn);
 			this->Controls->Add(this->btnUpdate);
 			this->Controls->Add(this->btnSetImage);
@@ -296,6 +321,8 @@ namespace TinkerdinView {
 			this->Text = L"Actualización de usuario";
 			this->Load += gcnew System::EventHandler(this, &EditClientForm::EditClientForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

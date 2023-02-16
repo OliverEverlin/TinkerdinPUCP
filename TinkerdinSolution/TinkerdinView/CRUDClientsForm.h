@@ -60,8 +60,8 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::Button^ btnDelete;
 	private: System::Windows::Forms::DataGridView^ dgvClients;
 
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Username;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Edad;
+
+
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ label9;
@@ -71,6 +71,17 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::TextBox^ txtCellPhone;
 	private: System::Windows::Forms::TextBox^ txtStatus;
 	private: System::Windows::Forms::TextBox^ txtPass;
+	private: System::Windows::Forms::Button^ btnAdd;
+
+
+
+	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
+	private: System::Windows::Forms::Button^ btnNew;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Username;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Edad;
+	private: System::Windows::Forms::Button^ btnCancel;
+
+
 
 
 
@@ -118,13 +129,18 @@ namespace TinkerdinView {
 			this->txtCellPhone = (gcnew System::Windows::Forms::TextBox());
 			this->txtStatus = (gcnew System::Windows::Forms::TextBox());
 			this->txtPass = (gcnew System::Windows::Forms::TextBox());
+			this->btnAdd = (gcnew System::Windows::Forms::Button());
+			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->btnNew = (gcnew System::Windows::Forms::Button());
+			this->btnCancel = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvClients))->BeginInit();
+			this->flowLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// txtUsername
 			// 
-			this->txtUsername->Location = System::Drawing::Point(139, 37);
+			this->txtUsername->Location = System::Drawing::Point(429, 29);
 			this->txtUsername->Name = L"txtUsername";
 			this->txtUsername->Size = System::Drawing::Size(100, 20);
 			this->txtUsername->TabIndex = 53;
@@ -132,7 +148,7 @@ namespace TinkerdinView {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(36, 37);
+			this->label6->Location = System::Drawing::Point(326, 29);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(96, 13);
 			this->label6->TabIndex = 52;
@@ -141,7 +157,7 @@ namespace TinkerdinView {
 			// cmbGender
 			// 
 			this->cmbGender->FormattingEnabled = true;
-			this->cmbGender->Location = System::Drawing::Point(139, 141);
+			this->cmbGender->Location = System::Drawing::Point(429, 133);
 			this->cmbGender->Name = L"cmbGender";
 			this->cmbGender->Size = System::Drawing::Size(100, 21);
 			this->cmbGender->TabIndex = 51;
@@ -149,28 +165,28 @@ namespace TinkerdinView {
 			// 
 			// txtCicle
 			// 
-			this->txtCicle->Location = System::Drawing::Point(139, 254);
+			this->txtCicle->Location = System::Drawing::Point(429, 246);
 			this->txtCicle->Name = L"txtCicle";
 			this->txtCicle->Size = System::Drawing::Size(100, 20);
 			this->txtCicle->TabIndex = 50;
 			// 
 			// txtCarrer
 			// 
-			this->txtCarrer->Location = System::Drawing::Point(139, 219);
+			this->txtCarrer->Location = System::Drawing::Point(429, 211);
 			this->txtCarrer->Name = L"txtCarrer";
 			this->txtCarrer->Size = System::Drawing::Size(163, 20);
 			this->txtCarrer->TabIndex = 49;
 			// 
 			// txtEmail
 			// 
-			this->txtEmail->Location = System::Drawing::Point(139, 184);
+			this->txtEmail->Location = System::Drawing::Point(429, 176);
 			this->txtEmail->Name = L"txtEmail";
 			this->txtEmail->Size = System::Drawing::Size(218, 20);
 			this->txtEmail->TabIndex = 48;
 			// 
 			// txtAge
 			// 
-			this->txtAge->Location = System::Drawing::Point(139, 108);
+			this->txtAge->Location = System::Drawing::Point(429, 100);
 			this->txtAge->Name = L"txtAge";
 			this->txtAge->Size = System::Drawing::Size(100, 20);
 			this->txtAge->TabIndex = 47;
@@ -178,7 +194,7 @@ namespace TinkerdinView {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(38, 257);
+			this->label5->Location = System::Drawing::Point(328, 249);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(30, 13);
 			this->label5->TabIndex = 46;
@@ -187,7 +203,7 @@ namespace TinkerdinView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(38, 219);
+			this->label1->Location = System::Drawing::Point(328, 211);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(44, 13);
 			this->label1->TabIndex = 45;
@@ -196,7 +212,7 @@ namespace TinkerdinView {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(38, 187);
+			this->label4->Location = System::Drawing::Point(328, 179);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(35, 13);
 			this->label4->TabIndex = 44;
@@ -205,7 +221,7 @@ namespace TinkerdinView {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(38, 144);
+			this->label3->Location = System::Drawing::Point(328, 136);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(45, 13);
 			this->label3->TabIndex = 43;
@@ -214,7 +230,7 @@ namespace TinkerdinView {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(38, 111);
+			this->label2->Location = System::Drawing::Point(328, 103);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(35, 13);
 			this->label2->TabIndex = 42;
@@ -222,7 +238,7 @@ namespace TinkerdinView {
 			// 
 			// txtName
 			// 
-			this->txtName->Location = System::Drawing::Point(139, 73);
+			this->txtName->Location = System::Drawing::Point(429, 65);
 			this->txtName->Name = L"txtName";
 			this->txtName->Size = System::Drawing::Size(218, 20);
 			this->txtName->TabIndex = 41;
@@ -230,7 +246,7 @@ namespace TinkerdinView {
 			// name
 			// 
 			this->name->AutoSize = true;
-			this->name->Location = System::Drawing::Point(38, 76);
+			this->name->Location = System::Drawing::Point(328, 68);
 			this->name->Name = L"name";
 			this->name->Size = System::Drawing::Size(47, 13);
 			this->name->TabIndex = 40;
@@ -238,7 +254,7 @@ namespace TinkerdinView {
 			// 
 			// btnSetImage
 			// 
-			this->btnSetImage->Location = System::Drawing::Point(451, 256);
+			this->btnSetImage->Location = System::Drawing::Point(687, 239);
 			this->btnSetImage->Name = L"btnSetImage";
 			this->btnSetImage->Size = System::Drawing::Size(120, 23);
 			this->btnSetImage->TabIndex = 55;
@@ -248,7 +264,7 @@ namespace TinkerdinView {
 			// 
 			// pbPhoto
 			// 
-			this->pbPhoto->Location = System::Drawing::Point(422, 37);
+			this->pbPhoto->Location = System::Drawing::Point(658, 20);
 			this->pbPhoto->Name = L"pbPhoto";
 			this->pbPhoto->Size = System::Drawing::Size(180, 213);
 			this->pbPhoto->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -257,9 +273,9 @@ namespace TinkerdinView {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(139, 483);
+			this->btnUpdate->Location = System::Drawing::Point(3, 3);
 			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(75, 23);
+			this->btnUpdate->Size = System::Drawing::Size(133, 23);
 			this->btnUpdate->TabIndex = 56;
 			this->btnUpdate->Text = L"Actualizar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
@@ -267,9 +283,9 @@ namespace TinkerdinView {
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(303, 483);
+			this->btnDelete->Location = System::Drawing::Point(3, 32);
 			this->btnDelete->Name = L"btnDelete";
-			this->btnDelete->Size = System::Drawing::Size(75, 23);
+			this->btnDelete->Size = System::Drawing::Size(133, 23);
 			this->btnDelete->TabIndex = 57;
 			this->btnDelete->Text = L"Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
@@ -282,9 +298,9 @@ namespace TinkerdinView {
 				this->Username,
 					this->Edad
 			});
-			this->dgvClients->Location = System::Drawing::Point(645, 37);
+			this->dgvClients->Location = System::Drawing::Point(38, 29);
 			this->dgvClients->Name = L"dgvClients";
-			this->dgvClients->Size = System::Drawing::Size(244, 396);
+			this->dgvClients->Size = System::Drawing::Size(245, 396);
 			this->dgvClients->TabIndex = 58;
 			this->dgvClients->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CRUDClientsForm::dgvClientsCellClick);
 			this->dgvClients->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CRUDClientsForm::dgvClientsCellContentClick);
@@ -298,11 +314,12 @@ namespace TinkerdinView {
 			// 
 			this->Edad->HeaderText = L"Age";
 			this->Edad->Name = L"Edad";
+			this->Edad->ReadOnly = true;
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(36, 298);
+			this->label7->Location = System::Drawing::Point(326, 290);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(40, 13);
 			this->label7->TabIndex = 59;
@@ -311,7 +328,7 @@ namespace TinkerdinView {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(36, 332);
+			this->label8->Location = System::Drawing::Point(326, 324);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(42, 13);
 			this->label8->TabIndex = 60;
@@ -320,7 +337,7 @@ namespace TinkerdinView {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(36, 364);
+			this->label9->Location = System::Drawing::Point(326, 356);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(37, 13);
 			this->label9->TabIndex = 61;
@@ -329,7 +346,7 @@ namespace TinkerdinView {
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(36, 396);
+			this->label10->Location = System::Drawing::Point(326, 388);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(64, 13);
 			this->label10->TabIndex = 62;
@@ -337,37 +354,81 @@ namespace TinkerdinView {
 			// 
 			// txtCode
 			// 
-			this->txtCode->Location = System::Drawing::Point(139, 291);
+			this->txtCode->Location = System::Drawing::Point(429, 283);
 			this->txtCode->Name = L"txtCode";
 			this->txtCode->Size = System::Drawing::Size(100, 20);
 			this->txtCode->TabIndex = 63;
 			// 
 			// txtCellPhone
 			// 
-			this->txtCellPhone->Location = System::Drawing::Point(139, 329);
+			this->txtCellPhone->Location = System::Drawing::Point(429, 321);
 			this->txtCellPhone->Name = L"txtCellPhone";
 			this->txtCellPhone->Size = System::Drawing::Size(100, 20);
 			this->txtCellPhone->TabIndex = 64;
 			// 
 			// txtStatus
 			// 
-			this->txtStatus->Location = System::Drawing::Point(139, 361);
+			this->txtStatus->Location = System::Drawing::Point(429, 353);
 			this->txtStatus->Name = L"txtStatus";
 			this->txtStatus->Size = System::Drawing::Size(100, 20);
 			this->txtStatus->TabIndex = 65;
 			// 
 			// txtPass
 			// 
-			this->txtPass->Location = System::Drawing::Point(139, 393);
+			this->txtPass->Location = System::Drawing::Point(429, 385);
 			this->txtPass->Name = L"txtPass";
 			this->txtPass->Size = System::Drawing::Size(100, 20);
 			this->txtPass->TabIndex = 66;
+			// 
+			// btnAdd
+			// 
+			this->btnAdd->Location = System::Drawing::Point(3, 90);
+			this->btnAdd->Name = L"btnAdd";
+			this->btnAdd->Size = System::Drawing::Size(133, 23);
+			this->btnAdd->TabIndex = 67;
+			this->btnAdd->Text = L"Registrar";
+			this->btnAdd->UseVisualStyleBackColor = true;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &CRUDClientsForm::btnAdd_Click);
+			// 
+			// flowLayoutPanel1
+			// 
+			this->flowLayoutPanel1->Controls->Add(this->btnUpdate);
+			this->flowLayoutPanel1->Controls->Add(this->btnDelete);
+			this->flowLayoutPanel1->Controls->Add(this->btnNew);
+			this->flowLayoutPanel1->Controls->Add(this->btnAdd);
+			this->flowLayoutPanel1->Controls->Add(this->btnCancel);
+			this->flowLayoutPanel1->Location = System::Drawing::Point(683, 289);
+			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
+			this->flowLayoutPanel1->Size = System::Drawing::Size(155, 146);
+			this->flowLayoutPanel1->TabIndex = 68;
+			this->flowLayoutPanel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &CRUDClientsForm::flowLayoutPanel1_Paint);
+			// 
+			// btnNew
+			// 
+			this->btnNew->Location = System::Drawing::Point(3, 61);
+			this->btnNew->Name = L"btnNew";
+			this->btnNew->Size = System::Drawing::Size(133, 23);
+			this->btnNew->TabIndex = 68;
+			this->btnNew->Text = L"Nuevo";
+			this->btnNew->UseVisualStyleBackColor = true;
+			this->btnNew->Click += gcnew System::EventHandler(this, &CRUDClientsForm::btnNew_Click);
+			// 
+			// btnCancel
+			// 
+			this->btnCancel->Location = System::Drawing::Point(3, 119);
+			this->btnCancel->Name = L"btnCancel";
+			this->btnCancel->Size = System::Drawing::Size(133, 23);
+			this->btnCancel->TabIndex = 69;
+			this->btnCancel->Text = L"Cancelar";
+			this->btnCancel->UseVisualStyleBackColor = true;
+			this->btnCancel->Click += gcnew System::EventHandler(this, &CRUDClientsForm::btnCancel_Click);
 			// 
 			// CRUDClientsForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(930, 539);
+			this->ClientSize = System::Drawing::Size(952, 449);
+			this->Controls->Add(this->flowLayoutPanel1);
 			this->Controls->Add(this->txtPass);
 			this->Controls->Add(this->txtStatus);
 			this->Controls->Add(this->txtCellPhone);
@@ -377,8 +438,6 @@ namespace TinkerdinView {
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->dgvClients);
-			this->Controls->Add(this->btnDelete);
-			this->Controls->Add(this->btnUpdate);
 			this->Controls->Add(this->btnSetImage);
 			this->Controls->Add(this->pbPhoto);
 			this->Controls->Add(this->txtUsername);
@@ -400,6 +459,7 @@ namespace TinkerdinView {
 			this->Load += gcnew System::EventHandler(this, &CRUDClientsForm::CRUDClientsForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvClients))->EndInit();
+			this->flowLayoutPanel1->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -413,9 +473,11 @@ namespace TinkerdinView {
 					dgvClients->Rows->Add(gcnew array<String^>{
 						myClientList[i]->Username,
 							"" + myClientList[i]->Age,
+						""+(myClientList[i]->Gender),
 					});
 				}
 			}
+			//Convert::ToString;
 
 		}
 		void CleanControls() {
@@ -469,9 +531,9 @@ namespace TinkerdinView {
 					gender = cmbGender->SelectedItem->ToString();
 					if (gender == "masculino") a->Gender = 'M';
 					if (gender == "femenino") a->Gender = 'F';
-					else a->Gender = 'O';
+					if (gender == "otros") a->Gender = 'O';
 				}
-				else a->Gender = 'O';
+				//else a->Gender = 'O';
 				a->Email = txtEmail->Text;
 				a->Carrer = txtCarrer->Text;
 				a->Cicle = Convert::ToInt32(txtCicle->Text);
@@ -501,6 +563,8 @@ namespace TinkerdinView {
 	}
 	private: System::Void dgvClientsCellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		int selectedRowIndex = dgvClients->SelectedCells[0]->RowIndex;
+		btnAdd->Enabled=false;
+
 		//int clientUsername = Convert::ToInt32(dgvClients->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
 		String^ clientUsername = dgvClients->Rows[selectedRowIndex]->Cells[0]->Value->ToString();
 		Cliente^ c = Controller::QueryClientByUsername(clientUsername);
@@ -517,13 +581,7 @@ namespace TinkerdinView {
 		//Conversión de tipos
 		if (c->Gender == 'M')	cmbGender->SelectedIndex = 0;
 		if (c->Gender == 'F')	cmbGender->SelectedIndex = 1;
-		else cmbGender->SelectedIndex = 2;
-		//for (int i = 0; i < cmbGender->Items->Count; i++) {	
-		//	/*if (cmbGender->Items[i]->ToString()->CompareTo(c->Gender) == 0) {
-		//		cmbGender->SelectedIndex = i;
-		//		break;
-		//	}*/
-		//}
+		if (c->Gender == 'O')	cmbGender->SelectedIndex = 2;
 
 		if (c->Photo != nullptr) {
 			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(c->Photo);
@@ -539,6 +597,8 @@ namespace TinkerdinView {
 	private: System::Void CRUDClientsForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		FillCmbGender();
 		ShowClients();
+		btnAdd->Visible = false;
+		btnCancel->Visible = false;
 	}
 	private: System::Void cmbGender_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -549,6 +609,110 @@ private: System::Void btnSetImage_Click(System::Object^ sender, System::EventArg
 	{
 		pbPhoto->Image = gcnew Bitmap(opnfd->FileName);
 	}
+}
+private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+	Cliente^ a = gcnew Cliente();
+	String^ gender;
+	try {
+		//condition to don't repite username
+		if (Controller::QueryAdminByUsername(txtUsername->Text) != nullptr &&
+			Controller::QueryClientByUsername(txtUsername->Text) != nullptr) {
+			MessageBox::Show("El nombre de usuario ya existe");
+			return;
+		}
+		if (txtUsername->Text->Trim() == "") {
+			MessageBox::Show("El nombre del usuario no debe estar vacío.");
+			return;
+		}
+		if (txtPass->Text->Trim() == "") {
+			MessageBox::Show("El password del usuario no debe estar vacío.");
+			return;
+		}
+		if (cmbGender->SelectedIndex < 0) {
+			MessageBox::Show("El genero debe estar selecionado");
+			return;
+		}
+
+		a->Username = txtUsername->Text;
+		a->Name = txtName->Text;
+		a->Age = Convert::ToInt32(txtAge->Text);
+		//conversion a string
+		gender = cmbGender->SelectedItem->ToString();
+		if (gender == "masculino") a->Gender = 'M';
+		if (gender == "femenino") a->Gender = 'F';
+		if (gender == "otros") a->Gender = 'O';
+		a->Email = txtEmail->Text;
+		a->Carrer = txtCarrer->Text;
+		a->Cicle = Convert::ToInt32(txtCicle->Text);
+		a->Password = txtPass->Text;
+		a->code = 0;
+		a->Phone = 0;
+		if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
+			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+			pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+			a->Photo = ms->ToArray();
+		}
+
+		Controller::AddClient(a);
+
+		CleanControls();
+		ShowClients();
+		btnDelete->Visible = true;
+		btnUpdate->Visible = true;
+	}
+	catch (Exception^ ex) {
+		MessageBox::Show(ex->ToString(), "Envíe el error al área de TI.");
+		return;
+	}
+	MessageBox::Show("Cliente registrado de manera exitosa");
+	this->Close();
+}
+
+
+private: System::Void btnNew_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*btnDelete->Enabled = false;
+	btnUpdate->Enabled = false;*/
+	btnDelete->Visible = false;
+	btnUpdate->Visible = false;
+	btnAdd->Visible = true;
+	btnCancel->Visible = true;
+	txtUsername->Text = "";
+	txtName->Text = "";
+	txtAge->Text = "";
+	txtEmail->Text = "";
+	txtCarrer->Text = "";
+	txtCicle->Text = "";
+	txtCode->Text = "";
+	txtCellPhone->Text = "";
+	txtStatus->Text = "";
+	txtPass->Text = "";
+	pbPhoto->Image = nullptr;
+}
+private: System::Void flowLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	
+
+
+}
+private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
+	btnDelete->Visible = true;
+	btnUpdate->Visible = true;
+	btnAdd->Visible = false;
+	btnDelete->Visible = false;
+	btnUpdate->Visible = false;
+	btnAdd->Visible = true;
+	btnCancel->Visible = true;
+	txtUsername->Text = "";
+	txtName->Text = "";
+	txtAge->Text = "";
+	txtEmail->Text = "";
+	txtCarrer->Text = "";
+	txtCicle->Text = "";
+	txtCode->Text = "";
+	txtCellPhone->Text = "";
+	txtStatus->Text = "";
+	txtPass->Text = "";
+	pbPhoto->Image = nullptr;
+	btnCancel->Visible = true;
 }
 };
 }

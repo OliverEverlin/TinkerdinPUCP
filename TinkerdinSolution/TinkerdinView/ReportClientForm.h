@@ -41,6 +41,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::TextBox^ txtDescription;
 	private: System::Windows::Forms::Button^ btnSend;
 	private: System::Windows::Forms::Button^ btnCancel;
+	private: System::Windows::Forms::Button^ btnSearch;
 
 	private:
 		/// <summary>
@@ -61,13 +62,14 @@ namespace TinkerdinView {
 			this->txtDescription = (gcnew System::Windows::Forms::TextBox());
 			this->btnSend = (gcnew System::Windows::Forms::Button());
 			this->btnCancel = (gcnew System::Windows::Forms::Button());
+			this->btnSearch = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// txtUsername
 			// 
 			this->txtUsername->Location = System::Drawing::Point(135, 29);
 			this->txtUsername->Name = L"txtUsername";
-			this->txtUsername->Size = System::Drawing::Size(100, 20);
+			this->txtUsername->Size = System::Drawing::Size(180, 20);
 			this->txtUsername->TabIndex = 55;
 			// 
 			// label6
@@ -114,11 +116,21 @@ namespace TinkerdinView {
 			this->btnCancel->Text = L"Cancelar";
 			this->btnCancel->UseVisualStyleBackColor = true;
 			// 
+			// btnSearch
+			// 
+			this->btnSearch->Location = System::Drawing::Point(387, 27);
+			this->btnSearch->Name = L"btnSearch";
+			this->btnSearch->Size = System::Drawing::Size(75, 23);
+			this->btnSearch->TabIndex = 60;
+			this->btnSearch->Text = L"Buscar";
+			this->btnSearch->UseVisualStyleBackColor = true;
+			// 
 			// ReportClientForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(593, 318);
+			this->Controls->Add(this->btnSearch);
 			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnSend);
 			this->Controls->Add(this->txtDescription);

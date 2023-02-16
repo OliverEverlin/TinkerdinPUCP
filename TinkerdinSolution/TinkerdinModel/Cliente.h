@@ -8,7 +8,7 @@
 #include "user.h"
 
 using namespace System;
-
+using namespace System::Collections::Generic;
 namespace TinkerdinModel {
     [Serializable]
     public ref class Cliente : public user {
@@ -17,9 +17,12 @@ namespace TinkerdinModel {
         property int Cicle;
         property int nReports;
         property int nMeettings;
+        property List <String^>^ FriendList;
 
-        Cliente();
-        Cliente(String^ name, String^ username, int code, char gender, int age, int phone, String^ email, String^ status, String^ carrer, int cicle,String^password, int nReports, int nMeetings);
+        /*Cliente();
+        Cliente(String^ name, String^ username, int code, char gender, int age,
+            int phone, String^ email, String^ status, String^ carrer, int cicle,
+            String^password, int nReports, int nMeetings, List <String^> FriendList);*/
 
         void search_people();
 
