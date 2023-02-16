@@ -389,7 +389,12 @@ private: System::Void btnPlaceAdd_Click(System::Object^ sender, System::EventArg
 	place->Participants = Convert::ToInt32(txtPlaceParticipants->Text);
 	place->PowerOutlet = Convert::ToInt32(txtPlacePowerOutlet->Text);
 	place->TypePlace = comboBox2->Text;
-	place->Location = txtPlaceLocation->Text;
+	String^ floor;
+	String^ name;
+	name = txtPlaceLocation->Text;
+	floor = comboBox1->Text;
+
+	place->Location = name + " " + floor;
 	place->OptimumFloor = comboBox1->Text,
 
 	Controller::AddPlace(place);

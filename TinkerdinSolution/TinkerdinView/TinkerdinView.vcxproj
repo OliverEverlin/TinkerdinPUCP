@@ -171,6 +171,9 @@
     <ClInclude Include="PlaceForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="PlaceGraphicsForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="PLACE_Form.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -208,6 +211,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="PlaceForm.cpp" />
+    <ClCompile Include="PlaceGraphicsForm.cpp" />
     <ClCompile Include="PLACE_Form.cpp" />
     <ClCompile Include="ReportClientForm.cpp" />
     <ClCompile Include="ReportForm.cpp" />
@@ -223,6 +227,7 @@
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -267,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PlaceForm.resx">
       <DependentUpon>PlaceForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlaceGraphicsForm.resx">
+      <DependentUpon>PlaceGraphicsForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PLACE_Form.resx">
       <DependentUpon>PLACE_Form.h</DependentUpon>
