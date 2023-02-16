@@ -94,14 +94,14 @@ namespace TinkerdinView {
 
 	private: System::Windows::Forms::ToolStripMenuItem^ cRUDLugaresToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ reporteClientesToolStripMenuItem;
-	private: System::Windows::Forms::Button^ btnReportPlace;
 
 
 
 
 
 
-	private: System::Windows::Forms::Button^ hideAdmin;
+
+
 	private: System::Windows::Forms::ToolStripMenuItem^ actualizarUsuarioToolStripMenuItem1;
 	private: System::Windows::Forms::ToolStripMenuItem^ reportarUsuarioToolStripMenuItem1;
 	private: System::Windows::Forms::ToolStripMenuItem^ eventsTSM1;
@@ -190,8 +190,6 @@ namespace TinkerdinView {
 			this->fontDialog1 = (gcnew System::Windows::Forms::FontDialog());
 			this->pbPerfil = (gcnew System::Windows::Forms::PictureBox());
 			this->directorySearcher1 = (gcnew System::DirectoryServices::DirectorySearcher());
-			this->btnReportPlace = (gcnew System::Windows::Forms::Button());
-			this->hideAdmin = (gcnew System::Windows::Forms::Button());
 			this->txtTruco = (gcnew System::Windows::Forms::TextBox());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPerfil))->BeginInit();
@@ -280,20 +278,23 @@ namespace TinkerdinView {
 			// buscarToolStripMenuItem
 			// 
 			this->buscarToolStripMenuItem->Name = L"buscarToolStripMenuItem";
-			this->buscarToolStripMenuItem->Size = System::Drawing::Size(119, 22);
+			this->buscarToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->buscarToolStripMenuItem->Text = L"Buscar";
+			this->buscarToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::buscarToolStripMenuItem_Click);
 			// 
 			// recervarToolStripMenuItem
 			// 
 			this->recervarToolStripMenuItem->Name = L"recervarToolStripMenuItem";
-			this->recervarToolStripMenuItem->Size = System::Drawing::Size(119, 22);
-			this->recervarToolStripMenuItem->Text = L"Recervar";
+			this->recervarToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->recervarToolStripMenuItem->Text = L"Reservar";
+			this->recervarToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::recervarToolStripMenuItem_Click);
 			// 
 			// editarToolStripMenuItem
 			// 
 			this->editarToolStripMenuItem->Name = L"editarToolStripMenuItem";
-			this->editarToolStripMenuItem->Size = System::Drawing::Size(119, 22);
-			this->editarToolStripMenuItem->Text = L"Editar";
+			this->editarToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->editarToolStripMenuItem->Text = L"Reportar";
+			this->editarToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::editarToolStripMenuItem_Click);
 			// 
 			// reportsUserTSM1
 			// 
@@ -308,13 +309,13 @@ namespace TinkerdinView {
 			// reportarUsuarioToolStripMenuItem
 			// 
 			this->reportarUsuarioToolStripMenuItem->Name = L"reportarUsuarioToolStripMenuItem";
-			this->reportarUsuarioToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->reportarUsuarioToolStripMenuItem->Size = System::Drawing::Size(162, 22);
 			this->reportarUsuarioToolStripMenuItem->Text = L"Reportar Usuario";
 			// 
 			// reportarErrorToolStripMenuItem
 			// 
 			this->reportarErrorToolStripMenuItem->Name = L"reportarErrorToolStripMenuItem";
-			this->reportarErrorToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->reportarErrorToolStripMenuItem->Size = System::Drawing::Size(162, 22);
 			this->reportarErrorToolStripMenuItem->Text = L"Reportar Error";
 			// 
 			// eventsTSM1
@@ -330,19 +331,19 @@ namespace TinkerdinView {
 			// agregarToolStripMenuItem
 			// 
 			this->agregarToolStripMenuItem->Name = L"agregarToolStripMenuItem";
-			this->agregarToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->agregarToolStripMenuItem->Size = System::Drawing::Size(137, 22);
 			this->agregarToolStripMenuItem->Text = L"Agregar";
 			// 
 			// cancelarToolStripMenuItem
 			// 
 			this->cancelarToolStripMenuItem->Name = L"cancelarToolStripMenuItem";
-			this->cancelarToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->cancelarToolStripMenuItem->Size = System::Drawing::Size(137, 22);
 			this->cancelarToolStripMenuItem->Text = L"Cancelar";
 			// 
 			// misEventosToolStripMenuItem
 			// 
 			this->misEventosToolStripMenuItem->Name = L"misEventosToolStripMenuItem";
-			this->misEventosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->misEventosToolStripMenuItem->Size = System::Drawing::Size(137, 22);
 			this->misEventosToolStripMenuItem->Text = L"Mis eventos";
 			// 
 			// maintenanceTSM1
@@ -395,6 +396,7 @@ namespace TinkerdinView {
 			this->lugaresToolStripMenuItem->Name = L"lugaresToolStripMenuItem";
 			this->lugaresToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->lugaresToolStripMenuItem->Text = L"Lugares";
+			this->lugaresToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::lugaresToolStripMenuItem_Click_1);
 			// 
 			// eventosToolStripMenuItem
 			// 
@@ -415,7 +417,7 @@ namespace TinkerdinView {
 			// clientesToolStripMenuItem1
 			// 
 			this->clientesToolStripMenuItem1->Name = L"clientesToolStripMenuItem1";
-			this->clientesToolStripMenuItem1->Size = System::Drawing::Size(180, 22);
+			this->clientesToolStripMenuItem1->Size = System::Drawing::Size(161, 22);
 			this->clientesToolStripMenuItem1->Text = L"Clientes";
 			this->clientesToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MainForm::clientesToolStripMenuItem1_Click);
 			// 
@@ -424,19 +426,23 @@ namespace TinkerdinView {
 			this->lugaresToolStripMenuItem2->Name = L"lugaresToolStripMenuItem2";
 			this->lugaresToolStripMenuItem2->Size = System::Drawing::Size(180, 22);
 			this->lugaresToolStripMenuItem2->Text = L"Lugares";
+			this->lugaresToolStripMenuItem2->Click += gcnew System::EventHandler(this, &MainForm::lugaresToolStripMenuItem2_Click);
 			// 
 			// funcionamientoToolStripMenuItem
 			// 
 			this->funcionamientoToolStripMenuItem->Name = L"funcionamientoToolStripMenuItem";
-			this->funcionamientoToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->funcionamientoToolStripMenuItem->Size = System::Drawing::Size(161, 22);
 			this->funcionamientoToolStripMenuItem->Text = L"Funcionamiento";
 			// 
 			// pbPerfil
 			// 
-			this->pbPerfil->Location = System::Drawing::Point(589, 57);
+			this->pbPerfil->BackColor = System::Drawing::SystemColors::ControlDarkDark;
+			this->pbPerfil->ErrorImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pbPerfil.ErrorImage")));
+			this->pbPerfil->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pbPerfil.InitialImage")));
+			this->pbPerfil->Location = System::Drawing::Point(344, 183);
 			this->pbPerfil->Name = L"pbPerfil";
-			this->pbPerfil->Size = System::Drawing::Size(196, 213);
-			this->pbPerfil->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pbPerfil->Size = System::Drawing::Size(196, 180);
+			this->pbPerfil->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pbPerfil->TabIndex = 5;
 			this->pbPerfil->TabStop = false;
 			// 
@@ -446,31 +452,11 @@ namespace TinkerdinView {
 			this->directorySearcher1->ServerPageTimeLimit = System::TimeSpan::Parse(L"-00:00:01");
 			this->directorySearcher1->ServerTimeLimit = System::TimeSpan::Parse(L"-00:00:01");
 			// 
-			// btnReportPlace
-			// 
-			this->btnReportPlace->Location = System::Drawing::Point(32, 57);
-			this->btnReportPlace->Name = L"btnReportPlace";
-			this->btnReportPlace->Size = System::Drawing::Size(129, 70);
-			this->btnReportPlace->TabIndex = 7;
-			this->btnReportPlace->Text = L"Reportar Lugares";
-			this->btnReportPlace->UseVisualStyleBackColor = true;
-			this->btnReportPlace->Click += gcnew System::EventHandler(this, &MainForm::button1_Click_2);
-			// 
-			// hideAdmin
-			// 
-			this->hideAdmin->Location = System::Drawing::Point(228, 189);
-			this->hideAdmin->Name = L"hideAdmin";
-			this->hideAdmin->Size = System::Drawing::Size(75, 23);
-			this->hideAdmin->TabIndex = 9;
-			this->hideAdmin->Text = L"Esconde Admin";
-			this->hideAdmin->UseVisualStyleBackColor = true;
-			this->hideAdmin->Click += gcnew System::EventHandler(this, &MainForm::hideAdmin_Click);
-			// 
 			// txtTruco
 			// 
-			this->txtTruco->Location = System::Drawing::Point(140, 250);
+			this->txtTruco->Location = System::Drawing::Point(385, 157);
 			this->txtTruco->Name = L"txtTruco";
-			this->txtTruco->Size = System::Drawing::Size(100, 20);
+			this->txtTruco->Size = System::Drawing::Size(114, 20);
 			this->txtTruco->TabIndex = 11;
 			// 
 			// MainForm
@@ -481,8 +467,6 @@ namespace TinkerdinView {
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->ClientSize = System::Drawing::Size(841, 502);
 			this->Controls->Add(this->txtTruco);
-			this->Controls->Add(this->hideAdmin);
-			this->Controls->Add(this->btnReportPlace);
 			this->Controls->Add(this->pbPerfil);
 			this->Controls->Add(this->menuStrip1);
 			this->DoubleBuffered = true;
@@ -596,6 +580,25 @@ private: System::Void hideAdmin_Click(System::Object^ sender, System::EventArgs^
 }
 private: System::Void buscarLugarToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
+}
+private: System::Void recervarToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void lugaresToolStripMenuItem_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	PlaceForm^ placeForm = gcnew PlaceForm();
+	placeForm->Show();
+
+}
+private: System::Void buscarToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	FindPlaceForm^ findPlaceForm = gcnew FindPlaceForm();
+	findPlaceForm->Show();
+}
+private: System::Void editarToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	ReportForm^ reportForm = gcnew ReportForm();
+	reportForm->Show();
+}
+private: System::Void lugaresToolStripMenuItem2_Click(System::Object^ sender, System::EventArgs^ e) {
+	ReportForm^ reportForm = gcnew ReportForm();
+	reportForm->Show();
 }
 private: System::Void clientesToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
 	TotalClientsForm^ reportForm = gcnew TotalClientsForm();
