@@ -42,7 +42,9 @@ namespace TinkerdinView {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::DataGridView^ dgvProducts;
+	private: System::Windows::Forms::DataGridView^ dgvCourses;
+	protected:
+
 	protected:
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ IdCourse;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ CourseName;
@@ -68,35 +70,64 @@ namespace TinkerdinView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->dgvProducts = (gcnew System::Windows::Forms::DataGridView());
+			this->dgvCourses = (gcnew System::Windows::Forms::DataGridView());
+			this->IdCourse = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->CourseName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ProfessorCourse = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->CourseType = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->btnCancel = (gcnew System::Windows::Forms::Button());
 			this->btnSearch = (gcnew System::Windows::Forms::Button());
 			this->txtNameDescription = (gcnew System::Windows::Forms::TextBox());
 			this->txtId = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->IdCourse = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->CourseName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ProfessorCourse = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->CourseType = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvProducts))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCourses))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// dgvProducts
+			// dgvCourses
 			// 
-			this->dgvProducts->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::ColumnHeader;
-			this->dgvProducts->AutoSizeRowsMode = System::Windows::Forms::DataGridViewAutoSizeRowsMode::AllCellsExceptHeaders;
-			this->dgvProducts->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvProducts->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+			this->dgvCourses->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::ColumnHeader;
+			this->dgvCourses->AutoSizeRowsMode = System::Windows::Forms::DataGridViewAutoSizeRowsMode::AllCellsExceptHeaders;
+			this->dgvCourses->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvCourses->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				this->IdCourse,
 					this->CourseName, this->ProfessorCourse, this->CourseType
 			});
-			this->dgvProducts->Location = System::Drawing::Point(9, 163);
-			this->dgvProducts->Margin = System::Windows::Forms::Padding(4);
-			this->dgvProducts->Name = L"dgvProducts";
-			this->dgvProducts->RowHeadersWidth = 51;
-			this->dgvProducts->Size = System::Drawing::Size(497, 185);
-			this->dgvProducts->TabIndex = 13;
+			this->dgvCourses->Location = System::Drawing::Point(9, 163);
+			this->dgvCourses->Margin = System::Windows::Forms::Padding(4);
+			this->dgvCourses->Name = L"dgvCourses";
+			this->dgvCourses->RowHeadersWidth = 51;
+			this->dgvCourses->Size = System::Drawing::Size(497, 185);
+			this->dgvCourses->TabIndex = 13;
+			this->dgvCourses->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CourseSearchForm::dgvCourse_CellClick);
+			// 
+			// IdCourse
+			// 
+			this->IdCourse->HeaderText = L"Id";
+			this->IdCourse->MinimumWidth = 6;
+			this->IdCourse->Name = L"IdCourse";
+			this->IdCourse->Width = 47;
+			// 
+			// CourseName
+			// 
+			this->CourseName->HeaderText = L"Nombre del curso";
+			this->CourseName->MinimumWidth = 6;
+			this->CourseName->Name = L"CourseName";
+			this->CourseName->Width = 101;
+			// 
+			// ProfessorCourse
+			// 
+			this->ProfessorCourse->HeaderText = L"Profesor";
+			this->ProfessorCourse->MinimumWidth = 6;
+			this->ProfessorCourse->Name = L"ProfessorCourse";
+			this->ProfessorCourse->Width = 87;
+			// 
+			// CourseType
+			// 
+			this->CourseType->HeaderText = L"Tipo";
+			this->CourseType->MinimumWidth = 6;
+			this->CourseType->Name = L"CourseType";
+			this->CourseType->Width = 64;
 			// 
 			// btnCancel
 			// 
@@ -117,6 +148,7 @@ namespace TinkerdinView {
 			this->btnSearch->TabIndex = 11;
 			this->btnSearch->Text = L"Buscar";
 			this->btnSearch->UseVisualStyleBackColor = true;
+			this->btnSearch->Click += gcnew System::EventHandler(this, &CourseSearchForm::btnSearch_Click);
 			// 
 			// txtNameDescription
 			// 
@@ -154,40 +186,12 @@ namespace TinkerdinView {
 			this->label1->TabIndex = 7;
 			this->label1->Text = L"Id:";
 			// 
-			// IdCourse
-			// 
-			this->IdCourse->HeaderText = L"Id";
-			this->IdCourse->MinimumWidth = 6;
-			this->IdCourse->Name = L"IdCourse";
-			this->IdCourse->Width = 47;
-			// 
-			// CourseName
-			// 
-			this->CourseName->HeaderText = L"Nombre del curso";
-			this->CourseName->MinimumWidth = 6;
-			this->CourseName->Name = L"CourseName";
-			this->CourseName->Width = 101;
-			// 
-			// ProfessorCourse
-			// 
-			this->ProfessorCourse->HeaderText = L"Profesor";
-			this->ProfessorCourse->MinimumWidth = 6;
-			this->ProfessorCourse->Name = L"ProfessorCourse";
-			this->ProfessorCourse->Width = 87;
-			// 
-			// CourseType
-			// 
-			this->CourseType->HeaderText = L"Tipo";
-			this->CourseType->MinimumWidth = 6;
-			this->CourseType->Name = L"CourseType";
-			this->CourseType->Width = 64;
-			// 
 			// CourseSearchForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(524, 401);
-			this->Controls->Add(this->dgvProducts);
+			this->Controls->Add(this->dgvCourses);
 			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnSearch);
 			this->Controls->Add(this->txtNameDescription);
@@ -196,19 +200,20 @@ namespace TinkerdinView {
 			this->Controls->Add(this->label1);
 			this->Name = L"CourseSearchForm";
 			this->Text = L"CourseSearchForm";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvProducts))->EndInit();
+			this->Load += gcnew System::EventHandler(this, &CourseSearchForm::CourseSearchForm_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCourses))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (txtId->Text->Trim() != "") {
 			//Búsqueda de producto por el código ingresado por el usuario
 			Course^ p = Controller::QueryCourseById(txtId->Text->Trim());
 			//Se borran los datos del grid.
-			dgvProducts->Rows->Clear();
-			dgvProducts->Rows->Add(gcnew array<String^> {
+			dgvCourses->Rows->Clear();
+			dgvCourses->Rows->Add(gcnew array<String^> {
 				"" + p->Id,
 					p->Name,
 					p->Professor,
@@ -219,9 +224,9 @@ namespace TinkerdinView {
 			//Búsqueda de productos por el nombre o descripción ingresado por el usuario
 			List<Course^>^ courseList = Controller::QueryCourseByName(txtNameDescription->Text->Trim());
 			//Se borran los datos del grid.
-			dgvProducts->Rows->Clear();
+			dgvCourses->Rows->Clear();
 			for (int i = 0; i < courseList->Count; i++) {
-				dgvProducts->Rows->Add(gcnew array<String^> {
+				dgvCourses->Rows->Add(gcnew array<String^> {
 					"" + courseList[i]->Id,
 						courseList[i]->Name,
 						courseList[i]->Professor,
@@ -233,5 +238,23 @@ namespace TinkerdinView {
 	}
 private: System::Void dgvCourse_CellClick(System::Object^ sender,
 	System::Windows::Forms::DataGridViewCellEventArgs^ e);
+
+void ShowCourses() {
+	List<Course^>^ myCourseList = Controller::QueryAllCourse();
+
+	dgvCourses->Rows->Clear();
+	for (int i = 0; i < myCourseList->Count; i++) {
+		dgvCourses->Rows->Add(gcnew array<String^>{
+			"" + myCourseList[i]->Id,
+				"" + myCourseList[i]->Name,
+				"" + myCourseList[i]->Type,
+				"" + myCourseList[i]->Professor
+		});
+	}
+}
+private: System::Void CourseSearchForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	//FillCmbCourseType();
+	ShowCourses();
+}
 };
 }

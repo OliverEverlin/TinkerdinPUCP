@@ -81,6 +81,7 @@ namespace TinkerdinView {
 
 	private: System::Windows::Forms::Button^ btn_UpdateCourse;
 	private: System::Windows::Forms::Button^ btn_Delete_Course;
+	private: System::Windows::Forms::Button^ btn_AddCourse;
 
 
 
@@ -122,6 +123,7 @@ namespace TinkerdinView {
 			this->saturday = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->sunday = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->btn_AddCourse = (gcnew System::Windows::Forms::Button());
 			this->btn_UpdateCourse = (gcnew System::Windows::Forms::Button());
 			this->btn_Delete_Course = (gcnew System::Windows::Forms::Button());
 			this->dgvCourse = (gcnew System::Windows::Forms::DataGridView());
@@ -313,6 +315,7 @@ namespace TinkerdinView {
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->btn_AddCourse);
 			this->tabPage1->Controls->Add(this->btn_UpdateCourse);
 			this->tabPage1->Controls->Add(this->btn_Delete_Course);
 			this->tabPage1->Controls->Add(this->dgvCourse);
@@ -323,9 +326,20 @@ namespace TinkerdinView {
 			this->tabPage1->Text = L"Cursos";
 			this->tabPage1->UseVisualStyleBackColor = true;
 			// 
+			// btn_AddCourse
+			// 
+			this->btn_AddCourse->Location = System::Drawing::Point(10, 405);
+			this->btn_AddCourse->Margin = System::Windows::Forms::Padding(5);
+			this->btn_AddCourse->Name = L"btn_AddCourse";
+			this->btn_AddCourse->Size = System::Drawing::Size(261, 34);
+			this->btn_AddCourse->TabIndex = 70;
+			this->btn_AddCourse->Text = L"Añadir";
+			this->btn_AddCourse->UseVisualStyleBackColor = true;
+			this->btn_AddCourse->Click += gcnew System::EventHandler(this, &CourseForm::btnAddCourse_Click);
+			// 
 			// btn_UpdateCourse
 			// 
-			this->btn_UpdateCourse->Location = System::Drawing::Point(163, 417);
+			this->btn_UpdateCourse->Location = System::Drawing::Point(281, 405);
 			this->btn_UpdateCourse->Margin = System::Windows::Forms::Padding(5);
 			this->btn_UpdateCourse->Name = L"btn_UpdateCourse";
 			this->btn_UpdateCourse->Size = System::Drawing::Size(261, 34);
@@ -336,7 +350,7 @@ namespace TinkerdinView {
 			// 
 			// btn_Delete_Course
 			// 
-			this->btn_Delete_Course->Location = System::Drawing::Point(435, 417);
+			this->btn_Delete_Course->Location = System::Drawing::Point(553, 405);
 			this->btn_Delete_Course->Margin = System::Windows::Forms::Padding(5);
 			this->btn_Delete_Course->Name = L"btn_Delete_Course";
 			this->btn_Delete_Course->Size = System::Drawing::Size(263, 34);
@@ -494,7 +508,20 @@ private: System::Void dgvCourse_CellContentClick(System::Object^ sender, System:
 	}
 }
 	
-
+private: System::Void btnAddCourse_Click(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		if (dgvCourse->CurrentCell != nullptr &&
+			dgvCourse->CurrentCell->Value != nullptr &&
+			dgvCourse->CurrentCell->Value->ToString() != "") {
+			CourseChangeForm^ coursechangeForm = gcnew CourseChangeForm(this);
+			coursechangeForm->ShowDialog();
+		}
+	}
+	catch (Exception^ ex) {
+		MessageBox::Show(ex->ToString(), "Debe seleccionar un curso.");
+		return;
+	}
+}
 private: System::Void btnUpdateCourse_Click(System::Object^ sender, System::EventArgs^ e) {
 	/*if (dgvCourse->CurrentCell != nullptr &&
 		dgvCourse->CurrentCell->Value != nullptr &&
@@ -677,14 +704,18 @@ void ShowHours() {
 	}
 }
 public: Void AddCourseToSchedule(Course^ p) {
-	for (int i = 0; i < dgvSchedule->RowCount - 1; i++) {
-		String^ productId = dgvSchedule->Rows[i]->Cells[0]->Value->ToString();
-		if (p->Id == productId) {
-			//RefreshTotalAmounts();
-			ShowHours();
-			return;
-		}
-	}
+	int selectedRowIndex = dgvSchedule->SelectedCells[0]->RowIndex;
+	int selectedColumnIndex = dgvSchedule->SelectedCells[0]->ColumnIndex;
+	//dgvSchedule->Rows[selectedRowIndex]->Cells[0] = p->Name;
+	
+	//for (int i = 0; i < dgvSchedule->RowCount - 1; i++) {
+		//String^ hora = dgvSchedule->Rows[i]->Cells[0]->Value->ToString();
+		//if (p->Id == productId) {
+		//	//RefreshTotalAmounts();
+		//	ShowHours();
+		//	return;
+		//}
+	//}
 	//dgvSchedule->Rows->Add(gcnew array<String^> {p->getId()),
 	//		p->Name,
 	//		Convert::ToString(p->PriceMin),
