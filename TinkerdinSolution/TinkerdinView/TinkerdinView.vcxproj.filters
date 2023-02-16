@@ -115,6 +115,12 @@
     <ClInclude Include="AdminMainForm.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="MyEventsForm.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="CancelEventForm.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
     <ClInclude Include="TotalClientsForm.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -191,6 +197,12 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="AdminMainForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="MyEventsForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="CancelEventForm.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="TotalClientsForm.cpp">

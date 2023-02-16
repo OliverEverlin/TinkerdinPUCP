@@ -134,6 +134,9 @@
     <ClInclude Include="CalendarForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CancelEventForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="CheckClientForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -170,6 +173,9 @@
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MyEventsForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="PlaceForm.h">
       <FileType>CppForm</FileType>
@@ -198,6 +204,7 @@
     <ClCompile Include="AdminMainForm.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CalendarForm.cpp" />
+    <ClCompile Include="CancelEventForm.cpp" />
     <ClCompile Include="CheckClientForm.cpp" />
     <ClCompile Include="ClientForm.cpp" />
     <ClCompile Include="CourseChangeForm.cpp" />
@@ -211,6 +218,7 @@
     <!--<ClCompile Include="FindFriendsForm.cpp" />-->
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MainForm.cpp" />
+    <ClCompile Include="MyEventsForm.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -252,6 +260,9 @@
     <EmbeddedResource Include="CalendarForm.resx">
       <DependentUpon>CalendarForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CancelEventForm.resx">
+      <DependentUpon>CancelEventForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CheckClientForm.resx">
       <DependentUpon>CheckClientForm.h</DependentUpon>
     </EmbeddedResource>
@@ -290,6 +301,9 @@
     </EmbeddedResource>-->
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyEventsForm.resx">
+      <DependentUpon>MyEventsForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlaceForm.resx">
       <DependentUpon>PlaceForm.h</DependentUpon>
