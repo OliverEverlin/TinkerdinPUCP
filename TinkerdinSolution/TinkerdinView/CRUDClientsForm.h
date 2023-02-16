@@ -696,11 +696,6 @@ private: System::Void flowLayoutPanel1_Paint(System::Object^ sender, System::Win
 private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
 	btnDelete->Visible = true;
 	btnUpdate->Visible = true;
-	btnAdd->Visible = false;
-	btnDelete->Visible = false;
-	btnUpdate->Visible = false;
-	btnAdd->Visible = true;
-	btnCancel->Visible = true;
 	txtUsername->Text = "";
 	txtName->Text = "";
 	txtAge->Text = "";
@@ -712,7 +707,9 @@ private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^
 	txtStatus->Text = "";
 	txtPass->Text = "";
 	pbPhoto->Image = nullptr;
-	btnCancel->Visible = true;
+
+	btnAdd->Visible = false;
+	btnCancel->Visible = false;
 }
 };
 }
