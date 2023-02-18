@@ -197,7 +197,7 @@ private: System::Void btnSend_Click(System::Object^ sender, System::EventArgs^ e
 	r->state = 'P';
 	r->Description = txtDescription->Text;
 	r->badUser = txtUsername->Text;
-	//r->reporter= txt
+	r->reporter = this->reporter->Username; 
 }
 };
 }

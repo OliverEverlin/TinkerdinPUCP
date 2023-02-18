@@ -45,18 +45,18 @@ namespace TinkerdinView {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^ txtCellPhone;
+
 	protected:
 	private: System::Windows::Forms::TextBox^ txtCode;
-	private: System::Windows::Forms::Label^ label8;
+
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::DataGridView^ dgvClients;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Username;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Edad;
-	private: System::Windows::Forms::PictureBox^ pbPhoto;
+
 	private: System::Windows::Forms::TextBox^ txtUsername;
 	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::ComboBox^ cmbGender;
+
 	private: System::Windows::Forms::TextBox^ txtCicle;
 	private: System::Windows::Forms::TextBox^ txtCarrer;
 	private: System::Windows::Forms::TextBox^ txtEmail;
@@ -64,7 +64,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Label^ label3;
+
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::TextBox^ txtName;
 	private: System::Windows::Forms::Label^ name;
@@ -83,17 +83,13 @@ namespace TinkerdinView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->txtCellPhone = (gcnew System::Windows::Forms::TextBox());
 			this->txtCode = (gcnew System::Windows::Forms::TextBox());
-			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->dgvClients = (gcnew System::Windows::Forms::DataGridView());
 			this->Username = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Edad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->pbPhoto = (gcnew System::Windows::Forms::PictureBox());
 			this->txtUsername = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->cmbGender = (gcnew System::Windows::Forms::ComboBox());
 			this->txtCicle = (gcnew System::Windows::Forms::TextBox());
 			this->txtCarrer = (gcnew System::Windows::Forms::TextBox());
 			this->txtEmail = (gcnew System::Windows::Forms::TextBox());
@@ -101,42 +97,24 @@ namespace TinkerdinView {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->txtName = (gcnew System::Windows::Forms::TextBox());
 			this->name = (gcnew System::Windows::Forms::Label());
 			this->btnChose = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvClients))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->BeginInit();
 			this->SuspendLayout();
-			// 
-			// txtCellPhone
-			// 
-			this->txtCellPhone->Location = System::Drawing::Point(122, 320);
-			this->txtCellPhone->Name = L"txtCellPhone";
-			this->txtCellPhone->Size = System::Drawing::Size(100, 20);
-			this->txtCellPhone->TabIndex = 91;
 			// 
 			// txtCode
 			// 
-			this->txtCode->Location = System::Drawing::Point(122, 282);
+			this->txtCode->Location = System::Drawing::Point(122, 244);
 			this->txtCode->Name = L"txtCode";
 			this->txtCode->Size = System::Drawing::Size(100, 20);
 			this->txtCode->TabIndex = 90;
 			// 
-			// label8
-			// 
-			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(19, 323);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(42, 13);
-			this->label8->TabIndex = 87;
-			this->label8->Text = L"Celular:";
-			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(19, 289);
+			this->label7->Location = System::Drawing::Point(19, 251);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(40, 13);
 			this->label7->TabIndex = 86;
@@ -149,9 +127,9 @@ namespace TinkerdinView {
 				this->Username,
 					this->Edad
 			});
-			this->dgvClients->Location = System::Drawing::Point(564, 19);
+			this->dgvClients->Location = System::Drawing::Point(24, 326);
 			this->dgvClients->Name = L"dgvClients";
-			this->dgvClients->Size = System::Drawing::Size(245, 317);
+			this->dgvClients->Size = System::Drawing::Size(245, 93);
 			this->dgvClients->TabIndex = 85;
 			this->dgvClients->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &SearchClientForm::dgvClients_CellClick);
 			this->dgvClients->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &SearchClientForm::dgvClients_CellContentClick);
@@ -166,15 +144,6 @@ namespace TinkerdinView {
 			this->Edad->HeaderText = L"Age";
 			this->Edad->Name = L"Edad";
 			this->Edad->ReadOnly = true;
-			// 
-			// pbPhoto
-			// 
-			this->pbPhoto->Location = System::Drawing::Point(351, 19);
-			this->pbPhoto->Name = L"pbPhoto";
-			this->pbPhoto->Size = System::Drawing::Size(180, 213);
-			this->pbPhoto->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pbPhoto->TabIndex = 83;
-			this->pbPhoto->TabStop = false;
 			// 
 			// txtUsername
 			// 
@@ -192,31 +161,23 @@ namespace TinkerdinView {
 			this->label6->TabIndex = 81;
 			this->label6->Text = L"Nombre de usuario";
 			// 
-			// cmbGender
-			// 
-			this->cmbGender->FormattingEnabled = true;
-			this->cmbGender->Location = System::Drawing::Point(122, 132);
-			this->cmbGender->Name = L"cmbGender";
-			this->cmbGender->Size = System::Drawing::Size(100, 21);
-			this->cmbGender->TabIndex = 80;
-			// 
 			// txtCicle
 			// 
-			this->txtCicle->Location = System::Drawing::Point(122, 245);
+			this->txtCicle->Location = System::Drawing::Point(122, 207);
 			this->txtCicle->Name = L"txtCicle";
 			this->txtCicle->Size = System::Drawing::Size(100, 20);
 			this->txtCicle->TabIndex = 79;
 			// 
 			// txtCarrer
 			// 
-			this->txtCarrer->Location = System::Drawing::Point(122, 210);
+			this->txtCarrer->Location = System::Drawing::Point(122, 172);
 			this->txtCarrer->Name = L"txtCarrer";
 			this->txtCarrer->Size = System::Drawing::Size(163, 20);
 			this->txtCarrer->TabIndex = 78;
 			// 
 			// txtEmail
 			// 
-			this->txtEmail->Location = System::Drawing::Point(122, 175);
+			this->txtEmail->Location = System::Drawing::Point(122, 137);
 			this->txtEmail->Name = L"txtEmail";
 			this->txtEmail->Size = System::Drawing::Size(218, 20);
 			this->txtEmail->TabIndex = 77;
@@ -231,7 +192,7 @@ namespace TinkerdinView {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(21, 248);
+			this->label5->Location = System::Drawing::Point(21, 210);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(30, 13);
 			this->label5->TabIndex = 75;
@@ -240,7 +201,7 @@ namespace TinkerdinView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(21, 210);
+			this->label1->Location = System::Drawing::Point(21, 172);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(44, 13);
 			this->label1->TabIndex = 74;
@@ -249,20 +210,11 @@ namespace TinkerdinView {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(21, 178);
+			this->label4->Location = System::Drawing::Point(21, 140);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(35, 13);
 			this->label4->TabIndex = 73;
 			this->label4->Text = L"Email:";
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(21, 135);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(45, 13);
-			this->label3->TabIndex = 72;
-			this->label3->Text = L"Genero:";
 			// 
 			// label2
 			// 
@@ -291,7 +243,7 @@ namespace TinkerdinView {
 			// 
 			// btnChose
 			// 
-			this->btnChose->Location = System::Drawing::Point(351, 258);
+			this->btnChose->Location = System::Drawing::Point(396, 51);
 			this->btnChose->Name = L"btnChose";
 			this->btnChose->Size = System::Drawing::Size(180, 44);
 			this->btnChose->TabIndex = 92;
@@ -303,17 +255,13 @@ namespace TinkerdinView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(826, 361);
+			this->ClientSize = System::Drawing::Size(961, 507);
 			this->Controls->Add(this->btnChose);
-			this->Controls->Add(this->txtCellPhone);
 			this->Controls->Add(this->txtCode);
-			this->Controls->Add(this->label8);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->dgvClients);
-			this->Controls->Add(this->pbPhoto);
 			this->Controls->Add(this->txtUsername);
 			this->Controls->Add(this->label6);
-			this->Controls->Add(this->cmbGender);
 			this->Controls->Add(this->txtCicle);
 			this->Controls->Add(this->txtCarrer);
 			this->Controls->Add(this->txtEmail);
@@ -321,15 +269,13 @@ namespace TinkerdinView {
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->txtName);
 			this->Controls->Add(this->name);
 			this->Name = L"SearchClientForm";
-			this->Text = L"SearchClientForm";
+			this->Text = L"Buscar Personas";
 			this->Load += gcnew System::EventHandler(this, &SearchClientForm::SearchClientForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvClients))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -340,12 +286,12 @@ namespace TinkerdinView {
 		ShowClients();
 	}
 public: System::Void FillCmbGender() {
-		cmbGender->Items->Clear();
+		//cmbGender->Items->Clear();
 		List<String^>^ genderList = Controller::QueryAllGender();
 
 		for (int i = 0; i < genderList->Count; i++)
 		{
-			cmbGender->Items->Add(genderList[i]);
+			//cmbGender->Items->Add(genderList[i]);
 		}
 	}
 public: System::Void ShowClients() {

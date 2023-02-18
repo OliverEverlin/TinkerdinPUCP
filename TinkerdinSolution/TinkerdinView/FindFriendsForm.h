@@ -198,6 +198,7 @@ namespace TinkerdinView {
 			this->txtUsername->Name = L"txtUsername";
 			this->txtUsername->Size = System::Drawing::Size(100, 20);
 			this->txtUsername->TabIndex = 80;
+			this->txtUsername->Click += gcnew System::EventHandler(this, &FindFriendsForm::txtUsername_Click);
 			// 
 			// label6
 			// 
@@ -337,7 +338,7 @@ namespace TinkerdinView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1015, 459);
+			this->ClientSize = System::Drawing::Size(1015, 415);
 			this->Controls->Add(this->btnChose);
 			this->Controls->Add(this->btnAddFriend);
 			this->Controls->Add(this->btnSearch);
@@ -382,8 +383,15 @@ private: System::Void FindFriendsForm_Load(System::Object^ sender, System::Event
 	}
 	else {
 		btnSearch->Visible = true;
-		btnAddFriend->Visible = true;
 		btnAddFriend->Visible = false;
+		btnChose->Visible = false;
+
+		//txtCicle->
+		/*txtCarrer->Visible = false;
+		txtCode->Enabled = false;
+		txtEmail->Enabled = false;
+		txtCellPhone->Enabled = false;*/
+
 	}
 }
 public: Void RefreshClientsDGV();
@@ -395,5 +403,11 @@ private: System::Void dgvClients_CellClick(System::Object^ sender, System::Windo
 
 
 
+private: System::Void txtUsername_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ usern;
+	usern= txtUsername->Text;
+
+	//Cliente^ cli = QueryClientByUsername(usern);
+}
 };
 }

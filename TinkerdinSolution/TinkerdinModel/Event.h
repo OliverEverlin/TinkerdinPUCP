@@ -15,7 +15,7 @@ namespace TinkerdinModel {
         property String^ Name;
         property String^ Relevance; //Cambiar en el diagrama 
         property String^ Privacy;   //se queda en string 
-        property int Date;
+        property String^ Date;
         property int Hour;
 
         void Match();

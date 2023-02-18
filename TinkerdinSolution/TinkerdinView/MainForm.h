@@ -252,6 +252,7 @@ namespace TinkerdinView {
 			this->amigosToolStripMenuItem->Name = L"amigosToolStripMenuItem";
 			this->amigosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->amigosToolStripMenuItem->Text = L"Amigos";
+			this->amigosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::amigosToolStripMenuItem_Click);
 			// 
 			// CourseTStripMenu
 			// 
@@ -614,9 +615,13 @@ private: System::Void txtTruco_TextChanged(System::Object^ sender, System::Event
 //}
 private: System::Void reportarUsuarioToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
 	ReportClientForm^ RefReportUserForm = gcnew ReportClientForm;
-	//enviarle el cliente
+	//send the client 
 	((ReportClientForm^)RefReportUserForm)->SetReporter(client);
 	RefReportUserForm->Show();
+}
+private: System::Void amigosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	FindFriendsForm^ findFriendsform = gcnew FindFriendsForm();
+	findFriendsform->Show();
 }
 };
 }
