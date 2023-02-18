@@ -62,7 +62,8 @@ namespace TinkerdinControler {
 
 		//Métodos CRUD de Hours
 		static List<Hours^>^ QueryAllHours();
-
+		static int UpdateHour(Course^ course, int row, int column, String^ cour);
+		static Hours^ QueryHourById(String^ hourId);
 
 		//Métodos CRUD de Place 
 		static int AddPlace(Place^);
