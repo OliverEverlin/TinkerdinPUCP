@@ -116,14 +116,14 @@ namespace TinkerdinView {
 
 
 	private: System::Windows::Forms::ToolStripMenuItem^ buscarToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ recervarToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ editarToolStripMenuItem;
 
 	private: System::Windows::Forms::ToolStripMenuItem^ agregarToolStripMenuItem;
 
 
 
-	private: System::Windows::Forms::ToolStripMenuItem^ cancelarToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ misEventosToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ maintenanceTSM1;
 	private: System::Windows::Forms::ToolStripMenuItem^ ModifyTSM1;
@@ -174,11 +174,9 @@ namespace TinkerdinView {
 			this->encontrarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->placesTSM1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->buscarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->recervarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->editarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->eventsTSM1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->agregarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->cancelarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->misEventosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->maintenanceTSM1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->personalToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -250,35 +248,35 @@ namespace TinkerdinView {
 			// amigosToolStripMenuItem
 			// 
 			this->amigosToolStripMenuItem->Name = L"amigosToolStripMenuItem";
-			this->amigosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->amigosToolStripMenuItem->Size = System::Drawing::Size(161, 22);
 			this->amigosToolStripMenuItem->Text = L"Amigos";
 			this->amigosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::amigosToolStripMenuItem_Click);
 			// 
 			// CourseTStripMenu
 			// 
 			this->CourseTStripMenu->Name = L"CourseTStripMenu";
-			this->CourseTStripMenu->Size = System::Drawing::Size(180, 22);
+			this->CourseTStripMenu->Size = System::Drawing::Size(161, 22);
 			this->CourseTStripMenu->Text = L"Cursos";
 			this->CourseTStripMenu->Click += gcnew System::EventHandler(this, &MainForm::cursosToolStripMenuItem_Click);
 			// 
 			// reportUserTSMI
 			// 
 			this->reportUserTSMI->Name = L"reportUserTSMI";
-			this->reportUserTSMI->Size = System::Drawing::Size(180, 22);
+			this->reportUserTSMI->Size = System::Drawing::Size(161, 22);
 			this->reportUserTSMI->Text = L"Reportar usuario";
 			this->reportUserTSMI->Click += gcnew System::EventHandler(this, &MainForm::reportarUsuarioToolStripMenuItem1_Click);
 			// 
 			// encontrarToolStripMenuItem
 			// 
 			this->encontrarToolStripMenuItem->Name = L"encontrarToolStripMenuItem";
-			this->encontrarToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->encontrarToolStripMenuItem->Size = System::Drawing::Size(161, 22);
 			this->encontrarToolStripMenuItem->Text = L"Encontrar";
 			// 
 			// placesTSM1
 			// 
-			this->placesTSM1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->placesTSM1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
 				this->buscarToolStripMenuItem,
-					this->recervarToolStripMenuItem, this->editarToolStripMenuItem
+					this->editarToolStripMenuItem
 			});
 			this->placesTSM1->Name = L"placesTSM1";
 			this->placesTSM1->Size = System::Drawing::Size(60, 20);
@@ -287,29 +285,22 @@ namespace TinkerdinView {
 			// buscarToolStripMenuItem
 			// 
 			this->buscarToolStripMenuItem->Name = L"buscarToolStripMenuItem";
-			this->buscarToolStripMenuItem->Size = System::Drawing::Size(119, 22);
+			this->buscarToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->buscarToolStripMenuItem->Text = L"Buscar";
 			this->buscarToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::buscarToolStripMenuItem_Click);
-			// 
-			// recervarToolStripMenuItem
-			// 
-			this->recervarToolStripMenuItem->Name = L"recervarToolStripMenuItem";
-			this->recervarToolStripMenuItem->Size = System::Drawing::Size(119, 22);
-			this->recervarToolStripMenuItem->Text = L"Reservar";
-			this->recervarToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::recervarToolStripMenuItem_Click);
 			// 
 			// editarToolStripMenuItem
 			// 
 			this->editarToolStripMenuItem->Name = L"editarToolStripMenuItem";
-			this->editarToolStripMenuItem->Size = System::Drawing::Size(119, 22);
+			this->editarToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->editarToolStripMenuItem->Text = L"Reportar";
 			this->editarToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::editarToolStripMenuItem_Click);
 			// 
 			// eventsTSM1
 			// 
-			this->eventsTSM1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->eventsTSM1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
 				this->agregarToolStripMenuItem,
-					this->cancelarToolStripMenuItem, this->misEventosToolStripMenuItem
+					this->misEventosToolStripMenuItem
 			});
 			this->eventsTSM1->Name = L"eventsTSM1";
 			this->eventsTSM1->Size = System::Drawing::Size(60, 20);
@@ -318,20 +309,14 @@ namespace TinkerdinView {
 			// agregarToolStripMenuItem
 			// 
 			this->agregarToolStripMenuItem->Name = L"agregarToolStripMenuItem";
-			this->agregarToolStripMenuItem->Size = System::Drawing::Size(137, 22);
+			this->agregarToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->agregarToolStripMenuItem->Text = L"Agregar";
 			this->agregarToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::agregarToolStripMenuItem_Click);
-			// 
-			// cancelarToolStripMenuItem
-			// 
-			this->cancelarToolStripMenuItem->Name = L"cancelarToolStripMenuItem";
-			this->cancelarToolStripMenuItem->Size = System::Drawing::Size(137, 22);
-			this->cancelarToolStripMenuItem->Text = L"Cancelar";
 			// 
 			// misEventosToolStripMenuItem
 			// 
 			this->misEventosToolStripMenuItem->Name = L"misEventosToolStripMenuItem";
-			this->misEventosToolStripMenuItem->Size = System::Drawing::Size(137, 22);
+			this->misEventosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->misEventosToolStripMenuItem->Text = L"Mis eventos";
 			// 
 			// maintenanceTSM1

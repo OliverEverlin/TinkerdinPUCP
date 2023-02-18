@@ -126,6 +126,7 @@ namespace TinkerdinView {
 			// 
 			this->txtCellPhone->Location = System::Drawing::Point(140, 320);
 			this->txtCellPhone->Name = L"txtCellPhone";
+			this->txtCellPhone->ReadOnly = true;
 			this->txtCellPhone->Size = System::Drawing::Size(100, 20);
 			this->txtCellPhone->TabIndex = 91;
 			// 
@@ -228,6 +229,7 @@ namespace TinkerdinView {
 			// 
 			this->txtCarrer->Location = System::Drawing::Point(140, 210);
 			this->txtCarrer->Name = L"txtCarrer";
+			this->txtCarrer->ReadOnly = true;
 			this->txtCarrer->Size = System::Drawing::Size(163, 20);
 			this->txtCarrer->TabIndex = 76;
 			// 
@@ -242,6 +244,7 @@ namespace TinkerdinView {
 			// 
 			this->txtAge->Location = System::Drawing::Point(140, 99);
 			this->txtAge->Name = L"txtAge";
+			this->txtAge->ReadOnly = true;
 			this->txtAge->Size = System::Drawing::Size(100, 20);
 			this->txtAge->TabIndex = 74;
 			// 
@@ -322,7 +325,7 @@ namespace TinkerdinView {
 			this->btnAddFriend->Name = L"btnAddFriend";
 			this->btnAddFriend->Size = System::Drawing::Size(180, 24);
 			this->btnAddFriend->TabIndex = 96;
-			this->btnAddFriend->Text = L"Enviar solicitud";
+			this->btnAddFriend->Text = L"Agregar a lista de amigos";
 			this->btnAddFriend->UseVisualStyleBackColor = true;
 			// 
 			// btnChose

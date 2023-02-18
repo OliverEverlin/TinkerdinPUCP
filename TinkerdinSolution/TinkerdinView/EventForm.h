@@ -48,7 +48,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::TextBox^ txtEventName;
 
 
-	private: System::Windows::Forms::TextBox^ txtEventDate;
+
 	private: System::Windows::Forms::TextBox^ txtEventHour;
 	private: System::Windows::Forms::DataGridView^ dgvEvents;
 
@@ -72,9 +72,11 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::ComboBox^ txtBox1;
 	private: System::Windows::Forms::ComboBox^ txtBox2;
 
-	private: System::Windows::Forms::Label^ label9;
+
 
 	private: System::Windows::Forms::DateTimePicker^ dtpEventDate;
+	private: System::Windows::Forms::NumericUpDown^ numericUpDown1;
+	private: System::Windows::Forms::NumericUpDown^ numericUpDown2;
 
 
 
@@ -113,7 +115,6 @@ namespace TinkerdinView {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->txtEventId = (gcnew System::Windows::Forms::TextBox());
 			this->txtEventName = (gcnew System::Windows::Forms::TextBox());
-			this->txtEventDate = (gcnew System::Windows::Forms::TextBox());
 			this->txtEventHour = (gcnew System::Windows::Forms::TextBox());
 			this->dgvEvents = (gcnew System::Windows::Forms::DataGridView());
 			this->eventId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -129,9 +130,12 @@ namespace TinkerdinView {
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->txtBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->txtBox2 = (gcnew System::Windows::Forms::ComboBox());
-			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->dtpEventDate = (gcnew System::Windows::Forms::DateTimePicker());
+			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->numericUpDown2 = (gcnew System::Windows::Forms::NumericUpDown());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEvents))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -197,7 +201,7 @@ namespace TinkerdinView {
 			// txtEventId
 			// 
 			this->txtEventId->Location = System::Drawing::Point(97, 40);
-			this->txtEventId->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtEventId->Margin = System::Windows::Forms::Padding(2);
 			this->txtEventId->Name = L"txtEventId";
 			this->txtEventId->Size = System::Drawing::Size(175, 20);
 			this->txtEventId->TabIndex = 6;
@@ -205,23 +209,15 @@ namespace TinkerdinView {
 			// txtEventName
 			// 
 			this->txtEventName->Location = System::Drawing::Point(97, 92);
-			this->txtEventName->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtEventName->Margin = System::Windows::Forms::Padding(2);
 			this->txtEventName->Name = L"txtEventName";
 			this->txtEventName->Size = System::Drawing::Size(175, 20);
 			this->txtEventName->TabIndex = 7;
 			// 
-			// txtEventDate
-			// 
-			this->txtEventDate->Location = System::Drawing::Point(407, 89);
-			this->txtEventDate->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->txtEventDate->Name = L"txtEventDate";
-			this->txtEventDate->Size = System::Drawing::Size(177, 20);
-			this->txtEventDate->TabIndex = 10;
-			// 
 			// txtEventHour
 			// 
-			this->txtEventHour->Location = System::Drawing::Point(407, 138);
-			this->txtEventHour->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtEventHour->Location = System::Drawing::Point(462, 168);
+			this->txtEventHour->Margin = System::Windows::Forms::Padding(2);
 			this->txtEventHour->Name = L"txtEventHour";
 			this->txtEventHour->Size = System::Drawing::Size(177, 20);
 			this->txtEventHour->TabIndex = 11;
@@ -234,7 +230,7 @@ namespace TinkerdinView {
 					this->eventRelevance, this->eventPrivacy, this->eventDate, this->eventHour
 			});
 			this->dgvEvents->Location = System::Drawing::Point(9, 245);
-			this->dgvEvents->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->dgvEvents->Margin = System::Windows::Forms::Padding(2);
 			this->dgvEvents->Name = L"dgvEvents";
 			this->dgvEvents->RowHeadersWidth = 51;
 			this->dgvEvents->RowTemplate->Height = 24;
@@ -287,7 +283,7 @@ namespace TinkerdinView {
 			// btnAdd
 			// 
 			this->btnAdd->Location = System::Drawing::Point(69, 201);
-			this->btnAdd->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnAdd->Margin = System::Windows::Forms::Padding(2);
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(112, 27);
 			this->btnAdd->TabIndex = 13;
@@ -298,7 +294,7 @@ namespace TinkerdinView {
 			// btnUpdate
 			// 
 			this->btnUpdate->Location = System::Drawing::Point(256, 201);
-			this->btnUpdate->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnUpdate->Margin = System::Windows::Forms::Padding(2);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(112, 27);
 			this->btnUpdate->TabIndex = 14;
@@ -309,7 +305,7 @@ namespace TinkerdinView {
 			// btnDelete
 			// 
 			this->btnDelete->Location = System::Drawing::Point(444, 201);
-			this->btnDelete->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnDelete->Margin = System::Windows::Forms::Padding(2);
 			this->btnDelete->Name = L"btnDelete";
 			this->btnDelete->Size = System::Drawing::Size(112, 27);
 			this->btnDelete->TabIndex = 15;
@@ -341,7 +337,7 @@ namespace TinkerdinView {
 			// 
 			this->txtBox1->FormattingEnabled = true;
 			this->txtBox1->Location = System::Drawing::Point(97, 136);
-			this->txtBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtBox1->Margin = System::Windows::Forms::Padding(2);
 			this->txtBox1->Name = L"txtBox1";
 			this->txtBox1->Size = System::Drawing::Size(92, 21);
 			this->txtBox1->TabIndex = 18;
@@ -350,35 +346,40 @@ namespace TinkerdinView {
 			// 
 			this->txtBox2->FormattingEnabled = true;
 			this->txtBox2->Location = System::Drawing::Point(407, 33);
-			this->txtBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtBox2->Margin = System::Windows::Forms::Padding(2);
 			this->txtBox2->Name = L"txtBox2";
 			this->txtBox2->Size = System::Drawing::Size(92, 21);
 			this->txtBox2->TabIndex = 19;
 			// 
-			// label9
-			// 
-			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(588, 89);
-			this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(63, 13);
-			this->label9->TabIndex = 21;
-			this->label9->Text = L"(xx/xx/xxxx)";
-			// 
 			// dtpEventDate
 			// 
-			this->dtpEventDate->Location = System::Drawing::Point(407, 113);
+			this->dtpEventDate->Location = System::Drawing::Point(395, 89);
 			this->dtpEventDate->Name = L"dtpEventDate";
 			this->dtpEventDate->Size = System::Drawing::Size(200, 20);
 			this->dtpEventDate->TabIndex = 23;
+			// 
+			// numericUpDown1
+			// 
+			this->numericUpDown1->Location = System::Drawing::Point(378, 143);
+			this->numericUpDown1->Name = L"numericUpDown1";
+			this->numericUpDown1->Size = System::Drawing::Size(59, 20);
+			this->numericUpDown1->TabIndex = 24;
+			// 
+			// numericUpDown2
+			// 
+			this->numericUpDown2->Location = System::Drawing::Point(462, 143);
+			this->numericUpDown2->Name = L"numericUpDown2";
+			this->numericUpDown2->Size = System::Drawing::Size(59, 20);
+			this->numericUpDown2->TabIndex = 25;
 			// 
 			// EventForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(687, 415);
+			this->Controls->Add(this->numericUpDown2);
+			this->Controls->Add(this->numericUpDown1);
 			this->Controls->Add(this->dtpEventDate);
-			this->Controls->Add(this->label9);
 			this->Controls->Add(this->txtBox2);
 			this->Controls->Add(this->txtBox1);
 			this->Controls->Add(this->label8);
@@ -388,7 +389,6 @@ namespace TinkerdinView {
 			this->Controls->Add(this->btnAdd);
 			this->Controls->Add(this->dgvEvents);
 			this->Controls->Add(this->txtEventHour);
-			this->Controls->Add(this->txtEventDate);
 			this->Controls->Add(this->txtEventName);
 			this->Controls->Add(this->txtEventId);
 			this->Controls->Add(this->label6);
@@ -397,11 +397,13 @@ namespace TinkerdinView {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"EventForm";
 			this->Text = L"Agregar eventos de Usuarios";
 			this->Load += gcnew System::EventHandler(this, &EventForm::EventForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEvents))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -450,7 +452,8 @@ namespace TinkerdinView {
 		txtEventName->Clear();
 		//txtEventRelevance->Clear();
 		//txtEventPrivacy->Clear();
-		txtEventDate->Clear();
+		//txtEventDate->Clear();
+		dtpEventDate->Text = DateTime::Now.ToString("dd/MM/yyyy");
 		txtEventHour->Clear();
 	}	
 

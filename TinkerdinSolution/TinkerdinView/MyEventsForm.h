@@ -99,90 +99,101 @@ namespace TinkerdinView {
 			// 
 			// txtDate
 			// 
-			this->txtDate->Location = System::Drawing::Point(502, 140);
+			this->txtDate->Location = System::Drawing::Point(376, 114);
+			this->txtDate->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtDate->Name = L"txtDate";
-			this->txtDate->Size = System::Drawing::Size(169, 22);
+			this->txtDate->Size = System::Drawing::Size(128, 20);
 			this->txtDate->TabIndex = 36;
 			// 
 			// txtRelevance
 			// 
-			this->txtRelevance->Location = System::Drawing::Point(502, 72);
+			this->txtRelevance->Location = System::Drawing::Point(376, 58);
+			this->txtRelevance->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtRelevance->Name = L"txtRelevance";
-			this->txtRelevance->Size = System::Drawing::Size(169, 22);
+			this->txtRelevance->Size = System::Drawing::Size(128, 20);
 			this->txtRelevance->TabIndex = 35;
 			// 
 			// txtName
 			// 
-			this->txtName->Location = System::Drawing::Point(110, 140);
+			this->txtName->Location = System::Drawing::Point(82, 114);
+			this->txtName->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtName->Name = L"txtName";
-			this->txtName->Size = System::Drawing::Size(172, 22);
+			this->txtName->Size = System::Drawing::Size(130, 20);
 			this->txtName->TabIndex = 34;
 			// 
 			// txtId
 			// 
-			this->txtId->Location = System::Drawing::Point(110, 78);
+			this->txtId->Location = System::Drawing::Point(82, 63);
+			this->txtId->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtId->Name = L"txtId";
-			this->txtId->Size = System::Drawing::Size(172, 22);
+			this->txtId->Size = System::Drawing::Size(130, 20);
 			this->txtId->TabIndex = 33;
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(405, 140);
+			this->label5->Location = System::Drawing::Point(304, 114);
+			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(48, 16);
+			this->label5->Size = System::Drawing::Size(40, 13);
 			this->label5->TabIndex = 32;
 			this->label5->Text = L"Fecha:";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(405, 74);
+			this->label4->Location = System::Drawing::Point(304, 60);
+			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(79, 16);
+			this->label4->Size = System::Drawing::Size(64, 13);
 			this->label4->TabIndex = 31;
 			this->label4->Text = L"Relevancia:";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(12, 78);
+			this->label3->Location = System::Drawing::Point(9, 63);
+			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(54, 16);
+			this->label3->Size = System::Drawing::Size(43, 13);
 			this->label3->TabIndex = 30;
 			this->label3->Text = L"Código:";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(12, 140);
+			this->label2->Location = System::Drawing::Point(9, 114);
+			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(59, 16);
+			this->label2->Size = System::Drawing::Size(47, 13);
 			this->label2->TabIndex = 29;
 			this->label2->Text = L"Nombre:";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(12, 15);
+			this->label1->Location = System::Drawing::Point(9, 12);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(48, 16);
+			this->label1->Size = System::Drawing::Size(40, 13);
 			this->label1->TabIndex = 28;
 			this->label1->Text = L"Fecha:";
 			// 
 			// txtActualDate
 			// 
-			this->txtActualDate->Location = System::Drawing::Point(66, 12);
+			this->txtActualDate->Location = System::Drawing::Point(50, 10);
+			this->txtActualDate->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtActualDate->Name = L"txtActualDate";
 			this->txtActualDate->ReadOnly = true;
-			this->txtActualDate->Size = System::Drawing::Size(172, 22);
+			this->txtActualDate->Size = System::Drawing::Size(130, 20);
 			this->txtActualDate->TabIndex = 27;
 			// 
 			// btnSearchMyEvents
 			// 
-			this->btnSearchMyEvents->Location = System::Drawing::Point(754, 100);
+			this->btnSearchMyEvents->Location = System::Drawing::Point(566, 81);
+			this->btnSearchMyEvents->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnSearchMyEvents->Name = L"btnSearchMyEvents";
-			this->btnSearchMyEvents->Size = System::Drawing::Size(125, 33);
+			this->btnSearchMyEvents->Size = System::Drawing::Size(94, 27);
 			this->btnSearchMyEvents->TabIndex = 26;
 			this->btnSearchMyEvents->Text = L"Buscar";
 			this->btnSearchMyEvents->UseVisualStyleBackColor = true;
@@ -195,12 +206,12 @@ namespace TinkerdinView {
 				this->eventId, this->eventName,
 					this->eventRelevance, this->eventPrivacy, this->eventDate, this->eventHour
 			});
-			this->dgvEvents->Location = System::Drawing::Point(12, 188);
-			this->dgvEvents->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->dgvEvents->Location = System::Drawing::Point(9, 153);
+			this->dgvEvents->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->dgvEvents->Name = L"dgvEvents";
 			this->dgvEvents->RowHeadersWidth = 51;
 			this->dgvEvents->RowTemplate->Height = 24;
-			this->dgvEvents->Size = System::Drawing::Size(892, 280);
+			this->dgvEvents->Size = System::Drawing::Size(669, 228);
 			this->dgvEvents->TabIndex = 25;
 			// 
 			// eventId
@@ -247,9 +258,9 @@ namespace TinkerdinView {
 			// 
 			// MyEventsForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(912, 484);
+			this->ClientSize = System::Drawing::Size(770, 476);
 			this->Controls->Add(this->txtDate);
 			this->Controls->Add(this->txtRelevance);
 			this->Controls->Add(this->txtName);
@@ -262,6 +273,7 @@ namespace TinkerdinView {
 			this->Controls->Add(this->txtActualDate);
 			this->Controls->Add(this->btnSearchMyEvents);
 			this->Controls->Add(this->dgvEvents);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"MyEventsForm";
 			this->Text = L"MyEventsForm";
 			this->Load += gcnew System::EventHandler(this, &MyEventsForm::MyEventsForm_Load);
