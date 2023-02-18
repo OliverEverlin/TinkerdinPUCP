@@ -82,6 +82,7 @@
     <ClCompile Include="TotalClientsForm.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="FriendsForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalendarForm.h" />
@@ -109,6 +110,7 @@
     <ClInclude Include="MyEventsForm.h" />
     <ClInclude Include="TotalClientsForm.h" />
     <ClInclude Include="SearchClientForm.h" />
+    <ClInclude Include="FriendsForm.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Resource.h">

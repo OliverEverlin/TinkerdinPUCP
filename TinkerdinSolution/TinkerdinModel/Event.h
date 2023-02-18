@@ -17,6 +17,7 @@ namespace TinkerdinModel {
         property String^ Privacy;   //se queda en string 
         property String^ Date;
         property int Hour;
+        property int minutes;
 
         void Match();
         void UpdateEvent();

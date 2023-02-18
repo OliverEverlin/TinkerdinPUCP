@@ -49,7 +49,7 @@ namespace TinkerdinView {
 
 
 
-	private: System::Windows::Forms::TextBox^ txtEventHour;
+
 	private: System::Windows::Forms::DataGridView^ dgvEvents;
 
 
@@ -77,6 +77,11 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::DateTimePicker^ dtpEventDate;
 	private: System::Windows::Forms::NumericUpDown^ numericUpDown1;
 	private: System::Windows::Forms::NumericUpDown^ numericUpDown2;
+	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Nombre;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ attendance;
+
 
 
 
@@ -115,7 +120,6 @@ namespace TinkerdinView {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->txtEventId = (gcnew System::Windows::Forms::TextBox());
 			this->txtEventName = (gcnew System::Windows::Forms::TextBox());
-			this->txtEventHour = (gcnew System::Windows::Forms::TextBox());
 			this->dgvEvents = (gcnew System::Windows::Forms::DataGridView());
 			this->eventId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->eventName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -133,15 +137,20 @@ namespace TinkerdinView {
 			this->dtpEventDate = (gcnew System::Windows::Forms::DateTimePicker());
 			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->numericUpDown2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Nombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->attendance = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEvents))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(28, 45);
+			this->label1->Location = System::Drawing::Point(28, 23);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(43, 13);
@@ -200,10 +209,10 @@ namespace TinkerdinView {
 			// 
 			// txtEventId
 			// 
-			this->txtEventId->Location = System::Drawing::Point(97, 40);
+			this->txtEventId->Location = System::Drawing::Point(97, 18);
 			this->txtEventId->Margin = System::Windows::Forms::Padding(2);
 			this->txtEventId->Name = L"txtEventId";
-			this->txtEventId->Size = System::Drawing::Size(175, 20);
+			this->txtEventId->Size = System::Drawing::Size(61, 20);
 			this->txtEventId->TabIndex = 6;
 			// 
 			// txtEventName
@@ -214,14 +223,6 @@ namespace TinkerdinView {
 			this->txtEventName->Size = System::Drawing::Size(175, 20);
 			this->txtEventName->TabIndex = 7;
 			// 
-			// txtEventHour
-			// 
-			this->txtEventHour->Location = System::Drawing::Point(462, 168);
-			this->txtEventHour->Margin = System::Windows::Forms::Padding(2);
-			this->txtEventHour->Name = L"txtEventHour";
-			this->txtEventHour->Size = System::Drawing::Size(177, 20);
-			this->txtEventHour->TabIndex = 11;
-			// 
 			// dgvEvents
 			// 
 			this->dgvEvents->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
@@ -229,7 +230,7 @@ namespace TinkerdinView {
 				this->eventId, this->eventName,
 					this->eventRelevance, this->eventPrivacy, this->eventDate, this->eventHour
 			});
-			this->dgvEvents->Location = System::Drawing::Point(9, 245);
+			this->dgvEvents->Location = System::Drawing::Point(11, 400);
 			this->dgvEvents->Margin = System::Windows::Forms::Padding(2);
 			this->dgvEvents->Name = L"dgvEvents";
 			this->dgvEvents->RowHeadersWidth = 51;
@@ -282,18 +283,18 @@ namespace TinkerdinView {
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(69, 201);
+			this->btnAdd->Location = System::Drawing::Point(444, 232);
 			this->btnAdd->Margin = System::Windows::Forms::Padding(2);
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(112, 27);
 			this->btnAdd->TabIndex = 13;
-			this->btnAdd->Text = L"Agregar";
+			this->btnAdd->Text = L"Guardar evento";
 			this->btnAdd->UseVisualStyleBackColor = true;
 			this->btnAdd->Click += gcnew System::EventHandler(this, &EventForm::btnAdd_Click);
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(256, 201);
+			this->btnUpdate->Location = System::Drawing::Point(444, 263);
 			this->btnUpdate->Margin = System::Windows::Forms::Padding(2);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(112, 27);
@@ -326,7 +327,7 @@ namespace TinkerdinView {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(346, 53);
+			this->label8->Location = System::Drawing::Point(553, 36);
 			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(42, 13);
@@ -360,7 +361,7 @@ namespace TinkerdinView {
 			// 
 			// numericUpDown1
 			// 
-			this->numericUpDown1->Location = System::Drawing::Point(378, 143);
+			this->numericUpDown1->Location = System::Drawing::Point(395, 141);
 			this->numericUpDown1->Name = L"numericUpDown1";
 			this->numericUpDown1->Size = System::Drawing::Size(59, 20);
 			this->numericUpDown1->TabIndex = 24;
@@ -372,11 +373,44 @@ namespace TinkerdinView {
 			this->numericUpDown2->Size = System::Drawing::Size(59, 20);
 			this->numericUpDown2->TabIndex = 25;
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(426, 295);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(150, 23);
+			this->button1->TabIndex = 26;
+			this->button1->Text = L"Agregar amigos";
+			this->button1->UseVisualStyleBackColor = true;
+			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
+				this->Nombre,
+					this->attendance
+			});
+			this->dataGridView1->Location = System::Drawing::Point(45, 192);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->Size = System::Drawing::Size(240, 150);
+			this->dataGridView1->TabIndex = 38;
+			// 
+			// Nombre
+			// 
+			this->Nombre->HeaderText = L"Personas";
+			this->Nombre->Name = L"Nombre";
+			// 
+			// attendance
+			// 
+			this->attendance->HeaderText = L"Asistencia";
+			this->attendance->Name = L"attendance";
+			// 
 			// EventForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(687, 415);
+			this->ClientSize = System::Drawing::Size(696, 585);
+			this->Controls->Add(this->dataGridView1);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->numericUpDown2);
 			this->Controls->Add(this->numericUpDown1);
 			this->Controls->Add(this->dtpEventDate);
@@ -388,7 +422,6 @@ namespace TinkerdinView {
 			this->Controls->Add(this->btnUpdate);
 			this->Controls->Add(this->btnAdd);
 			this->Controls->Add(this->dgvEvents);
-			this->Controls->Add(this->txtEventHour);
 			this->Controls->Add(this->txtEventName);
 			this->Controls->Add(this->txtEventId);
 			this->Controls->Add(this->label6);
@@ -404,6 +437,7 @@ namespace TinkerdinView {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEvents))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -423,7 +457,7 @@ namespace TinkerdinView {
 		//event->Date = Convert::ToInt32(txtEventDate->Text);
 		//event->Date = txtEventDate->Text;
 		event->Date = dtpEventDate->Value.ToString("yyyy-MM-dd");
-		event->Hour = Convert::ToInt32(txtEventHour->Text);
+		//event->Hour = Convert::ToInt32(txtEventHour->Text);
 
 		Controller::AddEvent(event);
 
@@ -454,7 +488,7 @@ namespace TinkerdinView {
 		//txtEventPrivacy->Clear();
 		//txtEventDate->Clear();
 		dtpEventDate->Text = DateTime::Now.ToString("dd/MM/yyyy");
-		txtEventHour->Clear();
+		//txtEventHour->Clear();
 	}	
 
 	private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -469,7 +503,7 @@ namespace TinkerdinView {
 		//event->Date = Convert::ToInt32(txtEventDate->Text);
 		//event->Date = txtEventDate->Text;
 		event->Date = dtpEventDate->Value.ToString("yyyy-MM-dd");
-		event->Hour = Convert::ToInt32(txtEventHour->Text);
+		//event->Hour = Convert::ToInt32(txtEventHour->Text);
 
 		Controller::UpdateEvent(event);
 		CleanControls();
@@ -490,8 +524,8 @@ namespace TinkerdinView {
 		int eventId = Convert::ToInt32(dgvEvents->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
 		Event^ p = Controller::QueryEventById(eventId);
 		/*txtEventId->Text = "" + p->getId();*/
-		txtEventId->Text = "" + p->Id;
-		txtEventName->Text = p->Name;
+		/*txtEventId->Text = "" + p->Id;
+		txtEventName->Text = p->Name;*/
 		//txtEventRelevance->Text = p->Relevance;
 		txtBox1->Text = p->Relevance;
 		//txtEventPrivacy->Text = p->Privacy;
@@ -501,7 +535,7 @@ namespace TinkerdinView {
 		dtpEventDate->Value = Convert::ToDateTime(dgvEvents->Rows[selectedRowIndex]->Cells[4]->Value);
 
 			//ConvertTo::DateTime(dgvEvents->Rows[selectedRowIndex]->Cells[4]->Value);
-		txtEventHour->Text = "" + p->Hour;
+		//txtEventHour->Text = "" + p->Hour;
 	}
 	
 	private: System::Void EventForm_Load(System::Object^ sender, System::EventArgs^ e) {
@@ -514,6 +548,8 @@ namespace TinkerdinView {
 		txtBox2->Items->Add("No");
 	}
 private: System::Void dateTimePicker1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }
 };
 }

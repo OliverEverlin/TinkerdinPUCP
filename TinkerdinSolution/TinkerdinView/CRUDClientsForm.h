@@ -541,6 +541,10 @@ namespace TinkerdinView {
 				a->Phone = Convert::ToInt32(txtCellPhone->Text);
 				a->Status = txtStatus->Text;
 				a->Password = txtPass->Text;
+				List<String^>^ pataList = gcnew List<String^>();
+				
+				//a->FriendList =  pataList;
+
 				if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
 					System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
 					pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);

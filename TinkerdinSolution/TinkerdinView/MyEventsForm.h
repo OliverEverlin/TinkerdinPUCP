@@ -41,21 +41,32 @@ namespace TinkerdinView {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^ txtDate;
+
 	protected:
-	private: System::Windows::Forms::TextBox^ txtRelevance;
-	private: System::Windows::Forms::TextBox^ txtName;
-	private: System::Windows::Forms::TextBox^ txtId;
-	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::TextBox^ txtActualDate;
-	private: System::Windows::Forms::Button^ btnSearchMyEvents;
+
+
+
+
+
+
+
+
+
+
 
 
 	private: System::Windows::Forms::DataGridView^ dgvEvents;
+
+
+
+
+
+
+	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Nombre;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ attendance;
+	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ eventId;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ eventName;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ eventRelevance;
@@ -76,18 +87,12 @@ namespace TinkerdinView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->txtDate = (gcnew System::Windows::Forms::TextBox());
-			this->txtRelevance = (gcnew System::Windows::Forms::TextBox());
-			this->txtName = (gcnew System::Windows::Forms::TextBox());
-			this->txtId = (gcnew System::Windows::Forms::TextBox());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->txtActualDate = (gcnew System::Windows::Forms::TextBox());
-			this->btnSearchMyEvents = (gcnew System::Windows::Forms::Button());
 			this->dgvEvents = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Nombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->attendance = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->eventId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->eventName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->eventRelevance = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -95,109 +100,8 @@ namespace TinkerdinView {
 			this->eventDate = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->eventHour = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEvents))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
-			// 
-			// txtDate
-			// 
-			this->txtDate->Location = System::Drawing::Point(376, 114);
-			this->txtDate->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->txtDate->Name = L"txtDate";
-			this->txtDate->Size = System::Drawing::Size(128, 20);
-			this->txtDate->TabIndex = 36;
-			// 
-			// txtRelevance
-			// 
-			this->txtRelevance->Location = System::Drawing::Point(376, 58);
-			this->txtRelevance->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->txtRelevance->Name = L"txtRelevance";
-			this->txtRelevance->Size = System::Drawing::Size(128, 20);
-			this->txtRelevance->TabIndex = 35;
-			// 
-			// txtName
-			// 
-			this->txtName->Location = System::Drawing::Point(82, 114);
-			this->txtName->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->txtName->Name = L"txtName";
-			this->txtName->Size = System::Drawing::Size(130, 20);
-			this->txtName->TabIndex = 34;
-			// 
-			// txtId
-			// 
-			this->txtId->Location = System::Drawing::Point(82, 63);
-			this->txtId->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->txtId->Name = L"txtId";
-			this->txtId->Size = System::Drawing::Size(130, 20);
-			this->txtId->TabIndex = 33;
-			// 
-			// label5
-			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(304, 114);
-			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(40, 13);
-			this->label5->TabIndex = 32;
-			this->label5->Text = L"Fecha:";
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(304, 60);
-			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(64, 13);
-			this->label4->TabIndex = 31;
-			this->label4->Text = L"Relevancia:";
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(9, 63);
-			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(43, 13);
-			this->label3->TabIndex = 30;
-			this->label3->Text = L"Código:";
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(9, 114);
-			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(47, 13);
-			this->label2->TabIndex = 29;
-			this->label2->Text = L"Nombre:";
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(9, 12);
-			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(40, 13);
-			this->label1->TabIndex = 28;
-			this->label1->Text = L"Fecha:";
-			// 
-			// txtActualDate
-			// 
-			this->txtActualDate->Location = System::Drawing::Point(50, 10);
-			this->txtActualDate->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->txtActualDate->Name = L"txtActualDate";
-			this->txtActualDate->ReadOnly = true;
-			this->txtActualDate->Size = System::Drawing::Size(130, 20);
-			this->txtActualDate->TabIndex = 27;
-			// 
-			// btnSearchMyEvents
-			// 
-			this->btnSearchMyEvents->Location = System::Drawing::Point(566, 81);
-			this->btnSearchMyEvents->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->btnSearchMyEvents->Name = L"btnSearchMyEvents";
-			this->btnSearchMyEvents->Size = System::Drawing::Size(94, 27);
-			this->btnSearchMyEvents->TabIndex = 26;
-			this->btnSearchMyEvents->Text = L"Buscar";
-			this->btnSearchMyEvents->UseVisualStyleBackColor = true;
-			this->btnSearchMyEvents->Click += gcnew System::EventHandler(this, &MyEventsForm::btnSearchMyEvents_Click);
 			// 
 			// dgvEvents
 			// 
@@ -206,13 +110,54 @@ namespace TinkerdinView {
 				this->eventId, this->eventName,
 					this->eventRelevance, this->eventPrivacy, this->eventDate, this->eventHour
 			});
-			this->dgvEvents->Location = System::Drawing::Point(9, 153);
-			this->dgvEvents->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->dgvEvents->Location = System::Drawing::Point(41, 209);
+			this->dgvEvents->Margin = System::Windows::Forms::Padding(2);
 			this->dgvEvents->Name = L"dgvEvents";
 			this->dgvEvents->RowHeadersWidth = 51;
 			this->dgvEvents->RowTemplate->Height = 24;
-			this->dgvEvents->Size = System::Drawing::Size(669, 228);
+			this->dgvEvents->Size = System::Drawing::Size(672, 228);
 			this->dgvEvents->TabIndex = 25;
+			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
+				this->Nombre,
+					this->attendance
+			});
+			this->dataGridView1->Location = System::Drawing::Point(425, 27);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->Size = System::Drawing::Size(240, 150);
+			this->dataGridView1->TabIndex = 37;
+			// 
+			// Nombre
+			// 
+			this->Nombre->HeaderText = L"Personas";
+			this->Nombre->Name = L"Nombre";
+			// 
+			// attendance
+			// 
+			this->attendance->HeaderText = L"Asistencia";
+			this->attendance->Name = L"attendance";
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(107, 61);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(170, 23);
+			this->button1->TabIndex = 38;
+			this->button1->Text = L"Camcelar asistencia";
+			this->button1->UseVisualStyleBackColor = true;
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(107, 122);
+			this->button2->Name = L"button2";
+			this->button2->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
+			this->button2->Size = System::Drawing::Size(170, 23);
+			this->button2->TabIndex = 39;
+			this->button2->Text = L"Confirmar asitencia";
+			this->button2->UseVisualStyleBackColor = true;
 			// 
 			// eventId
 			// 
@@ -233,14 +178,14 @@ namespace TinkerdinView {
 			this->eventRelevance->HeaderText = L"Relevance";
 			this->eventRelevance->MinimumWidth = 6;
 			this->eventRelevance->Name = L"eventRelevance";
-			this->eventRelevance->Width = 150;
+			this->eventRelevance->Width = 70;
 			// 
 			// eventPrivacy
 			// 
 			this->eventPrivacy->HeaderText = L"Privacy";
 			this->eventPrivacy->MinimumWidth = 6;
 			this->eventPrivacy->Name = L"eventPrivacy";
-			this->eventPrivacy->Width = 150;
+			this->eventPrivacy->Width = 50;
 			// 
 			// eventDate
 			// 
@@ -254,32 +199,23 @@ namespace TinkerdinView {
 			this->eventHour->HeaderText = L"Hour";
 			this->eventHour->MinimumWidth = 6;
 			this->eventHour->Name = L"eventHour";
-			this->eventHour->Width = 130;
 			// 
 			// MyEventsForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(770, 476);
-			this->Controls->Add(this->txtDate);
-			this->Controls->Add(this->txtRelevance);
-			this->Controls->Add(this->txtName);
-			this->Controls->Add(this->txtId);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->txtActualDate);
-			this->Controls->Add(this->btnSearchMyEvents);
+			this->Controls->Add(this->button2);
+			this->Controls->Add(this->button1);
+			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->dgvEvents);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"MyEventsForm";
-			this->Text = L"MyEventsForm";
+			this->Text = L"Mis eventos programados";
 			this->Load += gcnew System::EventHandler(this, &MyEventsForm::MyEventsForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEvents))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion

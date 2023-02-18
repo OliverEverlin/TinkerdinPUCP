@@ -39,6 +39,7 @@ namespace TinkerdinControler {
 		static Cliente^ QueryClientByCredentials(String^username,String^password);
 		static Cliente^ QueryClientByUsername(String^ username);
 		static Cliente^ Login(String^ username, String^ password);
+		//static 
 
 		//CRUD Admin
 		static int AddAdmin(Admin^ admin);

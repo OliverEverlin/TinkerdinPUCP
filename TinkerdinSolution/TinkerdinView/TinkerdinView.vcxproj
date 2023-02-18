@@ -164,6 +164,9 @@
     <ClInclude Include="FindPlaceForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="FriendsForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="LoginForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -215,6 +218,7 @@
     <ClCompile Include="EventForm.cpp" />
     <ClCompile Include="FindFriendsForm.cpp" />
     <ClCompile Include="FindPlaceForm.cpp" />
+    <ClCompile Include="FriendsForm.cpp" />
     <!--<ClCompile Include="FindFriendsForm.cpp" />-->
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MainForm.cpp" />
@@ -290,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FindPlaceForm.resx">
       <DependentUpon>FindPlaceForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FriendsForm.resx">
+      <DependentUpon>FriendsForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>
