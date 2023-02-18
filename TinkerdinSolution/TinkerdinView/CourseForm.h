@@ -646,14 +646,7 @@ private: System::Void CourseForm_Load(System::Object^ sender, System::EventArgs^
 	ShowCourses();
 	ShowHours();
 }
-	   //void FillCmbCourseType() {
-		  // cmbCourseType->Items->Clear();
-		  // List <String^>^ courseTypeList = Controller::QueryAllTypeCourse();
-		  // for (int i = 0; i < courseTypeList->Count; i++) {
-			 //  //cmbStore->Items->Add(gcnew ComboBoxItem(storeList[i]->Name, storeList[i]->Id));
-			 //  cmbCourseType->Items->Add(courseTypeList[i]);
-		  // }
-	   //}
+
 
 private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
@@ -704,16 +697,14 @@ void ShowHours() {
 	}
 }
 public: Void AddCourseToSchedule(Course^ p) {
-
-	/* Codigo de Itala
 	int selectedRowIndex = dgvSchedule->SelectedCells[0]->RowIndex;
 	int selectedColumnIndex = dgvSchedule->SelectedCells[0]->ColumnIndex;
-	
-	ShowHours();*/
+	String^ hourId = dgvSchedule->Rows[selectedRowIndex]->Cells[0]->Value->ToString();
 
+	//Course^ p = Controller::QueryHourById(hourId);
 
+	Controller::UpdateHour(p, selectedRowIndex, selectedColumnIndex, p->Name);
 
-	/* Comentario
 	//dgvSchedule->Rows[selectedRowIndex]->Cells[0] = p->Name;
 	
 	//for (int i = 0; i < dgvSchedule->RowCount - 1; i++) {
@@ -731,7 +722,7 @@ public: Void AddCourseToSchedule(Course^ p) {
 	//		Convert::ToString(p->PriceMin)
 	//});
 	////RefreshTotalAmounts();
-	*/
+	ShowHours();
 }
 
 };
