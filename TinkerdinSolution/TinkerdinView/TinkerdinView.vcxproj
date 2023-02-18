@@ -128,9 +128,6 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AdminMainForm.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="CalendarForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -258,9 +255,6 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AdminMainForm.resx">
-      <DependentUpon>AdminMainForm.h</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CalendarForm.resx">
       <DependentUpon>CalendarForm.h</DependentUpon>
     </EmbeddedResource>

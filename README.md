@@ -1,11 +1,8 @@
-# Version1
+# Notas de version
 
-# Clientes vistas
-## CheckCliente form
- only for admin that could make a crud acordin to the reports
-## Edit client form 
-Para que el usuario actualize su contraseña
-
-
-# Coursos vistas
-Para que el usuario actualize los cursos que esta llevando
+### Para acceder como usario
+username: Oliver
+password: 456
+### Para acceder como administrador
+username: Oliver1403    
+password: 123456

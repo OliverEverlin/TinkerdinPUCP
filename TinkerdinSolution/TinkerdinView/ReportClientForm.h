@@ -1,5 +1,7 @@
 #pragma once
-#include "SearchClientForm.h"
+//#include "SearchClientForm.h"
+#include "Resource.h"
+#include "FindFriendsform.h"
 
 namespace TinkerdinView {
 
@@ -21,6 +23,12 @@ namespace TinkerdinView {
 	{
 	public:
 		static Cliente^ client;
+		static Cliente^ reporter;
+	
+	public:
+
+	public:
+		
 		ReportClientForm(void)
 		{
 			InitializeComponent();
@@ -40,6 +48,7 @@ namespace TinkerdinView {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Label^ lblReport;
 	private: System::Windows::Forms::TextBox^ txtUsername;
 	protected:
 	private: System::Windows::Forms::Label^ label6;
@@ -69,11 +78,12 @@ namespace TinkerdinView {
 			this->btnSend = (gcnew System::Windows::Forms::Button());
 			this->btnCancel = (gcnew System::Windows::Forms::Button());
 			this->btnSearch = (gcnew System::Windows::Forms::Button());
+			this->lblReport = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// txtUsername
 			// 
-			this->txtUsername->Location = System::Drawing::Point(135, 29);
+			this->txtUsername->Location = System::Drawing::Point(136, 45);
 			this->txtUsername->Name = L"txtUsername";
 			this->txtUsername->Size = System::Drawing::Size(180, 20);
 			this->txtUsername->TabIndex = 55;
@@ -81,7 +91,7 @@ namespace TinkerdinView {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(32, 29);
+			this->label6->Location = System::Drawing::Point(33, 45);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(96, 13);
 			this->label6->TabIndex = 54;
@@ -90,7 +100,7 @@ namespace TinkerdinView {
 			// Description
 			// 
 			this->Description->AutoSize = true;
-			this->Description->Location = System::Drawing::Point(35, 76);
+			this->Description->Location = System::Drawing::Point(36, 92);
 			this->Description->Name = L"Description";
 			this->Description->Size = System::Drawing::Size(69, 13);
 			this->Description->TabIndex = 56;
@@ -98,7 +108,7 @@ namespace TinkerdinView {
 			// 
 			// txtDescription
 			// 
-			this->txtDescription->Location = System::Drawing::Point(135, 76);
+			this->txtDescription->Location = System::Drawing::Point(136, 92);
 			this->txtDescription->Multiline = true;
 			this->txtDescription->Name = L"txtDescription";
 			this->txtDescription->Size = System::Drawing::Size(400, 131);
@@ -106,16 +116,17 @@ namespace TinkerdinView {
 			// 
 			// btnSend
 			// 
-			this->btnSend->Location = System::Drawing::Point(66, 243);
+			this->btnSend->Location = System::Drawing::Point(67, 259);
 			this->btnSend->Name = L"btnSend";
 			this->btnSend->Size = System::Drawing::Size(75, 23);
 			this->btnSend->TabIndex = 58;
 			this->btnSend->Text = L"Enviar";
 			this->btnSend->UseVisualStyleBackColor = true;
+			this->btnSend->Click += gcnew System::EventHandler(this, &ReportClientForm::btnSend_Click);
 			// 
 			// btnCancel
 			// 
-			this->btnCancel->Location = System::Drawing::Point(387, 243);
+			this->btnCancel->Location = System::Drawing::Point(388, 259);
 			this->btnCancel->Name = L"btnCancel";
 			this->btnCancel->Size = System::Drawing::Size(75, 23);
 			this->btnCancel->TabIndex = 59;
@@ -124,7 +135,7 @@ namespace TinkerdinView {
 			// 
 			// btnSearch
 			// 
-			this->btnSearch->Location = System::Drawing::Point(387, 27);
+			this->btnSearch->Location = System::Drawing::Point(388, 43);
 			this->btnSearch->Name = L"btnSearch";
 			this->btnSearch->Size = System::Drawing::Size(75, 23);
 			this->btnSearch->TabIndex = 60;
@@ -132,11 +143,21 @@ namespace TinkerdinView {
 			this->btnSearch->UseVisualStyleBackColor = true;
 			this->btnSearch->Click += gcnew System::EventHandler(this, &ReportClientForm::btnSearch_Click);
 			// 
+			// lblReport
+			// 
+			this->lblReport->AutoSize = true;
+			this->lblReport->Location = System::Drawing::Point(36, 9);
+			this->lblReport->Name = L"lblReport";
+			this->lblReport->Size = System::Drawing::Size(35, 13);
+			this->lblReport->TabIndex = 61;
+			this->lblReport->Text = L"label1";
+			// 
 			// ReportClientForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(593, 318);
+			this->Controls->Add(this->lblReport);
 			this->Controls->Add(this->btnSearch);
 			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnSend);
@@ -152,13 +173,31 @@ namespace TinkerdinView {
 
 		}
 #pragma endregion
-	private: System::Void ReportClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
+public: Void SetClient(Cliente^ c) {
+	this->client = c;
+	txtUsername->Text = c->Username;
+	//lblCustomerData->Text = this->customer->DocNumber + " - " + cust->Name + " " + ((Natural^)cust)->LastName;
+}
+public: Void SetReporter(Cliente^ repor) {
+	this->reporter = repor;
+	lblReport->Text = this->reporter->Name;
+}
+private: System::Void ReportClientForm_Load(System::Object^ sender, System::EventArgs^ e) {
+
+
+}
 private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
-	/*SearchClientForm^ searchClient = gcnew SearchClientForm();
-	searchClient->Show();*/
-
-
+	FindFriendsForm^ Sclientf = gcnew FindFriendsForm();
+	Sclientf->UseType = 'R';
+	Sclientf->RefReportForm = this;
+	Sclientf->ShowDialog();
+}
+private: System::Void btnSend_Click(System::Object^ sender, System::EventArgs^ e) {
+	Report^ r = gcnew Report();
+	r->state = 'P';
+	r->Description = txtDescription->Text;
+	r->badUser = txtUsername->Text;
+	//r->reporter= txt
 }
 };
 }

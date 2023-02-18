@@ -1,5 +1,4 @@
 #pragma once
-
 namespace TinkerdinView {
 
 	using namespace System;
@@ -9,11 +8,20 @@ namespace TinkerdinView {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+	using namespace System::Collections::Generic;
+	using namespace TinkerdinControler;
+	using namespace TinkerdinModel;
+	using namespace Threading;
+
 	/// <summary>
 	/// Resumen de FindFriendsForm
 	/// </summary>
 	public ref class FindFriendsForm : public System::Windows::Forms::Form
 	{
+	public:
+		property char UseType;
+		property Form^ RefReportForm;
+
 	public:
 		FindFriendsForm(void)
 		{
@@ -21,6 +29,7 @@ namespace TinkerdinView {
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			UseType = 'S';
 		}
 
 	protected:
@@ -66,6 +75,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Nombre;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Edad;
 	private: System::Windows::Forms::Button^ btnAddFriend;
+	private: System::Windows::Forms::Button^ btnChose;
 
 
 
@@ -87,6 +97,9 @@ namespace TinkerdinView {
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->dgvClients = (gcnew System::Windows::Forms::DataGridView());
+			this->Username = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Nombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Edad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->pbPhoto = (gcnew System::Windows::Forms::PictureBox());
 			this->txtUsername = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
@@ -104,9 +117,7 @@ namespace TinkerdinView {
 			this->name = (gcnew System::Windows::Forms::Label());
 			this->btnSearch = (gcnew System::Windows::Forms::Button());
 			this->btnAddFriend = (gcnew System::Windows::Forms::Button());
-			this->Username = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Nombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Edad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->btnChose = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvClients))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->BeginInit();
 			this->SuspendLayout();
@@ -154,6 +165,23 @@ namespace TinkerdinView {
 			this->dgvClients->Name = L"dgvClients";
 			this->dgvClients->Size = System::Drawing::Size(345, 325);
 			this->dgvClients->TabIndex = 85;
+			this->dgvClients->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &FindFriendsForm::dgvClients_CellClick);
+			this->dgvClients->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &FindFriendsForm::dgvClients_CellContentClick);
+			// 
+			// Username
+			// 
+			this->Username->HeaderText = L"User ";
+			this->Username->Name = L"Username";
+			// 
+			// Nombre
+			// 
+			this->Nombre->HeaderText = L"Nombre";
+			this->Nombre->Name = L"Nombre";
+			// 
+			// Edad
+			// 
+			this->Edad->HeaderText = L"Age";
+			this->Edad->Name = L"Edad";
 			// 
 			// pbPhoto
 			// 
@@ -296,26 +324,21 @@ namespace TinkerdinView {
 			this->btnAddFriend->Text = L"Enviar solicitud";
 			this->btnAddFriend->UseVisualStyleBackColor = true;
 			// 
-			// Username
+			// btnChose
 			// 
-			this->Username->HeaderText = L"User ";
-			this->Username->Name = L"Username";
-			// 
-			// Nombre
-			// 
-			this->Nombre->HeaderText = L"Nombre";
-			this->Nombre->Name = L"Nombre";
-			// 
-			// Edad
-			// 
-			this->Edad->HeaderText = L"Age";
-			this->Edad->Name = L"Edad";
+			this->btnChose->Location = System::Drawing::Point(423, 357);
+			this->btnChose->Name = L"btnChose";
+			this->btnChose->Size = System::Drawing::Size(180, 29);
+			this->btnChose->TabIndex = 97;
+			this->btnChose->Text = L"Escoger";
+			this->btnChose->UseVisualStyleBackColor = true;
 			// 
 			// FindFriendsForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1073, 526);
+			this->ClientSize = System::Drawing::Size(1015, 459);
+			this->Controls->Add(this->btnChose);
 			this->Controls->Add(this->btnAddFriend);
 			this->Controls->Add(this->btnSearch);
 			this->Controls->Add(this->txtCellPhone);
@@ -339,7 +362,8 @@ namespace TinkerdinView {
 			this->Controls->Add(this->txtName);
 			this->Controls->Add(this->name);
 			this->Name = L"FindFriendsForm";
-			this->Text = L"FindFriendsForm";
+			this->Text = L"Buscar usuarios";
+			this->Load += gcnew System::EventHandler(this, &FindFriendsForm::FindFriendsForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvClients))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->EndInit();
 			this->ResumeLayout(false);
@@ -349,5 +373,27 @@ namespace TinkerdinView {
 #pragma endregion
 	private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void FindFriendsForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	RefreshClientsDGV();
+	if (UseType == 'R') {
+		btnSearch->Visible = false;
+		btnAddFriend->Visible = false;
+		btnChose->Visible = true;
+	}
+	else {
+		btnSearch->Visible = true;
+		btnAddFriend->Visible = true;
+		btnAddFriend->Visible = false;
+	}
+}
+public: Void RefreshClientsDGV();
+
+private: System::Void dgvClients_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+
+}
+private: System::Void dgvClients_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
+
+
+
 };
 }

@@ -1,33 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="AssemblyInfo.cpp" />
-    <ClCompile Include="CalendarForm.cpp" />
-    <ClCompile Include="CheckClientForm.cpp" />
-    <ClCompile Include="ClientForm.cpp" />
-    <ClCompile Include="CourseChangeForm.cpp" />
-    <ClCompile Include="CourseForm.cpp" />
-    <ClCompile Include="CRUDClientsForm.cpp" />
-    <ClCompile Include="EditClientForm.cpp" />
-    <ClCompile Include="EventForm.cpp" />
-    <ClCompile Include="FindFriendsForm.cpp" />
-    <ClCompile Include="FindPlaceForm.cpp" />
-    <ClCompile Include="LoginForm.cpp" />
-    <ClCompile Include="MainForm.cpp" />
-    <ClCompile Include="pch.cpp" />
-    <ClCompile Include="PlaceForm.cpp" />
-    <ClCompile Include="PLACE_Form.cpp" />
-    <ClCompile Include="ReportClientForm.cpp" />
-    <ClCompile Include="ReportForm.cpp" />
-    <ClCompile Include="ScheduleForm.cpp" />
-    <ClCompile Include="TinkerdinView.cpp" />
-    <ClCompile Include="PlaceGraphicsForm.cpp" />
-    <ClCompile Include="AdminMainForm.cpp" />
-    <ClCompile Include="CancelEventForm.cpp" />
-    <ClCompile Include="CourseSearchForm.cpp" />
-    <ClCompile Include="MyEventsForm.cpp" />
-    <ClCompile Include="TotalClientsForm.cpp" />
-    <ClCompile Include="SearchClientForm.cpp" />
+    <ClCompile Include="AssemblyInfo.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="CalendarForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="AdminMainForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="CancelEventForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckClientForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="CourseChangeForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="CourseForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="CourseSearchForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="CRUDClientsForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="EditClientForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="EventForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="FindFriendsForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="FindPlaceForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="MainForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="MyEventsForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="PLACE_Form.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaceForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaceGraphicsForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ReportClientForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ReportForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ScheduleForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchClientForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="TinkerdinView.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="TotalClientsForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalendarForm.h" />
@@ -50,7 +104,6 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ScheduleForm.h" />
     <ClInclude Include="PlaceGraphicsForm.h" />
-    <ClInclude Include="AdminMainForm.h" />
     <ClInclude Include="CancelEventForm.h" />
     <ClInclude Include="CourseSearchForm.h" />
     <ClInclude Include="MyEventsForm.h" />
@@ -190,9 +243,26 @@
     <ClCompile Include="ReportClientForm.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="app.ico" />
+    <Filter Include="Archivos de encabezado">
+      <UniqueIdentifier>{147058e0-3ee6-43b2-8fd7-fa41412a3b6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen">
+      <UniqueIdentifier>{e42bfa6f-ea7d-4b6e-9d32-93be8501ac57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de recursos">
+      <UniqueIdentifier>{1d6b48f2-5278-4ec2-a38e-ceabf23ac0d3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="app.ico">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="app.rc">
+      <Filter>Archivos de recursos</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

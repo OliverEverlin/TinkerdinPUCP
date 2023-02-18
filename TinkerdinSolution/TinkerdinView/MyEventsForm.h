@@ -9,11 +9,18 @@ namespace TinkerdinView {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+	using namespace TinkerdinControler;
+	using namespace TinkerdinModel;
+	using namespace Threading;
+
+
 	/// <summary>
 	/// Resumen de MyEventsForm
 	/// </summary>
 	public ref class MyEventsForm : public System::Windows::Forms::Form
 	{
+	
+
 	public:
 		MyEventsForm(void)
 		{

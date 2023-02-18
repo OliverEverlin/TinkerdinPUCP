@@ -704,8 +704,16 @@ void ShowHours() {
 	}
 }
 public: Void AddCourseToSchedule(Course^ p) {
+
+	/* Codigo de Itala
 	int selectedRowIndex = dgvSchedule->SelectedCells[0]->RowIndex;
 	int selectedColumnIndex = dgvSchedule->SelectedCells[0]->ColumnIndex;
+	
+	ShowHours();*/
+
+
+
+	/* Comentario
 	//dgvSchedule->Rows[selectedRowIndex]->Cells[0] = p->Name;
 	
 	//for (int i = 0; i < dgvSchedule->RowCount - 1; i++) {
@@ -723,7 +731,7 @@ public: Void AddCourseToSchedule(Course^ p) {
 	//		Convert::ToString(p->PriceMin)
 	//});
 	////RefreshTotalAmounts();
-	ShowHours();
+	*/
 }
 
 };

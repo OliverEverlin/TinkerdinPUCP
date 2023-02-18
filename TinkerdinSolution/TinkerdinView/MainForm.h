@@ -9,6 +9,7 @@
 #include "ReportForm.h"
 #include "FindPlaceForm.h"
 #include "TotalClientsForm.h"
+#include "ReportClientForm.h"
 
 namespace TinkerdinView {
 
@@ -22,6 +23,7 @@ namespace TinkerdinView {
 	using namespace System::Collections::Generic;
 	using namespace TinkerdinControler;
 	using namespace TinkerdinModel;
+	using namespace Threading;
 
 	/// <summary>
 	/// Resumen de MainForm
@@ -29,8 +31,10 @@ namespace TinkerdinView {
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
 	public:
-
+		property Form^ RefReportUserForm;
 		static Cliente^ client; //Variable de clase o miembro u atributo estático (global).
+	private: System::Windows::Forms::ToolStripMenuItem^ reportarUnErrorToolStripMenuItem;
+	public:
 		static Admin^ admin;
 		MainForm(void)
 		{
@@ -56,7 +60,6 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::ToolStripMenuItem^ archivoToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ usersTSMI;
-	private: System::Windows::Forms::ToolStripMenuItem^ reportsUserTSM1;
 
 
 
@@ -65,7 +68,8 @@ namespace TinkerdinView {
 
 
 
-	private: System::Windows::Forms::ToolStripMenuItem^ reportarUsuarioToolStripMenuItem;
+
+
 
 	private: System::Windows::Forms::ToolStripMenuItem^ amigosToolStripMenuItem;
 
@@ -94,6 +98,7 @@ namespace TinkerdinView {
 
 	private: System::Windows::Forms::ToolStripMenuItem^ cRUDLugaresToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ reporteClientesToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ reportUserTSMI;
 
 
 
@@ -102,8 +107,8 @@ namespace TinkerdinView {
 
 
 
-	private: System::Windows::Forms::ToolStripMenuItem^ actualizarUsuarioToolStripMenuItem1;
-	private: System::Windows::Forms::ToolStripMenuItem^ reportarUsuarioToolStripMenuItem1;
+
+
 	private: System::Windows::Forms::ToolStripMenuItem^ eventsTSM1;
 
 	private: System::Windows::Forms::ToolStripMenuItem^ encontrarToolStripMenuItem;
@@ -113,7 +118,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::ToolStripMenuItem^ buscarToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ recervarToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ editarToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ reportarErrorToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ agregarToolStripMenuItem;
 
 
@@ -161,19 +166,16 @@ namespace TinkerdinView {
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->archivoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->actualizarUsuarioToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->reportarUnErrorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->usersTSMI = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->amigosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->CourseTStripMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->reportarUsuarioToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->reportUserTSMI = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->encontrarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->placesTSM1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->buscarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->recervarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->editarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->reportsUserTSM1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->reportarUsuarioToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->reportarErrorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->eventsTSM1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->agregarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cancelarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -201,9 +203,9 @@ namespace TinkerdinView {
 			// menuStrip1
 			// 
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(8) {
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(7) {
 				this->archivoToolStripMenuItem,
-					this->usersTSMI, this->placesTSM1, this->reportsUserTSM1, this->eventsTSM1, this->maintenanceTSM1, this->ModifyTSM1, this->RerportsAdminTSM1
+					this->usersTSMI, this->placesTSM1, this->eventsTSM1, this->maintenanceTSM1, this->ModifyTSM1, this->RerportsAdminTSM1
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
@@ -216,7 +218,7 @@ namespace TinkerdinView {
 			// 
 			this->archivoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
 				this->salirToolStripMenuItem,
-					this->actualizarUsuarioToolStripMenuItem1
+					this->reportarUnErrorToolStripMenuItem
 			});
 			this->archivoToolStripMenuItem->Name = L"archivoToolStripMenuItem";
 			this->archivoToolStripMenuItem->Size = System::Drawing::Size(60, 20);
@@ -225,21 +227,21 @@ namespace TinkerdinView {
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(168, 22);
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(164, 22);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::salirToolStripMenuItem_Click);
 			// 
-			// actualizarUsuarioToolStripMenuItem1
+			// reportarUnErrorToolStripMenuItem
 			// 
-			this->actualizarUsuarioToolStripMenuItem1->Name = L"actualizarUsuarioToolStripMenuItem1";
-			this->actualizarUsuarioToolStripMenuItem1->Size = System::Drawing::Size(168, 22);
-			this->actualizarUsuarioToolStripMenuItem1->Text = L"Actualizar usuario";
+			this->reportarUnErrorToolStripMenuItem->Name = L"reportarUnErrorToolStripMenuItem";
+			this->reportarUnErrorToolStripMenuItem->Size = System::Drawing::Size(164, 22);
+			this->reportarUnErrorToolStripMenuItem->Text = L"Reportar un error";
 			// 
 			// usersTSMI
 			// 
 			this->usersTSMI->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->amigosToolStripMenuItem,
-					this->CourseTStripMenu, this->reportarUsuarioToolStripMenuItem1, this->encontrarToolStripMenuItem
+					this->CourseTStripMenu, this->reportUserTSMI, this->encontrarToolStripMenuItem
 			});
 			this->usersTSMI->Name = L"usersTSMI";
 			this->usersTSMI->Size = System::Drawing::Size(64, 20);
@@ -248,26 +250,27 @@ namespace TinkerdinView {
 			// amigosToolStripMenuItem
 			// 
 			this->amigosToolStripMenuItem->Name = L"amigosToolStripMenuItem";
-			this->amigosToolStripMenuItem->Size = System::Drawing::Size(161, 22);
+			this->amigosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->amigosToolStripMenuItem->Text = L"Amigos";
 			// 
 			// CourseTStripMenu
 			// 
 			this->CourseTStripMenu->Name = L"CourseTStripMenu";
-			this->CourseTStripMenu->Size = System::Drawing::Size(161, 22);
+			this->CourseTStripMenu->Size = System::Drawing::Size(180, 22);
 			this->CourseTStripMenu->Text = L"Cursos";
 			this->CourseTStripMenu->Click += gcnew System::EventHandler(this, &MainForm::cursosToolStripMenuItem_Click);
 			// 
-			// reportarUsuarioToolStripMenuItem1
+			// reportUserTSMI
 			// 
-			this->reportarUsuarioToolStripMenuItem1->Name = L"reportarUsuarioToolStripMenuItem1";
-			this->reportarUsuarioToolStripMenuItem1->Size = System::Drawing::Size(161, 22);
-			this->reportarUsuarioToolStripMenuItem1->Text = L"Reportar usuario";
+			this->reportUserTSMI->Name = L"reportUserTSMI";
+			this->reportUserTSMI->Size = System::Drawing::Size(180, 22);
+			this->reportUserTSMI->Text = L"Reportar usuario";
+			this->reportUserTSMI->Click += gcnew System::EventHandler(this, &MainForm::reportarUsuarioToolStripMenuItem1_Click);
 			// 
 			// encontrarToolStripMenuItem
 			// 
 			this->encontrarToolStripMenuItem->Name = L"encontrarToolStripMenuItem";
-			this->encontrarToolStripMenuItem->Size = System::Drawing::Size(161, 22);
+			this->encontrarToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->encontrarToolStripMenuItem->Text = L"Encontrar";
 			// 
 			// placesTSM1
@@ -300,28 +303,6 @@ namespace TinkerdinView {
 			this->editarToolStripMenuItem->Size = System::Drawing::Size(119, 22);
 			this->editarToolStripMenuItem->Text = L"Reportar";
 			this->editarToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::editarToolStripMenuItem_Click);
-			// 
-			// reportsUserTSM1
-			// 
-			this->reportsUserTSM1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->reportarUsuarioToolStripMenuItem,
-					this->reportarErrorToolStripMenuItem
-			});
-			this->reportsUserTSM1->Name = L"reportsUserTSM1";
-			this->reportsUserTSM1->Size = System::Drawing::Size(65, 20);
-			this->reportsUserTSM1->Text = L"Reportes";
-			// 
-			// reportarUsuarioToolStripMenuItem
-			// 
-			this->reportarUsuarioToolStripMenuItem->Name = L"reportarUsuarioToolStripMenuItem";
-			this->reportarUsuarioToolStripMenuItem->Size = System::Drawing::Size(162, 22);
-			this->reportarUsuarioToolStripMenuItem->Text = L"Reportar Usuario";
-			// 
-			// reportarErrorToolStripMenuItem
-			// 
-			this->reportarErrorToolStripMenuItem->Name = L"reportarErrorToolStripMenuItem";
-			this->reportarErrorToolStripMenuItem->Size = System::Drawing::Size(162, 22);
-			this->reportarErrorToolStripMenuItem->Text = L"Reportar Error";
 			// 
 			// eventsTSM1
 			// 
@@ -534,7 +515,7 @@ namespace TinkerdinView {
 		if (admin != nullptr) {
 			usersTSMI->Visible = false;
 			placesTSM1->Visible = false;
-			reportsUserTSM1->Visible = false;
+			//reportsUserTSM1->Visible = false;
 
 			maintenanceTSM1->Visible = true;
 			ModifyTSM1->Visible = true;
@@ -626,6 +607,16 @@ private: System::Void clientesToolStripMenuItem_Click(System::Object^ sender, Sy
 private: System::Void pbPerfil_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void txtTruco_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+//private: System::Void reportarUsuarioToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+//	ReportClientForm^ report = gcnew ReportClientForm;
+//	report->Show();
+//}
+private: System::Void reportarUsuarioToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+	ReportClientForm^ RefReportUserForm = gcnew ReportClientForm;
+	//enviarle el cliente
+	((ReportClientForm^)RefReportUserForm)->SetReporter(client);
+	RefReportUserForm->Show();
 }
 };
 }

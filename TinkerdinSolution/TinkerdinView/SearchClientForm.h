@@ -12,6 +12,7 @@ namespace TinkerdinView {
 	using namespace System::Collections::Generic;
 	using namespace TinkerdinControler;
 	using namespace TinkerdinModel;
+	using namespace Threading;
 
 	/// <summary>
 	/// Resumen de SearchClientForm
@@ -19,12 +20,18 @@ namespace TinkerdinView {
 	public ref class SearchClientForm : public System::Windows::Forms::Form
 	{
 	public:
-		SearchClientForm(void)
+		property char UseType;
+		property Form^ RefReportForm;
+		
+	public:
+		//SearchClientForm(void)
+		SearchClientForm()
 		{
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			UseType = 'S';
 		}
 
 	protected:
@@ -332,7 +339,7 @@ namespace TinkerdinView {
 		FillCmbGender();
 		ShowClients();
 	}
-	void FillCmbGender() {
+public: System::Void FillCmbGender() {
 		cmbGender->Items->Clear();
 		List<String^>^ genderList = Controller::QueryAllGender();
 
@@ -341,7 +348,7 @@ namespace TinkerdinView {
 			cmbGender->Items->Add(genderList[i]);
 		}
 	}
-	void ShowClients() {
+public: System::Void ShowClients() {
 		List<Cliente^>^ myClientList = Controller::QueryAllClients();
 		dgvClients->Rows->Clear();
 		if (myClientList != nullptr) {
@@ -354,34 +361,7 @@ namespace TinkerdinView {
 			}
 		}
 	}
-private: System::Void dgvClients_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	int selectedRowIndex = dgvClients->SelectedCells[0]->RowIndex;
-
-	//int clientUsername = Convert::ToInt32(dgvClients->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
-	String^ clientUsername = dgvClients->Rows[selectedRowIndex]->Cells[0]->Value->ToString();
-	Cliente^ c = Controller::QueryClientByUsername(clientUsername);
-	txtUsername->Text = c->Username;
-	txtName->Text = c->Name;
-	txtAge->Text = "" + c->Age;
-	txtEmail->Text = c->Email;
-	txtCarrer->Text = c->Carrer;
-	txtCicle->Text = "" + c->Cicle;
-	txtCode->Text = "" + c->code;
-	txtCellPhone->Text = "" + c->code;
-	//Conversión de tipos
-	if (c->Gender == 'M')	cmbGender->SelectedIndex = 0;
-	if (c->Gender == 'F')	cmbGender->SelectedIndex = 1;
-	if (c->Gender == 'O')	cmbGender->SelectedIndex = 2;
-
-	if (c->Photo != nullptr) {
-		System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(c->Photo);
-		pbPhoto->Image = Image::FromStream(ms);
-	}
-	else {
-		pbPhoto->Image = nullptr;
-		pbPhoto->Invalidate();
-	}
-}
+private: System::Void dgvClients_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
 private: System::Void btnChose_Click(System::Object^ sender, System::EventArgs^ e) {
 	/*ReportClientForm^ reportForm = gcnew ReportClientForm();
 	Cliente^ client = gcnew Cliente();
