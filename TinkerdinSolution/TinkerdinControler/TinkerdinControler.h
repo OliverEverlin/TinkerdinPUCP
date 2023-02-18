@@ -11,6 +11,7 @@ namespace TinkerdinControler {
 		//la persistencia la pongo en le Tpersistance
 		static List<Cliente^>^ clientList = gcnew List<Cliente^>();
 		static List<Admin^>^ adminList= gcnew List<Admin^>();
+		//static List <Friend^>^ friendList = gcnew List <Friend^>();
 
 		static List<Interest^>^ interestList=gcnew List<Interest^>();
 		static List<Course^>^ courseList = gcnew List<Course^>();
