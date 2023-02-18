@@ -18,7 +18,8 @@ namespace TinkerdinModel {
         property int nReports;
         property int nMeettings;
         property List <String^>^ FriendList;
-        property List <String^>^ CourseList;
+        
+
 
         /*Cliente();
         Cliente(String^ name, String^ username, int code, char gender, int age,
