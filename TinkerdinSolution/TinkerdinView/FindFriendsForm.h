@@ -327,6 +327,7 @@ namespace TinkerdinView {
 			this->btnAddFriend->TabIndex = 96;
 			this->btnAddFriend->Text = L"Agregar a lista de amigos";
 			this->btnAddFriend->UseVisualStyleBackColor = true;
+			this->btnAddFriend->Click += gcnew System::EventHandler(this, &FindFriendsForm::btnAddFriend_Click);
 			// 
 			// btnChose
 			// 
@@ -336,6 +337,7 @@ namespace TinkerdinView {
 			this->btnChose->TabIndex = 97;
 			this->btnChose->Text = L"Escoger";
 			this->btnChose->UseVisualStyleBackColor = true;
+			this->btnChose->Click += gcnew System::EventHandler(this, &FindFriendsForm::btnChose_Click);
 			// 
 			// FindFriendsForm
 			// 
@@ -411,6 +413,10 @@ private: System::Void txtUsername_Click(System::Object^ sender, System::EventArg
 	usern= txtUsername->Text;
 
 	//Cliente^ cli = QueryClientByUsername(usern);
+}
+private: System::Void btnAddFriend_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btnChose_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

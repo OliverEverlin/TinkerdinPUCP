@@ -36,6 +36,7 @@ namespace TinkerdinView {
 		static Cliente^ client; //Variable de clase o miembro u atributo estático (global).
 	private: System::Windows::Forms::ToolStripMenuItem^ reportarUnErrorToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ listaDeAmigosToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ agregarCursoToolStripMenuItem;
 	public:
 		static Admin^ admin;
 		MainForm(void)
@@ -175,6 +176,7 @@ namespace TinkerdinView {
 			this->CourseTStripMenu = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reportUserTSMI = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->encontrarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->listaDeAmigosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->placesTSM1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->buscarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->editarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -197,7 +199,7 @@ namespace TinkerdinView {
 			this->pbPerfil = (gcnew System::Windows::Forms::PictureBox());
 			this->directorySearcher1 = (gcnew System::DirectoryServices::DirectorySearcher());
 			this->txtTruco = (gcnew System::Windows::Forms::TextBox());
-			this->listaDeAmigosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->agregarCursoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPerfil))->BeginInit();
 			this->SuspendLayout();
@@ -241,9 +243,9 @@ namespace TinkerdinView {
 			// 
 			// usersTSMI
 			// 
-			this->usersTSMI->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
+			this->usersTSMI->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
 				this->amigosToolStripMenuItem,
-					this->CourseTStripMenu, this->reportUserTSMI, this->encontrarToolStripMenuItem, this->listaDeAmigosToolStripMenuItem
+					this->CourseTStripMenu, this->reportUserTSMI, this->encontrarToolStripMenuItem, this->listaDeAmigosToolStripMenuItem, this->agregarCursoToolStripMenuItem
 			});
 			this->usersTSMI->Name = L"usersTSMI";
 			this->usersTSMI->Size = System::Drawing::Size(64, 20);
@@ -275,6 +277,13 @@ namespace TinkerdinView {
 			this->encontrarToolStripMenuItem->Name = L"encontrarToolStripMenuItem";
 			this->encontrarToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->encontrarToolStripMenuItem->Text = L"Encontrar";
+			// 
+			// listaDeAmigosToolStripMenuItem
+			// 
+			this->listaDeAmigosToolStripMenuItem->Name = L"listaDeAmigosToolStripMenuItem";
+			this->listaDeAmigosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->listaDeAmigosToolStripMenuItem->Text = L"Lista de amigos";
+			this->listaDeAmigosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::listaDeAmigosToolStripMenuItem_Click);
 			// 
 			// placesTSM1
 			// 
@@ -438,12 +447,12 @@ namespace TinkerdinView {
 			this->txtTruco->TabIndex = 11;
 			this->txtTruco->TextChanged += gcnew System::EventHandler(this, &MainForm::txtTruco_TextChanged);
 			// 
-			// listaDeAmigosToolStripMenuItem
+			// agregarCursoToolStripMenuItem
 			// 
-			this->listaDeAmigosToolStripMenuItem->Name = L"listaDeAmigosToolStripMenuItem";
-			this->listaDeAmigosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->listaDeAmigosToolStripMenuItem->Text = L"Lista de amigos";
-			this->listaDeAmigosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::listaDeAmigosToolStripMenuItem_Click);
+			this->agregarCursoToolStripMenuItem->Name = L"agregarCursoToolStripMenuItem";
+			this->agregarCursoToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->agregarCursoToolStripMenuItem->Text = L"Agregar curso";
+			this->agregarCursoToolStripMenuItem->Click += gcnew System::EventHandler(this, &MainForm::agregarCursoToolStripMenuItem_Click);
 			// 
 			// MainForm
 			// 
@@ -625,6 +634,13 @@ private: System::Void listaDeAmigosToolStripMenuItem_Click(System::Object^ sende
 	FriendsForm^ friendForm = gcnew FriendsForm();
 	((FriendsForm^)friendForm)->SetClient(client);
 	friendForm->Show();	
+}
+private: System::Void agregarCursoToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	//Agregar curso
+	FindFriendsForm^ findFriendsform = gcnew FindFriendsForm();
+	//((FindFriendsForm^)findFriendsform)->SetUser(client);
+	findFriendsform->Show();
+
 }
 };
 }
