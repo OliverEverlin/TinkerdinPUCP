@@ -429,6 +429,27 @@ private: System::Void btnAddFriend_Click(System::Object^ sender, System::EventAr
 	}
 	else MessageBox::Show("Ese ya es tu pana we");
 
+private: System::Void btnAddFriend_Click(System::Object^ sender, System::EventArgs^ e) {
+	int selectedRowIndex = dgvClients->SelectedCells[0]->RowIndex;
+	String^ usern= dgvClients->Rows[selectedRowIndex]->Cells[0]->Value->ToString();
+	List<String^>^ flist = gcnew List<String^>();
+	if (me->FriendList == nullptr) {
+		//si no tiene la definicion de list se la creo 
+		me->FriendList = gcnew List<String^>();
+		Controller::UpdateClient(me);
+		RefreshClientsDGV();
+	}
+	//si no tenia ese amigo registrado se lo añado
+	flist = me->FriendList;
+	if (!(flist->Contains(usern))) {
+		int elements = flist->Count;
+		flist->Add(usern);
+		me->FriendList = flist;
+		Controller::UpdateClient(me);
+		RefreshClientsDGV();
+	}
+	else MessageBox::Show("Ese ya es tu pana we");
+
 
 }
 
