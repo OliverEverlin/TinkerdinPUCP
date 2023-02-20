@@ -321,6 +321,7 @@ namespace TinkerdinView {
 			this->btnChose->TabIndex = 97;
 			this->btnChose->Text = L"Escoger";
 			this->btnChose->UseVisualStyleBackColor = true;
+			this->btnChose->Click += gcnew System::EventHandler(this, &FindFriendsForm::btnChose_Click);
 			// 
 			// textBox1
 			// 
@@ -429,6 +430,10 @@ private: System::Void btnAddFriend_Click(System::Object^ sender, System::EventAr
 	else MessageBox::Show("Ese ya es tu pana we");
 
 
+}
+private: System::Void btnAddFriend_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btnChose_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
