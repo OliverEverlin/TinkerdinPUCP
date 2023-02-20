@@ -36,7 +36,7 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="EditClientForm.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado\Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="CRUDClientsForm.cpp">
       <Filter>Archivos de origen</Filter>
@@ -54,13 +54,13 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="FindFriendsForm.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado\Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="FindPlaceForm.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado\Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="LoginForm.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado\Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="FriendsForm.cpp">
       <Filter>Archivos de origen</Filter>
@@ -69,25 +69,25 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado\Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="PLACE_Form.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado\Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="PlaceForm.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado\Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="ReportClientForm.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado\Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="ReportForm.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado\Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="ScheduleForm.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado\Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="TinkerdinView.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Archivos de encabezado\Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -290,12 +290,12 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado\Archivos de origen\Archivos de recursos</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc">
-      <Filter>Archivos de recursos</Filter>
+      <Filter>Archivos de encabezado\Archivos de origen\Archivos de recursos</Filter>
     </ResourceCompile>
   </ItemGroup>
 </Project>
