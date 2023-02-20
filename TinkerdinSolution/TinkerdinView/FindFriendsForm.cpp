@@ -11,7 +11,7 @@ using namespace System::Collections::Generic;
 
 Void TinkerdinView::FindFriendsForm::RefreshClientsDGV(){
 	List <Cliente^>^ clientList = Controller::QueryAllClients();
-	dgvClients->Rows->Clear();
+	dgvFrien->Rows->Clear();
 	for (int i = 0; i < clientList->Count; i++) {
 		if (clientList[i]->Username != me->Username) {
 			dgvClients->Rows->Add(gcnew array<String^> {

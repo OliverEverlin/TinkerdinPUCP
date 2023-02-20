@@ -158,6 +158,9 @@
     <ClInclude Include="EventForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="FindCourseForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="FindFriendsForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -216,6 +219,7 @@
     <ClCompile Include="CRUDClientsForm.cpp" />
     <ClCompile Include="EditClientForm.cpp" />
     <ClCompile Include="EventForm.cpp" />
+    <ClCompile Include="FindCourseForm.cpp" />
     <ClCompile Include="FindFriendsForm.cpp" />
     <ClCompile Include="FindPlaceForm.cpp" />
     <ClCompile Include="FriendsForm.cpp" />
@@ -288,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EventForm.resx">
       <DependentUpon>EventForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FindCourseForm.resx">
+      <DependentUpon>FindCourseForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FindFriendsForm.resx">
       <DependentUpon>FindFriendsForm.h</DependentUpon>
