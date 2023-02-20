@@ -453,7 +453,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
 	//Cliente^ a = gcnew Cliente();
-	Admin^ a = gcnew Admin();
+	Cliente^ a = gcnew Cliente();
 	String^ gender;
 	try {
 		//condition to don't repite username
@@ -499,13 +499,14 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 		a->Password = txtpass1->Text;
 		a->code = 0;
 		a->Phone = 0;
+		a->FriendList = gcnew List<String^>();
 		if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
 			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
 			pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
 			a->Photo = ms->ToArray();
 		}
 
-		Controller::AddAdmin(a);
+		Controller::AddClient(a);
 
 		CleanControls();
 		ShowClients();

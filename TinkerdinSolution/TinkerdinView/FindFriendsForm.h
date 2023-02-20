@@ -1,4 +1,7 @@
 #pragma once
+
+#include "Resource.h"
+
 namespace TinkerdinView {
 
 	using namespace System;
@@ -21,6 +24,7 @@ namespace TinkerdinView {
 	public:
 		property char UseType;
 		property Form^ RefReportForm;
+		property Cliente^ me;
 
 	public:
 		FindFriendsForm(void)
@@ -55,9 +59,9 @@ namespace TinkerdinView {
 
 
 	private: System::Windows::Forms::PictureBox^ pbPhoto;
-	private: System::Windows::Forms::TextBox^ txtUsername;
-	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::ComboBox^ cmbGender;
+
+
+
 	private: System::Windows::Forms::TextBox^ txtCicle;
 	private: System::Windows::Forms::TextBox^ txtCarrer;
 	private: System::Windows::Forms::TextBox^ txtEmail;
@@ -76,6 +80,8 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Edad;
 	private: System::Windows::Forms::Button^ btnAddFriend;
 	private: System::Windows::Forms::Button^ btnChose;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ txtGender;
 
 
 
@@ -101,9 +107,6 @@ namespace TinkerdinView {
 			this->Nombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Edad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->pbPhoto = (gcnew System::Windows::Forms::PictureBox());
-			this->txtUsername = (gcnew System::Windows::Forms::TextBox());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->cmbGender = (gcnew System::Windows::Forms::ComboBox());
 			this->txtCicle = (gcnew System::Windows::Forms::TextBox());
 			this->txtCarrer = (gcnew System::Windows::Forms::TextBox());
 			this->txtEmail = (gcnew System::Windows::Forms::TextBox());
@@ -118,6 +121,8 @@ namespace TinkerdinView {
 			this->btnSearch = (gcnew System::Windows::Forms::Button());
 			this->btnAddFriend = (gcnew System::Windows::Forms::Button());
 			this->btnChose = (gcnew System::Windows::Forms::Button());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->txtGender = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvClients))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->BeginInit();
 			this->SuspendLayout();
@@ -134,6 +139,7 @@ namespace TinkerdinView {
 			// 
 			this->txtCode->Location = System::Drawing::Point(140, 282);
 			this->txtCode->Name = L"txtCode";
+			this->txtCode->ReadOnly = true;
 			this->txtCode->Size = System::Drawing::Size(100, 20);
 			this->txtCode->TabIndex = 90;
 			// 
@@ -162,7 +168,7 @@ namespace TinkerdinView {
 				this->Username,
 					this->Nombre, this->Edad
 			});
-			this->dgvClients->Location = System::Drawing::Point(646, 28);
+			this->dgvClients->Location = System::Drawing::Point(648, 67);
 			this->dgvClients->Name = L"dgvClients";
 			this->dgvClients->Size = System::Drawing::Size(345, 325);
 			this->dgvClients->TabIndex = 85;
@@ -186,42 +192,18 @@ namespace TinkerdinView {
 			// 
 			// pbPhoto
 			// 
-			this->pbPhoto->Location = System::Drawing::Point(423, 28);
+			this->pbPhoto->Location = System::Drawing::Point(423, 67);
 			this->pbPhoto->Name = L"pbPhoto";
 			this->pbPhoto->Size = System::Drawing::Size(180, 213);
 			this->pbPhoto->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pbPhoto->TabIndex = 81;
 			this->pbPhoto->TabStop = false;
 			// 
-			// txtUsername
-			// 
-			this->txtUsername->Location = System::Drawing::Point(140, 28);
-			this->txtUsername->Name = L"txtUsername";
-			this->txtUsername->Size = System::Drawing::Size(100, 20);
-			this->txtUsername->TabIndex = 80;
-			this->txtUsername->Click += gcnew System::EventHandler(this, &FindFriendsForm::txtUsername_Click);
-			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(37, 28);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(96, 13);
-			this->label6->TabIndex = 79;
-			this->label6->Text = L"Nombre de usuario";
-			// 
-			// cmbGender
-			// 
-			this->cmbGender->FormattingEnabled = true;
-			this->cmbGender->Location = System::Drawing::Point(140, 132);
-			this->cmbGender->Name = L"cmbGender";
-			this->cmbGender->Size = System::Drawing::Size(100, 21);
-			this->cmbGender->TabIndex = 78;
-			// 
 			// txtCicle
 			// 
 			this->txtCicle->Location = System::Drawing::Point(140, 245);
 			this->txtCicle->Name = L"txtCicle";
+			this->txtCicle->ReadOnly = true;
 			this->txtCicle->Size = System::Drawing::Size(100, 20);
 			this->txtCicle->TabIndex = 77;
 			// 
@@ -237,6 +219,7 @@ namespace TinkerdinView {
 			// 
 			this->txtEmail->Location = System::Drawing::Point(140, 175);
 			this->txtEmail->Name = L"txtEmail";
+			this->txtEmail->ReadOnly = true;
 			this->txtEmail->Size = System::Drawing::Size(218, 20);
 			this->txtEmail->TabIndex = 75;
 			// 
@@ -297,6 +280,7 @@ namespace TinkerdinView {
 			// 
 			this->txtName->Location = System::Drawing::Point(140, 64);
 			this->txtName->Name = L"txtName";
+			this->txtName->ReadOnly = true;
 			this->txtName->Size = System::Drawing::Size(218, 20);
 			this->txtName->TabIndex = 68;
 			// 
@@ -311,9 +295,9 @@ namespace TinkerdinView {
 			// 
 			// btnSearch
 			// 
-			this->btnSearch->Location = System::Drawing::Point(423, 279);
+			this->btnSearch->Location = System::Drawing::Point(856, 26);
 			this->btnSearch->Name = L"btnSearch";
-			this->btnSearch->Size = System::Drawing::Size(180, 23);
+			this->btnSearch->Size = System::Drawing::Size(123, 25);
 			this->btnSearch->TabIndex = 95;
 			this->btnSearch->Text = L"Buscar";
 			this->btnSearch->UseVisualStyleBackColor = true;
@@ -327,6 +311,7 @@ namespace TinkerdinView {
 			this->btnAddFriend->TabIndex = 96;
 			this->btnAddFriend->Text = L"Agregar a lista de amigos";
 			this->btnAddFriend->UseVisualStyleBackColor = true;
+			this->btnAddFriend->Click += gcnew System::EventHandler(this, &FindFriendsForm::btnAddFriend_Click);
 			// 
 			// btnChose
 			// 
@@ -337,11 +322,28 @@ namespace TinkerdinView {
 			this->btnChose->Text = L"Escoger";
 			this->btnChose->UseVisualStyleBackColor = true;
 			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(648, 26);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(190, 20);
+			this->textBox1->TabIndex = 98;
+			// 
+			// txtGender
+			// 
+			this->txtGender->Location = System::Drawing::Point(140, 135);
+			this->txtGender->Name = L"txtGender";
+			this->txtGender->ReadOnly = true;
+			this->txtGender->Size = System::Drawing::Size(100, 20);
+			this->txtGender->TabIndex = 99;
+			// 
 			// FindFriendsForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1015, 415);
+			this->ClientSize = System::Drawing::Size(1015, 473);
+			this->Controls->Add(this->txtGender);
+			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->btnChose);
 			this->Controls->Add(this->btnAddFriend);
 			this->Controls->Add(this->btnSearch);
@@ -351,9 +353,6 @@ namespace TinkerdinView {
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->dgvClients);
 			this->Controls->Add(this->pbPhoto);
-			this->Controls->Add(this->txtUsername);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->cmbGender);
 			this->Controls->Add(this->txtCicle);
 			this->Controls->Add(this->txtCarrer);
 			this->Controls->Add(this->txtEmail);
@@ -386,7 +385,7 @@ private: System::Void FindFriendsForm_Load(System::Object^ sender, System::Event
 	}
 	else {
 		btnSearch->Visible = true;
-		btnAddFriend->Visible = false;
+		btnAddFriend->Visible = true;
 		btnChose->Visible = false;
 
 		//txtCicle->
@@ -398,7 +397,9 @@ private: System::Void FindFriendsForm_Load(System::Object^ sender, System::Event
 	}
 }
 public: Void RefreshClientsDGV();
-
+public: void SetUser(Cliente^ c) {
+	this->me = c;
+}
 private: System::Void dgvClients_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 
 }
@@ -406,11 +407,28 @@ private: System::Void dgvClients_CellClick(System::Object^ sender, System::Windo
 
 
 
-private: System::Void txtUsername_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ usern;
-	usern= txtUsername->Text;
+private: System::Void btnAddFriend_Click(System::Object^ sender, System::EventArgs^ e) {
+	int selectedRowIndex = dgvClients->SelectedCells[0]->RowIndex;
+	String^ usern= dgvClients->Rows[selectedRowIndex]->Cells[0]->Value->ToString();
+	List<String^>^ flist = gcnew List<String^>();
+	if (me->FriendList == nullptr) {
+		//si no tiene la definicion de list se la creo 
+		me->FriendList = gcnew List<String^>();
+		Controller::UpdateClient(me);
+		RefreshClientsDGV();
+	}
+	//si no tenia ese amigo registrado se lo añado
+	flist = me->FriendList;
+	if (!(flist->Contains(usern))) {
+		int elements = flist->Count;
+		flist->Add(usern);
+		me->FriendList = flist;
+		Controller::UpdateClient(me);
+		RefreshClientsDGV();
+	}
+	else MessageBox::Show("Ese ya es tu pana we");
 
-	//Cliente^ cli = QueryClientByUsername(usern);
+
 }
 };
 }

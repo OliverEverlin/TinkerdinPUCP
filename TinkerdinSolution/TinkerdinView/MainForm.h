@@ -618,7 +618,7 @@ private: System::Void reportarUsuarioToolStripMenuItem1_Click(System::Object^ se
 
 private: System::Void amigosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	FindFriendsForm^ findFriendsform = gcnew FindFriendsForm();
-	//((FindFriendsForm^)findFriendsform)->SetUser(client);
+	((FindFriendsForm^)findFriendsform)->SetUser(client);
 	findFriendsform->Show();
 }
 private: System::Void listaDeAmigosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
