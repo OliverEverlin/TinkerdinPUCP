@@ -1,4 +1,5 @@
 #pragma once
+#include "Resource.h"
 
 namespace TinkerdinView {
 
@@ -22,12 +23,15 @@ namespace TinkerdinView {
 
 	public:
 		static Cliente^ client;
+		property char UseType;
+		property Form^ RefReportForm;
 		FriendsForm(void)
 		{
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			UseType = 'S';
 		}
 
 	protected:
@@ -50,7 +54,8 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cicle;
 	private: System::Windows::Forms::Button^ AddtoEvent;
 	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::PictureBox^ pbPhoto;
+
 
 	private:
 		/// <summary>
@@ -71,9 +76,9 @@ namespace TinkerdinView {
 			this->Cicle = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->AddtoEvent = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->pbPhoto = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvFriends))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dgvFriends
@@ -87,6 +92,7 @@ namespace TinkerdinView {
 			this->dgvFriends->Name = L"dgvFriends";
 			this->dgvFriends->Size = System::Drawing::Size(343, 223);
 			this->dgvFriends->TabIndex = 0;
+			this->dgvFriends->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &FriendsForm::dgvFriends_CellClick);
 			// 
 			// Name
 			// 
@@ -111,30 +117,31 @@ namespace TinkerdinView {
 			this->AddtoEvent->TabIndex = 1;
 			this->AddtoEvent->Text = L"Agregar a evento";
 			this->AddtoEvent->UseVisualStyleBackColor = true;
+			this->AddtoEvent->Click += gcnew System::EventHandler(this, &FriendsForm::AddtoEvent_Click);
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(409, 230);
+			this->button1->Location = System::Drawing::Point(409, 215);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(112, 23);
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"Eliminar amigo";
 			this->button1->UseVisualStyleBackColor = true;
 			// 
-			// pictureBox1
+			// pbPhoto
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(409, 30);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(114, 138);
-			this->pictureBox1->TabIndex = 3;
-			this->pictureBox1->TabStop = false;
+			this->pbPhoto->Location = System::Drawing::Point(409, 30);
+			this->pbPhoto->Name = L"pbPhoto";
+			this->pbPhoto->Size = System::Drawing::Size(114, 138);
+			this->pbPhoto->TabIndex = 3;
+			this->pbPhoto->TabStop = false;
 			// 
 			// FriendsForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(556, 278);
-			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->pbPhoto);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->AddtoEvent);
 			this->Controls->Add(this->dgvFriends);
@@ -142,20 +149,19 @@ namespace TinkerdinView {
 			this->Text = L"Lista de amigos ";
 			this->Load += gcnew System::EventHandler(this, &FriendsForm::FriendsForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvFriends))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void FriendsForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		
+		RefreshFriendList();
 	}
-
-	public: Void SetClient(Cliente^ c) {
-		this->client = c;
+	public: void RefreshFriendList() {
 		List <String^>^ buddyList = gcnew List <String^>();
-		Cliente^ buddy =gcnew Cliente();
-		for (int i = 0; i < buddyList->Count; i++){
+		Cliente^ buddy = gcnew Cliente();
+		buddyList = client->FriendList;
+		for (int i = 0; i < buddyList->Count; i++) {
 			buddy = Controller::QueryClientByUsername(buddyList[i]);
 			dgvFriends->Rows->Add(gcnew array<String^>{
 				buddy->Username,
@@ -165,5 +171,50 @@ namespace TinkerdinView {
 
 		}
 	}
-	};
+	public: Void SetClient(Cliente^ c) {
+		this->client = c;
+		/*List <String^>^ buddyList = gcnew List <String^>();
+		Cliente^ buddy =gcnew Cliente();
+		for (int i = 0; i < buddyList->Count; i++){
+			buddy = Controller::QueryClientByUsername(buddyList[i]);
+			dgvFriends->Rows->Add(gcnew array<String^>{
+				buddy->Username,
+					"" + buddy->Age,
+					"" + buddy->Cicle
+			});
+
+		}*/
+	}
+	private: System::Void dgvFriends_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		if (dgvFriends->CurrentCell != nullptr &&
+			dgvFriends->CurrentCell->Value != nullptr &&
+			dgvFriends->CurrentCell->Value->ToString() != "") {
+
+			int selectedrowindex = dgvFriends->SelectedCells[0]->RowIndex;
+			DataGridViewRow^ selectedRow = dgvFriends->Rows[selectedrowindex];
+			String^ a = selectedRow->Cells[0]->Value->ToString();
+
+			Cliente^ c = Controller::QueryClientByUsername(a);
+			//MessageBox::Show(customer->ToString()); //Polimorfismo
+			//if (customer != nullptr && customer->GetType() == Natural::typeid) 
+			if (c != nullptr) {
+				if (c->Photo != nullptr) {
+					System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(c->Photo);
+					pbPhoto->Image = Image::FromStream(ms);
+				}
+				else {
+					pbPhoto->Image = nullptr;
+					pbPhoto->Invalidate();
+				}
+				
+			}
+		}
+	}
+private: System::Void AddtoEvent_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (UseType == 'E') {
+		//((EventForm^)RefReportForm)->SetClient(c);
+		//this->Close();
+	}
+}
+};
 }
