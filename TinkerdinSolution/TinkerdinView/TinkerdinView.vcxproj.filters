@@ -89,6 +89,9 @@
     <ClCompile Include="AssemblyInfo.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="FriendsForm.cpp" />
+    <ClCompile Include="FindCourseForm.cpp" />
+    <ClCompile Include="CRUDCourseForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalendarForm.h" />
@@ -118,6 +121,7 @@
     <ClInclude Include="SearchClientForm.h" />
     <ClInclude Include="FriendsForm.h" />
     <ClInclude Include="FindCourseForm.h" />
+    <ClInclude Include="CRUDCourseForm.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Resource.h">
