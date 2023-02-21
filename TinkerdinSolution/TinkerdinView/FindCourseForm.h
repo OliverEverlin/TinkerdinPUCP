@@ -19,8 +19,18 @@ namespace TinkerdinView {
 	/// </summary>
 	public ref class FindCourseForm : public System::Windows::Forms::Form
 	{
-		Form^ refForm;
+		
 	public:
+		//property Form^ refForm;
+		FindCourseForm(void)
+		{
+			InitializeComponent();
+			//
+			//TODO: agregar código de constructor aquí
+			//
+			//refForm = form;
+		}
+		/*
 		FindCourseForm(Form^form)
 		{
 			InitializeComponent();
@@ -29,6 +39,7 @@ namespace TinkerdinView {
 			//
 			refForm = form;
 		}
+		*/
 
 	protected:
 		/// <summary>
@@ -240,13 +251,12 @@ namespace TinkerdinView {
 			this->button1->TabIndex = 94;
 			this->button1->Text = L"Agregar a mi lista";
 			this->button1->UseVisualStyleBackColor = true;
-			//this->button1->Click += gcnew System::EventHandler(this, &FindCourseForm::button1_Click);
 			// 
 			// FindCourseForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(774, 474);
+			this->ClientSize = System::Drawing::Size(794, 462);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->dgvCourse);
 			this->Controls->Add(this->textFindCourseExParc);

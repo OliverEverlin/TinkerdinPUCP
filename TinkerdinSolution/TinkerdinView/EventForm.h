@@ -384,7 +384,6 @@ namespace TinkerdinView {
 			this->button1->TabIndex = 26;
 			this->button1->Text = L"Agregar amigos";
 			this->button1->UseVisualStyleBackColor = true;
-			//this->button1->Click += gcnew System::EventHandler(this, &EventForm::button1_Click);
 			// 
 			// dataGridView1
 			// 
@@ -393,7 +392,7 @@ namespace TinkerdinView {
 				this->Nombre,
 					this->attendance
 			});
-			this->dataGridView1->Location = System::Drawing::Point(45, 192);
+			this->dataGridView1->Location = System::Drawing::Point(66, 201);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->Size = System::Drawing::Size(240, 150);
 			this->dataGridView1->TabIndex = 38;
