@@ -240,7 +240,7 @@ namespace TinkerdinView {
 			this->button1->TabIndex = 94;
 			this->button1->Text = L"Agregar a mi lista";
 			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &FindCourseForm::button1_Click);
+			//this->button1->Click += gcnew System::EventHandler(this, &FindCourseForm::button1_Click);
 			// 
 			// FindCourseForm
 			// 
@@ -272,6 +272,8 @@ namespace TinkerdinView {
 #pragma endregion
 public: Void RefreshCoursesDGV();
 
+	  Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+
 	private: System::Void FindCourseForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		RefreshCoursesDGV();
 	}
@@ -296,11 +298,6 @@ private: System::Void dgvCourse_CellClick(System::Object^ sender, System::Window
 
 
 }
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	//Agregar CURSO a la lista del cliente
-	//En el cpp para evitar conflictos
 
-
-}
 };
 }
