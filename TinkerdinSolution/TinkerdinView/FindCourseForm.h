@@ -19,13 +19,15 @@ namespace TinkerdinView {
 	/// </summary>
 	public ref class FindCourseForm : public System::Windows::Forms::Form
 	{
+		Form^ refForm;
 	public:
-		FindCourseForm(void)
+		FindCourseForm(Form^form)
 		{
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			refForm = form;
 		}
 
 	protected:
@@ -53,7 +55,8 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::TextBox^ txtFindCourseType;
 
 	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ txtFindCourseExFin;
+
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::TextBox^ textFindCourseExParc;
 
@@ -89,7 +92,7 @@ namespace TinkerdinView {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->txtFindCourseType = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->txtFindCourseExFin = (gcnew System::Windows::Forms::TextBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->textFindCourseExParc = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
@@ -165,13 +168,13 @@ namespace TinkerdinView {
 			this->label3->TabIndex = 87;
 			this->label3->Text = L"Tipo:";
 			// 
-			// textBox1
+			// txtFindCourseExFin
 			// 
-			this->textBox1->Location = System::Drawing::Point(137, 307);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(110, 20);
-			this->textBox1->TabIndex = 90;
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &FindCourseForm::textBox1_TextChanged);
+			this->txtFindCourseExFin->Location = System::Drawing::Point(137, 307);
+			this->txtFindCourseExFin->Name = L"txtFindCourseExFin";
+			this->txtFindCourseExFin->Size = System::Drawing::Size(110, 20);
+			this->txtFindCourseExFin->TabIndex = 90;
+			this->txtFindCourseExFin->TextChanged += gcnew System::EventHandler(this, &FindCourseForm::textBox1_TextChanged);
 			// 
 			// label4
 			// 
@@ -248,7 +251,7 @@ namespace TinkerdinView {
 			this->Controls->Add(this->dgvCourse);
 			this->Controls->Add(this->textFindCourseExParc);
 			this->Controls->Add(this->label5);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->txtFindCourseExFin);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->txtFindCourseType);
 			this->Controls->Add(this->label3);
@@ -287,15 +290,15 @@ private: System::Void dgvCourse_CellClick(System::Object^ sender, System::Window
 	txtFindCourseName->Text = "" + p->Name;
 	txtFindCourseProfe->Text = "" + p->Professor;
 	txtFindCourseType->Text = "" + p->Type;
-	//textFindCourseExParc->Text = "" + p->;
-	//textBox1->Text = "" + p->Type;
-	//LO DE ARRIBA DEBO CREARLE ATRIBUTO? 
+	textFindCourseExParc->Text = "" + p->Parcial;
+	txtFindCourseExFin->Text = "" + p->Final;
+	
 
 
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	//Agregar CURSO a la lista del cliente
-
+	//En el cpp para evitar conflictos
 
 
 }

@@ -522,6 +522,18 @@ private: System::Void btnReturn_Click(System::Object^ sender, System::EventArgs^
 	Application::Exit();
 }
 
+
+	public:Void AddToList(Course^  course) {
+		//Programar, quiero que solo el nombre se agregue a la lista
+		List <String^>^ CourseList;
+		String^ curso;
+		curso = course->Name;
+		CourseList->Add(curso);
+	}
+
+
+
+
 };
 }
 
