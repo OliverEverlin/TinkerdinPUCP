@@ -18,6 +18,8 @@ namespace TinkerdinView {
 	public ref class ClientForm : public System::Windows::Forms::Form
 	{
 	public:
+		Form^ refForm;//variable de instancia
+	public:
 		ClientForm(void)
 		{
 			InitializeComponent();

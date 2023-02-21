@@ -19,16 +19,17 @@ namespace TinkerdinView {
 	/// </summary>
 	public ref class FindCourseForm : public System::Windows::Forms::Form
 	{
-		
+	public:
+		Form^ refFindCourseForm;//variable de instancia
 	public:
 		//property Form^ refForm;
-		FindCourseForm(void)
+		FindCourseForm(Form^ form)
 		{
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí
 			//
-			//refForm = form;
+			refFindCourseForm = form;
 		}
 		/*
 		FindCourseForm(Form^form)
