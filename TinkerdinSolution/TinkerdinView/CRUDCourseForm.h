@@ -103,119 +103,117 @@ namespace TinkerdinView {
 			// 
 			// txtCourseId
 			// 
-			this->txtCourseId->Location = System::Drawing::Point(218, 49);
-			this->txtCourseId->Margin = System::Windows::Forms::Padding(5);
+			this->txtCourseId->Location = System::Drawing::Point(164, 40);
+			this->txtCourseId->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtCourseId->Name = L"txtCourseId";
-			this->txtCourseId->Size = System::Drawing::Size(495, 22);
+			this->txtCourseId->Size = System::Drawing::Size(372, 20);
 			this->txtCourseId->TabIndex = 91;
 			// 
 			// labelCourseParfcialExam
 			// 
 			this->labelCourseParfcialExam->AutoSize = true;
-			this->labelCourseParfcialExam->Location = System::Drawing::Point(102, 303);
-			this->labelCourseParfcialExam->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
+			this->labelCourseParfcialExam->Location = System::Drawing::Point(76, 246);
+			this->labelCourseParfcialExam->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labelCourseParfcialExam->Name = L"labelCourseParfcialExam";
-			this->labelCourseParfcialExam->Size = System::Drawing::Size(52, 16);
+			this->labelCourseParfcialExam->Size = System::Drawing::Size(42, 13);
 			this->labelCourseParfcialExam->TabIndex = 101;
 			this->labelCourseParfcialExam->Text = L"Parcial:";
 			// 
 			// dateTimePickerParcial
 			// 
-			this->dateTimePickerParcial->Location = System::Drawing::Point(201, 303);
-			this->dateTimePickerParcial->Margin = System::Windows::Forms::Padding(4);
+			this->dateTimePickerParcial->Location = System::Drawing::Point(151, 246);
 			this->dateTimePickerParcial->Name = L"dateTimePickerParcial";
-			this->dateTimePickerParcial->Size = System::Drawing::Size(265, 22);
+			this->dateTimePickerParcial->Size = System::Drawing::Size(200, 20);
 			this->dateTimePickerParcial->TabIndex = 100;
 			// 
 			// txtCourseName
 			// 
-			this->txtCourseName->Location = System::Drawing::Point(218, 86);
-			this->txtCourseName->Margin = System::Windows::Forms::Padding(5);
+			this->txtCourseName->Location = System::Drawing::Point(164, 70);
+			this->txtCourseName->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtCourseName->Name = L"txtCourseName";
-			this->txtCourseName->Size = System::Drawing::Size(495, 22);
+			this->txtCourseName->Size = System::Drawing::Size(372, 20);
 			this->txtCourseName->TabIndex = 92;
 			// 
 			// labelCourseFinalExam
 			// 
 			this->labelCourseFinalExam->AutoSize = true;
-			this->labelCourseFinalExam->Location = System::Drawing::Point(522, 300);
-			this->labelCourseFinalExam->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
+			this->labelCourseFinalExam->Location = System::Drawing::Point(392, 244);
+			this->labelCourseFinalExam->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labelCourseFinalExam->Name = L"labelCourseFinalExam";
-			this->labelCourseFinalExam->Size = System::Drawing::Size(39, 16);
+			this->labelCourseFinalExam->Size = System::Drawing::Size(32, 13);
 			this->labelCourseFinalExam->TabIndex = 103;
 			this->labelCourseFinalExam->Text = L"Final:";
 			// 
 			// labelCourseExamDates
 			// 
 			this->labelCourseExamDates->AutoSize = true;
-			this->labelCourseExamDates->Location = System::Drawing::Point(66, 250);
-			this->labelCourseExamDates->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
+			this->labelCourseExamDates->Location = System::Drawing::Point(50, 203);
+			this->labelCourseExamDates->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labelCourseExamDates->Name = L"labelCourseExamDates";
-			this->labelCourseExamDates->Size = System::Drawing::Size(123, 16);
+			this->labelCourseExamDates->Size = System::Drawing::Size(99, 13);
 			this->labelCourseExamDates->TabIndex = 97;
 			this->labelCourseExamDates->Text = L"Días de examenes:";
 			// 
 			// txtCourseProfesor
 			// 
-			this->txtCourseProfesor->Location = System::Drawing::Point(217, 192);
-			this->txtCourseProfesor->Margin = System::Windows::Forms::Padding(5);
+			this->txtCourseProfesor->Location = System::Drawing::Point(163, 156);
+			this->txtCourseProfesor->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtCourseProfesor->Name = L"txtCourseProfesor";
-			this->txtCourseProfesor->Size = System::Drawing::Size(496, 22);
+			this->txtCourseProfesor->Size = System::Drawing::Size(373, 20);
 			this->txtCourseProfesor->TabIndex = 94;
 			// 
 			// labelCourseType
 			// 
 			this->labelCourseType->AutoSize = true;
-			this->labelCourseType->Location = System::Drawing::Point(66, 143);
-			this->labelCourseType->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
+			this->labelCourseType->Location = System::Drawing::Point(50, 116);
+			this->labelCourseType->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labelCourseType->Name = L"labelCourseType";
-			this->labelCourseType->Size = System::Drawing::Size(38, 16);
+			this->labelCourseType->Size = System::Drawing::Size(31, 13);
 			this->labelCourseType->TabIndex = 96;
 			this->labelCourseType->Text = L"Tipo:";
 			// 
 			// dateTimePickerFinal
 			// 
-			this->dateTimePickerFinal->Location = System::Drawing::Point(599, 300);
-			this->dateTimePickerFinal->Margin = System::Windows::Forms::Padding(4);
+			this->dateTimePickerFinal->Location = System::Drawing::Point(449, 244);
 			this->dateTimePickerFinal->Name = L"dateTimePickerFinal";
-			this->dateTimePickerFinal->Size = System::Drawing::Size(265, 22);
+			this->dateTimePickerFinal->Size = System::Drawing::Size(200, 20);
 			this->dateTimePickerFinal->TabIndex = 102;
 			// 
 			// labelCourseProfessor
 			// 
 			this->labelCourseProfessor->AutoSize = true;
-			this->labelCourseProfessor->Location = System::Drawing::Point(66, 195);
-			this->labelCourseProfessor->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
+			this->labelCourseProfessor->Location = System::Drawing::Point(50, 158);
+			this->labelCourseProfessor->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labelCourseProfessor->Name = L"labelCourseProfessor";
-			this->labelCourseProfessor->Size = System::Drawing::Size(61, 16);
+			this->labelCourseProfessor->Size = System::Drawing::Size(49, 13);
 			this->labelCourseProfessor->TabIndex = 93;
 			this->labelCourseProfessor->Text = L"Profesor:";
 			// 
 			// cmbCourseType
 			// 
 			this->cmbCourseType->FormattingEnabled = true;
-			this->cmbCourseType->Location = System::Drawing::Point(217, 138);
-			this->cmbCourseType->Margin = System::Windows::Forms::Padding(5);
+			this->cmbCourseType->Location = System::Drawing::Point(163, 112);
+			this->cmbCourseType->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->cmbCourseType->Name = L"cmbCourseType";
-			this->cmbCourseType->Size = System::Drawing::Size(496, 24);
+			this->cmbCourseType->Size = System::Drawing::Size(373, 21);
 			this->cmbCourseType->TabIndex = 95;
 			// 
 			// labelCourseName
 			// 
 			this->labelCourseName->AutoSize = true;
-			this->labelCourseName->Location = System::Drawing::Point(66, 89);
-			this->labelCourseName->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
+			this->labelCourseName->Location = System::Drawing::Point(50, 72);
+			this->labelCourseName->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labelCourseName->Name = L"labelCourseName";
-			this->labelCourseName->Size = System::Drawing::Size(59, 16);
+			this->labelCourseName->Size = System::Drawing::Size(47, 13);
 			this->labelCourseName->TabIndex = 90;
 			this->labelCourseName->Text = L"Nombre:";
 			// 
 			// btnUpdateCourse
 			// 
-			this->btnUpdateCourse->Location = System::Drawing::Point(332, 368);
-			this->btnUpdateCourse->Margin = System::Windows::Forms::Padding(5);
+			this->btnUpdateCourse->Location = System::Drawing::Point(249, 299);
+			this->btnUpdateCourse->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnUpdateCourse->Name = L"btnUpdateCourse";
-			this->btnUpdateCourse->Size = System::Drawing::Size(261, 34);
+			this->btnUpdateCourse->Size = System::Drawing::Size(196, 28);
 			this->btnUpdateCourse->TabIndex = 98;
 			this->btnUpdateCourse->Text = L"Modificar";
 			this->btnUpdateCourse->UseVisualStyleBackColor = true;
@@ -224,30 +222,30 @@ namespace TinkerdinView {
 			// labelCourse
 			// 
 			this->labelCourse->AutoSize = true;
-			this->labelCourse->Location = System::Drawing::Point(66, 52);
-			this->labelCourse->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
+			this->labelCourse->Location = System::Drawing::Point(50, 42);
+			this->labelCourse->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->labelCourse->Name = L"labelCourse";
-			this->labelCourse->Size = System::Drawing::Size(59, 16);
+			this->labelCourse->Size = System::Drawing::Size(49, 13);
 			this->labelCourse->TabIndex = 89;
 			this->labelCourse->Text = L"Id Curso:";
 			// 
 			// btnDeleteCourse
 			// 
-			this->btnDeleteCourse->Location = System::Drawing::Point(603, 368);
-			this->btnDeleteCourse->Margin = System::Windows::Forms::Padding(5);
+			this->btnDeleteCourse->Location = System::Drawing::Point(452, 299);
+			this->btnDeleteCourse->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnDeleteCourse->Name = L"btnDeleteCourse";
-			this->btnDeleteCourse->Size = System::Drawing::Size(263, 34);
+			this->btnDeleteCourse->Size = System::Drawing::Size(197, 28);
 			this->btnDeleteCourse->TabIndex = 99;
-			this->btnDeleteCourse->Text = L"Cancelar";
+			this->btnDeleteCourse->Text = L"Eliminar";
 			this->btnDeleteCourse->UseVisualStyleBackColor = true;
 			this->btnDeleteCourse->Click += gcnew System::EventHandler(this, &CRUDCourseForm::btnDelete_Click);
 			// 
 			// btn_AddCourse
 			// 
-			this->btn_AddCourse->Location = System::Drawing::Point(61, 368);
-			this->btn_AddCourse->Margin = System::Windows::Forms::Padding(5);
+			this->btn_AddCourse->Location = System::Drawing::Point(46, 299);
+			this->btn_AddCourse->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btn_AddCourse->Name = L"btn_AddCourse";
-			this->btn_AddCourse->Size = System::Drawing::Size(261, 34);
+			this->btn_AddCourse->Size = System::Drawing::Size(196, 28);
 			this->btn_AddCourse->TabIndex = 104;
 			this->btn_AddCourse->Text = L"Añadir";
 			this->btn_AddCourse->UseVisualStyleBackColor = true;
@@ -260,11 +258,11 @@ namespace TinkerdinView {
 				this->dataGridViewTextBoxColumn1,
 					this->dataGridViewTextBoxColumn2, this->dataGridViewTextBoxColumn3, this->dataGridViewTextBoxColumn4
 			});
-			this->dgvCourse->Location = System::Drawing::Point(935, 59);
-			this->dgvCourse->Margin = System::Windows::Forms::Padding(5);
+			this->dgvCourse->Location = System::Drawing::Point(616, 40);
+			this->dgvCourse->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->dgvCourse->Name = L"dgvCourse";
 			this->dgvCourse->RowHeadersWidth = 51;
-			this->dgvCourse->Size = System::Drawing::Size(528, 208);
+			this->dgvCourse->Size = System::Drawing::Size(396, 169);
 			this->dgvCourse->TabIndex = 105;
 			this->dgvCourse->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CRUDCourseForm::dgvCourse_CellClick);
 			// 
@@ -298,9 +296,9 @@ namespace TinkerdinView {
 			// 
 			// CRUDCourseForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1514, 468);
+			this->ClientSize = System::Drawing::Size(1136, 380);
 			this->Controls->Add(this->dgvCourse);
 			this->Controls->Add(this->btn_AddCourse);
 			this->Controls->Add(this->txtCourseId);
@@ -318,6 +316,7 @@ namespace TinkerdinView {
 			this->Controls->Add(this->btnUpdateCourse);
 			this->Controls->Add(this->labelCourse);
 			this->Controls->Add(this->btnDeleteCourse);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"CRUDCourseForm";
 			this->Text = L"CRUDCourseForm";
 			this->Load += gcnew System::EventHandler(this, &CRUDCourseForm::CRUDCourseForm_Load);

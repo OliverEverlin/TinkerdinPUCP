@@ -325,9 +325,9 @@ namespace TinkerdinView {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(648, 26);
+			this->textBox1->Location = System::Drawing::Point(648, 29);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(190, 20);
+			this->textBox1->Size = System::Drawing::Size(202, 20);
 			this->textBox1->TabIndex = 98;
 			// 
 			// txtGender

@@ -135,6 +135,7 @@ namespace TinkerdinView {
 			// 
 			this->textFindCourseId->Location = System::Drawing::Point(137, 66);
 			this->textFindCourseId->Name = L"textFindCourseId";
+			this->textFindCourseId->ReadOnly = true;
 			this->textFindCourseId->Size = System::Drawing::Size(110, 20);
 			this->textFindCourseId->TabIndex = 84;
 			// 
