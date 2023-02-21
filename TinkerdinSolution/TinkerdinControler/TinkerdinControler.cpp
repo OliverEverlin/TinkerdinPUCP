@@ -362,6 +362,18 @@ int TinkerdinControler::Controller::DeleteEvent(int eventId)
     return 0;
 }
 
+List<String^>^ TinkerdinControler::Controller::QueryAllRelevance()
+{
+    return relevanceList;
+}
+
+int TinkerdinControler::Controller::QueryLastEventId()
+{
+    eventList = (List<Event^>^)Persistance::LoadBinaryData("Events.bin");
+    if (eventList->Count == 0) return 0;
+    else return eventList[eventList->Count - 1]->Id;
+}
+
 //EVENT FIN//
 
 //LoginForm

@@ -6,6 +6,7 @@
 
 #pragma once
 using namespace System;
+using namespace System::Collections::Generic;
 
 namespace TinkerdinModel {
     [Serializable]
@@ -14,8 +15,10 @@ namespace TinkerdinModel {
         property int Id;
         property String^ Name;
         property String^ Relevance; //Cambiar en el diagrama 
-        property String^ Privacy;   //se queda en string 
+        property String^ TypeEvent;   //Tipo relax, estudio, 
         property String^ Date;
+        property List<String^>^ guest;
+        property List<String^>^ Asistance;
         property int Hour;
         property int minutes;
 

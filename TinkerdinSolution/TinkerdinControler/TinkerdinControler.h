@@ -24,7 +24,8 @@ namespace TinkerdinControler {
 		static array<String^>^ InterestArr = {"musica", "deporte", "jobi","academico"};
 		static array<String^>^ genderArr = { "masculino", "femenino", "otros" };
 		static array<String^>^ courseTypeArr = { "Curricular", "Extracurricular" };
-
+		static array<String^>^ relevanceArr = { "Alta", "Media", "Baja" };
+		static List<String^>^ relevanceList = gcnew List<String^>(relevanceArr);
 		static List<String^>^ genderList = gcnew List<String^>(genderArr);
 		static List <String^>^ courseTypeList = gcnew List<String^>(courseTypeArr);
 		//static array<String^>^ courseTypeArr = { "Curricular", "Extracurricular" };
@@ -89,6 +90,8 @@ namespace TinkerdinControler {
 		static List<Event^>^ QueryAllEvent();
 		static int UpdateEvent(Event^ event);
 		static int DeleteEvent(int eventId);
+		static List<String^>^ QueryAllRelevance();
+		static int QueryLastEventId();
 
 		//Metodos CRUD de Report
 		static int AddReport(Report^ report);

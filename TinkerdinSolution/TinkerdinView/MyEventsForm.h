@@ -88,17 +88,17 @@ namespace TinkerdinView {
 		void InitializeComponent(void)
 		{
 			this->dgvEvents = (gcnew System::Windows::Forms::DataGridView());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->Nombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->attendance = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->eventId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->eventName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->eventRelevance = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->eventPrivacy = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->eventDate = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->eventHour = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Nombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->attendance = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEvents))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
@@ -117,47 +117,6 @@ namespace TinkerdinView {
 			this->dgvEvents->RowTemplate->Height = 24;
 			this->dgvEvents->Size = System::Drawing::Size(672, 228);
 			this->dgvEvents->TabIndex = 25;
-			// 
-			// dataGridView1
-			// 
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
-				this->Nombre,
-					this->attendance
-			});
-			this->dataGridView1->Location = System::Drawing::Point(425, 27);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(240, 150);
-			this->dataGridView1->TabIndex = 37;
-			// 
-			// Nombre
-			// 
-			this->Nombre->HeaderText = L"Personas";
-			this->Nombre->Name = L"Nombre";
-			// 
-			// attendance
-			// 
-			this->attendance->HeaderText = L"Asistencia";
-			this->attendance->Name = L"attendance";
-			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(107, 61);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(170, 23);
-			this->button1->TabIndex = 38;
-			this->button1->Text = L"Camcelar asistencia";
-			this->button1->UseVisualStyleBackColor = true;
-			// 
-			// button2
-			// 
-			this->button2->Location = System::Drawing::Point(107, 122);
-			this->button2->Name = L"button2";
-			this->button2->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
-			this->button2->Size = System::Drawing::Size(170, 23);
-			this->button2->TabIndex = 39;
-			this->button2->Text = L"Confirmar asitencia";
-			this->button2->UseVisualStyleBackColor = true;
 			// 
 			// eventId
 			// 
@@ -199,6 +158,47 @@ namespace TinkerdinView {
 			this->eventHour->HeaderText = L"Hour";
 			this->eventHour->MinimumWidth = 6;
 			this->eventHour->Name = L"eventHour";
+			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
+				this->Nombre,
+					this->attendance
+			});
+			this->dataGridView1->Location = System::Drawing::Point(473, 30);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->Size = System::Drawing::Size(240, 150);
+			this->dataGridView1->TabIndex = 37;
+			// 
+			// Nombre
+			// 
+			this->Nombre->HeaderText = L"Personas";
+			this->Nombre->Name = L"Nombre";
+			// 
+			// attendance
+			// 
+			this->attendance->HeaderText = L"Asistencia";
+			this->attendance->Name = L"attendance";
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(276, 30);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(170, 23);
+			this->button1->TabIndex = 38;
+			this->button1->Text = L"Camcelar asistencia";
+			this->button1->UseVisualStyleBackColor = true;
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(276, 59);
+			this->button2->Name = L"button2";
+			this->button2->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
+			this->button2->Size = System::Drawing::Size(170, 23);
+			this->button2->TabIndex = 39;
+			this->button2->Text = L"Confirmar asitencia";
+			this->button2->UseVisualStyleBackColor = true;
 			// 
 			// MyEventsForm
 			// 
