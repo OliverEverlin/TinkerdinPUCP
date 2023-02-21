@@ -310,5 +310,7 @@ private: System::Void dgvCourse_CellClick(System::Object^ sender, System::Window
 
 }
 
+private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

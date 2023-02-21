@@ -26,10 +26,10 @@ Void TinkerdinView::FindCourseForm::button1_Click(System::Object^ sender, System
 
 
 	}*/
-	/*Course^course=gcnew Course();
+	Course^course=gcnew Course();
 	course->Id = (textFindCourseId->Text);
 	course->Name = txtFindCourseName->Text;
 	((ClientForm^)refForm)->AddToList(course);
-	this->Close();*/
+	this->Close();
 
 }
