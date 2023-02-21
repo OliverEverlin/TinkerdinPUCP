@@ -443,3 +443,85 @@ Admin^ TinkerdinControler::Controller::LoginAdmin(String^ username, String^ pass
 {
     return QueryAdminByCredentials(username, password);
 }
+
+//FIN ADMIN
+
+//CRUD REPORT
+
+int TinkerdinControler::Controller::AddReport(Report^ report)
+{
+    reportList->Add(report);
+    Persistance::PersistBinary("reports.bin", reportList);
+    return report->Id;
+}
+
+Report^ TinkerdinControler::Controller::QueryReportById(int reportId)
+{
+    reportList = (List<Report^>^)Persistance::LoadBinaryData("reports.bin");
+    for (int i = 0; i < reportList->Count; i++) {
+        if (reportList[i]->Id == (reportId))
+            return reportList[i];
+    }
+    return nullptr;
+}
+
+Report^ TinkerdinControler::Controller::QueryReportByUsername(String^ reportByUsername)
+{
+    reportList = (List<Report^>^)Persistance::LoadBinaryData("reports.bin");
+    for (int i = 0; i < reportList->Count; i++)
+        if (reportList[i]->ReportedUsername->Contains(reportByUsername))
+            return reportList[i];
+    return nullptr;
+}
+
+List<Report^>^ TinkerdinControler::Controller::QueryAllReport()
+{
+    reportList = (List<Report^>^)Persistance::LoadBinaryData("reports.bin");
+    return reportList;
+}
+
+List<Report^>^ TinkerdinControler::Controller::QueryAllReportByReportingUser(String^ user)
+{
+    reportList = (List<Report^>^)Persistance::LoadBinaryData("reports.bin");
+    List<Report^>^ newReportList = gcnew List<Report^>();
+    for (int i = 0; i < reportList->Count; i++) {
+        if (reportList[i]->reporter->Contains(user))
+            newReportList->Add(reportList[i]);
+    }
+    return newReportList;
+}
+
+List<Report^>^ TinkerdinControler::Controller::QueryAllReportByReportedUser(String^ username)
+{
+    reportList = (List<Report^>^)Persistance::LoadBinaryData("reports.bin");
+    List<Report^>^ newReportList = gcnew List<Report^>();
+    for (int i = 0; i < reportList->Count; i++) {
+        if (reportList[i]->badUser->Contains(username))
+            newReportList->Add(reportList[i]);
+    }
+    return newReportList;
+}
+
+int TinkerdinControler::Controller::UpdateReport(Report^ report)
+{
+    for (int i = 0; i < reportList->Count; i++)
+        if (reportList[i]->Id == report->Id) {
+            reportList[i] = report;
+            Persistance::PersistBinary("reports.bin", reportList);
+            return report->Id;
+        }
+    return 0;
+}
+
+int TinkerdinControler::Controller::DeleteReport(int eventId)
+{
+    for (int i = 0; i < reportList->Count; i++)
+        if (reportList[i]->Id == eventId) {
+            reportList->RemoveAt(i);
+            Persistance::PersistBinary("reports.bin", reportList);
+            return eventId;
+        }
+    return 0;
+}
+
+//FIN REPORT

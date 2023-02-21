@@ -180,7 +180,7 @@ namespace TinkerdinView {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Name = L"ReportForm";
-			this->Text = L"ReportForm";
+			this->Text = L"Reporte de lugar";
 			this->Load += gcnew System::EventHandler(this, &ReportForm::ReportForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
