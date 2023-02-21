@@ -9,6 +9,11 @@ namespace TinkerdinView {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+	using namespace System::Collections::Generic;
+	using namespace TinkerdinControler;
+	using namespace TinkerdinModel;
+	using namespace Threading;
+
 	/// <summary>
 	/// Resumen de FindCourseForm
 	/// </summary>
@@ -275,7 +280,8 @@ private: System::Void dgvCourse_CellClick(System::Object^ sender, System::Window
 	int selectedRowIndex = dgvCourse->SelectedCells[0]->RowIndex;
 	if (e->RowIndex < 0)return;//Para que no retorne error ULTIMATE No sirve xd
 	String^ courseId = dgvCourse->Rows[selectedRowIndex]->Cells[0]->Value->ToString();
-	Course^ p = Controller::QueryCourseById(courseId);
+	Course^ p;
+	p= Controller::QueryCourseById(courseId);
 	//txtPlaceId->Text = "" + p->getId();
 	textFindCourseId->Text = "" + p->Id;//para convertirlo a string
 	txtFindCourseName->Text = "" + p->Name;

@@ -18,6 +18,9 @@ namespace TinkerdinView {
 	public ref class EventForm : public System::Windows::Forms::Form
 	{
 	public:
+		static Cliente^ client;
+		static Cliente^ member;
+		property char UseType;
 		EventForm(void)
 		{
 			InitializeComponent();
@@ -381,6 +384,7 @@ namespace TinkerdinView {
 			this->button1->TabIndex = 26;
 			this->button1->Text = L"Agregar amigos";
 			this->button1->UseVisualStyleBackColor = true;
+			//this->button1->Click += gcnew System::EventHandler(this, &EventForm::button1_Click);
 			// 
 			// dataGridView1
 			// 
@@ -550,6 +554,28 @@ namespace TinkerdinView {
 private: System::Void dateTimePicker1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
+public: Void SetClient(Cliente^ c) {
+	this->client = c;
+	//txtUsername->Text = c->Username;
+	//lblCustomerData->Text = this->customer->DocNumber + " - " + cust->Name + " " + ((Natural^)cust)->LastName;
+}
+public: Void SetMember(Cliente^ m) {
+	this->member = m;
+}
+
+private: System::Void AddFriend_Click(System::Object^ sender, System::EventArgs^ e) {
+	//en proceso
+	/*FriendsForm^ friendForm = gcnew FriendsForm();
+	((FriendsForm^)friendForm)->SetClient(client);
+	friendForm->UseType = 'E';
+	friendForm->Show();*/
+
+	/*
+	FindFriendsForm^ Sclientf = gcnew FindFriendsForm();
+	Sclientf->UseType = 'R';
+	Sclientf->RefReportForm = this;
+	Sclientf->ShowDialog();*/
 }
 };
 }

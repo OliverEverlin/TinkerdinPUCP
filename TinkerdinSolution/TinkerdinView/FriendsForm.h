@@ -173,17 +173,6 @@ namespace TinkerdinView {
 	}
 	public: Void SetClient(Cliente^ c) {
 		this->client = c;
-		/*List <String^>^ buddyList = gcnew List <String^>();
-		Cliente^ buddy =gcnew Cliente();
-		for (int i = 0; i < buddyList->Count; i++){
-			buddy = Controller::QueryClientByUsername(buddyList[i]);
-			dgvFriends->Rows->Add(gcnew array<String^>{
-				buddy->Username,
-					"" + buddy->Age,
-					"" + buddy->Cicle
-			});
-
-		}*/
 	}
 	private: System::Void dgvFriends_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		if (dgvFriends->CurrentCell != nullptr &&
@@ -212,8 +201,8 @@ namespace TinkerdinView {
 	}
 private: System::Void AddtoEvent_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (UseType == 'E') {
-		//((EventForm^)RefReportForm)->SetClient(c);
-		//this->Close();
+
+		this->Close();
 	}
 }
 };
