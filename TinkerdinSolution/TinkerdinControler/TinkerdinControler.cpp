@@ -197,6 +197,17 @@ List<Course^>^ TinkerdinControler::Controller::QueryCourseByName(String^ value)
     return newCourseList;
 }
 
+
+Course^ TinkerdinControler::Controller::QueryCourseByName2(String^ username) {
+    courseList = (List<Course^>^)Persistance::LoadBinaryData("course.bin");
+    //Client^ myClient= gcnew 
+    for (int i = 0; i < courseList->Count; i++)
+        if (courseList[i]->Name->Contains(username))
+            return courseList[i];
+    return nullptr;
+}
+
+
 List<String^>^ TinkerdinControler::Controller::QueryAllTypeCourse()
 {
     /*courseTypeList = (List<String^>^)Persistance::LoadBinaryData("typecourse.xml");

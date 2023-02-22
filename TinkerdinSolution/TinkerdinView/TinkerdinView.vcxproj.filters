@@ -12,6 +12,7 @@
     <ClCompile Include="CourseSearchForm.cpp" />
     <ClCompile Include="CRUDClientsForm.cpp" />
     <ClCompile Include="CRUDCourseForm.cpp" />
+    <ClCompile Include="VerCourseForm.cpp" />
     <ClCompile Include="EditClientForm.cpp" />
     <ClCompile Include="EventForm.cpp" />
     <ClCompile Include="FindCourseForm.cpp" />
@@ -61,6 +62,10 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ScheduleForm.h" />
     <ClInclude Include="SearchClientForm.h" />
+    <ClInclude Include="FriendsForm.h" />
+    <ClInclude Include="FindCourseForm.h" />
+    <ClInclude Include="CRUDCourseForm.h" />
+    <ClInclude Include="VerCourseForm.h" />
     <ClInclude Include="TotalClientsForm.h" />
     <ClInclude Include="CourseClientForm.h" />
   </ItemGroup>

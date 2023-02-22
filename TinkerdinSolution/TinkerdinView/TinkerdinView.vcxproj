@@ -211,6 +211,9 @@
     <ClInclude Include="TotalClientsForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="VerCourseForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdminMainForm.cpp" />
@@ -250,6 +253,7 @@
     <ClCompile Include="SearchClientForm.cpp" />
     <ClCompile Include="TinkerdinView.cpp" />
     <ClCompile Include="TotalClientsForm.cpp" />
+    <ClCompile Include="VerCourseForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
@@ -354,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TotalClientsForm.resx">
       <DependentUpon>TotalClientsForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerCourseForm.resx">
+      <DependentUpon>VerCourseForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

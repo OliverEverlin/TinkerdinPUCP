@@ -1,5 +1,6 @@
 #pragma once
-
+#include "ClientForm.h"
+#include "Resource.h"
 namespace TinkerdinView {
 
 	using namespace System;
@@ -12,6 +13,8 @@ namespace TinkerdinView {
 	using namespace System::Collections::Generic;
 	using namespace TinkerdinControler;
 	using namespace TinkerdinModel;
+	using namespace TinkerdinView;
+
 	using namespace Threading;
 
 	/// <summary>
@@ -19,11 +22,10 @@ namespace TinkerdinView {
 	/// </summary>
 	public ref class FindCourseForm : public System::Windows::Forms::Form
 	{
-	public:
-		Form^ refFindCourseForm;//variable de instancia
+		
 	public:
 		//property Form^ refForm;
-		FindCourseForm(Form^ form)
+		FindCourseForm(void)
 		{
 			InitializeComponent();
 			//
@@ -226,7 +228,7 @@ namespace TinkerdinView {
 			this->dgvCourse->Name = L"dgvCourse";
 			this->dgvCourse->Size = System::Drawing::Size(490, 325);
 			this->dgvCourse->TabIndex = 93;
-			this->dgvCourse->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &FindCourseForm::dgvCourse_CellClick);
+			this->dgvCourse->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &FindCourseForm::dgvCourse_CellClick);
 			// 
 			// Username
 			// 
@@ -253,6 +255,7 @@ namespace TinkerdinView {
 			this->button1->TabIndex = 94;
 			this->button1->Text = L"Agregar a mi lista";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &FindCourseForm::button1_Click_2);
 			// 
 			// FindCourseForm
 			// 
@@ -274,7 +277,7 @@ namespace TinkerdinView {
 			this->Controls->Add(this->txtFindCourseName);
 			this->Controls->Add(this->label6);
 			this->Name = L"FindCourseForm";
-			this->Text = L"FindCourseForm";
+			this->Text = L"Agregar cursos";
 			this->Load += gcnew System::EventHandler(this, &FindCourseForm::FindCourseForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCourse))->EndInit();
 			this->ResumeLayout(false);
@@ -284,34 +287,40 @@ namespace TinkerdinView {
 #pragma endregion
 public: Void RefreshCoursesDGV();
 
-	  Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+	  //Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 
 	private: System::Void FindCourseForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		RefreshCoursesDGV();
+
 	}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 }
-private: System::Void dgvCourse_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+private: System::Void dgvCourse_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
+	 
+	   
+private: System::Void button1_Click_2(System::Object^ sender, System::EventArgs^ e) {
 	int selectedRowIndex = dgvCourse->SelectedCells[0]->RowIndex;
-	if (e->RowIndex < 0)return;//Para que no retorne error ULTIMATE No sirve xd
-	String^ courseId = dgvCourse->Rows[selectedRowIndex]->Cells[0]->Value->ToString();
-	Course^ p;
-	p= Controller::QueryCourseById(courseId);
-	//txtPlaceId->Text = "" + p->getId();
-	textFindCourseId->Text = "" + p->Id;//para convertirlo a string
-	txtFindCourseName->Text = "" + p->Name;
-	txtFindCourseProfe->Text = "" + p->Professor;
-	txtFindCourseType->Text = "" + p->Type;
-	textFindCourseExParc->Text = "" + p->Parcial;
-	txtFindCourseExFin->Text = "" + p->Final;
-	
+	String^ usern = dgvCourse->Rows[selectedRowIndex]->Cells[0]->Value->ToString();
+	List<String^>^ flist = gcnew List<String^>();
+	if (me->CourseList == nullptr) {
+		//si no tiene la definicion de list se la creo 
+		me->CourseList = gcnew List<String^>();
+		Controller::UpdateClient(me);//Deberia ser updateCourse?, Aunque la lista está en client
+		RefreshCoursesDGV();
+	}
+	//si no tenia ese amigo registrado se lo añado
+	flist = me->CourseList;
+	if (!(flist->Contains(usern))) {
+		int elements = flist->Count;
+		flist->Add(usern);
+		me->CourseList = flist;
+		Controller::UpdateClient(me);
+		RefreshCoursesDGV();
+	}
+	else MessageBox::Show(" " + usern + "ya es tu amigo");
 
-
-}
-
-private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

@@ -127,6 +127,7 @@ namespace TinkerdinView {
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"Eliminar amigo";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &FriendsForm::button1_Click);
 			// 
 			// pbPhoto
 			// 
@@ -145,7 +146,7 @@ namespace TinkerdinView {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->AddtoEvent);
 			this->Controls->Add(this->dgvFriends);
-			//this->Name = L"FriendsForm";
+			//this->Name =  L"FriendsForm";
 			this->Text = L"Lista de amigos ";
 			this->Load += gcnew System::EventHandler(this, &FriendsForm::FriendsForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvFriends))->EndInit();
@@ -204,6 +205,8 @@ private: System::Void AddtoEvent_Click(System::Object^ sender, System::EventArgs
 
 		this->Close();
 	}
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

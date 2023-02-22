@@ -13,6 +13,7 @@
 #include "FriendsForm.h"
 #include "CRUDCourseForm.h"
 
+#include "FindCourseForm.h"
 namespace TinkerdinView {
 
 	using namespace System;
@@ -662,9 +663,9 @@ private: System::Void agregarCursoToolStripMenuItem_Click(System::Object^ sender
 	//Agregar curso
 	//FindCourseForm^ fcoursef = gcnew FindCourseForm();
 	//fcoursef->Show();
-	//FindFriendsForm^ findFriendsform = gcnew FindFriendsForm();
-	//((FindFriendsForm^)findFriendsform)->SetUser(client);
-	//findFriendsform->Show();
+	FindCourseForm^ findCourseform = gcnew FindCourseForm();
+	//((FindCourseForm^)findCourseform)->SetUser(client);
+	findCourseform->Show();
 
 }
 private: System::Void pruebaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
