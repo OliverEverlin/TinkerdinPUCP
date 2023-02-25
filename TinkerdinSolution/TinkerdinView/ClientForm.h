@@ -1,5 +1,6 @@
 #pragma once
 
+
 namespace TinkerdinView {
 
 	using namespace System;
@@ -17,6 +18,8 @@ namespace TinkerdinView {
 	/// </summary>
 	public ref class ClientForm : public System::Windows::Forms::Form
 	{
+	public:
+		Form^ refForm;//variable de instancia
 	public:
 		ClientForm(void)
 		{
@@ -502,7 +505,7 @@ private: System::Void btnReturn_Click(System::Object^ sender, System::EventArgs^
 }
 
 
-	public:Void AddToList(Course^  course) {
+public:Void AddToList(Course^  course) {
 		//Programar, quiero que solo el nombre se agregue a la lista
 		//List <String^>^ CourseList;
 		String^ curso;

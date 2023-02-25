@@ -62,6 +62,7 @@ namespace TinkerdinControler {
 		static Course^ QueryCourseById(String^ courseId);
 		static List<Course^>^ QueryCourseByName(String^ value);
 		static List<String^>^ QueryAllTypeCourse();
+		static Course^ QueryCourseByName2(String^ value);
 		//static Customer^ QueryCustomerById(int customerId);
 
 		//Métodos CRUD de Hours

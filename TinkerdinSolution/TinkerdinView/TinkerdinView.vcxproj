@@ -143,6 +143,9 @@
     <ClInclude Include="CourseChangeForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CourseClientForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="CourseForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -208,6 +211,9 @@
     <ClInclude Include="TotalClientsForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="VerCourseForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdminMainForm.cpp" />
@@ -217,6 +223,7 @@
     <ClCompile Include="CheckClientForm.cpp" />
     <ClCompile Include="ClientForm.cpp" />
     <ClCompile Include="CourseChangeForm.cpp" />
+    <ClCompile Include="CourseClientForm.cpp" />
     <ClCompile Include="CourseForm.cpp" />
     <ClCompile Include="CourseSearchForm.cpp" />
     <ClCompile Include="CRUDClientsForm.cpp" />
@@ -246,6 +253,7 @@
     <ClCompile Include="SearchClientForm.cpp" />
     <ClCompile Include="TinkerdinView.cpp" />
     <ClCompile Include="TotalClientsForm.cpp" />
+    <ClCompile Include="VerCourseForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
@@ -281,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CourseChangeForm.resx">
       <DependentUpon>CourseChangeForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseClientForm.resx">
+      <DependentUpon>CourseClientForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CourseForm.resx">
       <DependentUpon>CourseForm.h</DependentUpon>
@@ -347,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TotalClientsForm.resx">
       <DependentUpon>TotalClientsForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerCourseForm.resx">
+      <DependentUpon>VerCourseForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
