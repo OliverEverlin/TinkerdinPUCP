@@ -300,13 +300,18 @@ namespace TinkerdinView {
 		event->Date = dtpEventDate->Value.ToString("yyyy-MM-dd");
 		
 		//Aqui trabajamos con la lista de invitados
-		List<String^>^ guestList;
+		List<String^>^ guestList = gcnew List<String^>();
 		for (int i = 0; i < dvgMembers->Rows->Count; i++){
 			guestList->Add(dvgMembers->Rows[i]->Cells[0]->Value->ToString());
 		}
 		guestList->Add(client->Username);
+		client->EventList->Add(event->Id);
 		event->guest;
 		Controller::AddEvent(event);
+		Controller::UpdateClient(client);
+		//recorro la lista de miembros y a cada uno le modifico su lista de eventos
+
+
 		CleanControls();
 		ShowEvents();
 		Close();

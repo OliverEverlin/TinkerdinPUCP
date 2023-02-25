@@ -17,10 +17,10 @@ namespace TinkerdinView {
 	/// <summary>
 	/// Resumen de MyEventsForm
 	/// </summary>
-	public ref class MyEventsForm : public System::Windows::Forms::Form
-	{
-	
-
+	public ref class MyEventsForm : public System::Windows::Forms::Form{
+		static Cliente^ client;
+		//static Cliente^ member;
+		property char UseType;
 	public:
 		MyEventsForm(void)
 		{
@@ -70,9 +70,14 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ eventId;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ eventName;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ eventRelevance;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ eventPrivacy;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ eventDate;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ eventHour;
+
+
+
+
+
+
 
 	private:
 		/// <summary>
@@ -88,17 +93,16 @@ namespace TinkerdinView {
 		void InitializeComponent(void)
 		{
 			this->dgvEvents = (gcnew System::Windows::Forms::DataGridView());
-			this->eventId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->eventName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->eventRelevance = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->eventPrivacy = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->eventDate = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->eventHour = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->Nombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->attendance = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->eventId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->eventName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->eventRelevance = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->eventDate = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->eventHour = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEvents))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
@@ -106,17 +110,58 @@ namespace TinkerdinView {
 			// dgvEvents
 			// 
 			this->dgvEvents->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvEvents->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
+			this->dgvEvents->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
 				this->eventId, this->eventName,
-					this->eventRelevance, this->eventPrivacy, this->eventDate, this->eventHour
+					this->eventRelevance, this->eventDate, this->eventHour
 			});
-			this->dgvEvents->Location = System::Drawing::Point(41, 209);
+			this->dgvEvents->Location = System::Drawing::Point(29, 216);
 			this->dgvEvents->Margin = System::Windows::Forms::Padding(2);
 			this->dgvEvents->Name = L"dgvEvents";
 			this->dgvEvents->RowHeadersWidth = 51;
 			this->dgvEvents->RowTemplate->Height = 24;
-			this->dgvEvents->Size = System::Drawing::Size(672, 228);
+			this->dgvEvents->Size = System::Drawing::Size(625, 228);
 			this->dgvEvents->TabIndex = 25;
+			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
+				this->Nombre,
+					this->attendance
+			});
+			this->dataGridView1->Location = System::Drawing::Point(411, 32);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->Size = System::Drawing::Size(240, 150);
+			this->dataGridView1->TabIndex = 37;
+			// 
+			// Nombre
+			// 
+			this->Nombre->HeaderText = L"Personas";
+			this->Nombre->Name = L"Nombre";
+			// 
+			// attendance
+			// 
+			this->attendance->HeaderText = L"Asistencia";
+			this->attendance->Name = L"attendance";
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(26, 48);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(170, 23);
+			this->button1->TabIndex = 38;
+			this->button1->Text = L"Camcelar asistencia";
+			this->button1->UseVisualStyleBackColor = true;
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(26, 86);
+			this->button2->Name = L"button2";
+			this->button2->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
+			this->button2->Size = System::Drawing::Size(170, 23);
+			this->button2->TabIndex = 39;
+			this->button2->Text = L"Confirmar asitencia";
+			this->button2->UseVisualStyleBackColor = true;
 			// 
 			// eventId
 			// 
@@ -139,13 +184,6 @@ namespace TinkerdinView {
 			this->eventRelevance->Name = L"eventRelevance";
 			this->eventRelevance->Width = 70;
 			// 
-			// eventPrivacy
-			// 
-			this->eventPrivacy->HeaderText = L"Privacy";
-			this->eventPrivacy->MinimumWidth = 6;
-			this->eventPrivacy->Name = L"eventPrivacy";
-			this->eventPrivacy->Width = 50;
-			// 
 			// eventDate
 			// 
 			this->eventDate->HeaderText = L"Date";
@@ -159,52 +197,11 @@ namespace TinkerdinView {
 			this->eventHour->MinimumWidth = 6;
 			this->eventHour->Name = L"eventHour";
 			// 
-			// dataGridView1
-			// 
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
-				this->Nombre,
-					this->attendance
-			});
-			this->dataGridView1->Location = System::Drawing::Point(473, 30);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(240, 150);
-			this->dataGridView1->TabIndex = 37;
-			// 
-			// Nombre
-			// 
-			this->Nombre->HeaderText = L"Personas";
-			this->Nombre->Name = L"Nombre";
-			// 
-			// attendance
-			// 
-			this->attendance->HeaderText = L"Asistencia";
-			this->attendance->Name = L"attendance";
-			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(276, 30);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(170, 23);
-			this->button1->TabIndex = 38;
-			this->button1->Text = L"Camcelar asistencia";
-			this->button1->UseVisualStyleBackColor = true;
-			// 
-			// button2
-			// 
-			this->button2->Location = System::Drawing::Point(276, 59);
-			this->button2->Name = L"button2";
-			this->button2->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
-			this->button2->Size = System::Drawing::Size(170, 23);
-			this->button2->TabIndex = 39;
-			this->button2->Text = L"Confirmar asitencia";
-			this->button2->UseVisualStyleBackColor = true;
-			// 
 			// MyEventsForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(770, 476);
+			this->ClientSize = System::Drawing::Size(665, 465);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->dataGridView1);
@@ -219,7 +216,17 @@ namespace TinkerdinView {
 
 		}
 #pragma endregion
-	private: System::Void MyEventsForm_Load(System::Object^ sender, System::EventArgs^ e);
+public: void SetClient(Cliente^c) {
+	this->client = c;
+}
+	  void RefreshMemberList() {
+
+	  }
+	  void RefreshEventsList() {
+		  
+	  }
+
+private: System::Void MyEventsForm_Load(System::Object^ sender, System::EventArgs^ e);
 
 private: System::Void btnSearchMyEvents_Click(System::Object^ sender, System::EventArgs^ e) {
 	/*customer = Controller::QueryCustomerByDocNumber(txtCustomer->Text);

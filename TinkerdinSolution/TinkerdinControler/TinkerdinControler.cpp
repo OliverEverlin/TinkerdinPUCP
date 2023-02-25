@@ -374,6 +374,34 @@ int TinkerdinControler::Controller::QueryLastEventId()
     else return eventList[eventList->Count - 1]->Id;
 }
 
+List<Event^>^ TinkerdinControler::Controller::QueryAllMyEvents(Cliente^c)
+{
+    //busco los eventos de mis amigos
+    List<int>^ flist = gcnew List<int>();
+    flist = c->EventList;
+    int number;
+    for (int i = 0; i < flist->Count; i++){
+        number = flist[i];
+        eventList->Add(QueryEventById(number));
+    }
+    Cliente^ temporalclient = gcnew Cliente();
+    for (int i = 0; i < c->FriendList->Count; i++){
+        temporalclient = QueryClientByUsername(c->FriendList[i]);
+        //Busco dentro de todos sus eventos si me tiene 
+        List<int>^ flist = gcnew List<int>();
+        flist = c->EventList;
+        int number;
+        for (int i = 0; i < flist->Count; i++) {
+            number = flist[i];
+            eventList->Add(QueryEventById(number));
+        }
+    }
+    return eventList;
+
+}
+
+
+
 //EVENT FIN//
 
 //LoginForm

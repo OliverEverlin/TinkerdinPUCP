@@ -92,6 +92,7 @@ namespace TinkerdinControler {
 		static int DeleteEvent(int eventId);
 		static List<String^>^ QueryAllRelevance();
 		static int QueryLastEventId();
+		static List<Event^>^ QueryAllMyEvents(Cliente^);
 
 		//Metodos CRUD de Report
 		static int AddReport(Report^ report);
