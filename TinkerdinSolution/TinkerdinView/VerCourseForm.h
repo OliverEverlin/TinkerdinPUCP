@@ -102,7 +102,7 @@ namespace TinkerdinView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(558, 340);
 			this->Controls->Add(this->DGVCourse);
-			this->Name = L"VerCourseForm";
+			//this->Name = L"VerCourseForm";
 			this->Text = L"VerCourseForm";
 			this->Load += gcnew System::EventHandler(this, &VerCourseForm::VerCourseForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DGVCourse))->EndInit();

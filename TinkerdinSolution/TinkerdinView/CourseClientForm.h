@@ -201,8 +201,8 @@ namespace TinkerdinView {
 			if (dgvCourse->CurrentCell != nullptr &&
 				dgvCourse->CurrentCell->Value != nullptr &&
 				dgvCourse->CurrentCell->Value->ToString() != "") {
-				FindCourseForm^ findcourseForm = gcnew FindCourseForm(this);
-				findcourseForm->ShowDialog();
+				//FindCourseForm^ findcourseForm = gcnew FindCourseForm(this);
+				//findcourseForm->ShowDialog();
 			}
 		}
 		catch (Exception^ ex) {

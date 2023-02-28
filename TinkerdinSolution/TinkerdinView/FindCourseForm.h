@@ -31,7 +31,7 @@ namespace TinkerdinView {
 			//
 			//TODO: agregar código de constructor aquí
 			//
-			refFindCourseForm = form;
+			//refFindCourseForm = form;
 		}
 		/*
 		FindCourseForm(Form^form)
@@ -304,19 +304,19 @@ private: System::Void button1_Click_2(System::Object^ sender, System::EventArgs^
 	int selectedRowIndex = dgvCourse->SelectedCells[0]->RowIndex;
 	String^ usern = dgvCourse->Rows[selectedRowIndex]->Cells[0]->Value->ToString();
 	List<String^>^ flist = gcnew List<String^>();
-	if (me->CourseList == nullptr) {
+	/*if (me->CourseList == nullptr) {
 		//si no tiene la definicion de list se la creo 
 		me->CourseList = gcnew List<String^>();
 		Controller::UpdateClient(me);//Deberia ser updateCourse?, Aunque la lista está en client
 		RefreshCoursesDGV();
-	}
+	}*/
 	//si no tenia ese amigo registrado se lo añado
-	flist = me->CourseList;
+	//flist = me->CourseList;
 	if (!(flist->Contains(usern))) {
 		int elements = flist->Count;
 		flist->Add(usern);
-		me->CourseList = flist;
-		Controller::UpdateClient(me);
+		//me->CourseList = flist;
+		//Controller::UpdateClient(me);
 		RefreshCoursesDGV();
 	}
 	else MessageBox::Show(" " + usern + "ya es tu amigo");
