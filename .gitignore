@@ -363,4 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # cosas que anotó Oliver
-TinkerdinView.vcxproj.filters
+TinkerdinView/TinkerdinView.vcxproj.filters
