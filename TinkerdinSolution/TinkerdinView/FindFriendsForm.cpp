@@ -13,13 +13,23 @@ Void TinkerdinView::FindFriendsForm::RefreshClientsDGV(){
 	List <Cliente^>^ clientList = Controller::QueryAllClients();
 	dgvClients->Rows->Clear();
 	for (int i = 0; i < clientList->Count; i++) {
-		if (clientList[i]->Username != me->Username) {
+		if (UseType == 'S') {
+			if (clientList[i]->Username != me->Username) {
+				dgvClients->Rows->Add(gcnew array<String^> {
+					clientList[i]->Username,
+						clientList[i]->Name,
+						"" + clientList[i]->Age,
+				});
+			}
+		}
+		else {
 			dgvClients->Rows->Add(gcnew array<String^> {
 				clientList[i]->Username,
 					clientList[i]->Name,
 					"" + clientList[i]->Age,
 			});
 		}
+		
 		
 	}
 	return Void();

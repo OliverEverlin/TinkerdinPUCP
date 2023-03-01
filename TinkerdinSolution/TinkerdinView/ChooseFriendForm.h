@@ -1,5 +1,6 @@
 #pragma once
-#include "Resource.h"
+//#include "Resource.h"
+//#include "RegisterEventForm.h"
 
 namespace TinkerdinView {
 
@@ -44,8 +45,9 @@ namespace TinkerdinView {
 			}
 		}
 	private: System::Windows::Forms::PictureBox^ pbPhoto;
+	private: System::Windows::Forms::Button^ DeleteFriend;
 	protected:
-	private: System::Windows::Forms::Button^ button1;
+
 	private: System::Windows::Forms::Button^ AddtoEvent;
 	private: System::Windows::Forms::DataGridView^ dgvFriends;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Name;
@@ -66,7 +68,7 @@ namespace TinkerdinView {
 		void InitializeComponent(void)
 		{
 			this->pbPhoto = (gcnew System::Windows::Forms::PictureBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->DeleteFriend = (gcnew System::Windows::Forms::Button());
 			this->AddtoEvent = (gcnew System::Windows::Forms::Button());
 			this->dgvFriends = (gcnew System::Windows::Forms::DataGridView());
 			this->Name = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -81,17 +83,18 @@ namespace TinkerdinView {
 			this->pbPhoto->Location = System::Drawing::Point(428, 39);
 			this->pbPhoto->Name = L"pbPhoto";
 			this->pbPhoto->Size = System::Drawing::Size(114, 138);
+			this->pbPhoto->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pbPhoto->TabIndex = 7;
 			this->pbPhoto->TabStop = false;
 			// 
-			// button1
+			// DeleteFriend
 			// 
-			this->button1->Location = System::Drawing::Point(428, 224);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(112, 23);
-			this->button1->TabIndex = 6;
-			this->button1->Text = L"Eliminar amigo";
-			this->button1->UseVisualStyleBackColor = true;
+			this->DeleteFriend->Location = System::Drawing::Point(428, 224);
+			this->DeleteFriend->Name = L"DeleteFriend";
+			this->DeleteFriend->Size = System::Drawing::Size(112, 23);
+			this->DeleteFriend->TabIndex = 6;
+			this->DeleteFriend->Text = L"Eliminar amigo";
+			this->DeleteFriend->UseVisualStyleBackColor = true;
 			// 
 			// AddtoEvent
 			// 
@@ -101,6 +104,7 @@ namespace TinkerdinView {
 			this->AddtoEvent->TabIndex = 5;
 			this->AddtoEvent->Text = L"Agregar a evento";
 			this->AddtoEvent->UseVisualStyleBackColor = true;
+			this->AddtoEvent->Click += gcnew System::EventHandler(this, &ChooseFriendForm::AddtoEvent_Click);
 			// 
 			// dgvFriends
 			// 
@@ -136,7 +140,7 @@ namespace TinkerdinView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(591, 298);
 			this->Controls->Add(this->pbPhoto);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->DeleteFriend);
 			this->Controls->Add(this->AddtoEvent);
 			this->Controls->Add(this->dgvFriends);
 			//this->Name = L"ChooseFriendForm";
@@ -150,6 +154,7 @@ namespace TinkerdinView {
 #pragma endregion
 	private: System::Void ChooseFriendForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		RefreshFriendList();
+		DeleteFriend->Visible = false;
 	}
 	public: 
 		void RefreshFriendList() {
@@ -175,5 +180,6 @@ namespace TinkerdinView {
 
 private: System::Void dgvFriends_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
 private: System::Void dgvFriends_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void AddtoEvent_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

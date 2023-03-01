@@ -176,7 +176,7 @@ namespace TinkerdinView {
 	public: Void SetClient(Cliente^ c) {
 		this->client = c;
 	}
-	private: System::Void dgvFriends_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+private: System::Void dgvFriends_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		if (dgvFriends->CurrentCell != nullptr &&
 			dgvFriends->CurrentCell->Value != nullptr &&
 			dgvFriends->CurrentCell->Value->ToString() != "") {

@@ -504,7 +504,7 @@ namespace TinkerdinView {
 		}
 	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (txtUsername->Text->Trim()->Equals(""))
-			MessageBox::Show("Debe seleccionar un curso.");
+			MessageBox::Show("Debe seleccionar un cliente.");
 		else
 			Controller::DeleteClient(txtUsername->Text);
 		ShowClients();

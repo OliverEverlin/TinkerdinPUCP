@@ -65,6 +65,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Usernames;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Confirmation;
 	private: System::Windows::Forms::Button^ DeleteMember;
+	private: System::Windows::Forms::TextBox^ txtEventId;
 
 	private:
 		/// <summary>
@@ -95,6 +96,7 @@ namespace TinkerdinView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->DeleteMember = (gcnew System::Windows::Forms::Button());
+			this->txtEventId = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dvgMembers))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->nudMinute))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->nudHour))->BeginInit();
@@ -243,12 +245,21 @@ namespace TinkerdinView {
 			this->DeleteMember->TabIndex = 53;
 			this->DeleteMember->Text = L"Eliminar miembro";
 			this->DeleteMember->UseVisualStyleBackColor = true;
+			this->DeleteMember->Click += gcnew System::EventHandler(this, &RegisterEventForm::DeleteMember_Click);
+			// 
+			// txtEventId
+			// 
+			this->txtEventId->Location = System::Drawing::Point(463, 270);
+			this->txtEventId->Name = L"txtEventId";
+			this->txtEventId->Size = System::Drawing::Size(45, 20);
+			this->txtEventId->TabIndex = 54;
 			// 
 			// RegisterEventForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(536, 312);
+			this->Controls->Add(this->txtEventId);
 			this->Controls->Add(this->DeleteMember);
 			this->Controls->Add(this->btnFriends);
 			this->Controls->Add(this->dvgMembers);
@@ -290,17 +301,29 @@ public:
 		this->user = principalclient;
 	}
 	Void AddMembersToList(String^ p) {
-		
-		dvgMembers->Rows->Add(gcnew array<String^> {
-			p,"P"
+		bool repeat= false;
+		for (int i = 0; i < dvgMembers->RowCount-1; i++){
+			if (p == dvgMembers->Rows[i]->Cells[0]->Value->ToString())
+				repeat = true;
+		}
+		if (!repeat)
+			dvgMembers->Rows->Add(gcnew array<String^> {
+			p, "P"
 		});
+		else
+			MessageBox::Show("El amigo seleccionado ya ha sido agregado");
 		//"p" de por confirmar
 		
 		//refresco la lista de cosas
-		RefreshMembers();
+		//RefreshMembers();
 	}
-	Void RefreshMembers() {
+	Void FillCmbRelevance() {
+		cmbRelevance->Items->Clear();
+		List<String^>^ relevList = Controller::QueryAllRelevance();
 
+		for (int i = 0; i < relevList->Count; i++) {
+			cmbRelevance->Items->Add(relevList[i]);
+		}
 	}
 	//public: Void refreshdgvMembers(){
 //
@@ -313,16 +336,86 @@ private: System::Void addFriends_Click(System::Object^ sender, System::EventArgs
 	ChooseFriend->Show();
 }
 private: System::Void RegisterEventForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	Event^ newEvent = gcnew Event();
+	//Event^ newEvent = gcnew Event();
+	FillCmbRelevance();
 
 }
 private: System::Void btnAddEvent_Click(System::Object^ sender, System::EventArgs^ e) {
+
 	Event^ nEvent = gcnew Event();
-	nEvent->Name = txtEventName->Text;
-	nEvent->Hour = Convert::ToInt32(nudHour->Value);
-	nEvent->minutes = Convert::ToInt32(nudMinute->Value);
-	nEvent->Date = Convert::ToString(dtpEventDate->Value);
-	nEvent->Relevance = cmbRelevance->Container->ToString();
+	Cliente^ adviceMember = gcnew Cliente();
+	List<Asistance^>^ memb = gcnew List<Asistance^>();
+	Asistance^ imember = gcnew Asistance();
+	try {
+		if (txtEventName->Text == "") {
+			MessageBox::Show("Es necesario definir un nombre al evento");
+		}
+		nEvent->Name = txtEventName->Text;
+		nEvent->Hour = Convert::ToInt32(nudHour->Value);
+		nEvent->minutes = Convert::ToInt32(nudMinute->Value);
+		nEvent->Date = Convert::ToString(dtpEventDate->Value);
+		nEvent->Relevance = cmbRelevance->SelectedItem->ToString();
+		//provisional
+		nEvent->Id = Convert::ToInt32(txtEventId->Text);
+
+		for (int i = 0; i < dvgMembers->RowCount - 1; i++) {
+			imember->Username = dvgMembers->Rows[i]->Cells[0]->Value->ToString();
+			imember->confirmation = 'S';
+			imember->EventId = Convert::ToInt32(txtEventId->Text);
+			memb->Add(imember);
+			//le agrego el id del evento a todos los miembros para que lo puedan ver
+			adviceMember = Controller::QueryClientByUsername(imember->Username);
+			
+
+			if (adviceMember->EventList == nullptr) {
+				//si no tiene la definicion de list se la creo 
+				adviceMember->EventList = gcnew List<int>();
+				Controller::UpdateClient(adviceMember);
+			}
+			adviceMember->EventList->Add(nEvent->Id);
+			Controller::UpdateClient(adviceMember);
+			/*
+			S:Sin confirmar
+			X:Cancelado
+			C:Confirmado
+			*/
+		}
+		if (memb->Count != 0) {
+			nEvent->Members = memb;
+		}
+		adviceMember = Controller::QueryClientByUsername(user->Username);
+		if (adviceMember->EventList == nullptr) {
+			//si no tiene la definicion de list se la creo 
+			adviceMember->EventList = gcnew List<int>();
+			Controller::UpdateClient(adviceMember);
+		}
+		adviceMember->EventList->Add(nEvent->Id);
+		Controller::UpdateClient(adviceMember);
+		Controller::AddEvent(nEvent);
+
+
+		//tengo que guardar dentro de cada usuario una lista de ids de los eventos
+		MessageBox::Show("Evento guardado de manera exitosa");
+	}
+	catch (Exception^ ex) {
+		MessageBox::Show(ex->ToString(), "Envíe el error al área de TI.");
+		return;
+	}
+
+	
+
+}
+private: System::Void DeleteMember_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (dvgMembers->CurrentCell != nullptr &&
+		dvgMembers->CurrentCell->Value != nullptr &&
+		dvgMembers->CurrentCell->Value->ToString() != "") {
+
+		int selectedrowindex = dvgMembers->SelectedCells[0]->RowIndex;
+		dvgMembers->Rows->RemoveAt(selectedrowindex);
+		
+	}
+	else
+		MessageBox::Show("Debe seleccionar un amigo.");
 }
 };
 }

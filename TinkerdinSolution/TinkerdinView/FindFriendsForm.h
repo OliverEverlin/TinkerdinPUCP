@@ -342,7 +342,7 @@ namespace TinkerdinView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1015, 473);
+			this->ClientSize = System::Drawing::Size(1015, 423);
 			this->Controls->Add(this->txtGender);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->btnChose);
@@ -400,6 +400,7 @@ private: System::Void FindFriendsForm_Load(System::Object^ sender, System::Event
 public: Void RefreshClientsDGV();
 public: void SetUser(Cliente^ c) {
 	this->me = c;
+	//coment
 }
 private: System::Void dgvClients_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 

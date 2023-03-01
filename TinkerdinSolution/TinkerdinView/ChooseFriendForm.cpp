@@ -42,6 +42,23 @@ System::Void TinkerdinView::ChooseFriendForm::dgvFriends_CellClick(System::Objec
 
 System::Void TinkerdinView::ChooseFriendForm::dgvFriends_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	if (dgvFriends->CurrentCell != nullptr &&
+		dgvFriends->CurrentCell->Value != nullptr &&
+		dgvFriends->CurrentCell->Value->ToString() != "") {
+
+		int selectedrowindex = dgvFriends->SelectedCells[0]->RowIndex;
+		DataGridViewRow^ selectedRow = dgvFriends->Rows[selectedrowindex];
+		String^ a = selectedRow->Cells[0]->Value->ToString();
+		Cliente^ c = Controller::QueryClientByUsername(a);
+		if (c->Photo != nullptr) {
+			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(c->Photo);
+			pbPhoto->Image = Image::FromStream(ms);
+		}
+		else {
+			pbPhoto->Image = nullptr;
+			pbPhoto->Invalidate();
+		}
+	}
 	//return System::Void();
 	//if (e->RowIndex < 0) return;
 	//if (e->RowIndex >= 0) {
@@ -51,4 +68,22 @@ System::Void TinkerdinView::ChooseFriendForm::dgvFriends_Click(System::Object^ s
 	//		((RegisterEventForm^)refForm)->AddMembersToList(p);
 	//}
 	//this->Close();
+	
+}
+
+System::Void TinkerdinView::ChooseFriendForm::AddtoEvent_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	if (dgvFriends->CurrentCell != nullptr &&
+		dgvFriends->CurrentCell->Value != nullptr &&
+		dgvFriends->CurrentCell->Value->ToString() != "") {
+
+		int selectedrowindex = dgvFriends->SelectedCells[0]->RowIndex;
+		DataGridViewRow^ selectedRow = dgvFriends->Rows[selectedrowindex];
+		String^ a = selectedRow->Cells[0]->Value->ToString();
+		//aqui le seteo a mi form referenciado
+		((RegisterEventForm^)refForm)->AddMembersToList(a);
+		this->Close();
+	}
+	else
+		MessageBox::Show("Debe seleccionar un amigo.");
 }

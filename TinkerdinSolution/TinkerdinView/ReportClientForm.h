@@ -188,8 +188,9 @@ private: System::Void ReportClientForm_Load(System::Object^ sender, System::Even
 }
 private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
 	FindFriendsForm^ Sclientf = gcnew FindFriendsForm();
-	Sclientf->UseType = 'R';
 	Sclientf->RefReportForm = this;
+	Sclientf->UseType = 'R';
+	Sclientf->me= this-> client;
 	Sclientf->ShowDialog();
 }
 private: System::Void btnSend_Click(System::Object^ sender, System::EventArgs^ e) {
