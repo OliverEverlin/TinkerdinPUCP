@@ -1,4 +1,6 @@
 #pragma once
+#include "FriendsForm.h"
+//#include "Resource.h"
 
 namespace TinkerdinView {
 
@@ -8,9 +10,11 @@ namespace TinkerdinView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+
 	using namespace TinkerdinModel;
 	using namespace TinkerdinControler;
 	using namespace System::Collections::Generic;
+	using namespace Threading;
 
 	/// <summary>
 	/// Resumen de EventForm
@@ -20,8 +24,10 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Usernames;
 	public:
 
-		static Cliente^ client;
-		static Cliente^ member;
+		static Cliente^ client;//is the client who make the event
+	private: System::Windows::Forms::Button^ btnFriends;
+	public:
+		//static Cliente^ member;//is the mmber , who receive of the friend list
 		property char UseType;
 		EventForm(void)
 		{
@@ -135,6 +141,7 @@ namespace TinkerdinView {
 			this->addFriends = (gcnew System::Windows::Forms::Button());
 			this->dvgMembers = (gcnew System::Windows::Forms::DataGridView());
 			this->Usernames = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->btnFriends = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->nudHour))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->nudMinute))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dvgMembers))->BeginInit();
@@ -240,7 +247,7 @@ namespace TinkerdinView {
 			this->addFriends->TabIndex = 26;
 			this->addFriends->Text = L"Agregar amigos";
 			this->addFriends->UseVisualStyleBackColor = true;
-			this->addFriends->Click += gcnew System::EventHandler(this, &EventForm::button1_Click);
+			this->addFriends->Click += gcnew System::EventHandler(this, &EventForm::addFriends_Click);
 			// 
 			// dvgMembers
 			// 
@@ -258,11 +265,22 @@ namespace TinkerdinView {
 			this->Usernames->Name = L"Usernames";
 			this->Usernames->Width = 150;
 			// 
+			// btnFriends
+			// 
+			this->btnFriends->Location = System::Drawing::Point(222, 128);
+			this->btnFriends->Name = L"btnFriends";
+			this->btnFriends->Size = System::Drawing::Size(75, 23);
+			this->btnFriends->TabIndex = 39;
+			this->btnFriends->Text = L"button1";
+			this->btnFriends->UseVisualStyleBackColor = true;
+			this->btnFriends->Click += gcnew System::EventHandler(this, &EventForm::btnFriends_Click);
+			// 
 			// EventForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(550, 265);
+			this->ClientSize = System::Drawing::Size(611, 339);
+			this->Controls->Add(this->btnFriends);
 			this->Controls->Add(this->dvgMembers);
 			this->Controls->Add(this->addFriends);
 			this->Controls->Add(this->nudMinute);
@@ -306,7 +324,7 @@ namespace TinkerdinView {
 		}
 		guestList->Add(client->Username);
 		client->EventList->Add(event->Id);
-		event->guest;
+		//event->guest;
 		Controller::AddEvent(event);
 		Controller::UpdateClient(client);
 		//recorro la lista de miembros y a cada uno le modifico su lista de eventos
@@ -402,7 +420,7 @@ public: Void SetClient(Cliente^ c) {
 	//lblCustomerData->Text = this->customer->DocNumber + " - " + cust->Name + " " + ((Natural^)cust)->LastName;
 }
 public: Void SetMember(Cliente^ m) {
-	this->member = m;
+	//this->member = m;
 }
 
 private: System::Void AddFriend_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -422,7 +440,47 @@ private: System::Void AddFriend_Click(System::Object^ sender, System::EventArgs^
 private: System::Void dvgMembers_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 
 }
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+//private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+//	FriendsForm^ friendForm = gcnew FriendsForm();
+//	//((FriendsForm^)friendForm)->SetMaker(client);
+//	friendForm->Show();
+//}
+private: System::Void addFriends_Click(System::Object^ sender, System::EventArgs^ e) {
+	//FriendsForm^ friendForm = gcnew FriendsForm();
+	//((FriendsForm^)friendForm)->SetMaker(client);
+	//friendForm->Show();
+	/*FriendsForm^ friendForm = gcnew FriendsForm();
+	((FriendsForm^)friendForm)->SetMaker(client);
+	friendForm->Show();*/
+}
+
+public: Void AddMembertoEvent(String^ AddMember) {
+
+	//for (int i = 0; i < dvgMembers->RowCount - 1; i++) {
+	//	int productId = Convert::ToInt32(dvgMembers->Rows[i]->Cells[0]->Value->ToString());
+	//	if (p->Id == productId) {
+	//		int quantity = Convert::ToInt32(dvgMembers->Rows[i]->Cells[3]->Value->ToString());
+	//		quantity++;
+	//		dvgMembers->Rows[i]->Cells[3]->Value = quantity;
+	//		dvgMembers->Rows[i]->Cells[4]->Value = quantity *
+	//			Double::Parse(dvgMembers->Rows[i]->Cells[2]->Value->ToString());
+	//		//RefreshTotalAmounts();
+	//		return;
+	//	}
+	//}
+	//dvgMembers->Rows->Add(gcnew array<String^> {
+	//	Convert::ToString(p->getId()),
+	//		p->Name,
+	//		Convert::ToString(p->PriceMin),
+	//		"1",
+	//		Convert::ToString(p->PriceMin)
+	//});
+	////RefreshTotalAmounts();
+}
+private: System::Void btnFriends_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*FriendsForm^ friendForm = gcnew FriendsForm();
+	((FriendsForm^)friendForm)->SetMaker(client);
+	friendForm->Show();*/
 }
 };
 }

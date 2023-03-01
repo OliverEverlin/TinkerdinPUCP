@@ -411,6 +411,48 @@ List<Event^>^ TinkerdinControler::Controller::QueryAllMyEvents(Cliente^c)
 
 }
 
+int TinkerdinControler::Controller::AddAsistance(Asistance^ as){
+    asistanceList->Add(as);
+    Persistance::PersistBinary("asistance.bin", asistanceList);
+    //return a->EventId;
+    return 1;
+}
+
+int TinkerdinControler::Controller::UpdateAsistance(Asistance^ as)
+{   
+    for (int i = 0; i < asistanceList->Count; i++) {
+        if (as->EventId == asistanceList[i]->EventId 
+            && as->Username ==asistanceList[i]->Username) {
+
+            asistanceList[i] = as;
+            Persistance::PersistBinary("asistance.bin", asistanceList);
+            return 1;
+        }
+    }
+    return 0;
+}
+
+List<Asistance^>^ TinkerdinControler::Controller::QueryAsistancebyEventId(int eventId)
+{
+    asistanceList = (List<Asistance^>^)Persistance::LoadBinaryData("asistance.bin");
+    List<Asistance^>^ eventAsistanceList= gcnew List<Asistance^>();
+    for (int i = 0; i < asistanceList->Count; i++)
+        if (asistanceList[i]->EventId == eventId)
+            eventAsistanceList->Add(asistanceList[i]);
+    return eventAsistanceList;
+}
+
+int TinkerdinControler::Controller::DeleteAsistance(int eventId)
+{
+    for (int i = 0; i < asistanceList->Count; i++)
+        if (eventId == asistanceList[i]->EventId) {
+            asistanceList->RemoveAt(i);
+            Persistance::PersistBinary("asistance.bin", asistanceList);
+            return 1;
+        }
+    return 0;
+}
+
 
 
 //EVENT FIN//

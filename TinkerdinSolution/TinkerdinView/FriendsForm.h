@@ -1,5 +1,6 @@
 #pragma once
 #include "Resource.h"
+#include "EventForm.h"
 
 namespace TinkerdinView {
 
@@ -201,10 +202,21 @@ namespace TinkerdinView {
 		}
 	}
 private: System::Void AddtoEvent_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (UseType == 'E') {
+	/*if (UseType == 'E') {
 
 		this->Close();
+	}*/
+
+
+	/*if (e->RowIndex < 0) return;
+	if (e->RowIndex >= 0) {
+		String^ productId = dgvProducts->Rows[e->RowIndex]->Cells[0]->Value->ToString();
+		Product^ p = Controller::QueryProductById(Int32::Parse(productId));
+		if (refForm->GetType() == SaleForm::typeid)
+			((SaleForm^)refForm)->AddProductToSaleDetails(p);
 	}
+	this->Close();*/
+
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 }

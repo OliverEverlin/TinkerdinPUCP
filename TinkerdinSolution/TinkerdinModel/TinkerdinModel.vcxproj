@@ -122,6 +122,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
+    <ClInclude Include="Asistance.h" />
     <ClInclude Include="Calendar.h" />
     <ClInclude Include="Cliente.h" />
     <ClInclude Include="Course.h" />
@@ -139,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Admin.cpp" />
+    <ClCompile Include="Asistance.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Calendar.cpp" />
     <ClCompile Include="Cliente.cpp" />

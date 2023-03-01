@@ -20,6 +20,8 @@ namespace TinkerdinControler {
 		static List<Hours^>^ hoursList = gcnew List<Hours^>();
 		static List<Report^>^ reportList = gcnew List<Report^>();
 
+		static List<Asistance^>^ asistanceList = gcnew List<Asistance^>();
+
 		//lista de opciones predeterminadas
 		static array<String^>^ InterestArr = {"musica", "deporte", "jobi","academico"};
 		static array<String^>^ genderArr = { "masculino", "femenino", "otros" };
@@ -94,6 +96,12 @@ namespace TinkerdinControler {
 		static List<String^>^ QueryAllRelevance();
 		static int QueryLastEventId();
 		static List<Event^>^ QueryAllMyEvents(Cliente^);
+
+		//Metodos CRUD de Asistance
+		static int AddAsistance(Asistance^ a);
+		static int UpdateAsistance(Asistance^ a);
+		static List<Asistance^>^ QueryAsistancebyEventId(int eventId);
+		static int DeleteAsistance(int eventId);
 
 		//Metodos CRUD de Report
 		static int AddReport(Report^ report);

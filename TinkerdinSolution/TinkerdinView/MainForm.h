@@ -15,6 +15,8 @@
 
 #include "FindCourseForm.h"
 #include "MyEventsForm.h"
+#include "RegisterEventForm.h"
+
 namespace TinkerdinView {
 
 	using namespace System;
@@ -578,9 +580,10 @@ namespace TinkerdinView {
 		loginForm->Show();
 	}
 	private: System::Void eventosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		EventForm^ eventForm = gcnew EventForm();
+		/*EventForm^ eventForm = gcnew EventForm();
 		eventForm->MdiParent = this;
-		eventForm->Show();
+		eventForm->Show();*/
+		
 	}
 	private: System::Void cRUDClientsToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		CRUDClientsForm^ crudclients = gcnew CRUDClientsForm;
@@ -601,11 +604,14 @@ private: System::Void buscarLugarToolStripMenuItem_Click(System::Object^ sender,
 
 }
 private: System::Void AddEventsTSMI_Click(System::Object^ sender, System::EventArgs^ e) {
-	EventForm^ eventForm = gcnew EventForm();
+	//EventForm^ eventForm = gcnew EventForm();
 	//eventForm->MdiParent = this;
 	//le envio el dato del primer asistente osea yo
-	eventForm->SetClient(client);
-	eventForm->Show();
+	//eventForm->SetClient(client);
+	//eventForm->Show();
+	RegisterEventForm^ registerEvent = gcnew RegisterEventForm;
+	registerEvent->SetUser(client);
+	registerEvent->Show();
 }
 private: System::Void recervarToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 }

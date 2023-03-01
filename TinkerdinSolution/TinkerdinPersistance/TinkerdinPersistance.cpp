@@ -228,6 +228,12 @@ Object^ TinkerdinPersistance::Persistance::LoadBinaryData(String^ fileName){
                 res = (List<Place^>^)formateador->Deserialize(input);
             }
         }
+        if (fileName->Equals("asistance.bin")) {
+            res = gcnew List<Asistance^>();
+            if (File::Exists(fileName)) {
+                res = (List<Place^>^)formateador->Deserialize(input);
+            }
+        }
     }
     catch (NullReferenceException^ ex) {
         //Mandar un mensaje por correo

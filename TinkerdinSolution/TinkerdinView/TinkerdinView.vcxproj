@@ -137,6 +137,9 @@
     <ClInclude Include="CheckClientForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ChooseFriendForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ClientForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -195,6 +198,9 @@
     <ClInclude Include="PLACE_Form.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="RegisterEventForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ReportClientForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -221,6 +227,7 @@
     <ClCompile Include="CalendarForm.cpp" />
     <ClCompile Include="CancelEventForm.cpp" />
     <ClCompile Include="CheckClientForm.cpp" />
+    <ClCompile Include="ChooseFriendForm.cpp" />
     <ClCompile Include="ClientForm.cpp" />
     <ClCompile Include="CourseChangeForm.cpp" />
     <ClCompile Include="CourseClientForm.cpp" />
@@ -247,6 +254,7 @@
     <ClCompile Include="PlaceForm.cpp" />
     <ClCompile Include="PlaceGraphicsForm.cpp" />
     <ClCompile Include="PLACE_Form.cpp" />
+    <ClCompile Include="RegisterEventForm.cpp" />
     <ClCompile Include="ReportClientForm.cpp" />
     <ClCompile Include="ReportForm.cpp" />
     <ClCompile Include="ScheduleForm.cpp" />
@@ -283,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CheckClientForm.resx">
       <DependentUpon>CheckClientForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseFriendForm.resx">
+      <DependentUpon>ChooseFriendForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.h</DependentUpon>
@@ -343,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PLACE_Form.resx">
       <DependentUpon>PLACE_Form.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterEventForm.resx">
+      <DependentUpon>RegisterEventForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportClientForm.resx">
       <DependentUpon>ReportClientForm.h</DependentUpon>

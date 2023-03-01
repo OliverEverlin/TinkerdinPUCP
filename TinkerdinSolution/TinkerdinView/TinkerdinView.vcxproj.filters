@@ -134,6 +134,8 @@
     <ClCompile Include="LoginForm.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="RegisterEventForm.cpp" />
+    <ClCompile Include="ChooseFriendForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CourseChangeForm.h">
@@ -235,6 +237,8 @@
     <ClInclude Include="CourseClientForm.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="RegisterEventForm.h" />
+    <ClInclude Include="ChooseFriendForm.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Archivos de encabezado">
