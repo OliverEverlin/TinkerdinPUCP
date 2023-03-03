@@ -562,7 +562,7 @@ Report^ TinkerdinControler::Controller::QueryReportByUsername(String^ reportByUs
 {
     reportList = (List<Report^>^)Persistance::LoadBinaryData("reports.bin");
     for (int i = 0; i < reportList->Count; i++)
-        if (reportList[i]->ReportedUsername->Contains(reportByUsername))
+        if (reportList[i]->badUser->Contains(reportByUsername))
             return reportList[i];
     return nullptr;
 }

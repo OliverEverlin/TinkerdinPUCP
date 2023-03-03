@@ -10,7 +10,6 @@ namespace TinkerdinModel {
 		property char state;
 
 		property int Id;
-		property String^ ReportedUsername;
 	}; 
 }
 
