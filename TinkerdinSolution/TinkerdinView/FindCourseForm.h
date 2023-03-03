@@ -81,10 +81,13 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::DataGridView^ dgvCourse;
 	private: System::Windows::Forms::Button^ btn_add_course;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ CourseId;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Username;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Nombre;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Edad;
+
+
+
+
 
 
 
@@ -124,11 +127,10 @@ namespace TinkerdinView {
 			this->textFindCourseExParc = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->dgvCourse = (gcnew System::Windows::Forms::DataGridView());
-			this->CourseId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->btn_add_course = (gcnew System::Windows::Forms::Button());
 			this->Username = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Nombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Edad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->btn_add_course = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCourse))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -246,9 +248,9 @@ namespace TinkerdinView {
 			// dgvCourse
 			// 
 			this->dgvCourse->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvCourse->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
-				this->CourseId, this->Username,
-					this->Nombre, this->Edad
+			this->dgvCourse->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+				this->Username, this->Nombre,
+					this->Edad
 			});
 			this->dgvCourse->Location = System::Drawing::Point(375, 81);
 			this->dgvCourse->Margin = System::Windows::Forms::Padding(4);
@@ -258,13 +260,16 @@ namespace TinkerdinView {
 			this->dgvCourse->TabIndex = 93;
 			this->dgvCourse->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &FindCourseForm::dgvCourse_CellClick);
 			// 
-			// CourseId
+			// btn_add_course
 			// 
-			this->CourseId->HeaderText = L"Código";
-			this->CourseId->MinimumWidth = 6;
-			this->CourseId->Name = L"CourseId";
-			this->CourseId->ReadOnly = true;
-			this->CourseId->Width = 125;
+			this->btn_add_course->Location = System::Drawing::Point(169, 433);
+			this->btn_add_course->Margin = System::Windows::Forms::Padding(4);
+			this->btn_add_course->Name = L"btn_add_course";
+			this->btn_add_course->Size = System::Drawing::Size(160, 37);
+			this->btn_add_course->TabIndex = 94;
+			this->btn_add_course->Text = L"Agregar a mi lista";
+			this->btn_add_course->UseVisualStyleBackColor = true;
+			this->btn_add_course->Click += gcnew System::EventHandler(this, &FindCourseForm::button1_Click_2);
 			// 
 			// Username
 			// 
@@ -286,17 +291,6 @@ namespace TinkerdinView {
 			this->Edad->MinimumWidth = 6;
 			this->Edad->Name = L"Edad";
 			this->Edad->Width = 125;
-			// 
-			// btn_add_course
-			// 
-			this->btn_add_course->Location = System::Drawing::Point(169, 433);
-			this->btn_add_course->Margin = System::Windows::Forms::Padding(4);
-			this->btn_add_course->Name = L"btn_add_course";
-			this->btn_add_course->Size = System::Drawing::Size(160, 37);
-			this->btn_add_course->TabIndex = 94;
-			this->btn_add_course->Text = L"Agregar a mi lista";
-			this->btn_add_course->UseVisualStyleBackColor = true;
-			this->btn_add_course->Click += gcnew System::EventHandler(this, &FindCourseForm::button1_Click_2);
 			// 
 			// FindCourseForm
 			// 
@@ -377,7 +371,7 @@ private: System::Void button1_Click_2(System::Object^ sender, System::EventArgs^
 		Controller::UpdateClient(me);
 		RefreshCoursesDGV();
 	}
-	else MessageBox::Show(" " + new_course + " ya se encuentras en tu lista de cursos. ");
+	else MessageBox::Show(" " + new_course + " ya te encuentras matriculados en el curso seleccionado. ");
 
 }
 };

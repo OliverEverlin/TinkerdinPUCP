@@ -19,6 +19,7 @@ namespace TinkerdinView {
 	public ref class VerCourseForm : public System::Windows::Forms::Form
 	{
 	public:
+		static Cliente^ me;
 		VerCourseForm(void)
 		{
 			InitializeComponent();
@@ -42,6 +43,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Name;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Carrer;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cicle;
+	private: System::Windows::Forms::Button^ btnDeleteCourse;
 	protected:
 
 	protected:
@@ -66,6 +68,7 @@ namespace TinkerdinView {
 			this->Name = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Carrer = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Cicle = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->btnDeleteCourse = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DGVCourse))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -76,33 +79,54 @@ namespace TinkerdinView {
 				this->Name, this->Carrer,
 					this->Cicle
 			});
-			this->DGVCourse->Location = System::Drawing::Point(27, 63);
+			this->DGVCourse->Location = System::Drawing::Point(98, 56);
+			this->DGVCourse->Margin = System::Windows::Forms::Padding(4);
 			this->DGVCourse->Name = L"DGVCourse";
-			this->DGVCourse->Size = System::Drawing::Size(385, 223);
+			this->DGVCourse->RowHeadersWidth = 51;
+			this->DGVCourse->Size = System::Drawing::Size(513, 274);
 			this->DGVCourse->TabIndex = 4;
 			// 
 			// Name
 			// 
 			this->Name->HeaderText = L"Nombre";
+			this->Name->MinimumWidth = 6;
 			this->Name->Name = L"Name";
+			this->Name->Width = 125;
 			// 
 			// Carrer
 			// 
 			this->Carrer->HeaderText = L"Tipo";
+			this->Carrer->MinimumWidth = 6;
 			this->Carrer->Name = L"Carrer";
+			this->Carrer->Width = 125;
 			// 
 			// Cicle
 			// 
 			this->Cicle->HeaderText = L"Profesor";
+			this->Cicle->MinimumWidth = 6;
 			this->Cicle->Name = L"Cicle";
+			this->Cicle->Width = 125;
+			// 
+			// btnDeleteCourse
+			// 
+			this->btnDeleteCourse->Location = System::Drawing::Point(215, 354);
+			this->btnDeleteCourse->Margin = System::Windows::Forms::Padding(5);
+			this->btnDeleteCourse->Name = L"btnDeleteCourse";
+			this->btnDeleteCourse->Size = System::Drawing::Size(263, 34);
+			this->btnDeleteCourse->TabIndex = 100;
+			this->btnDeleteCourse->Text = L"Eliminar";
+			this->btnDeleteCourse->UseVisualStyleBackColor = true;
+			this->btnDeleteCourse->Click += gcnew System::EventHandler(this, &VerCourseForm::btnDelete_Click);
 			// 
 			// VerCourseForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(558, 340);
+			this->ClientSize = System::Drawing::Size(744, 418);
+			this->Controls->Add(this->btnDeleteCourse);
 			this->Controls->Add(this->DGVCourse);
-			//this->Name = L"VerCourseForm";
+			this->Margin = System::Windows::Forms::Padding(4);
+			this->Name = L"VerCourseForm";
 			this->Text = L"Lista de cursos";
 			this->Load += gcnew System::EventHandler(this, &VerCourseForm::VerCourseForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DGVCourse))->EndInit();
@@ -110,26 +134,44 @@ namespace TinkerdinView {
 
 		}
 #pragma endregion
+	public: Void SetClient(Cliente^ c) {
+		this->me = c;
+	}
 	private: System::Void VerCourseForm_Load(System::Object^ sender, System::EventArgs^ e) {
 
 		RefreshCourseList();
 	}
 	public: void RefreshCourseList() {
-		List <String^>^ electivoList = gcnew List <String^>();
-		Cliente^ electivo = gcnew Cliente();
-		Course^ electivo2 = gcnew Course();
-		electivoList = electivo->CourseList;
-		for (int i = 0; i < electivoList->Count; i++) {
-			electivo2 = Controller::QueryCourseByName2(electivoList[i]);
+		List <String^>^ cList = gcnew List <String^>();
+		Course^ co = gcnew Course();
+		cList = me->CourseList;
+		for (int i = 0; i < cList->Count; i++) {
+			//electivo2 = Controller::QueryCourseByName2(cList[i]);
+			co = Controller::QueryCourseById(cList[i]);
 			DGVCourse->Rows->Add(gcnew array<String^>{
-				electivo2->Name,
-					"" + electivo2->Type,
-					"" + electivo2->Professor
+				co->Name,
+					"" + co->Type,
+					"" + co->Professor
 			});
 
 		}
 	}
-	
+	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
+		//if (DGVCourse->CurrentCell != nullptr &&
+		//	DGVCourse->CurrentCell->Value != nullptr &&
+		//	DGVCourse->CurrentCell->Value->ToString() != "") {
+		//	MessageBox::Show("Debe seleccionar un curso");
+		//	return;
+		//}
+		//List <String^>^ cList = gcnew List <String^>();
+		//Course^ co = gcnew Course();
+		//cList = me->CourseList;
+		//for (int i = 0; i < cList->Count; i++) {
+		//	cList[i] = 0;
+		//}
+		////Controller::DeleteCourse(txtCourseId->Text->Trim());
+		//RefreshCourseList();
+	}
 
 	};
 
