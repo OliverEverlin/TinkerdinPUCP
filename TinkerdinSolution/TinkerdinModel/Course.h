@@ -25,8 +25,8 @@ namespace TinkerdinModel {
         property String^ Parcial;
         property String^ Final;
         property List <String^>^ StudentsList;
-        Course();
-        Course(String^ id, String^ type, String^ name, String^ schedule, char status, String^ professor, String^ parcial, String^ final);
+        /*Course();
+        Course(String^ id, String^ type, String^ name, String^ schedule, char status, String^ professor, String^ parcial, String^ final);*/
 
 
         void Study_course();

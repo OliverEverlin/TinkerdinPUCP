@@ -1,6 +1,7 @@
 #pragma once
 #include "CalendarForm.h"
 #include "CourseForm.h"
+#include "CourseChangeForm.h"
 #include "PlaceForm.h"
 #include "ClientForm.h"
 #include "LoginForm.h"
@@ -512,7 +513,9 @@ namespace TinkerdinView {
 	private: System::Void buscarAmigosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void cursosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		CourseForm^ courseForm = gcnew CourseForm();
+		//CourseForm^ courseForm = gcnew CourseForm();
+		FindCourseForm^ courseForm = gcnew FindCourseForm(this);
+		courseForm->SetUser(client);
 		courseForm->MdiParent = this;
 		courseForm->Show();
 	}
@@ -671,8 +674,8 @@ private: System::Void agregarCursoToolStripMenuItem_Click(System::Object^ sender
 	//Agregar curso
 	//FindCourseForm^ fcoursef = gcnew FindCourseForm();
 	//fcoursef->Show();
-	FindCourseForm^ findCourseform = gcnew FindCourseForm();
-	//((FindCourseForm^)findCourseform)->SetUser(client);
+	FindCourseForm^ findCourseform = gcnew FindCourseForm(this);
+	((FindCourseForm^)findCourseform)->SetUser(client);
 	findCourseform->Show();
 
 }

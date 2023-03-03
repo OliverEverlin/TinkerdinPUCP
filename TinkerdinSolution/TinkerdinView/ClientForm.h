@@ -482,6 +482,7 @@ private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e)
 		a->code = 0;
 		a->Phone = 0;
 		a->FriendList = gcnew List<String^>();
+		a->CourseList = gcnew List<String^>();
 		if (pbPhoto != nullptr && pbPhoto->Image != nullptr) {
 			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
 			pbPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);

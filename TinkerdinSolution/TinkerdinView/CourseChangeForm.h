@@ -231,7 +231,7 @@ namespace TinkerdinView {
 			this->btnDeleteCourse->TabIndex = 84;
 			this->btnDeleteCourse->Text = L"Cancelar";
 			this->btnDeleteCourse->UseVisualStyleBackColor = true;
-			this->btnDeleteCourse->Click += gcnew System::EventHandler(this, &CourseChangeForm::btnDeleteCourse_Click);
+			this->btnDeleteCourse->Click += gcnew System::EventHandler(this, &CourseChangeForm::btnCancelCourse_Click);
 			// 
 			// CourseChangeForm
 			// 
@@ -261,7 +261,8 @@ namespace TinkerdinView {
 
 		}
 #pragma endregion
-	private: System::Void btnDeleteCourse_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void btnCancelCourse_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Exit();
 	}
 
 	void FillCmbCourseType() {
@@ -320,6 +321,8 @@ namespace TinkerdinView {
 	private: System::Void CourseChangeForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		FillCmbCourseType();
 	}
+
+	
 
 };
 }

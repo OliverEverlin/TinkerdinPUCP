@@ -103,7 +103,7 @@ namespace TinkerdinView {
 			this->ClientSize = System::Drawing::Size(558, 340);
 			this->Controls->Add(this->DGVCourse);
 			//this->Name = L"VerCourseForm";
-			this->Text = L"VerCourseForm";
+			this->Text = L"Lista de cursos";
 			this->Load += gcnew System::EventHandler(this, &VerCourseForm::VerCourseForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DGVCourse))->EndInit();
 			this->ResumeLayout(false);
