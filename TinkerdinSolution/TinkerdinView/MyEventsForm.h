@@ -225,30 +225,50 @@ public:
 
 	}
 	void RefreshEventsList() {
-		dgvEvents->Rows->Clear();
-		List <int>^ ListEventId = gcnew List <int>();
-		ListEventId = client->EventList;
-		if (client->EventList != nullptr) {
-			Event^ iEvent = gcnew Event();
-			for (int i = 0; i < client->EventList->Count - 1; i++) {
-				iEvent = Controller::QueryEventById(ListEventId[i]);
-				//algoritmo de presentacion de la hora
-				String^ clock;
-				clock = Convert::ToString(iEvent->Hour) + ":" + Convert::ToString(iEvent->minutes);
-				dgvEvents->Rows->Add(gcnew array<String^>{
-					Convert::ToString(iEvent->Id),
-						iEvent->Name,
-						iEvent->Relevance,
-						iEvent->Date,
-						clock,
-				});
-			}
-		}  
+		List <int>^ listEventId = gcnew List<int>();
+		listEventId = client->EventList;
+		List<Event^>^ listE = gcnew List<Event^>();
+		Event^ Ev = gcnew Event();
+		String^ tempo;
+		for (int i = 0; i < listEventId->Count; i++)
+		{
+			//listE = add(Controller::QueryEventById(listEventId[i]);
+			Ev = Controller::QueryEventById(listEventId[i]);
+			//tempo = Convert::ToString(Ev->Hour) + ":" + Convert::ToString(Ev->minutes);
+			dgvEvents->Rows->Add(gcnew array<String^> {
+				"" + Ev->Id,
+					Ev->Name,
+					Ev->Relevance,
+					Ev->Date,
+					//tempo,
+
+			});
+		}
+		//dgvEvents->Rows->Clear();
+		//List <int>^ ListEventId = gcnew List <int>();
+		//ListEventId = client->EventList;
+		//if (client->EventList != nullptr) {
+		//	Event^ iEvent = gcnew Event();
+		//	for (int i = 0; i < client->EventList->Count - 1; i++) {
+		//		iEvent = Controller::QueryEventById(ListEventId[i]);
+		//		//algoritmo de presentacion de la hora
+		//		String^ clock;
+		//		clock = Convert::ToString(iEvent->Hour) + ":" + Convert::ToString(iEvent->minutes);
+		//		dgvEvents->Rows->Add(gcnew array<String^>{
+		//			Convert::ToString(iEvent->Id),
+		//				iEvent->Name,
+		//				iEvent->Relevance,
+		//				iEvent->Date,
+		//				clock,
+		//		});
+		//	}
+		//}  
+
 	}
 
 private: System::Void MyEventsForm_Load(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void btnSearchMyEvents_Click(System::Object^ sender, System::EventArgs^ e) {
+public: System::Void btnSearchMyEvents_Click(System::Object^ sender, System::EventArgs^ e) {
 	/*customer = Controller::QueryCustomerByDocNumber(txtCustomer->Text);
 	if (customer != nullptr) {
 		if (customer->GetType() == Natural::typeid)
@@ -260,6 +280,27 @@ private: System::Void btnSearchMyEvents_Click(System::Object^ sender, System::Ev
 	else {
 		MessageBox::Show("Cliente no encontrado!");
 	}*/
+
+
+	//List <int>^ listEventId = gcnew List<int>();
+	//listEventId = client->EventList;
+	//List<Event^>^ listE = gcnew List<Event^>();
+	//Event^ Ev = gcnew Event();
+	//String^ tempo;
+	//for (int i = 0; i < listEventId->Count; i++)
+	//{
+	//	//listE = add(Controller::QueryEventById(listEventId[i]);
+	//	Ev = Controller::QueryEventById(listEventId[i]);
+	//	String^ tempo = Convert::ToString(Ev->Hour) + ":" + Convert::ToString(Ev->minutes);
+	//	dgvEvents->Rows->Add(gcnew array<String^> {
+	//		"" + Ev->Id,
+	//			Ev->Name,
+	//			Ev->Relevance,
+	//			Ev->Date,
+	//			tempo,
+	//			
+	//	});
+	//}
 }
 };
 }

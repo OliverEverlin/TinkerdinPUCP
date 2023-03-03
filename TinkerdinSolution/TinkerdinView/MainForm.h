@@ -692,7 +692,7 @@ private: System::Void encontrarToolStripMenuItem_Click(System::Object^ sender, S
 }
 private: System::Void misEventosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	MyEventsForm^ myEventsForm = gcnew MyEventsForm();
-
+	myEventsForm->SetClient(client);
 	myEventsForm->Show();
 }
 };
