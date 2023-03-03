@@ -9,24 +9,24 @@
   * Admin implementation
   */
 
-TinkerdinModel::Admin::Admin()
-{
-
-}
-
-TinkerdinModel::Admin::Admin(String^ name, String^ username, int code, char gender, int age, int phone, String^ email, String^ status, int category, String^ InitDate, String^ EndDate)
-{
-    this->Name = name;
-    this->Username = username;
-    this->code = code;
-    this->Gender = gender;
-    this->Age = phone;
-    this->Email = email;
-    this->Status = status;
-    this->category = category;
-    this->InitDate = InitDate;
-    this->EndDate = EndDate;
-}
+//TinkerdinModel::Admin::Admin()
+//{
+//
+//}
+//
+//TinkerdinModel::Admin::Admin(String^ name, String^ username, int code, char gender, int age, int phone, String^ email, String^ status, int category, String^ InitDate, String^ EndDate)
+//{
+//    this->Name = name;
+//    this->Username = username;
+//    this->code = code;
+//    this->Gender = gender;
+//    this->Age = phone;
+//    this->Email = email;
+//    this->Status = status;
+//    this->category = category;
+//    this->InitDate = InitDate;
+//    this->EndDate = EndDate;
+//}
 
 //Actializar la lista de lugares
 void TinkerdinModel::Admin::update_places()

@@ -31,21 +31,21 @@ System::Void TinkerdinView::RegisterEventForm::btnAddEvent_Click(System::Object^
 		nEvent->Id = Convert::ToInt32(txtEventId->Text);
 		nEvent->TypeEvent = "ESTUDIO"; //PROVISIONAL
 		//AHORA LA LISTA DE MIEMBROS
-		Asistance^ imember = gcnew Asistance();
-		imember->confirmation = 'S';
-		imember->EventId = Convert::ToInt32(txtEventId->Text);
+		
+		
 		nEvent->Members = gcnew List<Asistance^>();//lo que añadi
 		for (int i = 0; i < dvgMembers->RowCount-1; i++){
-			
-			//lo de queseria detalle de venta
+			Asistance^ imember = gcnew Asistance();
+			imember->confirmation = "Por confirmar";
+			imember->EventId = Convert::ToInt32(txtEventId->Text);
 			imember->Username = dvgMembers->Rows[i]->Cells[0]->Value->ToString();
-			//estos datos no cambian
-			//imember->confirmation = 'S';
-			//imember->EventId = Convert::ToInt32(txtEventId->Text);
 			nEvent->Members->Add(imember);
 		}
 		//agrego al mismo usario como miembro
+		Asistance^ imember = gcnew Asistance();
 		imember->Username = user->Username;
+		imember->EventId = nEvent->Id;
+		imember->confirmation = "Por confirmar";
 		nEvent->Members->Add(imember);
 		Controller::AddEvent(nEvent);
 
@@ -58,42 +58,6 @@ System::Void TinkerdinView::RegisterEventForm::btnAddEvent_Click(System::Object^
 			Controller::UpdateClient(adviceMember);
 
 		}
-		////guardo los miembroscomo asistance
-		//for (int i = 0; i < dvgMembers->RowCount - 1; i++) {
-		//	imember->Username = dvgMembers->Rows[i]->Cells[0]->Value->ToString();
-		//	imember->confirmation = 'S';
-		//	imember->EventId = Convert::ToInt32(txtEventId->Text);
-		//	memb->Add(imember);
-		//	//le agrego el id del evento a todos los miembros para que lo puedan ver
-		//	adviceMember = Controller::QueryClientByUsername(imember->Username);
-
-		//	if (adviceMember->EventList == nullptr) {
-		//		//si no tiene la definicion de list se la creo 
-		//		adviceMember->EventList = gcnew List<int>();
-		//		Controller::UpdateClient(adviceMember);
-		//	}
-		//	adviceMember->EventList->Add(nEvent->Id);
-		//	Controller::UpdateClient(adviceMember);
-		//	/*
-		//	S:Sin confirmar
-		//	X:Cancelado
-		//	C:Confirmado
-		//	*/
-		//}
-		//if (memb->Count != 0) {
-		//	nEvent->Members = memb;
-		//}
-		//adviceMember = Controller::QueryClientByUsername(user->Username);
-		//if (adviceMember->EventList == nullptr) {
-		//	//si no tiene la definicion de list se la creo 
-		//	adviceMember->EventList = gcnew List<int>();
-		//	Controller::UpdateClient(adviceMember);
-		//}
-		//adviceMember->EventList->Add(nEvent->Id);
-		//Controller::UpdateClient(adviceMember);
-		//Controller::AddEvent(nEvent);
-
-
 		//tengo que guardar dentro de cada usuario una lista de ids de los eventos
 		MessageBox::Show("Evento guardado de manera exitosa");
 	}

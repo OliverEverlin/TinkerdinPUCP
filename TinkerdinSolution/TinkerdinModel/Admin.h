@@ -15,12 +15,12 @@ namespace TinkerdinModel {
         //property int Code;
         //property int Username;
         ////La clase usuario ya tiene ambos datos
-        property int category;
+        //property int category;
         property String^ InitDate;
         property String^ EndDate;
 
-        Admin();
-        Admin(String^ name, String^ username, int code, char gender, int age, int phone, String^ email, String^ status, int category, String^ InitDate, String^ EndDate);
+        //Admin();
+        //Admin(String^ name, String^ username, int code, char gender, int age, int phone, String^ email, String^ status, int category, String^ InitDate, String^ EndDate);
 
 
     protected:

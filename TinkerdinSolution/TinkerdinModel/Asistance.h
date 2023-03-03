@@ -13,7 +13,7 @@ namespace TinkerdinModel {
     public:
         property int EventId;
         property String^ Username;
-        property char confirmation;
+        property String^ confirmation;
 
     };
 }
