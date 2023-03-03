@@ -4,11 +4,12 @@
 
 using namespace System::IO;
 using namespace System::Collections::Generic;
-using namespace TinkerdinModel;
+using namespace System::Globalization;
 //para usar el XML y BINARIOS
 using namespace System::Runtime::Serialization::Formatters::Binary;
 using namespace System::Runtime::Serialization;
 using namespace System::Xml::Serialization;
+
 
 
 void TinkerdinPersistance::Persistance::Persist(String^ fileName, Object^ persistObject)
@@ -514,6 +515,267 @@ List<Place^>^ TinkerdinPersistance::Persistance::QueryPlaceByName(String^ placeL
 
 
 
+}
+
+int TinkerdinPersistance::Persistance::AddEvent(Event^ event)
+{
+    //event->Status = 'A';
+    SqlConnection^ conn;
+    SqlCommand^ comm;
+    int output_id;
+    try {
+        /* 1er paso: Se obtiene la conexión */
+        conn = GetConnection();
+
+        /* 2do paso: Se prepara la sentencia */
+        comm = gcnew SqlCommand();
+        comm->Connection = conn;
+        String^ strCmd;
+        strCmd = "dbo.usp_AddEvent";
+        comm = gcnew SqlCommand(strCmd, conn);
+        comm->CommandType = System::Data::CommandType::StoredProcedure;
+        comm->Parameters->Add("@name", System::Data::SqlDbType::VarChar, 250);
+        comm->Parameters->Add("@relevance", System::Data::SqlDbType::VarChar, 100);
+        comm->Parameters->Add("@type_event", System::Data::SqlDbType::VarChar, 100);
+        comm->Parameters->Add("@date", System::Data::SqlDbType::VarChar, 100);
+        comm->Parameters->Add("@hour", System::Data::SqlDbType::Int);
+        comm->Parameters->Add("@minutes", System::Data::SqlDbType::Int);
+
+        SqlParameter^ outputIdParam = gcnew SqlParameter("@iid", System::Data::SqlDbType::Int);
+        outputIdParam->Direction = System::Data::ParameterDirection::Output;
+        comm->Parameters->Add(outputIdParam);
+        comm->Prepare();
+        comm->Parameters["@name"]->Value = event->Name;
+        comm->Parameters["@relevance"]->Value = event->Relevance;
+        comm->Parameters["@type_event"]->Value = event->TypeEvent;
+        comm->Parameters["@date"]->Value = event->Date;
+        comm->Parameters["@hour"]->Value = event->Hour;
+        comm->Parameters["@minutes"]->Value = event->minutes;
+
+        /* Paso 3: Se ejecuta la sentencia */
+        comm->ExecuteNonQuery();
+
+        /* Paso 4: Si se quiere procesar la salida. */
+        output_id = Convert::ToInt32(comm->Parameters["@iid"]->Value);
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        /* Paso 5: Cerramos la conexión con la BD */
+        if (conn != nullptr) conn->Close();
+    }
+    return output_id;
+}
+
+Event^ TinkerdinPersistance::Persistance::QueryEventById(int eventId)
+{
+    SqlConnection^ conn;
+    SqlCommand^ comm;
+    SqlDataReader^ reader;
+    Event^ s;
+    try {
+        /* 1er paso: Se obtiene la conexión */
+        conn = GetConnection();
+
+        /* 2do paso: Se prepara la sentencia */
+        comm = gcnew SqlCommand("usp_QueryEventById", conn);
+        comm->CommandType = System::Data::CommandType::StoredProcedure;
+        comm->Parameters->Add("@iid", System::Data::SqlDbType::Int);
+        comm->Prepare();
+        comm->Parameters["@iid"]->Value = eventId;
+
+        /* 3er paso: Se ejecuta la sentencia */
+        reader = comm->ExecuteReader();
+
+        /* 4to paso: Se procesan los resultados */
+        if (reader->Read()) {
+            s = gcnew Event();
+            s->Id = Int32::Parse(reader["id"]->ToString());
+            s->Name = reader["name"]->ToString();
+            s->Relevance = reader["relevance"]->ToString();
+            s->TypeEvent = reader["type_event"]->ToString();
+            s->Date = reader["date"]->ToString();
+            s->Hour = Int32::Parse(reader["hour"]->ToString());
+            s->minutes = Int32::Parse(reader["minutes"]->ToString());
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        /* Paso 5: Cerramos la conexión con la BD */
+        if (reader != nullptr) reader->Close();
+        if (conn != nullptr) conn->Close();
+    }
+    return s;
+}
+
+List<Event^>^ TinkerdinPersistance::Persistance::QueryAllEvent()
+{
+    SqlConnection^ conn;
+    SqlCommand^ comm;
+    SqlDataReader^ reader;
+    List<Event^>^ eventList = gcnew List<Event^>();
+    try {
+        /* Paso 1: Obtener la conexión */
+        conn = GetConnection();
+
+        /* Paso 2: Preparar la sentencia */
+        comm = gcnew SqlCommand("usp_QueryAllEvent", conn);
+        comm->CommandType = System::Data::CommandType::StoredProcedure;
+
+        //Paso 3: Se ejecuta la sentencia
+        reader = comm->ExecuteReader();
+
+        //Paso 4: Se procesan los resultados  
+        while (reader->Read()) {
+                Event^ c = gcnew Event();
+                c->Id = Int32::Parse(reader["id"]->ToString());
+                c->Name = reader["name"]->ToString();
+                c->Relevance = reader["relevance"]->ToString();
+                c->TypeEvent = reader["type_event"]->ToString();
+                c->Date = reader["date"]->ToString();
+                c->Hour = Int32::Parse(reader["hour"]->ToString());
+                c->minutes = Int32::Parse(reader["minutes"]->ToString());
+
+                eventList->Add(c);
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        /* Paso 5: Cerramos la conexión con la BD */
+        if (reader != nullptr) reader->Close();
+        if (conn != nullptr) conn->Close();
+    }
+    return eventList;
+}
+
+int TinkerdinPersistance::Persistance::UpdateEvent(Event^ event)
+{
+    SqlConnection^ conn;
+    SqlCommand^ comm;
+    int output_id;
+    try {
+        // Paso 1: Se obtiene la conexión
+        conn = GetConnection();
+
+        // Paso 2:  Se prepara la sentencia
+        String^ strCmd;
+        strCmd = "dbo.usp_UpdateEvent";
+        comm = gcnew SqlCommand(strCmd, conn);
+        comm->CommandType = System::Data::CommandType::StoredProcedure;
+        comm->Parameters->Add("@name", System::Data::SqlDbType::VarChar, 250);
+        comm->Parameters->Add("@relevance", System::Data::SqlDbType::VarChar, 100);
+        comm->Parameters->Add("@type_event", System::Data::SqlDbType::VarChar, 100);
+        comm->Parameters->Add("@date", System::Data::SqlDbType::VarChar, 100);
+        comm->Parameters->Add("@hour", System::Data::SqlDbType::Int);
+        comm->Parameters->Add("@minutes", System::Data::SqlDbType::Int);
+        comm->Parameters->Add("@iid", System::Data::SqlDbType::Int);
+
+        comm->Prepare();
+
+        comm->Parameters["@name"]->Value = event->Name;
+        comm->Parameters["@relevance"]->Value = event->Relevance;
+        comm->Parameters["@type_event"]->Value = event->TypeEvent;
+        comm->Parameters["@date"]->Value = event->Date;
+        comm->Parameters["@hour"]->Value = event->Hour;
+        comm->Parameters["@minutes"]->Value = event->minutes;
+        comm->Parameters["@iid"]->Value = event->Id;
+
+        //Paso 3: Se ejecuta la sentencia
+        output_id = comm->ExecuteNonQuery();
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        /* Paso 5: Cerramos la conexión con la BD */
+        if (conn != nullptr) conn->Close();
+    }
+    return output_id;
+}
+
+int TinkerdinPersistance::Persistance::DeleteEvent(int eventId)
+{
+    SqlConnection^ conn;
+    SqlCommand^ comm;
+    int output_id;
+    try {
+        /* 1er paso: Se obtiene la conexión */
+        SqlConnection^ conn = GetConnection();
+
+        /* 2do paso: Se prepara la sentencia */
+        SqlCommand^ comm = gcnew SqlCommand();
+        comm->Connection = conn;
+        String^ strCmd;
+        strCmd = "dbo.usp_DeleteEvent";
+        comm = gcnew SqlCommand(strCmd, conn);
+        comm->CommandType = System::Data::CommandType::StoredProcedure;
+        comm->Parameters->Add("@iid", System::Data::SqlDbType::Int);
+
+        comm->Prepare();
+
+        comm->Parameters["@iid"]->Value = eventId;
+        /* Paso 3: Se ejecuta la sentencia */
+        output_id = comm->ExecuteNonQuery();
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        /* Paso 5: Cerramos la conexión con la BD */
+        if (conn != nullptr) conn->Close();
+    }
+    return output_id;
+}
+
+int TinkerdinPersistance::Persistance::UpdateAsistance(Asistance^ a)
+{
+    a->confirmation = 'A';
+    SqlConnection^ conn;
+    SqlCommand^ comm;
+    int output_id;
+    try {
+        // Paso 1: Se obtiene la conexión
+        conn = GetConnection();
+
+        // Paso 2:  Se prepara la sentencia
+        String^ strCmd;
+        strCmd = "dbo.usp_UpdateAsistance";
+        comm = gcnew SqlCommand(strCmd, conn);
+        comm->CommandType = System::Data::CommandType::StoredProcedure;
+        comm->Parameters->Add("@event_id", System::Data::SqlDbType::Int);
+        comm->Parameters->Add("@username", System::Data::SqlDbType::VarChar, 100);
+        comm->Parameters->Add("@confirmation", System::Data::SqlDbType::VarChar, 100);
+        comm->Parameters->Add("@iid", System::Data::SqlDbType::Int);
+
+        comm->Prepare();
+
+        comm->Parameters["@event_id"]->Value = a->Event->Id;
+        comm->Parameters["@username"]->Value = a->Username;
+        comm->Parameters["@confirmation"]->Value = a->confirmation;
+        comm->Parameters["@iid"]->Value = a->Id;
+
+        //Paso 3: Se ejecuta la sentencia
+        output_id = comm->ExecuteNonQuery();
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        /* Paso 5: Cerramos la conexión con la BD */
+        if (conn != nullptr) conn->Close();
+    }
+    return output_id;
+}
+
+List<Asistance^>^ TinkerdinPersistance::Persistance::QueryAsistancebyEventId(int eventId)
+{
+    throw gcnew System::NotImplementedException();
+    // TODO: Insertar una instrucción "return" aquí
 }
 
 

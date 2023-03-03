@@ -587,7 +587,7 @@ namespace TinkerdinView {
 			this->Controls->Add(this->name);
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"CRUDClientsForm";
-			this->Text = L"Checking de usuarios";
+			this->Text = L"Revisión de usuarios";
 			this->Load += gcnew System::EventHandler(this, &CRUDClientsForm::CRUDClientsForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbPhoto))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvClients))->EndInit();
@@ -625,6 +625,10 @@ namespace TinkerdinView {
 			txtStatus->Clear();
 			txtPass->Clear();
 			pbPhoto->Image = nullptr;
+			txtReporter->Clear();
+			txtDescription->Clear();
+		}
+		void CleanReports() {
 			txtReporter->Clear();
 			txtDescription->Clear();
 		}
@@ -703,6 +707,7 @@ namespace TinkerdinView {
 	private: System::Void dgvClientsCellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		int selectedRowIndex = dgvClients->SelectedCells[0]->RowIndex;
 		btnAdd->Enabled=false;
+		CleanReports();
 
 		//int clientUsername = Convert::ToInt32(dgvClients->Rows[selectedRowIndex]->Cells[0]->Value->ToString());
 		String^ clientUsername = dgvClients->Rows[selectedRowIndex]->Cells[0]->Value->ToString();
@@ -867,6 +872,7 @@ private: System::Void dgvReports_CellClick(System::Object^ sender, System::Windo
 	Report^ c = Controller::QueryReportByUsername(reporterUsername);
 	txtReporter->Text = c->reporter;
 	txtDescription->Text = c->Description;
+	
 }
 };
 }

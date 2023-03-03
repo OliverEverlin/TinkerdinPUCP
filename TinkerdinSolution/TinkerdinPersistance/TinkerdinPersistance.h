@@ -1,6 +1,9 @@
 #pragma once
 
 using namespace System;
+using namespace TinkerdinModel;
+using namespace System::Collections::Generic;
+using namespace System::Data::SqlClient;
 using namespace System::Data::SqlClient;
 using namespace TinkerdinModel;
 using namespace System::Collections::Generic;
@@ -26,6 +29,23 @@ namespace TinkerdinPersistance {
 		//persistencia para BINARIOS
 		static void PersistBinary(String^ fileName, Object^ persistObject);
 		static Object^ LoadBinaryData(String^ fileName);
+
+		//CRUD para Event BD
+		static int AddEvent(Event^ event);
+		static Event^ QueryEventById(int eventId);
+		static List<Event^>^ QueryAllEvent();
+		static int UpdateEvent(Event^ event);
+		static int DeleteEvent(int eventId);
+		//static List<String^>^ QueryAllRelevance();		//FALTA
+		//static int QueryLastEventId();					//FALTA
+		//static List<Event^>^ QueryAllMyEvents(Cliente^);	//FALTA
+		
+		//CRUD para Asistance BD
+		//static int AddAsistance(Asistance^ a);
+		static int UpdateAsistance(Asistance^ a);
+		static List<Asistance^>^ QueryAsistancebyEventId(int eventId);
+		//static int DeleteAsistance(int eventId);
+
 
 
 		//DB place
