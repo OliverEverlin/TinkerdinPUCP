@@ -256,5 +256,264 @@ Object^ TinkerdinPersistance::Persistance::LoadBinaryData(String^ fileName){
     return res;
 
 }
+//PLACE
+
+SqlConnection^ TinkerdinPersistance::Persistance::GetConnection()
+{
+    SqlConnection^ conn = gcnew SqlConnection();
+    String^ password = "DT465YN";
+    conn->ConnectionString = "Server=200.16.7.140;Database=a20196445;User ID=a20196445;Password=" + password + ";";
+    conn->Open();
+    return conn;
+}
+
+int TinkerdinPersistance::Persistance::AddPlace(Place^p)
+{
+
+    SqlConnection^ conn;
+    SqlCommand^ comm;
+    int output_id;
+    try {
+        //Paso 1: Se obtiene la conexión
+        conn = GetConnection();
+        //Paso 2: Se prepara la sentencia
+        comm = gcnew SqlCommand("dbo.usp_AddPlace", conn);
+        comm->CommandType = System::Data::CommandType::StoredProcedure;
+        comm->Parameters->Add("@location", System::Data::SqlDbType::VarChar, 250);
+        comm->Parameters->Add("@availability", System::Data::SqlDbType::VarChar, 500);
+        comm->Parameters->Add("@participants", System::Data::SqlDbType::Int);
+        comm->Parameters->Add("@poweroutlet", System::Data::SqlDbType::Int);
+        comm->Parameters->Add("@typeplace", System::Data::SqlDbType::VarChar,250);
+        comm->Parameters->Add("@optimumplace", System::Data::SqlDbType::VarChar, 250);
+        SqlParameter^ outputIdParam = gcnew SqlParameter("@id", System::Data::SqlDbType::Int);
+        outputIdParam->Direction = System::Data::ParameterDirection::Output;
+        comm->Parameters->Add(outputIdParam);
+        comm->Prepare();
+        comm->Parameters["@location"]->Value = Convert::ToString (p->Location);
+        comm->Parameters["@availability"]->Value = Convert::ToString (p->Availability);
+        comm->Parameters["@participants"]->Value = p->Participants;
+        comm->Parameters["@poweroutlet"]->Value = p->PowerOutlet;
+        comm->Parameters["@typeplace"]->Value = Convert::ToString(p->TypePlace);
+        comm->Parameters["@optimumplace"]->Value = Convert::ToString(p->OptimumFloor);
+        //Paso 3: Se ejecuta la sentencia
+        comm->ExecuteNonQuery();
+        //Paso 4: Se procesan los resultados        
+        output_id = Convert::ToInt32(comm->Parameters["@id"]->Value);
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        //Paso 5: Se cierran los objetos de conexión. Nunca se olviden del paso 5.
+        if (conn != nullptr) conn->Close();
+    }
+    return output_id;
+
+
+
+
+
+}
+
+int TinkerdinPersistance::Persistance::UpdatePlace(Place^ p)
+{
+    SqlConnection^ conn;
+    SqlCommand^ comm;
+    int result;
+    try {
+        //Paso 1: Se obtiene la conexión
+        conn = GetConnection();
+        //Paso 2: Se prepara la sentencia
+        comm = gcnew SqlCommand("dbo.usp_UpdatePlace", conn);
+        comm->CommandType = System::Data::CommandType::StoredProcedure;
+        comm->Parameters->Add("@location", System::Data::SqlDbType::VarChar, 250);
+        comm->Parameters->Add("@availability", System::Data::SqlDbType::VarChar, 500);
+        comm->Parameters->Add("@participants", System::Data::SqlDbType::Int);
+        comm->Parameters->Add("@poweroutlet", System::Data::SqlDbType::Int);
+        comm->Parameters->Add("@typeplace", System::Data::SqlDbType::VarChar, 250);
+        comm->Parameters->Add("@optimumplace", System::Data::SqlDbType::VarChar, 250);
+        SqlParameter^ outputIdParam = gcnew SqlParameter("@id", System::Data::SqlDbType::Int);
+        outputIdParam->Direction = System::Data::ParameterDirection::Output;
+        comm->Parameters->Add(outputIdParam);
+        comm->Prepare();
+        comm->Parameters["@location"]->Value = Convert::ToString(p->Location);
+        comm->Parameters["@availability"]->Value = Convert::ToString(p->Availability);
+        comm->Parameters["@participants"]->Value = p->Participants;
+        comm->Parameters["@poweroutlet"]->Value = p->PowerOutlet;
+        comm->Parameters["@typeplace"]->Value = Convert::ToString(p->TypePlace);
+        comm->Parameters["@optimumplace"]->Value = Convert::ToString(p->OptimumFloor);
+        //Paso 3: Se ejecuta la sentencia
+        result = comm->ExecuteNonQuery();
+        //Paso 4: Se procesan los resultados (no aplica)       
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        //Paso 5: Se cierran los objetos de conexión. Nunca se olviden del paso 5.
+        if (conn != nullptr) conn->Close();
+    }
+    return result;
+}
+
+int TinkerdinPersistance::Persistance::DeletePlace(int placeId)
+{
+    SqlConnection^ conn;
+    SqlCommand^ comm;
+    int result;
+    try {
+        //Paso 1: Se obtiene la conexión
+        conn = GetConnection();
+
+        //Paso 2: Se prepara la sentencia
+        comm = gcnew SqlCommand("UPDATE PLACE "
+            + "SET availability = 'No_Disponible' "
+            + "WHERE id = " + placeId, conn);
+
+        //Paso 3: Se ejecuta la sentencia
+        result = comm->ExecuteNonQuery();
+
+        //Paso 4: Se procesan los resultados (No aplica)    
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        //Paso 5: Se cierran los objetos de conexión. Nunca se olviden del paso 5.
+        if (conn != nullptr) conn->Close();
+    }
+    return result;
+}
+
+Place^ TinkerdinPersistance::Persistance::QueryPlaceById(int placeId)
+{
+    
+    SqlConnection^ conn;
+    SqlCommand^ comm;
+    SqlDataReader^ reader;
+    Place^ activeProduct;
+    try {
+        //Paso 1: Se obtiene la conexión
+        conn = GetConnection();
+        //Paso 2: Se prepara la sentencia
+        comm = gcnew SqlCommand("SELECT * FROM PRODUCT WHERE id =" + placeId +
+            " AND status != 'No_disponible'", conn);
+        //Paso 3: Se ejecuta la sentencia
+        reader = comm->ExecuteReader();
+        //Paso 4: Se procesan los resultados        
+        if (reader->Read()) {
+            Place^ p = gcnew Place();
+            p->Id = Convert::ToInt32(reader["id"]->ToString());
+            p->Location = reader["location"]->ToString();
+            p->Availability = reader["availability"]->ToString();
+            p->Participants = Convert::ToInt32(reader["participants"]->ToString());
+            p->PowerOutlet = Convert::ToInt32(reader["poweroutlet"]->ToString());
+            p->TypePlace = reader["typeplace"]->ToString();
+            p->OptimumFloor = reader["stock"]->ToString();
+            
+            activeProduct = p;
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        //Paso 5: Se cierran los objetos de conexión. Nunca se olviden del paso 5.
+        if (reader != nullptr) reader->Close();
+        if (conn != nullptr) conn->Close();
+    }
+    return activeProduct;
+
+}
+
+List<Place^>^ TinkerdinPersistance::Persistance::QueryAllPlace()
+{
+    SqlConnection^ conn;
+    SqlCommand^ comm;
+    SqlDataReader^ reader;
+    List<Place^>^ activeProductsList = gcnew List<Place^>();
+    try {
+        //Paso 1: Se obtiene la conexión
+        conn = GetConnection();
+        //Paso 2: Se prepara la sentencia
+        comm = gcnew SqlCommand("SELECT * FROM PRODUCT WHERE status!='No_disponible'", conn);
+        //Paso 3: Se ejecuta la sentencia
+        reader = comm->ExecuteReader();
+        //Paso 4: Se procesan los resultados        
+        while (reader->Read()) {
+            Place^ p = gcnew Place();
+            p->Id = Convert::ToInt32(reader["id"]->ToString());
+            p->Location = reader["location"]->ToString();
+            p->Availability = reader["availability"]->ToString();
+            p->Participants = Convert::ToInt32(reader["participants"]->ToString());
+            p->PowerOutlet = Convert::ToInt32(reader["poweroutlet"]->ToString());
+            p->TypePlace = reader["typeplace"]->ToString();
+            p->OptimumFloor = reader["optimumfloor"]->ToString();
+       
+            activeProductsList->Add(p);
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        //Paso 5: Se cierran los objetos de conexión. Nunca se olviden del paso 5.
+        if (reader != nullptr) reader->Close();
+        if (conn != nullptr) conn->Close();
+    }
+    return activeProductsList;
+
+
+
+}
+
+List<Place^>^ TinkerdinPersistance::Persistance::QueryPlaceByName(String^ placeLocation)
+{
+    
+    SqlConnection^ conn;
+    SqlCommand^ comm;
+    SqlDataReader^ reader;
+    List<Place^>^ activeProductsList = gcnew List<Place^>();
+    try {
+        //Paso 1: Se obtiene la conexión
+        conn = GetConnection();
+        //Paso 2: Se prepara la sentencia
+        comm = gcnew SqlCommand("SELECT * FROM PRODUCT WHERE " +
+            "(name LIKE '%" + placeLocation + "%' OR " +
+            "description LIKE '%" + placeLocation + "%') AND " +
+            "status = 'A'", conn);
+        //Paso 3: Se ejecuta la sentencia
+        reader = comm->ExecuteReader();
+        //Paso 4: Se procesan los resultados        
+        while (reader->Read()) {
+            Place^ p = gcnew Place();
+            p->Id = Convert::ToInt32(reader["id"]->ToString());
+            p->Location = reader["location"]->ToString();
+            p->Availability = reader["availability"]->ToString();
+            p->Participants = Convert::ToInt32(reader["participants"]->ToString());
+            p->PowerOutlet = Convert::ToInt32(reader["poweroutlet"]->ToString());
+            p->TypePlace = reader["typeplace"]->ToString();
+            p->OptimumFloor = reader["optimumfloor"]->ToString();
+            activeProductsList->Add(p);
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        //Paso 5: Se cierran los objetos de conexión. Nunca se olviden del paso 5.
+        if (reader != nullptr) reader->Close();
+        if (conn != nullptr) conn->Close();
+    }
+    return activeProductsList;
+
+
+
+
+
+
+
+
+}
 
 

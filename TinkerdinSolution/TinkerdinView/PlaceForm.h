@@ -350,7 +350,7 @@ namespace TinkerdinView {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Name = L"PlaceForm";
-			this->Text = L"PlaceForm";
+			this->Text = L"Mantenimiento lugar";
 			this->Load += gcnew System::EventHandler(this, &PlaceForm::PlaceForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPlace))->EndInit();
 			this->ResumeLayout(false);

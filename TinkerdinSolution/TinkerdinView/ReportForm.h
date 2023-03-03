@@ -164,6 +164,7 @@ namespace TinkerdinView {
 			this->comboBox3->Name = L"comboBox3";
 			this->comboBox3->Size = System::Drawing::Size(121, 21);
 			this->comboBox3->TabIndex = 9;
+			this->comboBox3->SelectedIndexChanged += gcnew System::EventHandler(this, &ReportForm::comboBox3_SelectedIndexChanged);
 			// 
 			// ReportForm
 			// 
@@ -247,6 +248,8 @@ private: System::Void comboBox2_SelectedIndexChanged(System::Object^ sender, Sys
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 
 
+}
+private: System::Void comboBox3_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

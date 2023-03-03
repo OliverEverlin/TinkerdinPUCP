@@ -1,6 +1,9 @@
 #pragma once
 
 using namespace System;
+using namespace System::Data::SqlClient;
+using namespace TinkerdinModel;
+using namespace System::Collections::Generic;
 
 namespace TinkerdinPersistance {
 	public ref class Persistance{
@@ -23,5 +26,18 @@ namespace TinkerdinPersistance {
 		//persistencia para BINARIOS
 		static void PersistBinary(String^ fileName, Object^ persistObject);
 		static Object^ LoadBinaryData(String^ fileName);
+
+
+		//DB place
+		static SqlConnection^ GetConnection();
+		//Si ya está el sql connection, obviarlo
+		static int AddPlace(Place^);
+		static int UpdatePlace(Place^);
+		static int DeletePlace(int placeId);
+		static Place^ QueryPlaceById(int placeId);
+		static List<Place^>^ QueryAllPlace();
+		static List<Place^>^ QueryPlaceByName(String^ placeLocation);
+
+
 	};
 }
