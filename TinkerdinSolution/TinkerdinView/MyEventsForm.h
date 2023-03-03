@@ -217,37 +217,34 @@ namespace TinkerdinView {
 
 		}
 #pragma endregion
-public: void SetClient(Cliente^c) {
-	this->client = c;
-}
-	  void RefreshMemberList() {
+public: 
+	void SetClient(Cliente^c) {
+		this->client = c;
+	}
+	void RefreshMemberList() {
 
-	  }
-	  void RefreshEventsList() {
-		  dgvEvents->Rows->Clear();
-		  List <int>^ ListEventId = gcnew List <int>();
-		  ListEventId = client->EventList;
-		  if (client->EventList != nullptr) {
-
-			  Event^ iEvent = gcnew Event();
-			  for (int i = 0; i < client->EventList->Count - 1; i++) {
-				  iEvent = Controller::QueryEventById(ListEventId[i]);
-				  //algoritmo de presentacion de la hora
-				  
-				  String^ clock;
-				  clock = Convert::ToString(iEvent->Hour) + ":" + Convert::ToString(iEvent->minutes);
-
-				  dgvEvents->Rows->Add(gcnew array<String^>{
-					  Convert::ToString(iEvent->Id),
-						  iEvent->Name,
-						  iEvent->Relevance,
-						  iEvent->Date,
-						  clock,
-				  });
-			  }
-		  }
-		  
-	  }
+	}
+	void RefreshEventsList() {
+		dgvEvents->Rows->Clear();
+		List <int>^ ListEventId = gcnew List <int>();
+		ListEventId = client->EventList;
+		if (client->EventList != nullptr) {
+			Event^ iEvent = gcnew Event();
+			for (int i = 0; i < client->EventList->Count - 1; i++) {
+				iEvent = Controller::QueryEventById(ListEventId[i]);
+				//algoritmo de presentacion de la hora
+				String^ clock;
+				clock = Convert::ToString(iEvent->Hour) + ":" + Convert::ToString(iEvent->minutes);
+				dgvEvents->Rows->Add(gcnew array<String^>{
+					Convert::ToString(iEvent->Id),
+						iEvent->Name,
+						iEvent->Relevance,
+						iEvent->Date,
+						clock,
+				});
+			}
+		}  
+	}
 
 private: System::Void MyEventsForm_Load(System::Object^ sender, System::EventArgs^ e);
 
