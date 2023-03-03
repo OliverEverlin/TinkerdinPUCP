@@ -43,7 +43,7 @@ namespace TinkerdinView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Name;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Carrer;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cicle;
-	private: System::Windows::Forms::Button^ btnDeleteCourse;
+
 	protected:
 
 	protected:
@@ -68,7 +68,6 @@ namespace TinkerdinView {
 			this->Name = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Carrer = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Cicle = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->btnDeleteCourse = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DGVCourse))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -107,26 +106,14 @@ namespace TinkerdinView {
 			this->Cicle->Name = L"Cicle";
 			this->Cicle->Width = 125;
 			// 
-			// btnDeleteCourse
-			// 
-			this->btnDeleteCourse->Location = System::Drawing::Point(215, 354);
-			this->btnDeleteCourse->Margin = System::Windows::Forms::Padding(5);
-			this->btnDeleteCourse->Name = L"btnDeleteCourse";
-			this->btnDeleteCourse->Size = System::Drawing::Size(263, 34);
-			this->btnDeleteCourse->TabIndex = 100;
-			this->btnDeleteCourse->Text = L"Eliminar";
-			this->btnDeleteCourse->UseVisualStyleBackColor = true;
-			this->btnDeleteCourse->Click += gcnew System::EventHandler(this, &VerCourseForm::btnDelete_Click);
-			// 
 			// VerCourseForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(744, 418);
-			this->Controls->Add(this->btnDeleteCourse);
 			this->Controls->Add(this->DGVCourse);
 			this->Margin = System::Windows::Forms::Padding(4);
-			this->Name = L"VerCourseForm";
+			//this->Name = L"VerCourseForm";
 			this->Text = L"Lista de cursos";
 			this->Load += gcnew System::EventHandler(this, &VerCourseForm::VerCourseForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->DGVCourse))->EndInit();
@@ -155,22 +142,6 @@ namespace TinkerdinView {
 			});
 
 		}
-	}
-	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
-		//if (DGVCourse->CurrentCell != nullptr &&
-		//	DGVCourse->CurrentCell->Value != nullptr &&
-		//	DGVCourse->CurrentCell->Value->ToString() != "") {
-		//	MessageBox::Show("Debe seleccionar un curso");
-		//	return;
-		//}
-		//List <String^>^ cList = gcnew List <String^>();
-		//Course^ co = gcnew Course();
-		//cList = me->CourseList;
-		//for (int i = 0; i < cList->Count; i++) {
-		//	cList[i] = 0;
-		//}
-		////Controller::DeleteCourse(txtCourseId->Text->Trim());
-		//RefreshCourseList();
 	}
 
 	};

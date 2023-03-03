@@ -342,7 +342,7 @@ private: System::Void dgvCourse_CellClick(System::Object^ sender, System::Window
 private: System::Void button1_Click_2(System::Object^ sender, System::EventArgs^ e) {
 	int selectedRowIndex = dgvCourse->SelectedCells[0]->RowIndex;
 	String^ new_course_id = textFindCourseId->Text;//dgvCourse->Rows[selectedRowIndex]->Cells[0]->Value->ToString();
-	String^ new_course = dgvCourse->Rows[selectedRowIndex]->Cells[1]->Value->ToString();
+	//String^ new_course = textFindCourseId->Text;//dgvCourse->Rows[selectedRowIndex]->Cells[1]->Value->ToString();
 	Course^ co = gcnew Course();
 	co = Controller::QueryCourseById(new_course_id);
 	List<String^>^ flist = gcnew List<String^>();
@@ -363,15 +363,16 @@ private: System::Void button1_Click_2(System::Object^ sender, System::EventArgs^
 
 	//si no tenia ese amigo registrado se lo añado
 	flist = me->CourseList;
-	if (!(flist->Contains(new_course))) {
+	if (!(flist->Contains(new_course_id))) {
 		int elements = flist->Count;
-		flist->Add(new_course);
+		flist->Add(new_course_id);
+		slist->Add(me->Username);
 		me->CourseList = flist;
 
 		Controller::UpdateClient(me);
 		RefreshCoursesDGV();
 	}
-	else MessageBox::Show(" " + new_course + " ya te encuentras matriculados en el curso seleccionado. ");
+	else MessageBox::Show(" " + new_course_id + " ya te encuentras matriculados en el curso seleccionado. ");
 
 }
 };
