@@ -46,7 +46,10 @@ namespace TinkerdinPersistance {
 		static List<Asistance^>^ QueryAsistancebyEventId(int eventId);
 		//static int DeleteAsistance(int eventId);
 
-
+		//CRUD para Report BD
+		static int AddReport(Report^ report);
+		static Report^ QueryReportByUsername(String^ reportByUsername);
+		static List<Report^>^ QueryAllReportByReportedUser(String^ username);
 
 		//DB place
 		static SqlConnection^ GetConnection();

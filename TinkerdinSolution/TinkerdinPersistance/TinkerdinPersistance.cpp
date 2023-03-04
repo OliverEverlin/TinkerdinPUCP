@@ -797,4 +797,142 @@ List<Asistance^>^ TinkerdinPersistance::Persistance::QueryAsistancebyEventId(int
     // TODO: Insertar una instrucción "return" aquí
 }
 
+int TinkerdinPersistance::Persistance::AddReport(Report^ report)
+{
+    report->state = 'A';
+    SqlConnection^ conn;
+    SqlCommand^ comm;
+    int output_id;
+    try {
+        /* 1er paso: Se obtiene la conexión */
+        conn = GetConnection();
+
+        /* 2do paso: Se prepara la sentencia */
+        comm = gcnew SqlCommand();
+        comm->Connection = conn;
+        String^ strCmd;
+        strCmd = "dbo.usp_AddReport";
+        comm = gcnew SqlCommand(strCmd, conn);
+        comm->CommandType = System::Data::CommandType::StoredProcedure;
+        comm->Parameters->Add("@name", System::Data::SqlDbType::VarChar, 250);
+        comm->Parameters->Add("@relevance", System::Data::SqlDbType::VarChar, 100);
+        comm->Parameters->Add("@type_event", System::Data::SqlDbType::VarChar, 100);
+        comm->Parameters->Add("@date", System::Data::SqlDbType::VarChar, 100);
+        comm->Parameters->Add("@hour", System::Data::SqlDbType::Int);
+        comm->Parameters->Add("@minutes", System::Data::SqlDbType::Int);
+
+        SqlParameter^ outputIdParam = gcnew SqlParameter("@iid", System::Data::SqlDbType::Int);
+        outputIdParam->Direction = System::Data::ParameterDirection::Output;
+        comm->Parameters->Add(outputIdParam);
+        comm->Prepare();
+        comm->Parameters["@name"]->Value = event->Name;
+        comm->Parameters["@relevance"]->Value = event->Relevance;
+        comm->Parameters["@type_event"]->Value = event->TypeEvent;
+        comm->Parameters["@date"]->Value = event->Date;
+        comm->Parameters["@hour"]->Value = event->Hour;
+        comm->Parameters["@minutes"]->Value = event->minutes;
+
+        /* Paso 3: Se ejecuta la sentencia */
+        comm->ExecuteNonQuery();
+
+        /* Paso 4: Si se quiere procesar la salida. */
+        output_id = Convert::ToInt32(comm->Parameters["@iid"]->Value);
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        /* Paso 5: Cerramos la conexión con la BD */
+        if (conn != nullptr) conn->Close();
+    }
+    return output_id;
+}
+
+Report^ TinkerdinPersistance::Persistance::QueryReportByUsername(String^ reportByUsername)
+{
+    SqlConnection^ conn;
+    SqlCommand^ comm;
+    SqlDataReader^ dr;
+    Report^ r;
+
+    try {
+        /* 1er paso: Se obtiene la conexión */
+        conn = GetConnection();
+
+        /* 2do paso: Se prepara la sentencia */
+        comm = gcnew SqlCommand("usp_QueryReportByUsername", conn);
+        comm->CommandType = System::Data::CommandType::StoredProcedure;
+        comm->Parameters->Add("@value", System::Data::SqlDbType::VarChar,250);
+        comm->Prepare();
+        comm->Parameters["@value"]->Value = reportByUsername;
+
+        /* 3er paso: Se ejecuta la sentencia */
+        dr = comm->ExecuteReader();
+
+        /* 4to paso: Se procesan los resultados */
+        if (dr->Read()) {
+                Report^ p = gcnew Report();
+                p->Id = Int32::Parse(dr["id"]->ToString());
+                p->badUser = safe_cast<String^> (dr["bad_user"]);
+                p->reporter = safe_cast<String^> (dr["reporter"]);
+                p->Description = safe_cast<String^> (dr["description"]);
+                p->state = safe_cast<String^> (dr["state"])[0];
+                r = p;
+            
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        /* Paso 5: Cerramos la conexión con la BD */
+        if (dr != nullptr) dr->Close();
+        if (conn != nullptr) conn->Close();
+    }
+    return r;
+}
+
+List<Report^>^ TinkerdinPersistance::Persistance::QueryAllReportByReportedUser(String^ username)
+{
+    SqlConnection^ conn;
+    SqlCommand^ comm;
+    SqlDataReader^ reader;
+    List<Report^>^ reportList = gcnew List<Report^>();
+    try {
+        /* Paso 1: Obtener la conexión */
+        conn = GetConnection();
+
+        /* Paso 2: Preparar la sentencia */
+        comm = gcnew SqlCommand("usp_QueryAllReportByReportedUser", conn);
+        comm->CommandType = System::Data::CommandType::StoredProcedure;
+        comm->Parameters->Add("@value", System::Data::SqlDbType::VarChar, 250);
+        comm->Prepare();
+        comm->Parameters["@value"]->Value = username;
+
+        //Paso 3: Se ejecuta la sentencia
+        reader = comm->ExecuteReader();
+
+        //Paso 4: Se procesan los resultados  
+        while (reader->Read()) {
+            Report^ c = gcnew Report();
+            c->Id = Int32::Parse(reader["id"]->ToString());
+            c->badUser = reader["bad_user"]->ToString();
+            c->reporter = reader["reporter"]->ToString();
+            c->Description = reader["description"]->ToString();
+            c->state = reader["state"]->ToString()[0];
+
+            reportList->Add(c);
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        /* Paso 5: Cerramos la conexión con la BD */
+        if (reader != nullptr) reader->Close();
+        if (conn != nullptr) conn->Close();
+    }
+    return reportList;
+}
+
 
