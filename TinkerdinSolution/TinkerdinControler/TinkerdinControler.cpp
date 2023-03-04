@@ -273,56 +273,66 @@ List<String^>^ TinkerdinControler::Controller::QueryAllTypeCourse()
 //PLACE------------------------------------
 int TinkerdinControler::Controller::AddPlace(Place^ place)
 {
-    //place->Availability = 'A';
+    /*/place->Availability = 'A';
     placeList->Add(place);
     Persistance::PersistBinary("places.bin", placeList);
     return 1;
+    */
+    return Persistance::AddPlace(place);
 }
 
 int TinkerdinControler::Controller::UpdatePlace(Place^ place)
 {
-    for (int i = 0; i < placeList->Count; i++)
+   /* for (int i = 0; i < placeList->Count; i++)
         if (place->Id == placeList[i]->Id) {
             //place->Availability = 'A';
             placeList[i] = place;
             Persistance::PersistBinary("places.bin", placeList);
             return 1;
         }
-    return 0;
+    return 0;*/
+    return Persistance::UpdatePlace(place);
 }
 
 int TinkerdinControler::Controller::DeletePlace(int placeId)
 {
-    for (int i = 0; i < placeList->Count; i++)
+    /*for (int i = 0; i < placeList->Count; i++)
         if (placeId == placeList[i]->Id) {
             placeList->RemoveAt(i);
             Persistance::PersistBinary("places.bin", placeList);
             return 1;
         }
-    return 0;
+    return 0;*/
+    return Persistance::DeletePlace(placeId);
+
 }
 
 Place^ TinkerdinControler::Controller::QueryPlaceById(int placeId){
-    placeList = (List<Place^>^)Persistance::LoadBinaryData("places.bin");
+   /* placeList = (List<Place^>^)Persistance::LoadBinaryData("places.bin");
     for (int i = 0; i < placeList->Count; i++)
         if (placeList[i]->Id == placeId)
             return placeList[i];
-    return nullptr;
+    return nullptr;*/
+
+    return Persistance::QueryPlaceById(placeId);
 }
 
 List<Place^>^ TinkerdinControler::Controller::QueryAllPlace()
 {
-    placeList = (List<Place^>^)Persistance::LoadBinaryData("places.bin");
-    return placeList;
+   /* placeList = (List<Place^>^)Persistance::LoadBinaryData("places.bin");
+    return placeList;*/
+    return Persistance::QueryAllPlace();
+
 }
-String^ TinkerdinControler::Controller::QueryPlaceByName(String^ placeLocation)
+List<Place^>^ TinkerdinControler::Controller::QueryPlaceByName(String^ placeLocation)
 {
-    
+    /*
     placeList = (List<Place^>^)Persistance::LoadBinaryData("places.bin");
     for (int i = 0; i < placeList->Count; i++)
         if (placeList[i]->Location == Convert::ToString(placeLocation))
             return Convert::ToString(placeList[i]->Id);
-    return nullptr;
+    return nullptr;*/
+    return Persistance::QueryPlaceByName(placeLocation);
 
 }
 //PLACE FIN//
@@ -552,9 +562,10 @@ Admin^ TinkerdinControler::Controller::LoginAdmin(String^ username, String^ pass
 
 int TinkerdinControler::Controller::AddReport(Report^ report)
 {
-    reportList->Add(report);
+    /*reportList->Add(report);
     Persistance::PersistBinary("reports.bin", reportList);
-    return report->Id;
+    return report->Id;*/
+    return Persistance::AddReport(report);
 }
 
 Report^ TinkerdinControler::Controller::QueryReportById(int reportId)
@@ -569,11 +580,12 @@ Report^ TinkerdinControler::Controller::QueryReportById(int reportId)
 
 Report^ TinkerdinControler::Controller::QueryReportByUsername(String^ reportByUsername)
 {
-    reportList = (List<Report^>^)Persistance::LoadBinaryData("reports.bin");
+    /*reportList = (List<Report^>^)Persistance::LoadBinaryData("reports.bin");
     for (int i = 0; i < reportList->Count; i++)
         if (reportList[i]->reporter->Contains(reportByUsername))
             return reportList[i];
-    return nullptr;
+    return nullptr;*/
+    return Persistance::QueryReportByUsername(reportByUsername);
 }
 
 List<Report^>^ TinkerdinControler::Controller::QueryAllReport()
@@ -595,13 +607,14 @@ List<Report^>^ TinkerdinControler::Controller::QueryAllReportByReportingUser(Str
 
 List<Report^>^ TinkerdinControler::Controller::QueryAllReportByReportedUser(String^ username)
 {
-    reportList = (List<Report^>^)Persistance::LoadBinaryData("reports.bin");
+    /*reportList = (List<Report^>^)Persistance::LoadBinaryData("reports.bin");
     List<Report^>^ newReportList = gcnew List<Report^>();
     for (int i = 0; i < reportList->Count; i++) {
         if (reportList[i]->badUser->Contains(username))
             newReportList->Add(reportList[i]);
     }
-    return newReportList;
+    return newReportList;*/
+    return Persistance::QueryAllReportByReportedUser(username);
 }
 
 int TinkerdinControler::Controller::UpdateReport(Report^ report)

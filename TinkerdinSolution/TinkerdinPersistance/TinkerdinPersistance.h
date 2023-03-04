@@ -46,7 +46,10 @@ namespace TinkerdinPersistance {
 		static List<Asistance^>^ QueryAsistancebyEventId(int eventId);
 		//static int DeleteAsistance(int eventId);
 
-
+		//CRUD para Report BD
+		static int AddReport(Report^ report);
+		static Report^ QueryReportByUsername(String^ reportByUsername);
+		static List<Report^>^ QueryAllReportByReportedUser(String^ username);
 
 		//DB place
 		static SqlConnection^ GetConnection();
@@ -57,6 +60,15 @@ namespace TinkerdinPersistance {
 		static Place^ QueryPlaceById(int placeId);
 		static List<Place^>^ QueryAllPlace();
 		static List<Place^>^ QueryPlaceByName(String^ placeLocation);
+
+		//DB corse
+		static int AddCourse(Course^);
+		static int UpdateCourse(Course^);
+		static int DeleteCourse(String^ courseId);	//eliminar con codigo del curso	//¿añadimos tambien nombre????
+		static List<Course^>^ QueryAllCourse();
+		static Course^ QueryCourseById(String^ courseId);
+		static List<Course^>^ QueryCourseByName(String^ value);
+		static Course^ QueryCourseByName2(String^ value);
 
 
 	};

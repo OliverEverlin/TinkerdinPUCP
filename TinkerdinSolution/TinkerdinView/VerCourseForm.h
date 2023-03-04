@@ -135,6 +135,7 @@ namespace TinkerdinView {
 		for (int i = 0; i < cList->Count; i++) {
 			//electivo2 = Controller::QueryCourseByName2(cList[i]);
 			co = Controller::QueryCourseById(cList[i]);
+			//co = Persistance::QueryCourseById(cList[i]);
 			DGVCourse->Rows->Add(gcnew array<String^>{
 				co->Name,
 					"" + co->Type,
