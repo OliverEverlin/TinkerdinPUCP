@@ -16,6 +16,7 @@ namespace TinkerdinModel {
     public ref class Course  {
 
     public:
+        property int sec_int;//para el sql
         property String^ Id;
         property String^ Type;
         property String^ Name;

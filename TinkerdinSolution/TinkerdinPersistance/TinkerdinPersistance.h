@@ -61,6 +61,15 @@ namespace TinkerdinPersistance {
 		static List<Place^>^ QueryAllPlace();
 		static List<Place^>^ QueryPlaceByName(String^ placeLocation);
 
+		//DB corse
+		static int AddCourse(Course^);
+		static int UpdateCourse(Course^);
+		static int DeleteCourse(String^ courseId);	//eliminar con codigo del curso	//¿añadimos tambien nombre????
+		static List<Course^>^ QueryAllCourse();
+		static Course^ QueryCourseById(String^ courseId);
+		static List<Course^>^ QueryCourseByName(String^ value);
+		static Course^ QueryCourseByName2(String^ value);
+
 
 	};
 }

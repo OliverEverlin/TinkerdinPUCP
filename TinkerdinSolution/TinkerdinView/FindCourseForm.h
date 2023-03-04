@@ -14,6 +14,7 @@ namespace TinkerdinView {
 	using namespace TinkerdinControler;
 	using namespace TinkerdinModel;
 	using namespace TinkerdinView;
+	using namespace TinkerdinPersistance;
 
 	using namespace Threading;
 
@@ -345,12 +346,14 @@ private: System::Void button1_Click_2(System::Object^ sender, System::EventArgs^
 	//String^ new_course = textFindCourseId->Text;//dgvCourse->Rows[selectedRowIndex]->Cells[1]->Value->ToString();
 	Course^ co = gcnew Course();
 	co = Controller::QueryCourseById(new_course_id);
+	//co = Persistance::QueryCourseById(new_course_id);
 	List<String^>^ flist = gcnew List<String^>();
 	List<String^>^ slist = gcnew List<String^>();
 	if (co->StudentsList == nullptr) {
 		//si no tiene la definicion de list se la creo 
 		co->StudentsList = gcnew List<String^>();
-		Controller::UpdateCourse(co);//Deberia ser updateCourse?, Aunque la lista está en client
+		Controller::UpdateCourse(co);
+		//Persistance::UpdateCourse(co);
 	}
 	slist = co->StudentsList;
 	if (me->CourseList == nullptr) {

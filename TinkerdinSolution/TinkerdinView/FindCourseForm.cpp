@@ -8,6 +8,7 @@ using namespace System::Collections::Generic;
 
 Void TinkerdinView::FindCourseForm::RefreshCoursesDGV() {
 	List <Course^>^ courseList = Controller::QueryAllCourse();
+	//List <Course^>^ courseList = Persistance::QueryAllCourse();
 	dgvCourse->Rows->Clear();
 	for (int i = 0; i < courseList->Count; i++) {
 		dgvCourse->Rows->Add(gcnew array<String^> {
@@ -33,6 +34,7 @@ if (dgvCourse->CurrentCell != nullptr &&
 
 
 	Course^ c = Controller::QueryCourseByName2(a);
+	//Course^ c = Persistance::QueryCourseByName2(a);
 	//MessageBox::Show(customer->ToString()); //Polimorfismo
 	//if (customer != nullptr && customer->GetType() == Natural::typeid) 
 	if (c != nullptr) {
