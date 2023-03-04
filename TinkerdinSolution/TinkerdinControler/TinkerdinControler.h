@@ -17,7 +17,7 @@ namespace TinkerdinControler {
 		static List<Course^>^ courseList = gcnew List<Course^>();
 		static List<Place^>^ placeList = gcnew List<Place^>();
 		static List<Event^>^ eventList = gcnew List<Event^>(); 
-		static List<Hours^>^ hoursList = gcnew List<Hours^>();
+		//static List<Hours^>^ hoursList = gcnew List<Hours^>();
 		static List<Report^>^ reportList = gcnew List<Report^>();
 
 		static List<Asistance^>^ asistanceList = gcnew List<Asistance^>();
@@ -68,9 +68,9 @@ namespace TinkerdinControler {
 		//static Customer^ QueryCustomerById(int customerId);
 
 		//Métodos CRUD de Hours
-		static List<Hours^>^ QueryAllHours();
+		/*static List<Hours^>^ QueryAllHours();
 		static int UpdateHour(Course^ course, int row, int column, String^ cour);
-		static Hours^ QueryHourById(String^ hourId);
+		static Hours^ QueryHourById(String^ hourId);*/
 
 		//Métodos CRUD de Place 
 		static int AddPlace(Place^);

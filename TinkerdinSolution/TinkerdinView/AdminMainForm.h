@@ -69,7 +69,7 @@
 
 #pragma once
 #include "CalendarForm.h"
-#include "CourseForm.h"
+//#include "CourseForm.h"
 #include "PlaceForm.h"
 #include "ClientForm.h"
 #include "LoginForm.h"
@@ -401,9 +401,9 @@ namespace TinkerdinView {
 	private: System::Void buscarAmigosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void cursosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		CourseForm^ courseForm = gcnew CourseForm();
+		/*CourseForm^ courseForm = gcnew CourseForm();
 		courseForm->MdiParent = this;
-		courseForm->Show();
+		courseForm->Show();*/
 	}
 	private: System::Void lugaresToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		PlaceForm^ placeForm = gcnew PlaceForm();

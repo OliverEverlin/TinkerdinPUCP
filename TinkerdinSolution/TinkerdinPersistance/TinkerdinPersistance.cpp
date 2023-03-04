@@ -14,7 +14,7 @@ using namespace System::Xml::Serialization;
 
 void TinkerdinPersistance::Persistance::Persist(String^ fileName, Object^ persistObject)
 {
-    FileStream^ archivo;
+    /*FileStream^ archivo;
     StreamWriter^ escritor;
     try {
         archivo = gcnew FileStream(fileName, FileMode::Create, FileAccess::Write);
@@ -39,48 +39,49 @@ void TinkerdinPersistance::Persistance::Persist(String^ fileName, Object^ persis
     finally {
         if (escritor != nullptr) escritor->Close();
         if (archivo != nullptr) archivo->Close();
-    }
+    }*/
 }
 
 Object^ TinkerdinPersistance::Persistance::LoadData(String^ fileName)
 {
-    Object^ res;
-    FileStream^ archivo;
-    StreamReader^ lector;
-    try {
-        if (File::Exists(fileName)) {
-            archivo = gcnew FileStream(fileName, FileMode::Open, FileAccess::Read);
-            lector = gcnew StreamReader(archivo);
-        }
-        if (fileName->Equals("hours.csv")) {
-            res = gcnew List<Hours^>();
-            if (File::Exists(fileName)) {
-                while (true) {
-                    String^ linea = lector->ReadLine();
-                    if (linea == nullptr) break;
-                    array<String^>^ record = linea->Split(',');
-                    Hours^ p = gcnew Hours();
-                    p->Hour = record[0];
-                    p->Monday = record[1];
-                    p->Tuesday = record[2];
-                    p->Wednesday = record[3];
-                    p->Thursday = record[4];
-                    /*p->Friday = record[5];
-                    p->Saturday = record[6];
-                    p->Sunday = record[7];*/
-                    ((List<Hours^>^)res)->Add(p);
-                }
-            }
-        }
-    }
-    catch (Exception^ ex) {
-        throw ex;
-    }
-    finally {
-        if (lector != nullptr) lector->Close();
-        if (archivo != nullptr) archivo->Close();
-    }
-    return res;
+    //Object^ res;
+    //FileStream^ archivo;
+    //StreamReader^ lector;
+    //try {
+    //    if (File::Exists(fileName)) {
+    //        archivo = gcnew FileStream(fileName, FileMode::Open, FileAccess::Read);
+    //        lector = gcnew StreamReader(archivo);
+    //    }
+    //    //if (fileName->Equals("hours.csv")) {
+    //    //    res = gcnew List<Hours^>();
+    //    //    if (File::Exists(fileName)) {
+    //    //        while (true) {
+    //    //            String^ linea = lector->ReadLine();
+    //    //            if (linea == nullptr) break;
+    //    //            array<String^>^ record = linea->Split(',');
+    //    //            Hours^ p = gcnew Hours();
+    //    //            p->Hour = record[0];
+    //    //            p->Monday = record[1];
+    //    //            p->Tuesday = record[2];
+    //    //            p->Wednesday = record[3];
+    //    //            p->Thursday = record[4];
+    //    //            /*p->Friday = record[5];
+    //    //            p->Saturday = record[6];
+    //    //            p->Sunday = record[7];*/
+    //    //            ((List<Hours^>^)res)->Add(p);
+    //    //        }
+    //    //    }
+    //    //}
+    //}
+    //catch (Exception^ ex) {
+    //    throw ex;
+    //}
+    //finally {
+    //    if (lector != nullptr) lector->Close();
+    //    if (archivo != nullptr) archivo->Close();
+    //}
+    //return res;
+    return 0;
 }
 
 //para XML
@@ -89,10 +90,10 @@ void TinkerdinPersistance::Persistance::PersistXML(String^ fileName, Object^ per
     StreamWriter^ output;
     try {
         output = gcnew StreamWriter(fileName);
-        if (persistObject->GetType() == List<Hours^>::typeid) {
+        /*if (persistObject->GetType() == List<Hours^>::typeid) {
             XmlSerializer^ serializadorXML = gcnew XmlSerializer(List<Hours^>::typeid);
             serializadorXML->Serialize(output, persistObject);
-        }
+        }*/
         if (persistObject->GetType() == List<String^>::typeid) {
             XmlSerializer^ serializadorXML = gcnew XmlSerializer(List<String^>::typeid);
             serializadorXML->Serialize(output, persistObject);
@@ -133,13 +134,13 @@ Object^ TinkerdinPersistance::Persistance::LoadDataXML(String^ fileName)
         if (File::Exists(fileName)) {
             sr = gcnew StreamReader(fileName);
         }
-        if (fileName->Equals("hours.xml")) {
+        /*if (fileName->Equals("hours.xml")) {
             res = gcnew List<Hours^>();
             if (File::Exists(fileName)) {
                 serializadorXML = gcnew XmlSerializer(List<Hours^>::typeid);
                 res = (List<Hours^>^)serializadorXML->Deserialize(sr);
             }
-        }
+        }*/
         if (fileName->Equals("stores.xml")) {
             res = gcnew List<String^>();
             if (File::Exists(fileName)) {
@@ -528,12 +529,9 @@ int TinkerdinPersistance::Persistance::AddEvent(Event^ event)
         conn = GetConnection();
 
         /* 2do paso: Se prepara la sentencia */
-        comm = gcnew SqlCommand();
-        comm->Connection = conn;
-        String^ strCmd;
-        strCmd = "dbo.usp_AddEvent";
-        comm = gcnew SqlCommand(strCmd, conn);
+        comm = gcnew SqlCommand("dbo.usp_AddEvent", conn);
         comm->CommandType = System::Data::CommandType::StoredProcedure;
+
         comm->Parameters->Add("@name", System::Data::SqlDbType::VarChar, 250);
         comm->Parameters->Add("@relevance", System::Data::SqlDbType::VarChar, 100);
         comm->Parameters->Add("@type_event", System::Data::SqlDbType::VarChar, 100);
@@ -541,7 +539,7 @@ int TinkerdinPersistance::Persistance::AddEvent(Event^ event)
         comm->Parameters->Add("@hour", System::Data::SqlDbType::Int);
         comm->Parameters->Add("@minutes", System::Data::SqlDbType::Int);
 
-        SqlParameter^ outputIdParam = gcnew SqlParameter("@iid", System::Data::SqlDbType::Int);
+        SqlParameter^ outputIdParam = gcnew SqlParameter("@id", System::Data::SqlDbType::Int);
         outputIdParam->Direction = System::Data::ParameterDirection::Output;
         comm->Parameters->Add(outputIdParam);
         comm->Prepare();
@@ -557,8 +555,27 @@ int TinkerdinPersistance::Persistance::AddEvent(Event^ event)
 
         /* Paso 4: Si se quiere procesar la salida. */
         output_id = Convert::ToInt32(comm->Parameters["@iid"]->Value);
+
+        //ahora agrego mis miembros de evento
+        for (int i = 0; i < event->Members->Count; i++) {
+            comm = gcnew SqlCommand("dbo.usp_AddAsistance", conn);
+            comm->CommandType = System::Data::CommandType::StoredProcedure;
+            comm->Parameters->Add("@event_id", System::Data::SqlDbType::Int);
+            comm->Parameters->Add("@relevance", System::Data::SqlDbType::VarChar, 100);
+            comm->Parameters->Add("@relevance", System::Data::SqlDbType::VarChar, 100);
+            SqlParameter^ outputIdParam = gcnew SqlParameter("@id", System::Data::SqlDbType::Int);
+            outputIdParam->Direction = System::Data::ParameterDirection::Output;
+            comm->Parameters->Add(outputIdParam);
+            comm->Prepare();
+            comm->Parameters["@event_id"]->Value = output_id;
+            //comm->Parameters["@product_id"]->Value = sale->SaleDetails[i]->Product->Id;
+
+
+            //Paso 3: Se ejecuta la sentencia
+            comm->ExecuteNonQuery();
+        }
     }
-    catch (Exception^ ex) {
+    catch(Exception^ ex) {
         throw ex;
     }
     finally {
@@ -700,76 +717,78 @@ int TinkerdinPersistance::Persistance::UpdateEvent(Event^ event)
 
 int TinkerdinPersistance::Persistance::DeleteEvent(int eventId)
 {
-    SqlConnection^ conn;
-    SqlCommand^ comm;
-    int output_id;
-    try {
-        /* 1er paso: Se obtiene la conexión */
-        SqlConnection^ conn = GetConnection();
+    //SqlConnection^ conn;
+    //SqlCommand^ comm;
+    //int output_id;
+    //try {
+    //    /* 1er paso: Se obtiene la conexión */
+    //    SqlConnection^ conn = GetConnection();
 
-        /* 2do paso: Se prepara la sentencia */
-        SqlCommand^ comm = gcnew SqlCommand();
-        comm->Connection = conn;
-        String^ strCmd;
-        strCmd = "dbo.usp_DeleteEvent";
-        comm = gcnew SqlCommand(strCmd, conn);
-        comm->CommandType = System::Data::CommandType::StoredProcedure;
-        comm->Parameters->Add("@iid", System::Data::SqlDbType::Int);
+    //    /* 2do paso: Se prepara la sentencia */
+    //    SqlCommand^ comm = gcnew SqlCommand();
+    //    comm->Connection = conn;
+    //    String^ strCmd;
+    //    strCmd = "dbo.usp_DeleteEvent";
+    //    comm = gcnew SqlCommand(strCmd, conn);
+    //    comm->CommandType = System::Data::CommandType::StoredProcedure;
+    //    comm->Parameters->Add("@iid", System::Data::SqlDbType::Int);
 
-        comm->Prepare();
+    //    comm->Prepare();
 
-        comm->Parameters["@iid"]->Value = eventId;
-        /* Paso 3: Se ejecuta la sentencia */
-        output_id = comm->ExecuteNonQuery();
-    }
-    catch (Exception^ ex) {
-        throw ex;
-    }
-    finally {
-        /* Paso 5: Cerramos la conexión con la BD */
-        if (conn != nullptr) conn->Close();
-    }
-    return output_id;
+    //    comm->Parameters["@iid"]->Value = eventId;
+    //    /* Paso 3: Se ejecuta la sentencia */
+    //    output_id = comm->ExecuteNonQuery();
+    //}
+    //catch (Exception^ ex) {
+    //    throw ex;
+    //}
+    //finally {
+    //    /* Paso 5: Cerramos la conexión con la BD */
+    //    if (conn != nullptr) conn->Close();
+    //}
+    //return output_id;
+    return 0;
 }
 
 int TinkerdinPersistance::Persistance::UpdateAsistance(Asistance^ a)
 {
-    a->confirmation = 'A';
-    SqlConnection^ conn;
-    SqlCommand^ comm;
-    int output_id;
-    try {
-        // Paso 1: Se obtiene la conexión
-        conn = GetConnection();
+    //a->confirmation = 'A';
+    //SqlConnection^ conn;
+    //SqlCommand^ comm;
+    //int output_id;
+    //try {
+    //    // Paso 1: Se obtiene la conexión
+    //    conn = GetConnection();
 
-        // Paso 2:  Se prepara la sentencia
-        String^ strCmd;
-        strCmd = "dbo.usp_UpdateAsistance";
-        comm = gcnew SqlCommand(strCmd, conn);
-        comm->CommandType = System::Data::CommandType::StoredProcedure;
-        comm->Parameters->Add("@event_id", System::Data::SqlDbType::Int);
-        comm->Parameters->Add("@username", System::Data::SqlDbType::VarChar, 100);
-        comm->Parameters->Add("@confirmation", System::Data::SqlDbType::VarChar, 100);
-        comm->Parameters->Add("@iid", System::Data::SqlDbType::Int);
+    //    // Paso 2:  Se prepara la sentencia
+    //    String^ strCmd;
+    //    strCmd = "dbo.usp_UpdateAsistance";
+    //    comm = gcnew SqlCommand(strCmd, conn);
+    //    comm->CommandType = System::Data::CommandType::StoredProcedure;
+    //    comm->Parameters->Add("@event_id", System::Data::SqlDbType::Int);
+    //    comm->Parameters->Add("@username", System::Data::SqlDbType::VarChar, 100);
+    //    comm->Parameters->Add("@confirmation", System::Data::SqlDbType::VarChar, 100);
+    //    comm->Parameters->Add("@iid", System::Data::SqlDbType::Int);
 
-        comm->Prepare();
+    //    comm->Prepare();
 
-        comm->Parameters["@event_id"]->Value = a->Event->Id;
-        comm->Parameters["@username"]->Value = a->Username;
-        comm->Parameters["@confirmation"]->Value = a->confirmation;
-        comm->Parameters["@iid"]->Value = a->Id;
+    //    comm->Parameters["@event_id"]->Value = a->Event->Id;
+    //    comm->Parameters["@username"]->Value = a->Username;
+    //    comm->Parameters["@confirmation"]->Value = a->confirmation;
+    //    comm->Parameters["@iid"]->Value = a->Id;
 
-        //Paso 3: Se ejecuta la sentencia
-        output_id = comm->ExecuteNonQuery();
-    }
-    catch (Exception^ ex) {
-        throw ex;
-    }
-    finally {
-        /* Paso 5: Cerramos la conexión con la BD */
-        if (conn != nullptr) conn->Close();
-    }
-    return output_id;
+    //    //Paso 3: Se ejecuta la sentencia
+    //    output_id = comm->ExecuteNonQuery();
+    //}
+    //catch (Exception^ ex) {
+    //    throw ex;
+    //}
+    //finally {
+    //    /* Paso 5: Cerramos la conexión con la BD */
+    //    if (conn != nullptr) conn->Close();
+    //}
+    //return output_id;
+    return 0;
 }
 
 List<Asistance^>^ TinkerdinPersistance::Persistance::QueryAsistancebyEventId(int eventId)

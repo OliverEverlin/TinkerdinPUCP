@@ -1,6 +1,6 @@
 #pragma once
 #include "CalendarForm.h"
-#include "CourseForm.h"
+//#include "CourseForm.h"
 #include "CourseChangeForm.h"
 #include "PlaceForm.h"
 #include "ClientForm.h"

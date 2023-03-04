@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "MainForm.h"
 #include "PlaceForm.h"
-#include "CourseForm.h"
+//#include "CourseForm.h"
 #include "CalendarForm.h"
 
 using namespace System;

@@ -219,54 +219,54 @@ List<String^>^ TinkerdinControler::Controller::QueryAllTypeCourse()
 //COURSE FIN--------------------------------------------
 
 //HOURS 
-List<Hours^>^ TinkerdinControler::Controller::QueryAllHours()
-{
-    hoursList = (List<Hours^>^)Persistance::LoadData("hours.csv");
-    return hoursList;
-}
-int TinkerdinControler::Controller::UpdateHour(Course^ course, int row, int column, String^ cour)
-{
-    hoursList = (List<Hours^>^)Persistance::LoadData("hours.csv");
-    for (int i = 0; i < hoursList->Count; i++)
-        if (hoursList[i]->Hour == hoursList[i]->Hour) {
-            switch (column) {
-            case 1:
-                hoursList[i]->Monday = cour;
-                break;
-            case 2:
-                hoursList[i]->Tuesday = cour;
-                break;
-            case 3:
-                hoursList[i]->Wednesday = cour;
-                break;
-            case 4:
-                hoursList[i]->Thursday = cour;
-                break;
-            case 5:
-                hoursList[i]->Friday = cour;
-                break;
-            case 6:
-                hoursList[i]->Saturday = cour;
-                break;
-            case 7:
-                hoursList[i]->Sunday = cour;
-                break;
-            }
-
-            //hoursList[i] = sche;
-            Persistance::Persist("hours.csv", hoursList);
-            return 1;// course->Id;
-        }
-    return 0;
-}
-Hours^ TinkerdinControler::Controller::QueryHourById(String^ hourId)
-{
-    hoursList = (List<Hours^>^)Persistance::LoadData("hours.csv");
-    for (int i = 0; i < hoursList->Count; i++)
-        if (hoursList[i]->Hour == hourId)
-            return hoursList[i];
-    return nullptr;
-}
+//List<Hours^>^ TinkerdinControler::Controller::QueryAllHours()
+//{
+//    hoursList = (List<Hours^>^)Persistance::LoadData("hours.csv");
+//    return hoursList;
+//}
+//int TinkerdinControler::Controller::UpdateHour(Course^ course, int row, int column, String^ cour)
+//{
+//    hoursList = (List<Hours^>^)Persistance::LoadData("hours.csv");
+//    for (int i = 0; i < hoursList->Count; i++)
+//        if (hoursList[i]->Hour == hoursList[i]->Hour) {
+//            switch (column) {
+//            case 1:
+//                hoursList[i]->Monday = cour;
+//                break;
+//            case 2:
+//                hoursList[i]->Tuesday = cour;
+//                break;
+//            case 3:
+//                hoursList[i]->Wednesday = cour;
+//                break;
+//            case 4:
+//                hoursList[i]->Thursday = cour;
+//                break;
+//            case 5:
+//                hoursList[i]->Friday = cour;
+//                break;
+//            case 6:
+//                hoursList[i]->Saturday = cour;
+//                break;
+//            case 7:
+//                hoursList[i]->Sunday = cour;
+//                break;
+//            }
+//
+//            //hoursList[i] = sche;
+//            Persistance::Persist("hours.csv", hoursList);
+//            return 1;// course->Id;
+//        }
+//    return 0;
+//}
+//Hours^ TinkerdinControler::Controller::QueryHourById(String^ hourId)
+//{
+//    hoursList = (List<Hours^>^)Persistance::LoadData("hours.csv");
+//    for (int i = 0; i < hoursList->Count; i++)
+//        if (hoursList[i]->Hour == hourId)
+//            return hoursList[i];
+//    return nullptr;
+//}
 // HOURS FIN-----------------------------------------------
 
 
@@ -330,9 +330,18 @@ String^ TinkerdinControler::Controller::QueryPlaceByName(String^ placeLocation)
 //EVENT WITH PERSIST. BINARIA//
 int TinkerdinControler::Controller::AddEvent(Event^ event)
 {
+    /*try {
+        Persistance::AddEvent(event);
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    return 0;*/
+
     eventList->Add(event);
     Persistance::PersistBinary("events.bin", eventList);
     return event->Id;
+
 }
 
 Event^ TinkerdinControler::Controller::QueryEventById(int eventId)

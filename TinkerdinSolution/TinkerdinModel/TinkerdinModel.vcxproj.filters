@@ -45,16 +45,10 @@
     <ClInclude Include="Place.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Proposite.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="Settings.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="user.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Hours.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Report.h">
@@ -102,9 +96,6 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="user.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Hours.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Report.cpp">

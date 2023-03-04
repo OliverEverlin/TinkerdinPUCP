@@ -149,9 +149,6 @@
     <ClInclude Include="CourseClientForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="CourseForm.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="CourseSearchForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -208,9 +205,6 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="ScheduleForm.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="SearchClientForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -231,7 +225,6 @@
     <ClCompile Include="ClientForm.cpp" />
     <ClCompile Include="CourseChangeForm.cpp" />
     <ClCompile Include="CourseClientForm.cpp" />
-    <ClCompile Include="CourseForm.cpp" />
     <ClCompile Include="CourseSearchForm.cpp" />
     <ClCompile Include="CRUDClientsForm.cpp" />
     <ClCompile Include="CRUDCourseForm.cpp" />
@@ -257,7 +250,6 @@
     <ClCompile Include="RegisterEventForm.cpp" />
     <ClCompile Include="ReportClientForm.cpp" />
     <ClCompile Include="ReportForm.cpp" />
-    <ClCompile Include="ScheduleForm.cpp" />
     <ClCompile Include="SearchClientForm.cpp" />
     <ClCompile Include="TinkerdinView.cpp" />
     <ClCompile Include="TotalClientsForm.cpp" />
@@ -303,9 +295,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CourseClientForm.resx">
       <DependentUpon>CourseClientForm.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CourseForm.resx">
-      <DependentUpon>CourseForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CourseSearchForm.resx">
       <DependentUpon>CourseSearchForm.h</DependentUpon>
@@ -363,9 +352,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm.resx">
       <DependentUpon>ReportForm.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScheduleForm.resx">
-      <DependentUpon>ScheduleForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchClientForm.resx">
       <DependentUpon>SearchClientForm.h</DependentUpon>
